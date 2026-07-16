@@ -5,7 +5,7 @@ with **Astro 5** and **Tailwind CSS 4**. Fast (Lighthouse 95+ across the
 board), accessible (WCAG AA), and wired to a single config file so you can
 rebrand it in an afternoon.
 
-**[Get Ridgeline Pro →](https://ridgeline-demo.vercel.app)** — the full
+**[Get Ridgeline Pro →](https://ridgeline-roofing-demo.vercel.app)** — the full
 version adds the 4-step Quote Wizard, before/after project galleries,
 per-city Local SEO landing pages, and more (comparison below).
 
@@ -46,7 +46,7 @@ Home · Services · About · Contact · Quote request · Thank-you · 404
 | FAQ system | — | ✅ Categorized accordion + FAQPage schema |
 | Documentation | README | Full customization + deployment guides |
 
-**[Upgrade to Ridgeline Pro →](https://ridgeline-demo.vercel.app)**
+**[Upgrade to Ridgeline Pro →](https://ridgeline-roofing-demo.vercel.app)**
 
 ## Quick start
 
