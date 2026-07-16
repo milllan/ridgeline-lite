@@ -1,7 +1,9 @@
 # Ridgeline Lite — Free Roofing Contractor Website Template
 
 A free, production-quality website template for roofing contractors, built
-with **Astro 5** and **Tailwind CSS 4**. Fast (Lighthouse 95+ across the
+with **Astro 5** and **Tailwind CSS 4**.
+
+![Ridgeline Lite — free roofing contractor template for Astro](.github/preview.jpg) Fast (Lighthouse 95+ across the
 board), accessible (WCAG AA), and wired to a single config file so you can
 rebrand it in an afternoon.
 
@@ -80,9 +82,14 @@ Static output, zero config on all major hosts — build command
 - **Netlify** — import at [app.netlify.com](https://app.netlify.com)
 - **Cloudflare Pages** — Workers & Pages → Create → connect the repo
 
-## License
+## License & credits
 
 MIT — free for personal and commercial use. The footer's small
 "Made with Ridgeline" credit link is appreciated but not required by the
-license. Demo photos are Unsplash-licensed placeholders; replace them with
-your own project photography before launch.
+license.
+
+Demo photographs are from [Unsplash](https://unsplash.com) (Unsplash License)
+— replace them with your own project photography before launch. Icon path
+data adapted from [Lucide](https://lucide.dev) (ISC). Fonts (Barlow
+Condensed, Inter) under the SIL Open Font License, self-hosted via
+[Fontsource](https://fontsource.org).

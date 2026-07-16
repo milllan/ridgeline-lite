@@ -1,6 +1,6 @@
-# MIT License
+MIT License
 
-Copyright (c) 2026 Ridgeline Lite contributors
+Copyright (c) 2026 Julyfire Studio
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,10 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Demo photographs are from [Unsplash](https://unsplash.com) under the
-Unsplash License. Icon path data adapted from [Lucide](https://lucide.dev)
-(ISC). Fonts (Barlow Condensed, Inter) under the SIL Open Font License,
-self-hosted via Fontsource.
