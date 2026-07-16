@@ -83,7 +83,7 @@ export const siteConfig = {
    * See docs/customization.md → "Connecting the forms".
    * -------------------------------------------------------- */
   formProvider: 'formspree' as FormProvider,
-  formEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
+  formEndpoint: 'https://formspree.io/f/xaqrqpro',
 
   /* ----------------------------------------------------------
    * Trust badges (header strip, quote page, footer)
