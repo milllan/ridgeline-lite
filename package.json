@@ -14,22 +14,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^6.0.0",
+    "@astrojs/mdx": "^8.0.1",
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource/barlow-condensed": "^5.2.8",
     "@fontsource/inter": "^5.2.8",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.2",
-    "astro": "^6.4.8",
+    "astro": "^7.3.2",
     "sharp": "^0.35.4",
     "tailwindcss": "^4.3.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "typescript": "^5.9.0"
-  },
-  "overrides": {
-    "vite": "^7.3.6"
   },
   "license": "MIT"
 }
