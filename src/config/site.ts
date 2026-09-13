@@ -1,6 +1,6 @@
 /**
  * ============================================================
- * Ridgeline — site configuration (single source of truth)
+ * Site configuration (single source of truth)
  * ============================================================
  * This file is the ONE place to change your company information.
  * Every page, the header, the footer, the contact page, and the
@@ -23,51 +23,60 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Company identity
    * -------------------------------------------------------- */
-  name: 'Ridgeline Roofing Co.',
+  // TODO: placeholder identity — replace with real business details
+  name: 'Servis Veš Mašina Beograd',
   /** Short name used in the logo lock-up. */
-  logoText: 'Ridgeline',
-  logoSuffix: 'Roofing Co.',
-  tagline: "Denver's Trusted Roofing Experts Since 2009",
-  /** Contractor license line shown in the top bar and footer. */
-  licenseLine: 'CO License #RC-104728',
+  // TODO: placeholder identity — logo wording + tagline to be confirmed
+  logoText: 'Servis',
+  logoSuffix: 'Veš Mašina',
+  tagline:
+    'Popravka veš mašina svih marki u Beogradu — brz dolazak, original delovi, garancija na rad.',
+  /** Workshop registration line shown in the top bar and footer. */
+  // TODO: placeholder identity — replace with real business details
+  licenseLine: 'Radionica registrovana za servis i popravku bele tehnike',
 
   /* ----------------------------------------------------------
    * Contact (NAP — keep identical everywhere for local SEO)
    * -------------------------------------------------------- */
-  phone: '(303) 555-0147',
+  // TODO: placeholder identity — replace with real business details
+  phone: '061/352-45-03',
   /** tel: link version of the phone number (digits only). */
-  phoneHref: 'tel:+13035550147',
-  email: 'info@ridgelineroofing.com',
+  // TODO: placeholder identity — replace with real business details
+  phoneHref: 'tel:+381613524503',
+  // TODO: placeholder identity — replace with real business details
+  email: 'servis@example.rs',
+  // TODO: placeholder identity — verify address (street/city/zip)
   address: {
-    street: '4280 Summit Ridge Way',
-    city: 'Denver',
-    state: 'CO',
-    zip: '80221',
+    street: 'Sretena Mladenovića Mike 11',
+    city: 'Rakovica, Beograd',
+    zip: '11000',
   },
-  /** Coordinates used in the RoofingContractor JSON-LD. */
+  /** Coordinates used in the HomeAndConstructionBusiness JSON-LD. */
+  // TODO: placeholder identity — verify coordinates (Rakovica approx.)
   geo: {
-    latitude: 39.7392,
-    longitude: -104.9903,
+    latitude: 44.6978,
+    longitude: 20.4507,
   },
 
   /* ----------------------------------------------------------
    * Hours
-   * -------------------------------------------------------- */
+   * ---------------------------------------------------------- */
+  // TODO: placeholder — confirm working hours with the business
   hours: [
-    { days: 'Monday – Friday', open: '7:00 AM', close: '6:00 PM' },
-    { days: 'Saturday', open: '8:00 AM', close: '4:00 PM' },
-    { days: 'Sunday', open: 'Closed', close: '' },
+    { days: 'Ponedeljak – Subota', open: '09:00', close: '17:00' },
+    { days: 'Nedelja', open: 'ne radimo', close: '' },
   ],
-  /** Schema.org openingHoursSpecification (24h clock). */
-  openingHoursSchema: ['Mo-Fr 07:00-18:00', 'Sa 08:00-16:00'],
-  emergencyNote: '24/7 emergency storm response available.',
+  /** Schema.org openingHours strings (24h clock). */
+  openingHoursSchema: ['Mo-Sa 09:00-17:00'],
+  emergencyNote: 'Hitni pozivi vikendom po dogovoru.',
 
   /* ----------------------------------------------------------
    * Social profiles (used in footer + JSON-LD sameAs)
-   * -------------------------------------------------------- */
+   * ---------------------------------------------------------- */
+  // TODO: placeholder identity — add real social profile URLs (empty = hidden)
   social: {
-    facebook: 'https://www.facebook.com/ridgelineroofingco',
-    instagram: 'https://www.instagram.com/ridgelineroofingco',
+    facebook: '',
+    instagram: '',
   },
 
   /* ----------------------------------------------------------
@@ -83,41 +92,48 @@ export const siteConfig = {
    * See docs/customization.md → "Connecting the forms".
    * -------------------------------------------------------- */
   formProvider: 'formspree' as FormProvider,
-  formEndpoint: 'https://formspree.io/f/xaqrqpro',
+  // TODO: placeholder — create a Formspree form and paste its real
+  // endpoint here. Leads must NOT go to the theme author's endpoint.
+  formEndpoint: 'https://formspree.io/f/TODO-FORM-ID',
 
   /* ----------------------------------------------------------
    * Trust badges (header strip, quote page, footer)
    * ----------------------------------------------------------
-   * Legal note: manufacturer certifications are rendered as text
-   * badges with generic icons. Do NOT ship real manufacturer logos
-   * unless your client holds the certification and has the official
-   * asset kit.
+   * Legal note: badges are rendered as text with generic icons.
+   * Do NOT ship real manufacturer logos unless your client holds
+   * the certification and has the official asset kit.
    * -------------------------------------------------------- */
+  // TODO: placeholder claims — business must confirm each before launch
   trustBadges: [
-    { icon: 'shield-check', label: 'Licensed & Insured' },
-    { icon: 'badge-check', label: 'GAF Certified Installer' },
-    { icon: 'award', label: 'Owens Corning Preferred' },
-    { icon: 'thumbs-up', label: 'BBB A+ Rating' },
-    { icon: 'clipboard-check', label: '10-Year Workmanship Warranty' },
+    { icon: 'shield-check', label: 'Garancija na popravku' },
+    { icon: 'badge-check', label: 'Original delovi' },
+    { icon: 'award', label: 'Sve marke mašina' },
+    { icon: 'thumbs-up', label: 'Besplatan uvid u kvar' },
+    { icon: 'clipboard-check', label: 'Servis na terenu' },
   ] satisfies TrustBadge[],
 
   /* ----------------------------------------------------------
    * Stats (About page number wall, home page)
-   * -------------------------------------------------------- */
+   * ---------------------------------------------------------- */
+  // TODO: placeholder numbers — confirm with the business. Note:
+  // warranty is really 6–12 months; warrantyYears is 1 for now and
+  // display wording gets fixed when components are translated (T3).
   stats: {
-    yearFounded: 2009,
-    projectsCompleted: 3200,
-    warrantyYears: 10,
+    yearFounded: 2010,
+    projectsCompleted: 3500,
+    warrantyYears: 1,
   },
 
   /* ----------------------------------------------------------
    * Default SEO
    * -------------------------------------------------------- */
+  // TODO: placeholder copy — defaultDescription embeds the placeholder
+  // phone number; re-check it when the real identity is set
   seo: {
-    siteName: 'Ridgeline Roofing Co.',
-    defaultTitle: 'Ridgeline Roofing Co. | Denver Roofing Contractor',
+    siteName: 'Servis Veš Mašina Beograd',
+    defaultTitle: 'Servis veš mašina Beograd — popravka svih marki',
     defaultDescription:
-      'Ridgeline Roofing Co. is a licensed and insured roofing contractor serving the Denver metro. Roof replacement, storm damage restoration, repairs, and free inspections since 2009.',
+      'Popravka veš mašina u Beogradu — sve marke, original delovi, garancija na popravku. Pozovite 061/352-45-03 za brz termin.',
     /** Path to the default Open Graph image (in /public). */
     ogImage: '/og-default.jpg',
   },
