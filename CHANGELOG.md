@@ -19,11 +19,15 @@ sitemap, preload assets).
 - `engines.node` raised from `>=20` to **`>=22.12.0`** (Astro 6+ minimum).
 - Zod schemas now import `z` from `astro/zod` instead of the deprecated
   `astro:content` re-export (`src/content.config.ts`).
-- Three `{" "}` whitespace guards added where source-line breaks before a
-  `{expression}` met inline text (`src/components/common/Footer.astro`,
-  `src/components/sections/Hero.astro`, `src/pages/about.astro`) — required
-  by Astro 7's `compressHTML: 'jsx'` default, which otherwise joins
-  `since {year}` into `since{year}` on the rendered page.
+- `compressHTML: true` set explicitly in `astro.config.mjs`. Astro 7's new
+  `'jsx'` default strips whitespace at cross-line boundaries between text,
+  `{expressions}`, and inline elements; this template relies on that
+  whitespace for icon/label spacing (132 joined boundaries detected in the
+  first v7 build, e.g. `</svg>Licensed & Insured`, `Ridgeline —<a>`), so the
+  pre-v7 behavior is kept. Three source-level `{" "}` guards
+  (`src/components/common/Footer.astro`, `src/components/sections/Hero.astro`,
+  `src/pages/about.astro`) remain as documentation for anyone who later
+  switches to `'jsx'`.
 
 ### Fixed
 - Build no longer fails with "Rollup failed to resolve import `sharp`":
@@ -40,8 +44,9 @@ sitemap, preload assets).
 - `npm run check` (`astro check` + `tsc --noEmit`): 0 errors, 0 warnings.
 - v5 → v6 → v7 rendered-output parity: identical visible text, titles,
   descriptions, canonicals, JSON-LD (parses on every page), sitemap URL set
-  (6 URLs; `/thank-you/` filtered, 404 excluded), no `undefined`/`null`
-  strings in any HTML.
+  (5 URLs; `/thank-you/` filtered, 404 excluded), no `undefined`/`null`
+  strings in any HTML, and zero whitespace-joined text/inline-element
+  boundaries versus the Astro 5 build.
 - All `<link rel="preload">` targets (fonts, hero `imagesrcset` variants)
   exist in `dist/_astro/`; `astro preview` smoke test: all routes 200,
   unknown route 404.

@@ -97,8 +97,8 @@ Condensed, Inter) under the SIL Open Font License, self-hosted via
 ## About this fork
 
 Forked from [JulyFire365/ridgeline-lite](https://github.com/JulyFire365/ridgeline-lite)
-and upgraded from Astro 5.18 to **Astro 7.3** (through Astro 6) with
-byte-for-byte rendered-output parity verified against the original — see
+and upgraded from Astro 5.18 to **Astro 7.3** (through Astro 6), with rendered
+text and SEO output verified identical to the original — see
 [CHANGELOG.md](CHANGELOG.md) and [MIGRATION.md](MIGRATION.md) for details.
 Upstream credit for the template design and content goes to the original
 author.
