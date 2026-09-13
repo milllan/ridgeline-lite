@@ -1,7 +1,7 @@
 # Ridgeline Lite — Free Roofing Contractor Website Template
 
 A free, production-quality website template for roofing contractors, built
-with **Astro 5** and **Tailwind CSS 4**.
+with **Astro 7** and **Tailwind CSS 4**.
 
 ![Ridgeline Lite — free roofing contractor template for Astro](.github/preview.jpg) Fast (Lighthouse 95+ across the
 board), accessible (WCAG AA), and wired to a single config file so you can
@@ -53,7 +53,7 @@ Home · Services · About · Contact · Quote request · Thank-you · 404
 ## Quick start
 
 ```bash
-# Requires Node 20+
+# Requires Node 22.12+
 npm install
 npm run dev        # → http://localhost:4321
 npm run build      # static output in ./dist
@@ -93,3 +93,12 @@ Demo photographs are from [Unsplash](https://unsplash.com) (Unsplash License)
 data adapted from [Lucide](https://lucide.dev) (ISC). Fonts (Barlow
 Condensed, Inter) under the SIL Open Font License, self-hosted via
 [Fontsource](https://fontsource.org).
+
+## About this fork
+
+Forked from [JulyFire365/ridgeline-lite](https://github.com/JulyFire365/ridgeline-lite)
+and upgraded from Astro 5.18 to **Astro 7.3** (through Astro 6) with
+byte-for-byte rendered-output parity verified against the original — see
+[CHANGELOG.md](CHANGELOG.md) and [MIGRATION.md](MIGRATION.md) for details.
+Upstream credit for the template design and content goes to the original
+author.
