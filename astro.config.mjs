@@ -11,6 +11,10 @@ export default defineConfig({
   site: 'https://ridgeline-lite-demo.vercel.app',
   output: 'static',
   trailingSlash: 'always',
+  // Astro 7 defaults to 'jsx' (strips whitespace at cross-line inline
+  // boundaries). This template's markup relies on icon/label spacing from
+  // inter-element whitespace, so keep the pre-v7 behavior.
+  compressHTML: true,
   build: {
     // Inline all CSS: removes the render-blocking stylesheet request,
     // which matters for LCP on a mostly-static marketing site.
