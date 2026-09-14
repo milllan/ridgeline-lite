@@ -4,6 +4,18 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.0] — 2026-09-14
+
+Routes renamed to Serbian slugs for local SEO:
+/services/ → /usluge/, /about/ → /o-nama/, /contact/ → /kontakt/,
+/quote/ → /zatrazi-ponudu/, /thank-you/ → /hvala/ (home + 404
+unchanged). All internal references updated (nav, Header/StickyCallBar/
+Hero/ServicesGrid/FinalCTA/Footer/404 cross-links, FormBackendFields
+thankYouUrl, forms.ts, sitemap filter); hvala keeps noindex and stays
+out of the sitemap. No redirects added — the site never launched, no
+legacy URLs exist. ASCII-only slugs. Reviews: gemini + mimo approve,
+zero findings.
+
 ## [2.5.2] — 2026-09-14
 
 Pre-merge gate fixes (4-lane review of the integrated state — no GLM lanes,

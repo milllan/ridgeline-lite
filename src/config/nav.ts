@@ -9,9 +9,9 @@ export interface NavLink {
 
 /** Primary navigation (desktop header + mobile menu). */
 export const mainNav: NavLink[] = [
-  { label: 'Usluge', href: '/services/' },
-  { label: 'O nama', href: '/about/' },
-  { label: 'Kontakt', href: '/contact/' },
+  { label: 'Usluge', href: '/usluge/' },
+  { label: 'O nama', href: '/o-nama/' },
+  { label: 'Kontakt', href: '/kontakt/' },
 ];
 
 /** Extra links shown in the mobile menu. */
@@ -19,7 +19,7 @@ export const secondaryNav: NavLink[] = [];
 
 /** Footer "Company" column. */
 export const footerCompanyNav: NavLink[] = [
-  { label: 'O nama', href: '/about/' },
-  { label: 'Kontakt', href: '/contact/' },
-  { label: 'Zatražite ponudu', href: '/quote/' },
+  { label: 'O nama', href: '/o-nama/' },
+  { label: 'Kontakt', href: '/kontakt/' },
+  { label: 'Zatražite ponudu', href: '/zatrazi-ponudu/' },
 ];
