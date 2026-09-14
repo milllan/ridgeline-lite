@@ -30,7 +30,7 @@ export const siteConfig = {
   logoText: 'Servis',
   logoSuffix: 'Veš Mašina',
   tagline:
-    'Popravka veš mašina svih marki u Beogradu — brz dolazak, original delovi, garancija na rad.',
+    'Popravka veš mašina svih marki u Beogradu – brz dolazak, original delovi, garancija na rad.',
   /** Workshop registration line shown in the top bar and footer. */
   // TODO: placeholder identity — replace with real business details
   licenseLine: 'Radionica registrovana za servis i popravku bele tehnike',
@@ -131,9 +131,9 @@ export const siteConfig = {
   // phone number; re-check it when the real identity is set
   seo: {
     siteName: 'Servis Veš Mašina Beograd',
-    defaultTitle: 'Servis veš mašina Beograd — popravka svih marki',
+    defaultTitle: 'Servis veš mašina Beograd – popravka svih marki',
     defaultDescription:
-      'Popravka veš mašina u Beogradu — sve marke, original delovi, garancija na popravku. Pozovite 061/352-45-03 za brz termin.',
+      'Popravka veš mašina u Beogradu – sve marke, original delovi, garancija na popravku. Pozovite 061/352-45-03 za brz termin.',
     /** Path to the default Open Graph image (in /public). */
     ogImage: '/og-default.jpg',
   },

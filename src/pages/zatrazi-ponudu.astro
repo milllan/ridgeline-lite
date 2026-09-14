@@ -1,6 +1,6 @@
 ---
 /**
- * Quote request page — Lite edition: a single-step form.
+ * Quote request page – Lite edition: a single-step form.
  * (Ridgeline Pro replaces this with a 4-step Quote Wizard with
  * per-step validation and anti-spam heuristics.)
  */
@@ -43,12 +43,12 @@ const brands = [
 ---
 
 <BaseLayout
-  title="Zatražite popravku veš mašine"
-  description={`Pošaljite zahtev za servis veš mašine u Beogradu — sve marke, originalni delovi, garancija na popravku. Pozovite ${siteConfig.phone} ili pošaljite zahtev.`}
+  title="Zatražite popravku veš mašine u Beogradu"
+  description={`Opišite kvar na veš mašini i zakažite dolazak majstora u Beogradu. Popravljamo sve marke uz originalne delove i garanciju na rad. Pozovite ${siteConfig.phone}.`}
 >
   <PageHero
     title="Zatražite popravku"
-    lead="Opišite kvar — javljamo se u najkraćem roku da potvrdimo termin i tačnu cenu pre početka rada."
+    lead="Napišite šta se čuje ili gde curi. Javićemo se da dogovorimo dolazak, a tačnu cenu popravke znate čim pregledamo mašinu."
     crumbs={[{ label: 'Zahtev za ponudu' }]}
   />
 
@@ -67,7 +67,7 @@ const brands = [
             <select id="q-service" name="service" required class={inputClass}>
               <option value="">Izaberite uslugu…</option>
               {services.map((s) => <option value={s.data.title}>{s.data.title}</option>)}
-              <option value="Nisam siguran">Nisam siguran — treba mi konstatacija kvara</option>
+              <option value="Nisam siguran">Nisam siguran – treba mi konstatacija kvara</option>
             </select>
           </div>
           <div class="sm:col-span-2">
@@ -134,15 +134,15 @@ const brands = [
           <ul class="mt-5 space-y-4 text-sm leading-relaxed text-slate-600">
             <li class="flex items-start gap-3">
               <Icon name="clock" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              Javljamo se u najkraćem roku.
+              Dolazak na kućnu adresu u Beogradu po dogovoru.
             </li>
             <li class="flex items-start gap-3">
               <Icon name="search-check" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              Besplatan dolazak i konstatacija kvara uz popravku.
+              Besplatan dolazak i konstatacija kvara uz izvršenu popravku.
             </li>
             <li class="flex items-start gap-3">
               <Icon name="file-text" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              Jasna cena pre početka rada — bez naknadnih iznenađenja.
+              Tačna cena pre početka rada i garancija na rad i delove.
             </li>
           </ul>
         </div>

@@ -4,6 +4,27 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.7.0] — 2026-09-14
+
+De-AI copy pass (issue #16, phase 1). Two parts:
+
+### Typography (mechanical)
+- 76+ em-dashes → Serbian crtica " – " in all rendered copy (incl. one
+  comment that shipped into HTML); rendered dist now has 0 em-dashes
+  (new T8 QA gate). ~47 remain in non-rendered code comments (optional
+  sweep, recorded in #16).
+
+### Voice rewrite (gemini-built, muse+mimo reviewed, triaged by orchestrator)
+- Home Hero subheadline, WhyUs (heading/lead/4 differentiators; placeholder
+  stats removed from lead — they remain config-driven on /o-nama/),
+  home section headings, /usluge/ and /zatrazi-ponudu/ page copy.
+- Checklist enforced: no triads, varied rhythm, concrete symptom→fix
+  specifics, single colloquialism per page, distinct openers, "konstatacija"
+  terminology site-wide, zero new claims (review caught+removed a smuggled
+  "odmah" timing promise), no functional changes.
+- Reviews.json service strings verified still matching dash-replaced
+  service titles (both sides changed together; no external consumer).
+
 ## [2.6.1] — 2026-09-14
 
 Service-area map: **Stari grad** added as the 9th municipality dot
