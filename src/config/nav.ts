@@ -21,5 +21,5 @@ export const secondaryNav: NavLink[] = [];
 export const footerCompanyNav: NavLink[] = [
   { label: 'O nama', href: '/about/' },
   { label: 'Kontakt', href: '/contact/' },
-  { label: 'Zatraži ponudu', href: '/quote/' },
+  { label: 'Zatražite ponudu', href: '/quote/' },
 ];

@@ -12,72 +12,61 @@ import { getAggregateRating } from '../lib/reviews';
 import { siteConfig } from '../config/site';
 import crewImage from '../assets/about/crew-framing.jpg';
 import marcusPhoto from '../assets/team/marcus-rivera.jpg';
-import dalePhoto from '../assets/team/dale-hutchins.jpg';
-import andrePhoto from '../assets/team/andre-walker.jpg';
 
 const rating = await getAggregateRating();
 const yearsInBusiness = new Date().getFullYear() - siteConfig.stats.yearFounded;
 
 const stats = [
-  { value: `${yearsInBusiness}`, label: 'Years in business' },
-  { value: `${siteConfig.stats.projectsCompleted.toLocaleString('en-US')}+`, label: 'Roofs completed' },
-  { value: `${siteConfig.stats.warrantyYears}-yr`, label: 'Workmanship warranty' },
-  { value: `${rating.average}★`, label: 'Average review score' },
+  { value: `${yearsInBusiness}`, label: 'Godina iskustva' },
+  { value: `${siteConfig.stats.projectsCompleted.toLocaleString('sr-Latn-RS')}+`, label: 'Završenih popravki' },
+  // TODO: potvrditi trajanje garancije sa biznisom — u site.ts stoji
+  // napomena da je stvarno 6–12 meseci; prikazujemo config vrednost.
+  { value: `${siteConfig.stats.warrantyYears} god.`, label: 'Garancija na popravku' },
+  { value: `${rating.average}★`, label: 'Prosečna ocena' },
 ];
 
+// TODO: pravo ime, biografija i fotografija majstora — placeholder kartica.
 const team = [
   {
     photo: marcusPhoto,
-    name: 'Marcus Rivera',
-    role: 'Founder & Owner',
-    bio: `Started on tear-off crews at nineteen; founded ${siteConfig.logoText} in ${siteConfig.stats.yearFounded} with one truck and a rule — never sell a roof the house doesn't need. Still walks project sites weekly.`,
-  },
-  {
-    photo: dalePhoto,
-    name: 'Dale Hutchins',
-    role: 'Production Manager',
-    bio: 'Thirty years on Colorado roofs. Dale builds every crew schedule, runs quality walks on open projects, and signs off on each roof before the warranty does.',
-  },
-  {
-    photo: andrePhoto,
-    name: 'Andre Walker',
-    role: 'Crew Lead',
-    bio: 'Runs our flagship installation crew and trains every new hire on the nailing-line standard. If your roof went on in the last five years, odds are Andre checked it.',
+    name: 'Glavni majstor',
+    role: 'Servis i popravka veš mašina',
+    bio: `Naš glavni majstor radi sa veš mašinama svih marki — od utvrđivanja kvara na licu mesta do zamene dela i garancije na popravku. Na broj ${siteConfig.phone} javlja se majstor, ne kol centar.`,
   },
 ];
 
 const credentials = [
   {
     icon: 'shield-check',
-    title: 'Licensed & insured',
-    text: `${siteConfig.licenseLine}, general liability and workers' comp on every job — certificates available on request before work begins.`,
+    title: 'Registrovana radionica',
+    text: `${siteConfig.licenseLine}.`,
   },
   {
     icon: 'badge-check',
-    title: 'Manufacturer certified',
-    text: 'Factory-trained and certified installers for the shingle systems we sell, which is what lets us register the strongest available manufacturer warranties.',
+    title: 'Originalni rezervni delovi',
+    text: 'Radimo sa originalnim rezervnim delovima, prilagođenim marki i modelu vaše mašine — zamenske delove ugrađujemo samo uz vašu saglasnost.',
   },
   {
     icon: 'thumbs-up',
-    title: 'BBB A+ rated',
-    text: 'Accredited with an A+ rating — and more importantly, a complaint history you can actually go read.',
+    title: 'Garancija na sve popravke',
+    text: 'Na svaku popravku dajemo garanciju na rad i ugrađene delove — pitajte za uslove garancije pre početka posla.',
   },
   {
     icon: 'users',
-    title: 'Our own crews',
-    text: 'Core installation crews are ours year-round, not storm-season pickups. The people on your roof went through our training, not a labor broker.',
+    title: 'Iskusan majstor',
+    text: `Majstor koji već ${yearsInBusiness} godina servisira veš mašine svih marki širom Beograda.`,
   },
 ];
 ---
 
 <BaseLayout
-  title="About Us"
-  description={`${siteConfig.name} has installed and repaired more than ${siteConfig.stats.projectsCompleted.toLocaleString('en-US')} roofs across the Denver metro since ${siteConfig.stats.yearFounded}. Meet the team and see how we work.`}
+  title="O nama"
+  description={`${siteConfig.name} — servis i popravka veš mašina u Beogradu od ${siteConfig.stats.yearFounded}. godine. Upoznajte našeg majstora i pogledajte kako radimo.`}
 >
   <PageHero
-    title="The crew behind the warranty"
-    lead={`Roofing since ${siteConfig.stats.yearFounded} — same owner, same phone number, same rule: never sell a roof the house doesn't need.`}
-    crumbs={[{ label: 'About' }]}
+    title="Majstor iza garancije"
+    lead={`Servis i popravka veš mašina od ${siteConfig.stats.yearFounded}. godine — isti majstor, isti broj telefona i isto pravilo: ne popravljamo ono što ne treba popravljati.`}
+    crumbs={[{ label: 'O nama' }]}
   />
 
   <!-- Story -->
@@ -85,35 +74,35 @@ const credentials = [
     <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
       <div>
         <SectionHeading
-          eyebrow="Our story"
-          title="Built one honest inspection at a time"
+          eyebrow="Naša priča"
+          title="Krenuli od poštenog utvrđivanja kvara"
         />
         <div class="mt-6 space-y-4 leading-relaxed text-slate-600">
           <p>
-            {siteConfig.logoText} started in {siteConfig.stats.yearFounded} with one truck,
-            one crew, and a founder who had spent a decade watching storm-chasing
-            outfits roll through Denver every hail season — selling roofs
-            that didn't need replacing, installing them badly, and disappearing
-            before the first winter found the shortcuts.
+            {siteConfig.logoText} je radionica za servis i popravku veš mašina
+            iz Beograda. Krenuli smo od jednostavne ideje: majstor dolazi na
+            adresu, utvrđuje kvar na licu mesta i kaže vam šta stvarno treba
+            popraviti — pre nego što bilo šta košta.
           </p>
           <p>
-            The business plan was to do the opposite: photograph everything,
-            put every price in writing, tell homeowners when their roof is
-            actually fine, and still be at the same phone number when the
-            warranty card gets tested. {yearsInBusiness} years and{" "}{siteConfig.stats.projectsCompleted.toLocaleString('en-US')}+ roofs
-            later, most of our work comes from referrals and repeat customers —
-            the cheapest marketing there is, and the only kind you can't buy.
+            Uz dobru dijagnozu ide i jasna cena: pre početka rada znate tačno
+            šta se popravlja i koliko košta, a mašinu ne diramo ako popravka
+            nema smisla. Od {siteConfig.stats.yearFounded}. godine završili
+            smo više od {siteConfig.stats.projectsCompleted.toLocaleString('sr-Latn-RS')}{" "}
+            popravki, i većina novih poziva dolazi po preporuci starih
+            kupaca — najbolji dokaz da pravilo držimo i dalje.
           </p>
           <p>
-            Today we run dedicated residential and commercial crews across the
-            Denver metro, with the same standard on a $900 repair as on a
-            full commercial re-roof: documented, scheduled, and warrantied.
+            Danas izlazimo na teren u celom Beogradu, radimo sa originalnim
+            rezervnim delovima i na svaku popravku dajemo garanciju na rad i
+            delove — ista merila za manju i veću popravku.
           </p>
         </div>
       </div>
+      <!-- TODO: zameniti placeholder fotografiju (krovopokrivački tim) slikom naše radionice -->
       <Image
         src={crewImage}
-        alt={`${siteConfig.logoText} crew member framing a roof against a blue sky`}
+        alt={`${siteConfig.name} — naša radionica`}
         widths={[640, 960, 1280]}
         sizes="(min-width: 1024px) 600px, 100vw"
         class="rounded-lg object-cover shadow-md"
@@ -141,19 +130,22 @@ const credentials = [
   <section class="bg-surface py-16 md:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <SectionHeading
-        eyebrow="The team"
-        title="People who answer when the roof doesn't"
-        lead="No call centers, no revolving-door sales reps. These are the people whose names go on your project paperwork."
+        eyebrow="Tim"
+        title="Majstor koji se javlja na telefon"
+        lead="Bez posrednika i kol centara — telefon uzima majstor koji će i popraviti mašinu."
       />
-      <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Single technician card (collapsed from a 3-person grid): one card
+           reads as intentional when centered at reading width. -->
+      <!-- TODO: pravo ime, biografija i fotografija majstora -->
+      <div class="mt-12 mx-auto max-w-md">
         {
           team.map((member) => (
             <div class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
               <Image
                 src={member.photo}
-                alt={`${member.name}, ${member.role} at ${siteConfig.name}`}
+                alt={`${member.name} — ${member.role}, ${siteConfig.name}`}
                 widths={[400, 800]}
-                sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                sizes="(min-width: 640px) 448px, 100vw"
                 class="aspect-square w-full object-cover"
               />
               <div class="p-6">
@@ -173,7 +165,7 @@ const credentials = [
   <!-- Credentials -->
   <section class="bg-white py-16 md:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <SectionHeading eyebrow="Credentials" title="Paperwork worth checking" />
+      <SectionHeading eyebrow="Naše prednosti" title="Radionica kojoj možete verovati" />
       <div class="mt-10 grid gap-6 sm:grid-cols-2">
         {
           credentials.map((credential) => (
