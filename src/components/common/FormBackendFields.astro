@@ -19,7 +19,7 @@ interface Props {
 }
 
 const { formName } = Astro.props;
-const thankYouUrl = new URL('/thank-you/', Astro.site).href;
+const thankYouUrl = new URL('/hvala/', Astro.site).href;
 /** Human-readable form name for the lead-email subject (Serbian). */
 const formLabel = formName === 'quote' ? 'zahtev za ponudu' : 'kontakt';
 ---

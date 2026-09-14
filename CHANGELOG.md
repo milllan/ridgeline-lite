@@ -13,7 +13,17 @@ dot; Zvezdara top-right — name special-case proven load-bearing by both
 review lanes). Zero label overlaps under asserted box model; tightest
 clearance 1px over threshold (Zvezdara label ↔ Palilula halo) — eyeball
 in preview; code comment mandates visual re-check if coordinates change.
+## [2.6.0] — 2026-09-14
 
+Routes renamed to Serbian slugs for local SEO:
+/services/ → /usluge/, /about/ → /o-nama/, /contact/ → /kontakt/,
+/quote/ → /zatrazi-ponudu/, /thank-you/ → /hvala/ (home + 404
+unchanged). All internal references updated (nav, Header/StickyCallBar/
+Hero/ServicesGrid/FinalCTA/Footer/404 cross-links, FormBackendFields
+thankYouUrl, forms.ts, sitemap filter); hvala keeps noindex and stays
+out of the sitemap. No redirects added — the site never launched, no
+legacy URLs exist. ASCII-only slugs. Reviews: gemini + mimo approve,
+zero findings.
 ## [2.5.2] — 2026-09-14
 
 Pre-merge gate fixes (4-lane review of the integrated state — no GLM lanes,
@@ -23,7 +33,6 @@ single PR owned (cross-PR seam), unified trust-badge wording with the
 Hero strip (incl. hedged "Besplatna konstatacija uz popravku"), Serbian
 chrome aria-labels, "ridgeline accent" comment removed from built HTML,
 minor language polish. Full triage table on the epic.
-
 ## [2.5.1] — 2026-09-14
 
 Fixed (first task run through the new cli-first-delegation skill — muse
@@ -32,7 +41,6 @@ built, 4 lanes reviewed): review-card date labels rendered with the
 'timeZone: UTC' so a 1st-of-month date cannot roll back a month on a
 UTC-negative build machine. (Changelog note: version numbers of the
 parallel rebrand PRs may merge in any order — entries are self-contained.)
-
 ## [2.5.0] — 2026-09-14
 
 Rebrand **T3** (epic #2, stacked on T1): all remaining component/page
@@ -61,7 +69,6 @@ Serbian except the photos task (#3).
 - TODO HTML comments ship in dist source → T8 pre-launch sweep;
   dormant `ReviewCard` en-US date → #6; roofing-era stats render as
   placeholder business history → epic launch blocker (confirm with owner).
-
 ## [2.4.0] — 2026-09-14
 
 Rebrand **T5** (epic #2): contact-page service-area SVG map re-plotted
@@ -83,7 +90,6 @@ all entries when merging the parallel PRs.)
   Palilula max-x, Čukarica min-x), zero label collisions.
 - build + check green; component + dist map output contain zero Denver
   vocabulary.
-
 ## [2.3.0] — 2026-09-14
 
 Rebrand **T4** (epic #2): template reviews replaced with six Serbian-Latin
@@ -106,7 +112,6 @@ entries; keep all when merging.)
 - Language: "elisnicu"→"elisu", "pri tom"→"pritom", "vratio u sklop"→
   "ponovo sklopio", "počeo sam"→"počeo sam od sebe", "pranje miriše"→
   "veš miriše", README "placeholders"→"primere", "normalno" dedup.
-
 ## [2.2.0] — 2026-09-14
 
 Rebrand **T2** (epic #2): services content collection rewritten from
@@ -142,7 +147,6 @@ entry in PR #7; keep both when merging the second.)
 - build + check green; content greps clean (roofing vocab only in
   heroImage asset filenames — replaced by #3); dist renders new Serbian
   titles in home cards + footer.
-
 ## [2.1.0] — 2026-09-13
 
 Identity rebrand **T1** (epic #2): the config/identity layer switched from
@@ -179,7 +183,6 @@ replace it before launch (launch blockers tracked in epic #2).
   JSON-LD parses with RS address and no `addressRegion`; residual English
   strings trace only to T3/T5-tracked files (Hero, About, StickyCallBar,
   ServiceAreaMap — see epic #2).
-
 ## [2.0.0] — 2026-09-13
 
 Upgraded from Astro 5.18 to **Astro 7.3** (through Astro 6.4), matching the
