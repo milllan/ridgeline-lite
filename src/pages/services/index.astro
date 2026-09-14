@@ -11,6 +11,7 @@ import PageHero from '../../components/common/PageHero.astro';
 import Button from '../../components/common/Button.astro';
 import Icon from '../../components/common/Icon.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
+import { siteConfig } from '../../config/site';
 
 const services = (await getCollection('services')).sort(
   (a, b) => a.data.order - b.data.order,
@@ -18,13 +19,13 @@ const services = (await getCollection('services')).sort(
 ---
 
 <BaseLayout
-  title="Roofing Services"
-  description="Roof replacement, repair, storm damage restoration, gutters, inspections, and commercial roofing across the Denver metro — all inspected, quoted, and warrantied by one local crew."
+  title="Usluge servisa veš mašina"
+  description={`Popravka veš mašina svih marki u Beogradu — izlazak na teren, originalni rezervni delovi i garancija na rad i delove. Pozovite ${siteConfig.phone}.`}
 >
   <PageHero
-    title="Roofing services"
-    lead="Six services, one standard: documented inspections, line-item quotes, and a 10-year workmanship warranty behind the installation."
-    crumbs={[{ label: 'Services' }]}
+    title="Usluge"
+    lead="Servis i popravka veš mašina svih marki — besplatan dolazak i konstatacija kvara uz popravku, originalni delovi i garancija na rad."
+    crumbs={[{ label: 'Usluge' }]}
   />
 
   <section class="bg-surface py-16 md:py-20">
@@ -62,7 +63,7 @@ const services = (await getCollection('services')).sort(
                 ))}
               </ol>
               <div class="mt-6">
-                <Button href="/quote/">Get a free quote</Button>
+                <Button href="/quote/">Zatražite ponudu</Button>
               </div>
             </div>
           </article>
@@ -72,7 +73,7 @@ const services = (await getCollection('services')).sort(
   </section>
 
   <FinalCTA
-    title="Not sure which service you need?"
-    lead="Start with the free inspection — we'll tell you what's actually going on up there and quote only what the roof needs."
+    title="Niste sigurni u čemu je problem?"
+    lead="Zakažite dolazak majstora — utvrdićemo kvar na licu mesta i predložiti samo ono što stvarno treba popraviti."
   />
 </BaseLayout>

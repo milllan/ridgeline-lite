@@ -12,6 +12,34 @@ built, 4 lanes reviewed): review-card date labels rendered with the
 'timeZone: UTC' so a 1st-of-month date cannot roll back a month on a
 UTC-negative build machine. (Changelog note: version numbers of the
 parallel rebrand PRs may merge in any order — entries are self-contained.)
+## [2.5.0] — 2026-09-14
+
+Rebrand **T3** (epic #2, stacked on T1): all remaining component/page
+prose translated to Serbian Latin. With T1–T5 merged, the site is fully
+Serbian except the photos task (#3).
+
+### Changed
+- Hero (eyebrow/subheadline/CTAs/badges), WhyUs (4 honest differentiators),
+  FinalCTA, StickyCallBar, home/services section headings, about (story,
+  stats labels, honest credentials, team collapsed 3→1 placeholder card),
+  quote (Serbian labels + NEW brand select — 15 brands + Ostalo, additive
+  field), thank-you steps, 404, contact form labels.
+- `toLocaleString('en-US')` → `'sr-Latn-RS'` (3 sites); `_subject` lead-email
+  line Serbian ("Novi upit sa sajta — zahtev za ponudu/kontakt").
+- T1-line amendments (declared): all CTAs standardized to V-form
+  ("Zatražite ponudu" incl. Header/nav), contact hero timing promise
+  ("obično istog dana") removed.
+
+### Review-driven fixes (3 lanes + delta approve)
+- Parts-policy contradiction resolved ("isključivo" dropped; consent nuance
+  kept on about); gemini grammar trio fixed ("na poruku", "se javlja",
+  "koje se brže pokvare"); singular technician narrative made consistent;
+  "call centar" → "kol centar"; "sledeći koraci" plural; register unified.
+
+### Recorded for later rounds
+- TODO HTML comments ship in dist source → T8 pre-launch sweep;
+  dormant `ReviewCard` en-US date → #6; roofing-era stats render as
+  placeholder business history → epic launch blocker (confirm with owner).
 ## [2.4.0] — 2026-09-14
 
 Rebrand **T5** (epic #2): contact-page service-area SVG map re-plotted

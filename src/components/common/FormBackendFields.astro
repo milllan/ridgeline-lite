@@ -20,15 +20,19 @@ interface Props {
 
 const { formName } = Astro.props;
 const thankYouUrl = new URL('/thank-you/', Astro.site).href;
+/** Human-readable form name for the lead-email subject (Serbian). */
+const formLabel = formName === 'quote' ? 'zahtev za ponudu' : 'kontakt';
 ---
 
 {isNetlify && <input type="hidden" name="form-name" value={formName} />}
 {!isNetlify && <input type="hidden" name="_next" value={thankYouUrl} />}
-{!isNetlify && <input type="hidden" name="_subject" value={`New lead from ${formName}`} />}
+{!isNetlify && <input type="hidden" name="_subject" value={`Novi upit sa sajta — ${formLabel}`} />}
 
 <p class="hidden" aria-hidden="true">
   <label>
     Don't fill this out if you're human:
+    {/* honeypot — sakriveno od korisnika i čitača ekrana; tekst je namerno
+       generičan da ne asistuje botovima na bilo kom jeziku */}
     <input
       type="text"
       name={isNetlify ? 'bot-field' : '_gotcha'}
