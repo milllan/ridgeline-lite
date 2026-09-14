@@ -4,6 +4,27 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.0] — 2026-09-14
+
+Rebrand **T5** (epic #2): contact-page service-area SVG map re-plotted
+from Denver metro to Belgrade. (Changelog anchors above [2.0.0] — keep
+all entries when merging the parallel PRs.)
+
+### Changed
+- `ServiceAreaMap.astro`: 8 Belgrade municipality dots (Stari grad and
+  Savski venac omitted — label collisions, documented in code), new
+  projection BOUNDS, Serbian aria/title/caption, `role="img"`, stylised
+  Sava/Danube polylines replacing the "Front Range" decoration,
+  "BEOGRAD · I OKOLINA" caption. `cities` renamed `municipalities`.
+- Deploy blocker from T1's review resolved: the map no longer shows
+  Denver geography.
+
+### Verified
+- Projection re-derived independently by review lanes: all dots ≥5%
+  inside the viewBox, geography preserved (Zemun top, Rakovica bottom,
+  Palilula max-x, Čukarica min-x), zero label collisions.
+- build + check green; component + dist map output contain zero Denver
+  vocabulary.
 ## [2.3.0] — 2026-09-14
 
 Rebrand **T4** (epic #2): template reviews replaced with six Serbian-Latin
