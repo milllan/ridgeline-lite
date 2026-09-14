@@ -10,11 +10,9 @@
 // administrative boundaries.
 // TODO: verify with the business which areas are actually covered.
 //
-// Stari grad and Savski venac are omitted from the dot list: their centers
-// lie within ~3 km of the neighbouring central municipalities and their
-// labels collide in the projected layout (the 10 central municipalities
-// cluster too tightly for 13px labels). The "I OKOLINA" caption note
-// covers the wider service area.
+// Savski venac is omitted from the dot list: its center lies within ~3 km
+// of the neighbouring central municipalities and its label collides in the
+// projected layout. The "I OKOLINA" caption note covers the wider service area.
 const municipalities = [
   { name: 'Zemun', latitude: 44.842, longitude: 20.409 },
   { name: 'Novi Beograd', latitude: 44.8065, longitude: 20.4128 },
@@ -24,6 +22,7 @@ const municipalities = [
   { name: 'Zvezdara', latitude: 44.811, longitude: 20.482 },
   { name: 'Palilula', latitude: 44.815, longitude: 20.5 },
   { name: 'Rakovica', latitude: 44.6978, longitude: 20.4507 },
+  { name: 'Stari grad', latitude: 44.817, longitude: 20.457 },
 ];
 
 // Linear projection of Belgrade's lat/lng bounds onto the SVG canvas.
@@ -40,12 +39,14 @@ const positioned = municipalities.map((municipality) => {
 
 /**
  * Collision-aware label placement: labels go to the right of their dot
- * unless a neighboring dot is in the way — then to the left, or below.
+ * unless a neighboring dot is in the way — then to the left, or above.
  *
  * Boundary coupling (verify visually if coordinates/BOUNDS change):
- * Zvezdara↔Vračar sit exactly 26px apart vertically, so the `< 26`
- * comparison keeps Zvezdara out of the below-branch; and Palilula
- * (x=309) clears `nearRightEdge` (W-90=310) by 1px.
+ * Palilula (x=309) clears `nearRightEdge` (W-90=310) by 1px.
+ * When both sides are blocked (Stari grad & Zvezdara), labels fall back
+ * above their dots to avoid colliding with Vračar (y=110) below.
+ * Blockers: Stari grad ← Novi Beograd / → Zvezdara; Zvezdara ← Stari
+ * grad / → Palilula.
  */
 const dots = positioned.map((dot) => {
   const blockedRight = positioned.some(
@@ -71,9 +72,18 @@ const dots = positioned.map((dot) => {
     anchor = 'end';
     dx = -12;
   } else if (blockedRight && blockedLeft) {
-    anchor = 'middle';
-    dx = 0;
-    dy = 26;
+    // Both sides blocked: fall back to placing above.
+    // Stari grad (x=231) centers directly above its dot; Zvezdara (x=276)
+    // shifts top-right (dx=12, dy=-24) to clear Stari grad's label and Palilula's halo.
+    if (dot.name === 'Zvezdara') {
+      anchor = 'start';
+      dx = 12;
+      dy = -24;
+    } else {
+      anchor = 'middle';
+      dx = 0;
+      dy = -18;
+    }
   }
   return { ...dot, anchor, dx, dy };
 });

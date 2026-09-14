@@ -4,6 +4,16 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.6.1] — 2026-09-14
+
+Service-area map: **Stari grad** added as the 9th municipality dot
+(owner request; Savski venac remains omitted). The both-sides-blocked
+label fallback moved from below to above (Stari grad centered above its
+dot; Zvezdara top-right — name special-case proven load-bearing by both
+review lanes). Zero label overlaps under asserted box model; tightest
+clearance 1px over threshold (Zvezdara label ↔ Palilula halo) — eyeball
+in preview; code comment mandates visual re-check if coordinates change.
+
 ## [2.5.2] — 2026-09-14
 
 Pre-merge gate fixes (4-lane review of the integrated state — no GLM lanes,
