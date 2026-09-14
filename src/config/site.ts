@@ -105,10 +105,10 @@ export const siteConfig = {
    * -------------------------------------------------------- */
   // TODO: placeholder claims — business must confirm each before launch
   trustBadges: [
-    { icon: 'shield-check', label: 'Garancija na popravku' },
-    { icon: 'badge-check', label: 'Original delovi' },
+    { icon: 'shield-check', label: 'Garancija na rad i delove' },
+    { icon: 'badge-check', label: 'Originalni delovi' },
     { icon: 'award', label: 'Sve marke mašina' },
-    { icon: 'thumbs-up', label: 'Besplatan uvid u kvar' },
+    { icon: 'thumbs-up', label: 'Besplatna konstatacija uz popravku' },
     { icon: 'clipboard-check', label: 'Servis na terenu' },
   ] satisfies TrustBadge[],
 
