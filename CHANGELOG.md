@@ -4,6 +4,14 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.1] — 2026-09-14
+
+Fixed (first task run through the new cli-first-delegation skill — muse
+built, 4 lanes reviewed): review-card date labels rendered with the
+'en-US' locale — now 'sr-Latn-RS' (mart 2026., januar 2026., …) plus
+'timeZone: UTC' so a 1st-of-month date cannot roll back a month on a
+UTC-negative build machine. (Changelog note: version numbers of the
+parallel rebrand PRs may merge in any order — entries are self-contained.)
 ## [2.4.0] — 2026-09-14
 
 Rebrand **T5** (epic #2): contact-page service-area SVG map re-plotted
