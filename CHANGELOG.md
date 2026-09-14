@@ -4,6 +4,28 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] — 2026-09-14
+
+Rebrand **T4** (epic #2): template reviews replaced with six Serbian-Latin
+SAMPLE placeholder entries for the Belgrade repair business + an honesty
+marker. (Anchors above [2.0.0] — textually conflicts with #7/#8 changelog
+entries; keep all when merging.)
+
+### Changed
+- `src/content/reviews.json` — 6 Serbian entries (placeholder): Belgrade
+  municipalities, one per T2 service, brands Candy/Bosch/Gorenje/Whirlpool/
+  LG/Samsung, ratings 5×5+1×4 (aggregate 4.8 rendered in JSON-LD).
+- `src/content/README.md` (new) — bilingual warning: entries are samples,
+  replace with genuine reviews (e.g. GBP export, issue #5) before launch.
+
+### Review-driven fixes (3 lanes, all approved pre-fix; delta approve)
+- 4-star review re-dated into the carousel's visible top-5 (visible stars
+  now corroborate the 4.8 aggregate; carousel shows newest 5 of 6).
+- Domain accuracy: laundry does not come out warm (cold rinse) — heater
+  success re-worded to "ispravno greje vodu".
+- Language: "elisnicu"→"elisu", "pri tom"→"pritom", "vratio u sklop"→
+  "ponovo sklopio", "počeo sam"→"počeo sam od sebe", "pranje miriše"→
+  "veš miriše", README "placeholders"→"primere", "normalno" dedup.
 ## [2.2.0] — 2026-09-14
 
 Rebrand **T2** (epic #2): services content collection rewritten from
