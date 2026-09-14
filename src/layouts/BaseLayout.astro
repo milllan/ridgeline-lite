@@ -13,7 +13,7 @@ import Header from '../components/common/Header.astro';
 import SEO from '../components/common/SEO.astro';
 import StickyCallBar from '../components/common/StickyCallBar.astro';
 import { siteConfig } from '../config/site';
-import { buildRoofingContractor } from '../lib/schema';
+import { buildLocalBusiness } from '../lib/schema';
 
 interface Props {
   title: string;
@@ -25,11 +25,11 @@ interface Props {
 
 const { title, description, ogImage, type, noindex } = Astro.props;
 const themeAttr = siteConfig.theme === 'blue-amber' ? 'blue-amber' : undefined;
-const orgSchema = await buildRoofingContractor(Astro.site!);
+const orgSchema = await buildLocalBusiness(Astro.site!);
 ---
 
 <!doctype html>
-<html lang="en" data-theme={themeAttr}>
+<html lang="sr-Latn" data-theme={themeAttr}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

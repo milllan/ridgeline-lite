@@ -39,7 +39,42 @@ entry in PR #7; keep both when merging the second.)
 - build + check green; content greps clean (roofing vocab only in
   heroImage asset filenames — replaced by #3); dist renders new Serbian
   titles in home cards + footer.
+## [2.1.0] — 2026-09-13
 
+Identity rebrand **T1** (epic #2): the config/identity layer switched from
+US roofing contractor to a Serbian-Latin washing-machine repair business in
+Belgrade. **All business data is placeholder, TODO-marked** — real details
+replace it before launch (launch blockers tracked in epic #2).
+
+### Changed
+- `src/config/site.ts`: name/logo/tagline/license line, phone
+  (061/352-45-03), email, address (state field removed — Serbian format),
+  geo (Rakovica approx.), hours Pon–Sub 09–17, empty socials, Serbian trust
+  badges, stats, SEO strings. Placeholder domain in `astro.config.mjs` +
+  `public/robots.txt` (kept in sync, TODO-marked).
+- `src/config/nav.ts` + Header/Footer chrome: Serbian labels (Usluge / O
+  nama / Kontakt / Zatraži ponudu, column headings, sr-only/aria strings).
+- `src/layouts/BaseLayout.astro`: `lang="sr-Latn"`.
+- `src/lib/schema.ts`: JSON-LD `@type` `RoofingContractor` →
+  `HomeAndConstructionBusiness` (schema.org has no appliance-repair type;
+  `additionalType` deliberately omitted — the description carries the
+  trade), `addressCountry: "RS"`, no `addressRegion`, `sameAs` omitted
+  when socials are empty, `priceRange` dropped; builder renamed
+  `buildLocalBusiness`.
+- Contact page title/description/hero/intro: Serbian (were asserting
+  "Denver metro" / "roofer" identity claims — review finding).
+
+### Removed
+- Theme-upsell links (footer "Made with Ridgeline" / Payhip) and the theme
+  author's **live Formspree endpoint** — replaced with a TODO placeholder
+  so this site's leads cannot leak to the author's form.
+
+### Verified
+- `npm run build` + `npm run check`: green (7 pages, 0 errors).
+- dist greps: 0× RoofingContractor / payhip / xaqrqpro / priceRange;
+  JSON-LD parses with RS address and no `addressRegion`; residual English
+  strings trace only to T3/T5-tracked files (Hero, About, StickyCallBar,
+  ServiceAreaMap — see epic #2).
 ## [2.0.0] — 2026-09-13
 
 Upgraded from Astro 5.18 to **Astro 7.3** (through Astro 6.4), matching the

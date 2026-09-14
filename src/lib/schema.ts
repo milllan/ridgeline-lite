@@ -2,33 +2,35 @@ import { siteConfig } from '../config/site';
 import { getAggregateRating } from './reviews';
 
 /**
- * Basic RoofingContractor structured data, rendered on every page.
- * NAP, hours, and geo come from src/config/site.ts. The Pro version
- * adds per-city Service entities, FAQPage, Article, and project
- * ImageGallery markup.
+ * Basic HomeAndConstructionBusiness structured data, rendered on every
+ * page. NAP, hours, and geo come from src/config/site.ts. The Pro
+ * version adds per-city Service entities, FAQPage, Article, and
+ * project ImageGallery markup.
  */
-export async function buildRoofingContractor(site: URL) {
+export async function buildLocalBusiness(site: URL) {
   const rating = await getAggregateRating();
   const { address, geo } = siteConfig;
 
+  /** Same-as links — skip empty values so we never emit dead hrefs. */
+  const sameAs = Object.values(siteConfig.social).filter((url) => url !== '');
+
   return {
     '@context': 'https://schema.org',
-    '@type': 'RoofingContractor',
-    '@id': new URL('/#roofingcontractor', site).href,
+    '@type': 'HomeAndConstructionBusiness',
+    '@id': new URL('/#local-business', site).href,
     name: siteConfig.name,
+    // SEO default description already names the trade (servis veš mašina).
     description: siteConfig.seo.defaultDescription,
     url: site.href,
     telephone: siteConfig.phoneHref.replace('tel:', ''),
     email: siteConfig.email,
     image: new URL(siteConfig.seo.ogImage, site).href,
-    priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
       streetAddress: address.street,
       addressLocality: address.city,
-      addressRegion: address.state,
       postalCode: address.zip,
-      addressCountry: 'US',
+      addressCountry: 'RS',
     },
     geo: {
       '@type': 'GeoCoordinates',
@@ -36,7 +38,7 @@ export async function buildRoofingContractor(site: URL) {
       longitude: geo.longitude,
     },
     openingHours: siteConfig.openingHoursSchema,
-    sameAs: Object.values(siteConfig.social),
+    ...(sameAs.length > 0 && { sameAs }),
     ...(rating.count > 0 && {
       aggregateRating: {
         '@type': 'AggregateRating',
