@@ -17,7 +17,7 @@ interface Props {
 }
 
 const { items, onDark = false } = Astro.props;
-const crumbs: Crumb[] = [{ label: 'Home', href: '/' }, ...items];
+const crumbs: Crumb[] = [{ label: 'Početna', href: '/' }, ...items];
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -33,7 +33,7 @@ const breadcrumbSchema = {
 
 <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-<nav aria-label="Breadcrumb">
+<nav aria-label="Mige">
   <ol
     class:list={[
       'flex flex-wrap items-center gap-1.5 text-sm',
