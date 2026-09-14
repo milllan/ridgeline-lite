@@ -12,7 +12,7 @@ export function formAttributes(formName: string): Record<string, string> {
   if (siteConfig.formProvider === 'netlify') {
     return {
       method: 'POST',
-      action: '/thank-you/',
+      action: '/hvala/',
       name: formName,
       'data-netlify': 'true',
       'netlify-honeypot': 'bot-field',
