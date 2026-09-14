@@ -1,36 +1,51 @@
 ---
 /**
- * Lightweight SVG map of the service area — city dots positioned by
- * their real coordinates, each linked to its city page. Deliberately
- * NOT an embedded Google Map: no API key, no third-party JS, no layout
- * shift. (docs/customization.md covers swapping in a real embed if a
- * buyer insists.)
+ * Lightweight SVG map of the service area — municipality dots positioned
+ * by their real coordinates. Deliberately NOT an embedded Google Map: no
+ * API key, no third-party JS, no layout shift. (docs/customization.md
+ * covers swapping in a real embed if a buyer insists.)
  */
-/** Service-area cities shown on the map (edit freely). */
-const cities = [
-  { name: 'Denver', latitude: 39.7392, longitude: -104.9903 },
-  { name: 'Aurora', latitude: 39.7294, longitude: -104.8319 },
-  { name: 'Lakewood', latitude: 39.7047, longitude: -105.0814 },
-  { name: 'Centennial', latitude: 39.5807, longitude: -104.8772 },
-  { name: 'Arvada', latitude: 39.8028, longitude: -105.0875 },
-  { name: 'Boulder', latitude: 40.015, longitude: -105.2705 },
+
+// NOTE: coordinates are approximate municipality centers, not exact
+// administrative boundaries.
+// TODO: verify with the business which areas are actually covered.
+//
+// Stari grad and Savski venac are omitted from the dot list: their centers
+// lie within ~3 km of the neighbouring central municipalities and their
+// labels collide in the projected layout (the 10 central municipalities
+// cluster too tightly for 13px labels). The "I OKOLINA" caption note
+// covers the wider service area.
+const municipalities = [
+  { name: 'Zemun', latitude: 44.842, longitude: 20.409 },
+  { name: 'Novi Beograd', latitude: 44.8065, longitude: 20.4128 },
+  { name: 'Čukarica', latitude: 44.77, longitude: 20.39 },
+  { name: 'Voždovac', latitude: 44.7578, longitude: 20.4783 },
+  { name: 'Vračar', latitude: 44.793, longitude: 20.468 },
+  { name: 'Zvezdara', latitude: 44.811, longitude: 20.482 },
+  { name: 'Palilula', latitude: 44.815, longitude: 20.5 },
+  { name: 'Rakovica', latitude: 44.6978, longitude: 20.4507 },
 ];
 
-// Linear projection of the metro's lat/lng bounds onto the SVG canvas.
-const BOUNDS = { lngMin: -105.46, lngMax: -104.64, latMin: 39.47, latMax: 40.13 };
+// Linear projection of Belgrade's lat/lng bounds onto the SVG canvas.
+const BOUNDS = { lngMin: 20.33, lngMax: 20.55, latMin: 44.66, latMax: 44.87 };
 const W = 400;
 const H = 300;
 
-const positioned = cities.map((city) => {
-  const { latitude, longitude } = city;
+const positioned = municipalities.map((municipality) => {
+  const { latitude, longitude } = municipality;
   const x = ((longitude - BOUNDS.lngMin) / (BOUNDS.lngMax - BOUNDS.lngMin)) * W;
   const y = ((BOUNDS.latMax - latitude) / (BOUNDS.latMax - BOUNDS.latMin)) * H;
-  return { name: city.name, x: Math.round(x), y: Math.round(y) };
+  return { name: municipality.name, x: Math.round(x), y: Math.round(y) };
 });
 
 /**
  * Collision-aware label placement: labels go to the right of their dot
  * unless a neighboring dot is in the way — then to the left, or below.
+ *
+ * Boundary coupling (verify visually if coordinates/BOUNDS change):
+ * Zvezdara↔Vračar sit exactly 26px apart vertically, so the `< 26`
+ * comparison keeps Zvezdara out of the below-branch; and Palilula
+ * (x=309) clears `nearRightEdge` (W-90=310) by 1px.
  */
 const dots = positioned.map((dot) => {
   const blockedRight = positioned.some(
@@ -67,18 +82,34 @@ const dots = positioned.map((dot) => {
 <svg
   viewBox={`0 0 ${W} ${H}`}
   class="h-auto w-full rounded-lg"
-  aria-label="Map of the Denver metro cities we serve"
+  role="img"
+  aria-label="Mapa opština u Beogradu u kojima vršimo servis"
 >
-  <title>Denver metro service area map</title>
+  <title>Beograd — mapa opština u kojima vršimo servis</title>
   <rect width={W} height={H} rx="8" class="fill-dark-soft"></rect>
 
-  <!-- Front Range foothills silhouette -->
-  <path
-    d={`M0 ${H} L0 120 L22 96 L40 118 L58 78 L74 108 L92 60 L108 96 L122 74 L134 100 L146 88 L154 112 L160 ${H} Z`}
-    class="fill-dark"
-    opacity="0.85"></path>
-  <text x="16" y={H - 16} class="fill-slate-500" font-size="10" letter-spacing="2">
-    FRONT RANGE
+  <!-- Stylised Sava and Danube rivers, meeting near Kalemegdan -->
+  <polyline
+    points="182,0 191,43 204,68 264,100 291,121 318,143 364,164 395,179"
+    fill="none"
+    class="stroke-slate-500"
+    stroke-width="3"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+    opacity="0.35"></polyline>
+  <polyline
+    points="45,136 91,121 136,110 173,95 204,68"
+    fill="none"
+    class="stroke-slate-500"
+    stroke-width="3"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+    opacity="0.35"></polyline>
+  <text x="210" y="30" class="fill-slate-500" font-size="10" letter-spacing="2">
+    DUNAV
+  </text>
+  <text x="48" y="155" class="fill-slate-500" font-size="10" letter-spacing="2">
+    SAVA
   </text>
 
   <!-- Subtle grid -->
@@ -124,4 +155,8 @@ const dots = positioned.map((dot) => {
       </g>
     ))
   }
+
+  <text x="16" y={H - 16} class="fill-slate-500" font-size="10" letter-spacing="2">
+    BEOGRAD · I OKOLINA
+  </text>
 </svg>

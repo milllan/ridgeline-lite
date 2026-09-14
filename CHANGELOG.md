@@ -4,6 +4,120 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.1] — 2026-09-14
+
+Fixed (first task run through the new cli-first-delegation skill — muse
+built, 4 lanes reviewed): review-card date labels rendered with the
+'en-US' locale — now 'sr-Latn-RS' (mart 2026., januar 2026., …) plus
+'timeZone: UTC' so a 1st-of-month date cannot roll back a month on a
+UTC-negative build machine. (Changelog note: version numbers of the
+parallel rebrand PRs may merge in any order — entries are self-contained.)
+## [2.5.0] — 2026-09-14
+
+Rebrand **T3** (epic #2, stacked on T1): all remaining component/page
+prose translated to Serbian Latin. With T1–T5 merged, the site is fully
+Serbian except the photos task (#3).
+
+### Changed
+- Hero (eyebrow/subheadline/CTAs/badges), WhyUs (4 honest differentiators),
+  FinalCTA, StickyCallBar, home/services section headings, about (story,
+  stats labels, honest credentials, team collapsed 3→1 placeholder card),
+  quote (Serbian labels + NEW brand select — 15 brands + Ostalo, additive
+  field), thank-you steps, 404, contact form labels.
+- `toLocaleString('en-US')` → `'sr-Latn-RS'` (3 sites); `_subject` lead-email
+  line Serbian ("Novi upit sa sajta — zahtev za ponudu/kontakt").
+- T1-line amendments (declared): all CTAs standardized to V-form
+  ("Zatražite ponudu" incl. Header/nav), contact hero timing promise
+  ("obično istog dana") removed.
+
+### Review-driven fixes (3 lanes + delta approve)
+- Parts-policy contradiction resolved ("isključivo" dropped; consent nuance
+  kept on about); gemini grammar trio fixed ("na poruku", "se javlja",
+  "koje se brže pokvare"); singular technician narrative made consistent;
+  "call centar" → "kol centar"; "sledeći koraci" plural; register unified.
+
+### Recorded for later rounds
+- TODO HTML comments ship in dist source → T8 pre-launch sweep;
+  dormant `ReviewCard` en-US date → #6; roofing-era stats render as
+  placeholder business history → epic launch blocker (confirm with owner).
+## [2.4.0] — 2026-09-14
+
+Rebrand **T5** (epic #2): contact-page service-area SVG map re-plotted
+from Denver metro to Belgrade. (Changelog anchors above [2.0.0] — keep
+all entries when merging the parallel PRs.)
+
+### Changed
+- `ServiceAreaMap.astro`: 8 Belgrade municipality dots (Stari grad and
+  Savski venac omitted — label collisions, documented in code), new
+  projection BOUNDS, Serbian aria/title/caption, `role="img"`, stylised
+  Sava/Danube polylines replacing the "Front Range" decoration,
+  "BEOGRAD · I OKOLINA" caption. `cities` renamed `municipalities`.
+- Deploy blocker from T1's review resolved: the map no longer shows
+  Denver geography.
+
+### Verified
+- Projection re-derived independently by review lanes: all dots ≥5%
+  inside the viewBox, geography preserved (Zemun top, Rakovica bottom,
+  Palilula max-x, Čukarica min-x), zero label collisions.
+- build + check green; component + dist map output contain zero Denver
+  vocabulary.
+## [2.3.0] — 2026-09-14
+
+Rebrand **T4** (epic #2): template reviews replaced with six Serbian-Latin
+SAMPLE placeholder entries for the Belgrade repair business + an honesty
+marker. (Anchors above [2.0.0] — textually conflicts with #7/#8 changelog
+entries; keep all when merging.)
+
+### Changed
+- `src/content/reviews.json` — 6 Serbian entries (placeholder): Belgrade
+  municipalities, one per T2 service, brands Candy/Bosch/Gorenje/Whirlpool/
+  LG/Samsung, ratings 5×5+1×4 (aggregate 4.8 rendered in JSON-LD).
+- `src/content/README.md` (new) — bilingual warning: entries are samples,
+  replace with genuine reviews (e.g. GBP export, issue #5) before launch.
+
+### Review-driven fixes (3 lanes, all approved pre-fix; delta approve)
+- 4-star review re-dated into the carousel's visible top-5 (visible stars
+  now corroborate the 4.8 aggregate; carousel shows newest 5 of 6).
+- Domain accuracy: laundry does not come out warm (cold rinse) — heater
+  success re-worded to "ispravno greje vodu".
+- Language: "elisnicu"→"elisu", "pri tom"→"pritom", "vratio u sklop"→
+  "ponovo sklopio", "počeo sam"→"počeo sam od sebe", "pranje miriše"→
+  "veš miriše", README "placeholders"→"primere", "normalno" dedup.
+## [2.2.0] — 2026-09-14
+
+Rebrand **T2** (epic #2): services content collection rewritten from
+roofing to washing-machine repair, Serbian Latin (6 MDX files renamed +
+rewritten). Placeholder content, marked with in-file TODO comments.
+(NOTE: anchors above [2.0.0] — merges textually-conflict with the T1
+entry in PR #7; keep both when merging the second.)
+
+### Changed
+- New services (order): Popravka veš mašina — svi kvarovi (1), Zamena i
+  popravka pumpi (2), Zamena grejača i termostata (3), Zamena ležajeva i
+  zaptivača (4), Popravka programatora i elektronike (5), Preventivno
+  održavanje i čišćenje (6). Each with Serbian excerpt (146–201 chars),
+  heroImageAlt, and 4 tailored processSteps (poziv → dijagnoza → popravka
+  → garancija). MDX bodies are short Serbian summaries for the upcoming
+  per-brand pages (#4) — not rendered by current templates.
+- Icons remapped to the existing set (wrench, droplets, zap, hammer,
+  clipboard-check, shield-check); heroImage slots unchanged (photos are
+  task #3).
+
+### Review-driven fixes (3 lanes + delta re-review)
+- Grammar/terminology: "sva spoja"→"sve spojeve", "kodu greške"→"kod
+  greške", "nedoprano veš"→"nedoprani veš", directional "na terenu"→"na
+  teren" (stationary locative kept where correct), "uvid/uvidimo"→
+  canonical phrasing, "grmljavina"→"tutnjava/lupanje", consistent
+  "centrifuzi", inflected "originalnim delom/delovima" (standalone
+  "original delovi" noun-lists kept as commercial register).
+- Claim honesty: all same-day/first-visit timing claims removed (owner
+  re-adds a confirmed SLA later); "jeftiniji od svake popravke" hedged;
+  invented "season of intensive washing" dropped.
+
+### Verified
+- build + check green; content greps clean (roofing vocab only in
+  heroImage asset filenames — replaced by #3); dist renders new Serbian
+  titles in home cards + footer.
 ## [2.1.0] — 2026-09-13
 
 Identity rebrand **T1** (epic #2): the config/identity layer switched from
@@ -40,36 +154,6 @@ replace it before launch (launch blockers tracked in epic #2).
   JSON-LD parses with RS address and no `addressRegion`; residual English
   strings trace only to T3/T5-tracked files (Hero, About, StickyCallBar,
   ServiceAreaMap — see epic #2).
-
-## [2.5.0] — 2026-09-14
-
-Rebrand **T3** (epic #2, stacked on T1): all remaining component/page
-prose translated to Serbian Latin. With T1–T5 merged, the site is fully
-Serbian except the photos task (#3).
-
-### Changed
-- Hero (eyebrow/subheadline/CTAs/badges), WhyUs (4 honest differentiators),
-  FinalCTA, StickyCallBar, home/services section headings, about (story,
-  stats labels, honest credentials, team collapsed 3→1 placeholder card),
-  quote (Serbian labels + NEW brand select — 15 brands + Ostalo, additive
-  field), thank-you steps, 404, contact form labels.
-- `toLocaleString('en-US')` → `'sr-Latn-RS'` (3 sites); `_subject` lead-email
-  line Serbian ("Novi upit sa sajta — zahtev za ponudu/kontakt").
-- T1-line amendments (declared): all CTAs standardized to V-form
-  ("Zatražite ponudu" incl. Header/nav), contact hero timing promise
-  ("obično istog dana") removed.
-
-### Review-driven fixes (3 lanes + delta approve)
-- Parts-policy contradiction resolved ("isključivo" dropped; consent nuance
-  kept on about); gemini grammar trio fixed ("na poruku", "se javlja",
-  "koje se brže pokvare"); singular technician narrative made consistent;
-  "call centar" → "kol centar"; "sledeći koraci" plural; register unified.
-
-### Recorded for later rounds
-- TODO HTML comments ship in dist source → T8 pre-launch sweep;
-  dormant `ReviewCard` en-US date → #6; roofing-era stats render as
-  placeholder business history → epic launch blocker (confirm with owner).
-
 ## [2.0.0] — 2026-09-13
 
 Upgraded from Astro 5.18 to **Astro 7.3** (through Astro 6.4), matching the

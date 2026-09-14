@@ -12,9 +12,12 @@ interface Props {
 
 const { review, class: className = '' } = Astro.props;
 
-const dateLabel = review.data.date.toLocaleDateString('en-US', {
+const dateLabel = review.data.date.toLocaleDateString('sr-Latn-RS', {
   month: 'long',
   year: 'numeric',
+  // z.coerce.date() yields UTC midnights — pin the zone so a 1st-of-month
+  // date can't roll back a month on a UTC-negative build machine.
+  timeZone: 'UTC',
 });
 ---
 

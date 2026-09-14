@@ -1,56 +1,56 @@
 [
   {
-    "id": "sarah-mitchell-denver",
-    "author": "Sarah Mitchell",
-    "city": "Denver, CO",
-    "rating": 5,
-    "date": "2026-05-28",
-    "service": "Roof Replacement",
-    "text": "Our 1926 Park Hill bungalow needed a full tear-off and I was dreading it. The crew found three rotten decking planks, showed me photos before replacing them at the per-sheet price already in the contract, and still finished in two days."
-  },
-  {
-    "id": "james-okafor-aurora",
-    "author": "James Okafor",
-    "city": "Aurora, CO",
-    "rating": 5,
-    "date": "2026-07-08",
-    "service": "Storm Damage Restoration",
-    "text": "The June hailstorm hammered our neighborhood. Ridgeline tarped our worst leak the same evening, then their inspector met our adjuster on the roof and walked him through every chalk mark. New Class 4 roof went on three weeks later."
-  },
-  {
-    "id": "linda-tran-lakewood",
-    "author": "Linda Tran",
-    "city": "Lakewood, CO",
-    "rating": 5,
-    "date": "2026-04-19",
-    "service": "Roof Repair",
-    "text": "Two other companies quoted a full replacement sight unseen. Ridgeline actually traced the leak to lifted step flashing next to the chimney, fixed it in one visit, and told me the roof itself has years left. That honesty earned them our replacement whenever it's actually due."
-  },
-  {
-    "id": "robert-kaminski-centennial",
-    "author": "Robert Kaminski",
-    "city": "Centennial, CO",
-    "rating": 5,
-    "date": "2026-03-07",
-    "service": "Roof Replacement",
-    "text": "Our HOA has opinions about everything, including shingle color. Ridgeline pulled the HOA spec before quoting, handled the approval paperwork, and installed the exact color on the approved list. Zero letters from the association, which around here is a miracle."
-  },
-  {
-    "id": "angela-price-denver",
-    "author": "Angela Price",
-    "city": "Denver, CO",
+    "id": "vesna-l-zemun",
+    "author": "Vesna L.",
+    "city": "Zemun",
     "rating": 4,
-    "date": "2025-11-30",
-    "service": "Gutter Installation & Repair",
-    "text": "New seamless 6-inch gutters and guards on our two-story. Install crew was fast and the water test at the end was a nice touch. Only reason for four stars: scheduling pushed back a week during storm season. Once they were here, the work itself was flawless."
+    "date": "2026-03-11",
+    "service": "Popravka veš mašina — svi kvarovi",
+    "text": "Candy mašina mi nije htela da pokrene pranje — vrata se zaključaju, a posle par sekundi sve stane. Majstor je došao na teren, utvrdio da je pokvarena brava na vratima i zamenio ju je, a pritom pošteno očistio i filtar za koji nisam ni znala da postoji. Od tada sve radi kako treba — jedina zamerka je što je tog meseca bilo gužve, pa smo na termin čekali malo duže nego što sam očekivala."
   },
   {
-    "id": "tom-brandt-boulder",
-    "author": "Tom Brandt",
-    "city": "Boulder, CO",
+    "id": "dejan-t-rakovica",
+    "author": "Dejan T.",
+    "city": "Rakovica",
     "rating": 5,
-    "date": "2026-01-22",
-    "service": "Roof Replacement",
-    "text": "After losing shingles in three straight chinook events, we went standing-seam metal on Ridgeline's recommendation. First 90-mph gust since: not a rattle. Should have done it years ago."
+    "date": "2025-11-03",
+    "service": "Zamena i popravka pumpi",
+    "text": "Voda je posle svakog pranja ostajala u bubnju mog Boscha, pa je veš izlazio natopljen. Majstor je još na terenu otvorio pumpu i izvadio košticu masline koja se zakačila za elisu, a pošto je i crevo za odvod bilo delimično začepljeno, očistio je i njega. Od tada se bubanj isprazni do poslednje kapi — popravka umesto nove pumpe, baš kako treba."
+  },
+  {
+    "id": "milica-k-vozdovac",
+    "author": "Milica K.",
+    "city": "Voždovac",
+    "rating": 5,
+    "date": "2026-01-27",
+    "service": "Zamena grejača i termostata",
+    "text": "Mašina Gorenje mi je sve prala normalno, ali je veš izlazio hladan i program se odužavao. Majstor je na licu mesta izmerio grejač i utvrdio da je izgoreo i da termostat više ne meri tačno, pa ih je zamenio originalnim delovima. Mašina sada ispravno greje vodu i program završi onda kad treba, a veš je konačno dobro opran."
+  },
+  {
+    "id": "nikola-d-vracar",
+    "author": "Nikola Đ.",
+    "city": "Vračar",
+    "rating": 5,
+    "date": "2026-04-09",
+    "service": "Zamena ležajeva i zaptivača",
+    "text": "Kod Whirlpoola mi je pri centrifuzi mašina tutnjala kao da u kupatilu sleće avion, a onda je počela i da curi ispod. Majstor je rekao da su ležajevi pojedeni i da je zaptivač pustio, pa je celu mašinu rastavio do zadnjeg šrafa. Zamenio je oba ležaja, stavio nov zaptivač i sve ponovo sklopio — sada je tiha kao prvog dana."
+  },
+  {
+    "id": "ana-m-cukarica",
+    "author": "Ana M.",
+    "city": "Čukarica",
+    "rating": 5,
+    "date": "2026-06-18",
+    "service": "Popravka programatora i elektronike",
+    "text": "Na LG mašini mi je usred pranja program počeo sam od sebe da se menja, a ponekad bi se mašina sasvim i ugasila. Majstor je došao na teren, povezao dijagnostiku i na ploči programatora našao nekoliko napuklih spojeva. Zalemio ih je i koroziju očistio sve na terenu, bez odvoženja u radionicu — od tada program ide tačno onako kako ga izaberem."
+  },
+  {
+    "id": "stefan-v-novi-beograd",
+    "author": "Stefan V.",
+    "city": "Novi Beograd",
+    "rating": 5,
+    "date": "2026-08-30",
+    "service": "Preventivno održavanje i čišćenje",
+    "text": "Pozvao sam majstora čisto preventivno — Samsung je prao sve kako treba, ali je počeo da miriše na vlagu i voda je oticala sporo. Majstor je očistio filtar i pumpu, sredio gumu na vratima i pustio program za čišćenje bubnja, a na kraju mi je objasnio i kako da sam održavam mašinu da ne dođe do većih kvarova. Sad veš miriše na čisto, i drago mi je što znam da je sve u redu."
   }
 ]
