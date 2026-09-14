@@ -13,6 +13,11 @@ const reviews = (await getCollection('reviews'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 5);
 const rating = await getAggregateRating();
+/** Serbian paucal: 2–4 (excl. 12–14) → "recenzije", otherwise "recenzija". */
+const reviewWord =
+  rating.count % 10 >= 2 && rating.count % 10 <= 4 && (rating.count % 100 < 12 || rating.count % 100 > 14)
+    ? 'recenzije'
+    : 'recenzija';
 ---
 
 <section class="bg-surface py-16 md:py-20">
@@ -26,7 +31,7 @@ const rating = await getAggregateRating();
         <StarRating rating={rating.average} starClass="h-5 w-5" />
         <p class="text-sm font-medium text-slate-600">
           <span class="font-heading text-2xl font-bold text-dark">{rating.average}</span>
-          / 5 · {rating.count} recenzija
+          / 5 · {rating.count} {reviewWord}
         </p>
       </div>
     </div>
