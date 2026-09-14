@@ -1,6 +1,6 @@
 ---
 /**
- * Services page — Lite edition: all six services on one page with
+ * Services page – Lite edition: all six services on one page with
  * photos and process overviews. (Ridgeline Pro gives each service its
  * own landing page with FAQs and related projects.)
  */
@@ -19,12 +19,12 @@ const services = (await getCollection('services')).sort(
 ---
 
 <BaseLayout
-  title="Usluge servisa veš mašina"
-  description={`Popravka veš mašina svih marki u Beogradu — izlazak na teren, originalni rezervni delovi i garancija na rad i delove. Pozovite ${siteConfig.phone}.`}
+  title="Usluge servisa veš mašina u Beogradu"
+  description={`Popravka veš mašina u Beogradu za sve marke. Dolazimo na kućnu adresu, ugrađujemo originalne delove i dajemo garanciju na rad. Pozovite ${siteConfig.phone}.`}
 >
   <PageHero
     title="Usluge"
-    lead="Servis i popravka veš mašina svih marki — besplatan dolazak i konstatacija kvara uz popravku, originalni delovi i garancija na rad."
+    lead="Od bučnog ležaja do pumpe koja ne izbacuje vodu, kvar rešavamo u vašem stanu. Popravljamo sve marke mašina. Konstatacija kvara je besplatna uz popravku, a na ugrađene delove i rad dobijate garanciju."
     crumbs={[{ label: 'Usluge' }]}
   />
 
@@ -74,6 +74,6 @@ const services = (await getCollection('services')).sort(
 
   <FinalCTA
     title="Niste sigurni u čemu je problem?"
-    lead="Zakažite dolazak majstora — utvrdićemo kvar na licu mesta i predložiti samo ono što stvarno treba popraviti."
+    lead="Javite nam kako se mašina ponaša. Doći ćemo da pregledamo mašinu i utvrdimo kvar i zamenićemo samo ono što je stvarno dotrajalo."
   />
 </BaseLayout>

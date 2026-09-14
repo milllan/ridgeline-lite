@@ -1,10 +1,9 @@
 ---
 /**
- * Four differentiators on a dark band — besplatan dolazak i konstatacija,
+ * Four differentiators on a dark band – besplatan dolazak i konstatacija,
  * originalni delovi, garancija na rad i delove, izlazak na teren u celom
  * Beogradu (sve marke).
  */
-import { siteConfig } from '../../config/site';
 import Icon from '../common/Icon.astro';
 import SectionHeading from '../common/SectionHeading.astro';
 
@@ -12,22 +11,22 @@ const points = [
   {
     icon: 'search-check',
     title: 'Besplatan dolazak i konstatacija',
-    text: 'Majstor dolazi na vašu adresu i utvrđuje kvar na licu mesta. Dolazak i konstatacija kvara su besplatni uz izvršenu popravku — a tačnu cenu znate pre početka rada.',
+    text: 'Na licu mesta pregledamo mašinu i kažemo u čemu je problem. Dolazak i konstatacija su besplatni uz popravku, a tačnu cenu znate unapred.',
   },
   {
     icon: 'badge-check',
     title: 'Originalni delovi',
-    text: 'Popravljamo originalnim rezervnim delovima, prilagođenim marki vaše mašine — bez jeftinih zamena koje se brže kvare.',
+    text: 'Za marku vaše mašine ugrađujemo originalne delove. Zamenski deo stavljamo samo uz vašu prethodnu saglasnost.',
   },
   {
     icon: 'shield-check',
     title: 'Garancija na rad i delove',
-    text: 'Na svaku popravku dajemo garanciju i na naš rad i na ugrađene delove. Sve pojedinosti o garanciji dobijete pre početka popravke.',
+    text: 'Garancijom pokrivamo i naš rad i ugrađeni deo. Sve uslove znate pre nego što počnemo.',
   },
   {
     icon: 'map-pin',
     title: 'Izlazak na teren u celom Beogradu',
-    text: 'Servisiramo veš mašine svih marki i proizvođača, na terenu u svim beogradskim opštinama — od Rakovice do Zemuna i Novog Beograda.',
+    text: 'Izlazimo na teren u svim beogradskim opštinama, od Zemuna do Rakovice. Servisiramo sve marke veš mašina, a popravku radimo kod vas u stanu.',
   },
 ];
 ---
@@ -36,8 +35,8 @@ const points = [
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <SectionHeading
       eyebrow="Zašto mi"
-      title="Popravka kakvu bismo tražili za svoju mašinu"
-      lead={`Od ${siteConfig.stats.yearFounded}. godine popravljamo veš mašine širom Beograda — sa više od ${siteConfig.stats.projectsCompleted.toLocaleString('sr-Latn-RS')} završenih popravki. Postupak je jednostavan: dolazak, konstatacija kvara i jasna cena pre početka rada.`}
+      title="Čist račun i popravka bez nagađanja"
+      lead="Prvo utvrdimo gde je zapelo, pa vam kažemo koliko košta. Konstataciju ne plaćate kada radimo popravku."
       onDark
     />
     <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

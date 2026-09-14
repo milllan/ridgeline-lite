@@ -5,8 +5,8 @@
     "city": "Zemun",
     "rating": 4,
     "date": "2026-03-11",
-    "service": "Popravka veš mašina — svi kvarovi",
-    "text": "Candy mašina mi nije htela da pokrene pranje — vrata se zaključaju, a posle par sekundi sve stane. Majstor je došao na teren, utvrdio da je pokvarena brava na vratima i zamenio ju je, a pritom pošteno očistio i filtar za koji nisam ni znala da postoji. Od tada sve radi kako treba — jedina zamerka je što je tog meseca bilo gužve, pa smo na termin čekali malo duže nego što sam očekivala."
+    "service": "Popravka veš mašina – svi kvarovi",
+    "text": "Candy mašina mi nije htela da pokrene pranje – vrata se zaključaju, a posle par sekundi sve stane. Majstor je došao na teren, utvrdio da je pokvarena brava na vratima i zamenio ju je, a pritom pošteno očistio i filtar za koji nisam ni znala da postoji. Od tada sve radi kako treba – jedina zamerka je što je tog meseca bilo gužve, pa smo na termin čekali malo duže nego što sam očekivala."
   },
   {
     "id": "dejan-t-rakovica",
@@ -15,7 +15,7 @@
     "rating": 5,
     "date": "2025-11-03",
     "service": "Zamena i popravka pumpi",
-    "text": "Voda je posle svakog pranja ostajala u bubnju mog Boscha, pa je veš izlazio natopljen. Majstor je još na terenu otvorio pumpu i izvadio košticu masline koja se zakačila za elisu, a pošto je i crevo za odvod bilo delimično začepljeno, očistio je i njega. Od tada se bubanj isprazni do poslednje kapi — popravka umesto nove pumpe, baš kako treba."
+    "text": "Voda je posle svakog pranja ostajala u bubnju mog Boscha, pa je veš izlazio natopljen. Majstor je još na terenu otvorio pumpu i izvadio košticu masline koja se zakačila za elisu, a pošto je i crevo za odvod bilo delimično začepljeno, očistio je i njega. Od tada se bubanj isprazni do poslednje kapi – popravka umesto nove pumpe, baš kako treba."
   },
   {
     "id": "milica-k-vozdovac",
@@ -33,7 +33,7 @@
     "rating": 5,
     "date": "2026-04-09",
     "service": "Zamena ležajeva i zaptivača",
-    "text": "Kod Whirlpoola mi je pri centrifuzi mašina tutnjala kao da u kupatilu sleće avion, a onda je počela i da curi ispod. Majstor je rekao da su ležajevi pojedeni i da je zaptivač pustio, pa je celu mašinu rastavio do zadnjeg šrafa. Zamenio je oba ležaja, stavio nov zaptivač i sve ponovo sklopio — sada je tiha kao prvog dana."
+    "text": "Kod Whirlpoola mi je pri centrifuzi mašina tutnjala kao da u kupatilu sleće avion, a onda je počela i da curi ispod. Majstor je rekao da su ležajevi pojedeni i da je zaptivač pustio, pa je celu mašinu rastavio do zadnjeg šrafa. Zamenio je oba ležaja, stavio nov zaptivač i sve ponovo sklopio – sada je tiha kao prvog dana."
   },
   {
     "id": "ana-m-cukarica",
@@ -42,7 +42,7 @@
     "rating": 5,
     "date": "2026-06-18",
     "service": "Popravka programatora i elektronike",
-    "text": "Na LG mašini mi je usred pranja program počeo sam od sebe da se menja, a ponekad bi se mašina sasvim i ugasila. Majstor je došao na teren, povezao dijagnostiku i na ploči programatora našao nekoliko napuklih spojeva. Zalemio ih je i koroziju očistio sve na terenu, bez odvoženja u radionicu — od tada program ide tačno onako kako ga izaberem."
+    "text": "Na LG mašini mi je usred pranja program počeo sam od sebe da se menja, a ponekad bi se mašina sasvim i ugasila. Majstor je došao na teren, povezao dijagnostiku i na ploči programatora našao nekoliko napuklih spojeva. Zalemio ih je i koroziju očistio sve na terenu, bez odvoženja u radionicu – od tada program ide tačno onako kako ga izaberem."
   },
   {
     "id": "stefan-v-novi-beograd",
@@ -51,6 +51,6 @@
     "rating": 5,
     "date": "2026-08-30",
     "service": "Preventivno održavanje i čišćenje",
-    "text": "Pozvao sam majstora čisto preventivno — Samsung je prao sve kako treba, ali je počeo da miriše na vlagu i voda je oticala sporo. Majstor je očistio filtar i pumpu, sredio gumu na vratima i pustio program za čišćenje bubnja, a na kraju mi je objasnio i kako da sam održavam mašinu da ne dođe do većih kvarova. Sad veš miriše na čisto, i drago mi je što znam da je sve u redu."
+    "text": "Pozvao sam majstora čisto preventivno – Samsung je prao sve kako treba, ali je počeo da miriše na vlagu i voda je oticala sporo. Majstor je očistio filtar i pumpu, sredio gumu na vratima i pustio program za čišćenje bubnja, a na kraju mi je objasnio i kako da sam održavam mašinu da ne dođe do većih kvarova. Sad veš miriše na čisto, i drago mi je što znam da je sve u redu."
   }
 ]

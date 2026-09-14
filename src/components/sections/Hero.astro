@@ -13,7 +13,7 @@ import Icon from '../common/Icon.astro';
 const rating = await getAggregateRating();
 
 // Hero badges are translated in place (they do NOT duplicate
-// siteConfig.trustBadges — TrustBar already renders that array directly
+// siteConfig.trustBadges – TrustBar already renders that array directly
 // below this section on the home page, so reusing it here would show the
 // same five badges twice on one screen).
 const heroBadges = [
@@ -28,7 +28,7 @@ const heroBadges = [
        servisera veš mašina na terenu -->
   <Image
     src={heroImage}
-    alt={`${siteConfig.name} — servis i popravka veš mašina na terenu u Beogradu`}
+    alt={`${siteConfig.name} – servis i popravka veš mašina na terenu u Beogradu`}
     widths={[768, 1080, 1440, 1920]}
     sizes="100vw"
     quality={55}
@@ -46,8 +46,7 @@ const heroBadges = [
       {siteConfig.tagline}
     </h1>
     <p class="mt-5 max-w-2xl text-lg leading-relaxed text-slate-200">
-      Popravka veš mašina svih marki — izlazak na teren u celom Beogradu,
-      originalni rezervni delovi i garancija na rad i delove.
+      Ako mašina tutnji pri centrifugi ili uopšte ne izbacuje vodu, dolazimo na vašu adresu u Beogradu. Popravljamo sve marke. Ugrađujemo originalne delove i dajemo garanciju na rad i delove.
     </p>
     <div class="mt-8 flex flex-wrap items-center gap-4">
       <Button href="/zatrazi-ponudu/" size="lg">Zatražite ponudu</Button>

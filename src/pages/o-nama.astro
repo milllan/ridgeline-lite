@@ -31,7 +31,7 @@ const team = [
     photo: marcusPhoto,
     name: 'Glavni majstor',
     role: 'Servis i popravka veš mašina',
-    bio: `Naš glavni majstor radi sa veš mašinama svih marki — od utvrđivanja kvara na licu mesta do zamene dela i garancije na popravku. Na broj ${siteConfig.phone} javlja se majstor, ne kol centar.`,
+    bio: `Naš glavni majstor radi sa veš mašinama svih marki – od utvrđivanja kvara na licu mesta do zamene dela i garancije na popravku. Na broj ${siteConfig.phone} javlja se majstor, ne kol centar.`,
   },
 ];
 
@@ -44,12 +44,12 @@ const credentials = [
   {
     icon: 'badge-check',
     title: 'Originalni rezervni delovi',
-    text: 'Radimo sa originalnim rezervnim delovima, prilagođenim marki i modelu vaše mašine — zamenske delove ugrađujemo samo uz vašu saglasnost.',
+    text: 'Radimo sa originalnim rezervnim delovima, prilagođenim marki i modelu vaše mašine – zamenske delove ugrađujemo samo uz vašu saglasnost.',
   },
   {
     icon: 'thumbs-up',
     title: 'Garancija na sve popravke',
-    text: 'Na svaku popravku dajemo garanciju na rad i ugrađene delove — pitajte za uslove garancije pre početka posla.',
+    text: 'Na svaku popravku dajemo garanciju na rad i ugrađene delove – pitajte za uslove garancije pre početka posla.',
   },
   {
     icon: 'users',
@@ -61,11 +61,11 @@ const credentials = [
 
 <BaseLayout
   title="O nama"
-  description={`${siteConfig.name} — servis i popravka veš mašina u Beogradu od ${siteConfig.stats.yearFounded}. godine. Upoznajte našeg majstora i pogledajte kako radimo.`}
+  description={`${siteConfig.name} – servis i popravka veš mašina u Beogradu od ${siteConfig.stats.yearFounded}. godine. Upoznajte našeg majstora i pogledajte kako radimo.`}
 >
   <PageHero
     title="Majstor iza garancije"
-    lead={`Servis i popravka veš mašina od ${siteConfig.stats.yearFounded}. godine — isti majstor, isti broj telefona i isto pravilo: ne popravljamo ono što ne treba popravljati.`}
+    lead={`Servis i popravka veš mašina od ${siteConfig.stats.yearFounded}. godine – isti majstor, isti broj telefona i isto pravilo: ne popravljamo ono što ne treba popravljati.`}
     crumbs={[{ label: 'O nama' }]}
   />
 
@@ -82,7 +82,7 @@ const credentials = [
             {siteConfig.logoText} je radionica za servis i popravku veš mašina
             iz Beograda. Krenuli smo od jednostavne ideje: majstor dolazi na
             adresu, utvrđuje kvar na licu mesta i kaže vam šta stvarno treba
-            popraviti — pre nego što bilo šta košta.
+            popraviti – pre nego što bilo šta košta.
           </p>
           <p>
             Uz dobru dijagnozu ide i jasna cena: pre početka rada znate tačno
@@ -90,19 +90,19 @@ const credentials = [
             nema smisla. Od {siteConfig.stats.yearFounded}. godine završili
             smo više od {siteConfig.stats.projectsCompleted.toLocaleString('sr-Latn-RS')}{" "}
             popravki, i većina novih poziva dolazi po preporuci starih
-            kupaca — najbolji dokaz da pravilo držimo i dalje.
+            kupaca – najbolji dokaz da pravilo držimo i dalje.
           </p>
           <p>
             Danas izlazimo na teren u celom Beogradu, radimo sa originalnim
             rezervnim delovima i na svaku popravku dajemo garanciju na rad i
-            delove — ista merila za manju i veću popravku.
+            delove – ista merila za manju i veću popravku.
           </p>
         </div>
       </div>
       <!-- TODO: zameniti placeholder fotografiju (krovopokrivački tim) slikom naše radionice -->
       <Image
         src={crewImage}
-        alt={`${siteConfig.name} — naša radionica`}
+        alt={`${siteConfig.name} – naša radionica`}
         widths={[640, 960, 1280]}
         sizes="(min-width: 1024px) 600px, 100vw"
         class="rounded-lg object-cover shadow-md"
@@ -132,7 +132,7 @@ const credentials = [
       <SectionHeading
         eyebrow="Tim"
         title="Majstor koji se javlja na telefon"
-        lead="Bez posrednika i kol centara — telefon uzima majstor koji će i popraviti mašinu."
+        lead="Bez posrednika i kol centara – telefon uzima majstor koji će i popraviti mašinu."
       />
       <!-- Single technician card (collapsed from a 3-person grid): one card
            reads as intentional when centered at reading width. -->
@@ -143,7 +143,7 @@ const credentials = [
             <div class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
               <Image
                 src={member.photo}
-                alt={`${member.name} — ${member.role}, ${siteConfig.name}`}
+                alt={`${member.name} – ${member.role}, ${siteConfig.name}`}
                 widths={[400, 800]}
                 sizes="(min-width: 640px) 448px, 100vw"
                 class="aspect-square w-full object-cover"
