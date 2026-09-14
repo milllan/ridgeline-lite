@@ -17,23 +17,23 @@ const inputClass =
 ---
 
 <BaseLayout
-  title="Contact Us"
-  description={`Reach ${siteConfig.name} — call ${siteConfig.phone}, email, or send a message. Serving the Denver metro with 24/7 emergency storm response.`}
+  title="Kontakt"
+  description={`Kontaktirajte ${siteConfig.name} — pozovite ${siteConfig.phone} ili pošaljite poruku. Servis i popravka veš mašina na terenu u celom Beogradu.`}
 >
   <PageHero
-    title="Talk to a roofer, not a phone tree"
-    lead="Call, email, or send the form — a real person from our Denver office replies within one business day."
-    crumbs={[{ label: 'Contact' }]}
+    title="Razgovarajte direktno sa majstorom"
+    lead="Pozovite, pišite ili pošaljite poruku — odgovaramo u najkraćem roku, obično istog dana."
+    crumbs={[{ label: 'Kontakt' }]}
   />
 
   <section class="bg-surface py-16 md:py-20">
     <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-5 lg:px-8">
       <!-- Form -->
       <div class="lg:col-span-3">
-        <h2 class="font-heading text-2xl font-bold uppercase text-dark">Send us a message</h2>
+        <h2 class="font-heading text-2xl font-bold uppercase text-dark">Pošaljite nam poruku</h2>
         <p class="mt-2 text-sm text-slate-600">
-          Need a quote? The <a href="/quote/" class="font-medium text-accent-ink hover:underline">quote form</a>
-          collects the roof details and is usually faster. For everything else, this works.
+          Trebate ponudu? <a href="/quote/" class="font-medium text-accent-ink hover:underline">Forma za zahtev ponude</a>
+          prikuplja detalje o kvaru i mašini i obično je brža. Za sve ostalo, ova poruka sasvim dobro funkcioniše.
         </p>
         <form {...formAttributes('contact')} class="mt-6 grid gap-5 sm:grid-cols-2">
           <FormBackendFields formName="contact" />
@@ -106,7 +106,7 @@ const inputClass =
               <Icon name="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               <span>
                 {address.street}<br />
-                {address.city}, {address.state} {address.zip}
+                {address.zip} {address.city}
               </span>
             </p>
             <p>

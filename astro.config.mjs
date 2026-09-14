@@ -8,7 +8,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   // Update this to your production domain before deploying.
   // It is used for canonical URLs, Open Graph tags, and the sitemap.
-  site: 'https://ridgeline-lite-demo.vercel.app',
+  // TODO: placeholder domain — replace with the real production domain.
+  site: 'https://servis-ves-masina-beograd.example.com',
   output: 'static',
   trailingSlash: 'always',
   // Astro 7 defaults to 'jsx' (strips whitespace at cross-line inline
