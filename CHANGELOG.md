@@ -4,6 +4,42 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] — 2026-09-14
+
+Rebrand **T2** (epic #2): services content collection rewritten from
+roofing to washing-machine repair, Serbian Latin (6 MDX files renamed +
+rewritten). Placeholder content, marked with in-file TODO comments.
+(NOTE: anchors above [2.0.0] — merges textually-conflict with the T1
+entry in PR #7; keep both when merging the second.)
+
+### Changed
+- New services (order): Popravka veš mašina — svi kvarovi (1), Zamena i
+  popravka pumpi (2), Zamena grejača i termostata (3), Zamena ležajeva i
+  zaptivača (4), Popravka programatora i elektronike (5), Preventivno
+  održavanje i čišćenje (6). Each with Serbian excerpt (146–201 chars),
+  heroImageAlt, and 4 tailored processSteps (poziv → dijagnoza → popravka
+  → garancija). MDX bodies are short Serbian summaries for the upcoming
+  per-brand pages (#4) — not rendered by current templates.
+- Icons remapped to the existing set (wrench, droplets, zap, hammer,
+  clipboard-check, shield-check); heroImage slots unchanged (photos are
+  task #3).
+
+### Review-driven fixes (3 lanes + delta re-review)
+- Grammar/terminology: "sva spoja"→"sve spojeve", "kodu greške"→"kod
+  greške", "nedoprano veš"→"nedoprani veš", directional "na terenu"→"na
+  teren" (stationary locative kept where correct), "uvid/uvidimo"→
+  canonical phrasing, "grmljavina"→"tutnjava/lupanje", consistent
+  "centrifuzi", inflected "originalnim delom/delovima" (standalone
+  "original delovi" noun-lists kept as commercial register).
+- Claim honesty: all same-day/first-visit timing claims removed (owner
+  re-adds a confirmed SLA later); "jeftiniji od svake popravke" hedged;
+  invented "season of intensive washing" dropped.
+
+### Verified
+- build + check green; content greps clean (roofing vocab only in
+  heroImage asset filenames — replaced by #3); dist renders new Serbian
+  titles in home cards + footer.
+
 ## [2.0.0] — 2026-09-13
 
 Upgraded from Astro 5.18 to **Astro 7.3** (through Astro 6.4), matching the
