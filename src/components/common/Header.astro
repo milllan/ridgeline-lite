@@ -23,19 +23,25 @@ const isActive = (href: string) =>
   <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
     <p class="flex items-center gap-2">
       <Icon name="shield-check" class="h-4 w-4 text-primary" />
-      Licensed &amp; Insured · {siteConfig.licenseLine}
+      {siteConfig.licenseLine}
     </p>
     <div class="flex items-center gap-6">
       <p class="flex items-center gap-2">
         <Icon name="clock" class="h-4 w-4" />
-        Mon–Fri 7 AM – 6 PM · Sat 8 AM – 4 PM
+        {
+          siteConfig.hours
+            .map((row) =>
+              row.close ? `${row.days} ${row.open}–${row.close}` : `${row.days}: ${row.open}`,
+            )
+            .join(' · ')
+        }
       </p>
       <a
         href={siteConfig.phoneHref}
         class="flex items-center gap-2 font-semibold text-white hover:text-primary"
       >
         <Icon name="zap" class="h-4 w-4 text-primary" />
-        24/7 Storm Line: {siteConfig.phone}
+        Pozovite odmah: {siteConfig.phone}
       </a>
     </div>
   </div>
@@ -83,14 +89,14 @@ const isActive = (href: string) =>
            the quote CTA there. (Wrapper div: Button's own display class
            would conflict with `hidden`.) -->
       <div class="hidden sm:block">
-        <Button href="/quote/">Free Quote</Button>
+        <Button href="/quote/">Zatraži ponudu</Button>
       </div>
 
       <!-- Mobile phone shortcut -->
       <a
         href={siteConfig.phoneHref}
         class="flex h-11 w-11 items-center justify-center rounded-md bg-primary text-on-primary lg:hidden"
-        aria-label={`Call ${siteConfig.name} at ${siteConfig.phone}`}
+        aria-label={`Pozovite ${siteConfig.name} na broj ${siteConfig.phone}`}
       >
         <Icon name="phone" class="h-5 w-5" />
       </a>
@@ -103,7 +109,7 @@ const isActive = (href: string) =>
         aria-controls="mobile-menu"
         aria-expanded="false"
       >
-        <span class="sr-only">Open main menu</span>
+        <span class="sr-only">Otvori glavni meni</span>
         <span id="menu-icon-open"><Icon name="menu" class="h-6 w-6" /></span>
         <span id="menu-icon-close" class="hidden"><Icon name="x" class="h-6 w-6" /></span>
       </button>
@@ -132,7 +138,7 @@ const isActive = (href: string) =>
         }
       </ul>
       <div class="mt-4 grid gap-3">
-        <Button href="/quote/" class="w-full">Get a Free Quote</Button>
+        <Button href="/quote/" class="w-full">Zatraži ponudu</Button>
         <a
           href={siteConfig.phoneHref}
           class="flex items-center justify-center gap-2 rounded-md border-2 border-dark px-5 py-3 font-heading text-base font-semibold uppercase tracking-wide text-dark"

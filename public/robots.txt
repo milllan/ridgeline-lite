@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ridgeline-lite-demo.vercel.app/sitemap-index.xml
+# TODO: placeholder domain — replace with the real production domain
+# (keep in sync with `site` in astro.config.mjs)
+Sitemap: https://servis-ves-masina-beograd.example.com/sitemap-index.xml
