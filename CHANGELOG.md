@@ -4,6 +4,13 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.15.2] — 2026-09-15
+
+FAQ na naslovnoj (#22 §3): 3 opšta pitanja (besplatna konstatacija uz
+popravku, preuzimanje u radionicu, vikendom po dogovoru) – komponenta
++ FAQPage šema preko BaseLayout faq propa; pitanja su namerno drugačija
+od simptomskih na /usluge/ da šeme ne dupliraju sadržaj.
+
 ## [2.15.1] — 2026-09-15
 
 Brend batch 2 po Dejanovoj listi (#21): Indesit (order 2) i LG
