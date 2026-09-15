@@ -4,6 +4,14 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.10.1] — 2026-09-15
+
+Majstor-confirmed data (WhatsApp, PR #27): radno vreme 08:00–20:00
+(Pon–Sub; times confirmed, Sunday still TODO in site.ts) and lokal 62
+added to the address — the directory harvest said 64, Dejan's answer
+wins. Propagates via siteConfig to Header/Footer/kontakt/JSON-LD and
+the open/closed status dot.
+
 ## [2.10.0] — 2026-09-15
 
 Opština landing pages (issue #25): new `opstine` collection +

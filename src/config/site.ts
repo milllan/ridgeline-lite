@@ -59,8 +59,8 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Hours
    * ---------------------------------------------------------- */
-  // Confirmed by the majstor 2026-09-15: "Radno vreme od 8-20" (times only).
-  // Days assumed Pon–Sub pending Sunday confirmation.
+  // Times confirmed by the majstor 2026-09-15 ("Radno vreme od 8-20").
+  // TODO: confirm Sunday — days assumed Pon–Sub for now.
   hours: [
     { days: 'Ponedeljak – Subota', open: '08:00', close: '20:00' },
     { days: 'Nedelja', open: 'ne radimo', close: '' },
