@@ -4,6 +4,13 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.15.1] — 2026-09-15
+
+Brend batch 2 po Dejanovoj listi (#21): Indesit (order 2) i LG
+(order 3) na /brendovi/ – isti obrazac kao Gorenje, DRAFT-flagovani
+kvarovi za Dejanovu potvrdu. LG copy: Direct Drive = direktni pogon
+bez remena (fakt, bez brend-superlativa).
+
 ## [2.15.0] — 2026-09-15
 
 Druga opština: Stari grad (#25 pattern, najbolji segment kupaca po
