@@ -1,7 +1,7 @@
 ---
 /**
- * Home page – Lite edition (6 sections): Hero → TrustBar → Services →
- * WhyUs → Reviews → FinalCTA. The Pro version adds featured
+ * Home page – Lite edition (7 sections): Hero → TrustBar → Services →
+ * MajstorBelt → WhyUs → Reviews → FinalCTA. The Pro version adds featured
  * before/after projects, the service-area system, and financing.
  */
 import { getCollection } from 'astro:content';
@@ -14,6 +14,9 @@ import ServicesGrid from '../components/sections/ServicesGrid.astro';
 import WhyUs from '../components/sections/WhyUs.astro';
 import ReviewsCarousel from '../components/reviews/ReviewsCarousel.astro';
 import FinalCTA from '../components/sections/FinalCTA.astro';
+import Button from '../components/common/Button.astro';
+import Icon from '../components/common/Icon.astro';
+import OpenStatusDot from '../components/common/OpenStatusDot.astro';
 import SectionHeading from '../components/common/SectionHeading.astro';
 import { siteConfig } from '../config/site';
 
@@ -55,6 +58,39 @@ const heroPreload = await getImage({
       />
       <div class="mt-12">
         <ServicesGrid services={services} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Majstor-targeting belt (#22 §2, epic #28 E): the H2 targets the
+       "majstor za veš mašinu" cluster without touching the H1. -->
+  <section class="bg-white py-16 md:py-20" aria-labelledby="majstor-heading">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-center gap-8 rounded-lg border border-slate-200 bg-surface p-8 shadow-sm md:grid-cols-[1fr_auto] md:p-10">
+        <div>
+          <h2 id="majstor-heading" class="font-heading text-2xl font-bold uppercase tracking-wide text-dark sm:text-3xl">
+            Majstor za veš mašinu – Beograd
+          </h2>
+          <p class="mt-4 max-w-2xl leading-relaxed text-slate-600">
+            Vašu mašinu popravlja majstor Dejan – manje kvarove otklanja kod vas u stanu,
+            u svim beogradskim opštinama, a za obimnije popravke preuzima mašinu u radionicu
+            i vraća je popravljenu. Pozovite ga direktno i dogovorite termin.
+          </p>
+          <a
+            href="/o-nama/"
+            class="mt-4 inline-flex items-center gap-1.5 font-heading text-sm font-semibold uppercase tracking-wide text-primary-ink hover:text-dark"
+          >
+            Upoznajte majstora Dejana
+            <Icon name="arrow-right" class="h-4 w-4" />
+          </a>
+        </div>
+        <div class="flex flex-col items-start gap-3 md:items-end">
+          <Button href={siteConfig.phoneHref}>
+            <Icon name="phone" class="h-5 w-5" />
+            {siteConfig.phone}
+          </Button>
+          <OpenStatusDot />
+        </div>
       </div>
     </div>
   </section>
