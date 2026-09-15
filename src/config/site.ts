@@ -79,13 +79,12 @@ export const siteConfig = {
   },
   /* ----------------------------------------------------------
    * Analytics (StatCounter — same provider as the owner's other sites).
-   * Renders in BaseLayout only when statcounterProject > 0.
+   * Renders in BaseLayout only in PROD builds with project > 0.
    * -------------------------------------------------------- */
   analytics: {
     statcounterProject: 13355162,
     statcounterSecurity: '0d30cb80',
   },
-
 
   /* ----------------------------------------------------------
    * Lead form backend
