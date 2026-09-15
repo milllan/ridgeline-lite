@@ -4,6 +4,15 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.13.0] — 2026-09-15
+
+Brend stranice (#4 spec, epic #28 D): brands kolekcija (zod šema,
+commonFaults) + /brendovi/[slug]/ ruta. Prva stranica: servis Gorenje
+veš mašina – hibridna formulacija, originalni delovi uz saglasnost,
+garancija (delovi 1 god), telefon visoko; kvarovi generički DRAFT-flagovani
+(#21). "Servis po markama" strip na /usluge/ je data-driven – sledeća
+marka = jedan content fajl, nula koda (isti skal kao #25 opštine).
+
 ## [2.12.0] — 2026-09-15
 
 FAQ po simptomima na /usluge/ (epic #28 C, #22 §3): FaqSection
