@@ -4,6 +4,16 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.11.0] — 2026-09-15
+
+Formspree wired to the real endpoint (owner: f/meaojqko) + progressive
+enhancement (epic #28 A): fetch-based submit (Accept: application/json)
+redirects to /hvala/ so the free tier needs no paid custom redirect;
+native POST stays as the no-JS fallback (_next kept). Inline failure
+message on both forms (zatrazi-ponudu, kontakt) via [data-form-status].
+NOTE: Formspree reCAPTCHA must be disabled in the form settings or the
+AJAX call 403s (verified live, test submission rejected).
+
 ## [2.10.2] — 2026-09-15
 
 Honesty fix from PR-comment sweep (CodeRabbit, #27): dropped the
