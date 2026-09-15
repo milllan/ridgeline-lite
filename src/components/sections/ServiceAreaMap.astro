@@ -10,9 +10,16 @@
 // administrative boundaries.
 // TODO: verify with the business which areas are actually covered.
 //
+// Workshop pin: the majstor's real address (Vidikovački venac 104,
+// Rakovica), per OSM Nominatim house-level match — shown as a distinct
+// pin, separate from the municipality dots. Coordinates come from
+// siteConfig.geo (single source of truth, also feeds the JSON-LD).
+//
 // Savski venac is omitted from the dot list: its center lies within ~3 km
 // of the neighbouring central municipalities and its label collides in the
 // projected layout. The "I OKOLINA" caption note covers the wider service area.
+import { siteConfig } from '../../config/site';
+
 const municipalities = [
   { name: 'Zemun', latitude: 44.842, longitude: 20.409 },
   { name: 'Novi Beograd', latitude: 44.8065, longitude: 20.4128 },
@@ -36,6 +43,19 @@ const positioned = municipalities.map((municipality) => {
   const y = ((BOUNDS.latMax - latitude) / (BOUNDS.latMax - BOUNDS.latMin)) * H;
   return { name: municipality.name, x: Math.round(x), y: Math.round(y) };
 });
+
+// Workshop ("Naša lokacija") pin — projected with the same math.
+// NOTE: its label is manually anchored (right of the pin); the placement
+// algorithm above only governs municipality labels — re-check visually
+// (or via the projection assertions) if geo or BOUNDS change.
+const workshop = {
+  x: Math.round(
+    ((siteConfig.geo.longitude - BOUNDS.lngMin) / (BOUNDS.lngMax - BOUNDS.lngMin)) * W,
+  ),
+  y: Math.round(
+    ((BOUNDS.latMax - siteConfig.geo.latitude) / (BOUNDS.latMax - BOUNDS.latMin)) * H,
+  ),
+};
 
 /**
  * Collision-aware label placement: labels go to the right of their dot
@@ -165,6 +185,26 @@ const dots = positioned.map((dot) => {
       </g>
     ))
   }
+
+  <!-- Workshop pin: distinct from municipality dots (ring + bright core). -->
+  <g>
+    <circle cx={workshop.x} cy={workshop.y} r="12" class="fill-primary/15" />
+    <circle
+      cx={workshop.x}
+      cy={workshop.y}
+      r="5"
+      class="fill-primary-bright stroke-white"
+      stroke-width="1.5"
+    />
+    <text
+      x={workshop.x + 13}
+      y={workshop.y + 4}
+      class="fill-white font-semibold"
+      font-size="11"
+    >
+      Naša lokacija
+    </text>
+  </g>
 
   <text x="16" y={H - 16} class="fill-slate-500" font-size="10" letter-spacing="2">
     BEOGRAD · I OKOLINA

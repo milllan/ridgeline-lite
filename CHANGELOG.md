@@ -22,6 +22,29 @@ per image; orphaned roofing files deleted.
   grejač photo carries English in-image text. Real servicer photos remain
   the recommended long-term upgrade.
 
+## [2.9.0] — 2026-09-15
+
+Real business data (owner-provided): **majstor Dejan**, phone
+064/110-39-01 (tel:+381641103901), address Vidikovački venac 104,
+11090 Beograd (Rakovica). First launch blockers resolved.
+
+### Changed
+- `site.ts`: phone/phoneHref/address/geo (44.7396/20.4166, OSM Nominatim
+  house-level match; TODO on-site verify) — flows everywhere via config
+  (NAP, CTAs, JSON-LD, meta). defaultDescription phone updated.
+- Honesty fix (no registered business exists): licenseLine
+  "Radionica registrovana…" → "Servis veš mašina – dolazak na kućnu
+  adresu"; o-nama credentials card retitled likewise.
+- o-nama: team card "Majstor Dejan", "javlja se Dejan, ne kol centar";
+  kontakt hero "Razgovarajte direktno sa Dejanom".
+- ServiceAreaMap: distinct workshop pin ("Naša lokacija") at
+  siteConfig.geo (single source of truth per review), ring + bright
+  core, collision-asserted; municipality dots unchanged.
+
+### Also in this merge
+- Owner's /usluge-ai experiment page (AI photos variant, noindex,
+  sitemap-excluded; both photo sets stay until decided).
+
 ## [2.8.0] — 2026-09-15
 
 Open/closed status dot next to phone numbers (Header top bar, desktop
