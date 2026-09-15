@@ -46,7 +46,8 @@ const faqSchema = Astro.props.faq?.length
     <script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
     {faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
     {
-      siteConfig.analytics.statcounterProject > 0 && (
+      import.meta.env.PROD &&
+        siteConfig.analytics.statcounterProject > 0 && (
         <>
           <script
             is:inline

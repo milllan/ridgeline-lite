@@ -73,6 +73,10 @@ export const siteConfig = {
    * Social profiles (used in footer + JSON-LD sameAs)
    * ---------------------------------------------------------- */
   // TODO: placeholder identity — add real social profile URLs (empty = hidden)
+  social: {
+    facebook: '',
+    instagram: '',
+  },
   /* ----------------------------------------------------------
    * Analytics (StatCounter — same provider as the owner's other sites).
    * Renders in BaseLayout only when statcounterProject > 0.
@@ -82,10 +86,6 @@ export const siteConfig = {
     statcounterSecurity: '0d30cb80',
   },
 
-  social: {
-    facebook: '',
-    instagram: '',
-  },
 
   /* ----------------------------------------------------------
    * Lead form backend
