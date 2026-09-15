@@ -108,12 +108,19 @@ const scheduleJson = JSON.stringify(schedule);
 
 <style>
   .open-dot {
-    width: 8px;
-    height: 8px;
+    /* 12px box, border-box: 8px colored core (same as before) + 2px
+       white ring. (Tailwind preflight sets box-sizing: border-box,
+       so width MUST include the border or the core shrinks.) */
+    width: 12px;
+    height: 12px;
     border-radius: 9999px;
     display: inline-flex;
     flex-shrink: 0;
     align-self: center;
+    /* White ring: separates the dot from any background (orange CTA,
+       dark bar, white header). Border, not box-shadow, so the pulse
+       animation below keeps working around it. */
+    border: 2px solid rgba(255, 255, 255, 0.95);
     /* Neutral before JS runs — avoids a wrong-color flash. */
     background-color: #94a3b8; /* slate-400 */
     color: #94a3b8;
