@@ -4,6 +4,13 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.15.0] — 2026-09-15
+
+Druga opština: Stari grad (#25 pattern, najbolji segment kupaca po
+owneru – Dorćol/centar). Naselja: Dorćol, Stari grad, Kosančićev venac,
+Varoš. Hibridna formulacija + "bez vožnje do servisa" ugao za stanare.
+Nulta izmena koda – samo content fajl.
+
 ## [2.14.1] — 2026-09-15
 
 Launch prep: placeholder email (servis@example.rs) sada je skriven —
