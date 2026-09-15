@@ -34,12 +34,17 @@ The demo is built from `main` with two URL swaps in a throwaway worktree:
 git worktree add -b deploy/vesmasine-demo /tmp/vesmasine-demo main
 cd /tmp/vesmasine-demo
 npm ci && ASTRO_SITE=https://vesmasine.wpspeedopt.net npm run build
-rsync -a dist/ sculpiflex:/home/wpspeedopt/web/vesmasine.wpspeedopt.net/public_html/
+rsync -a --delete --exclude='.htaccess' --exclude='.htpasswd*' dist/ sculpiflex:/home/wpspeedopt/web/vesmasine.wpspeedopt.net/public_html/
 ssh sculpiflex 'chown -R wpspeedopt:wpspeedopt /home/wpspeedopt/web/vesmasine.wpspeedopt.net/public_html'
 git worktree remove /tmp/vesmasine-demo --force
 ```
 
 Canonicals/sitemap/OG in the demo point at the demo subdomain.
+
+NOTE: the rsync excludes protect the server-side `.htaccess` /
+`.htpasswd.*` (basic auth + X-Robots-Tag noindex). A bare
+`rsync --delete` without them wiped both on 2026-09-15 and briefly
+exposed the demo — keep the excludes.
 
 ## Teardown (when the real launch replaces it)
 
