@@ -26,11 +26,13 @@ export const siteConfig = {
   // TODO: placeholder identity — replace with real business details
   name: 'Servis Veš Mašina Beograd',
   /** Short name used in the logo lock-up. */
-  // TODO: placeholder identity — logo wording + tagline to be confirmed
+  // TODO: placeholder identity — logo wording to be confirmed
   logoText: 'Servis',
   logoSuffix: 'Veš Mašina',
+  // Tagline confirmed by owner 2026-09-15: brand list appended for SEO
+  // (top 5 by GSC impressions: Gorenje, Candy, Whirlpool, Ariston, Beko).
   tagline:
-    'Popravka veš mašina svih marki u Beogradu – brz dolazak, original delovi, garancija na rad.',
+    'Popravka veš mašina Beograd – brz dolazak, original delovi, garancija na rad. Gorenje, Candy, Whirlpool, Ariston, Beko i dr.',
   /** Identity line shown in the top bar and footer. NOTE: no registered
    * business yet (2026-09) — must NOT claim registration; reword when it
    * gets registered. */
