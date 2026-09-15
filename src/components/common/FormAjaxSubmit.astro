@@ -17,15 +17,19 @@
     forms.forEach((form) => {
       if (form.dataset.enhanced === 'true') return;
       form.dataset.enhanced = 'true';
+      let isSubmitting = false;
 
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
+        if (isSubmitting) return;
+        isSubmitting = true;
+
         const button = form.querySelector<HTMLButtonElement>(
           'button[type="submit"]',
         );
         const status = form.querySelector<HTMLElement>('[data-form-status]');
         if (button) button.disabled = true;
-        if (status) status.textContent = '';
+        if (status) status.textContent = 'Slanje…';
 
         try {
           const response = await fetch(form.action, {
@@ -41,6 +45,7 @@
           /* mreža ili CORS – pada na poruku ispod */
         }
 
+        isSubmitting = false;
         if (button) button.disabled = false;
         if (status) {
           status.textContent =
