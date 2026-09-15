@@ -11,6 +11,10 @@ Opština landing pages (issue #25): new `opstine` collection +
 104), 9 real naselja, hybrid-model wording, services grid, click-to-call.
 Second opština = one content file, zero code. Linked from /kontakt/ under
 the map; auto-included in sitemap; breadcrumbs render.
+Review triage (muse approve-with-nits + coderabbit geography catch — Cerak /
+Cerak Vinogradi / Žarkovo are Čukarica, swapped for Kneževac / Straževica /
+Resnik): separate `seoTitle` (`Servis veš mašina Rakovica – majstor Dejan
+064/110-39-01`) so the H1 stays clean.
 
 ## [2.9.1] — 2026-09-15
 
