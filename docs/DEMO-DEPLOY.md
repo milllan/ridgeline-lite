@@ -33,9 +33,7 @@ The demo is built from `main` with two URL swaps in a throwaway worktree:
 ```bash
 git worktree add -b deploy/vesmasine-demo /tmp/vesmasine-demo main
 cd /tmp/vesmasine-demo
-sed -i "s|site: 'https://servis-ves-masina-beograd.example.com'|site: 'https://vesmasine.wpspeedopt.net'|" astro.config.mjs
-sed -i 's|https://servis-ves-masina-beograd.example.com|https://vesmasine.wpspeedopt.net|' public/robots.txt
-npm ci && npm run build
+npm ci && ASTRO_SITE=https://vesmasine.wpspeedopt.net npm run build
 rsync -a dist/ sculpiflex:/home/wpspeedopt/web/vesmasine.wpspeedopt.net/public_html/
 ssh sculpiflex 'chown -R wpspeedopt:wpspeedopt /home/wpspeedopt/web/vesmasine.wpspeedopt.net/public_html'
 git worktree remove /tmp/vesmasine-demo --force
@@ -52,5 +50,5 @@ ssh sculpiflex '
   rm /root/.demo-vesmasine-creds'
 ```
 
-(Optionally make `site` env-driven — `ASTRO_SITE` — when the real domain
+(`site` is env-driven via `ASTRO_SITE` since 2.14.0; the default in main is the production domain)
 lands, so the sed-swap workaround disappears.)

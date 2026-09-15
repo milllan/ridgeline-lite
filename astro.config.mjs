@@ -6,10 +6,10 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  // Update this to your production domain before deploying.
-  // It is used for canonical URLs, Open Graph tags, and the sitemap.
-  // TODO: placeholder domain — replace with the real production domain.
-  site: 'https://servis-ves-masina-beograd.example.com',
+  // Canonical/OG/sitemap base URL. Default = the registered production
+  // domain (owner, plus.rs 2026-09-15). Override per environment with
+  // ASTRO_SITE (e.g. demo builds: ASTRO_SITE=https://vesmasine.wpspeedopt.net).
+  site: process.env.ASTRO_SITE || 'https://servisvesmasina-beograd.co.rs',
   output: 'static',
   trailingSlash: 'always',
   // Astro 7 defaults to 'jsx' (strips whitespace at cross-line inline

@@ -4,6 +4,15 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.14.0] — 2026-09-15
+
+Production domain wired: `site` is now env-driven (ASTRO_SITE) with the
+registered domain servisvesmasina-beograd.co.rs as default; robots.txt
+is a dynamic endpoint off the build URL (demo/prod can never point at
+each other's sitemap). Demo recipe simplified (no more sed swaps).
+Infra: CF zone + NS bart/clara + A @/www → server; HestiaCP domain
+under wpspeedopt. Ref #23 (domain registered).
+
 ## [2.13.1] — 2026-09-15
 
 Majstor-targeting H2 pojas na naslovnoj (#22 §2, epic #28 E): "Majstor
