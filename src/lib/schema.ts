@@ -1,4 +1,4 @@
-import { siteConfig } from '../config/site';
+import { siteConfig, hasEmail } from '../config/site';
 import { getAggregateRating } from './reviews';
 
 /**
@@ -23,7 +23,7 @@ export async function buildLocalBusiness(site: URL) {
     description: siteConfig.seo.defaultDescription,
     url: site.href,
     telephone: siteConfig.phoneHref.replace('tel:', ''),
-    email: siteConfig.email,
+    ...(hasEmail && { email: siteConfig.email }),
     image: new URL(siteConfig.seo.ogImage, site).href,
     address: {
       '@type': 'PostalAddress',

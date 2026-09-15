@@ -4,6 +4,13 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.14.1] — 2026-09-15
+
+Launch prep: placeholder email (servis@example.rs) sada je skriven —
+hasEmail guard u Footer/kontakt (blok se ne renderuje) i JSON-LD (polje
+se izostavlja) dok pravi email ne stigne od Dejana. IndexNow ključ u
+public/ za Bing/Yandex/Seznam ping po lansiranju.
+
 ## [2.14.0] — 2026-09-15
 
 Production domain wired: `site` is now env-driven (ASTRO_SITE) with the

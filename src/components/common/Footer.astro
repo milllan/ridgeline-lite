@@ -3,7 +3,7 @@
  * Site footer. All company data comes from src/config/site.ts.
  */
 import { getCollection } from 'astro:content';
-import { siteConfig } from '../../config/site';
+import { siteConfig, hasEmail } from '../../config/site';
 import { footerCompanyNav } from '../../config/nav';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
@@ -125,15 +125,17 @@ const socials = (
             {siteConfig.phone}
           </a>
         </p>
-        <p>
-          <a
-            href={`mailto:${siteConfig.email}`}
-            class="flex items-center gap-2.5 transition-colors hover:text-primary"
-          >
-            <Icon name="mail" class="h-4 w-4 shrink-0 text-primary" />
-            {siteConfig.email}
-          </a>
-        </p>
+        {hasEmail && (
+          <p>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              class="flex items-center gap-2.5 transition-colors hover:text-primary"
+            >
+              <Icon name="mail" class="h-4 w-4 shrink-0 text-primary" />
+              {siteConfig.email}
+            </a>
+          </p>
+        )}
       </address>
       <h3 class="mt-6 font-heading text-base font-bold uppercase tracking-wide text-white">
         Radno vreme
