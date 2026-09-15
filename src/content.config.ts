@@ -54,4 +54,24 @@ const opstine = defineCollection({
   }),
 });
 
-export const collections = { services, reviews, opstine };
+/**
+ * Brand landing pages (/brendovi/[slug]/) — spec #4, epic #28 D.
+ * Gorenje first; next brand = one content file, zero code changes.
+ * commonFaults are generic per-brand DRAFTs until the majstor confirms
+ * brand-specific weak points (#21) — flagged in each content file.
+ */
+const brands = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.mdx', base: './src/content/brands' }),
+  schema: z.object({
+    title: z.string(),
+    /** Meta <title>: carries phone/CTA tail; H1 uses title. */
+    seoTitle: z.string(),
+    excerpt: z.string().max(220),
+    /** Short brand name for headings/links (e.g. "Gorenje"). */
+    name: z.string(),
+    commonFaults: z.array(z.string()).min(3),
+    order: z.number().int(),
+  }),
+});
+
+export const collections = { services, reviews, opstine, brands };

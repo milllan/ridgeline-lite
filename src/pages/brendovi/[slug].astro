@@ -1,0 +1,90 @@
+---
+/**
+ * Brand landing pages (/brendovi/[slug]/) — spec #4, epic #28 D.
+ * Gorenje first; next brand = one content file, zero code changes.
+ * UI says "Marke" (natural Serbian for appliance brands) while the URL
+ * segment is /brendovi/ — intentional split, documented here (muse #4).
+ * Crumb uses short `name` (UX); title/H1 carry the full keyword.
+ *
+ * Titles carry the keyword ("Servis Gorenje veš mašina u Beogradu"),
+ * URL stays short per the #23 URL-vs-title logic.
+ */
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/common/PageHero.astro';
+import Button from '../../components/common/Button.astro';
+import Icon from '../../components/common/Icon.astro';
+import ServicesGrid from '../../components/sections/ServicesGrid.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+import { siteConfig } from '../../config/site';
+
+export async function getStaticPaths() {
+  const brands = await getCollection('brands');
+  return brands.map((brand) => ({
+    params: { slug: brand.id.replace(/\.mdx$/, '') },
+    props: { brand },
+  }));
+}
+
+const { brand } = Astro.props;
+const { Content } = await render(brand);
+const services = (await getCollection('services')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout title={brand.data.seoTitle} description={brand.data.excerpt}>
+  <PageHero
+    title={brand.data.title}
+    lead={brand.data.excerpt}
+    crumbs={[{ label: 'Marke' }, { label: brand.data.name }]}
+  />
+
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="space-y-4 leading-relaxed text-slate-600">
+        <Content />
+      </div>
+
+      <h2 class="mt-10 font-heading text-xl font-bold uppercase text-dark">
+        Najčešći kvarovi na {brand.data.name} veš mašinama
+      </h2>
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {
+          brand.data.commonFaults.map((fault) => (
+            <li class="rounded-full border border-slate-200 bg-surface px-4 py-1.5 text-sm font-medium text-slate-600">
+              {fault}
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <Button href={siteConfig.phoneHref}>
+          <Icon name="phone" class="h-5 w-5" />
+          Pozovite {siteConfig.phone}
+        </Button>
+        <a
+          href="/zatrazi-ponudu/"
+          class="inline-flex items-center gap-1.5 font-heading text-sm font-semibold uppercase tracking-wide text-primary-ink hover:text-dark"
+        >
+          Zatražite ponudu
+          <Icon name="arrow-right" class="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-2xl font-bold uppercase text-dark">
+        Usluge za {brand.data.name} veš mašine
+      </h2>
+      <div class="mt-8">
+        <ServicesGrid services={services} />
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+</BaseLayout>
