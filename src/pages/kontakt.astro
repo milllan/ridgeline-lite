@@ -10,7 +10,7 @@ import Icon from '../components/common/Icon.astro';
 import FormAjaxSubmit from '../components/common/FormAjaxSubmit.astro';
 import ServiceAreaMap from '../components/sections/ServiceAreaMap.astro';
 import { formAttributes } from '../lib/forms';
-import { siteConfig } from '../config/site';
+import { siteConfig, hasEmail } from '../config/site';
 
 const { address } = siteConfig;
 const inputClass =
@@ -126,15 +126,17 @@ const inputClass =
                 {siteConfig.phone}
               </a>
             </p>
-            <p>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                class="flex items-center gap-2.5 hover:text-primary-ink"
-              >
-                <Icon name="mail" class="h-4 w-4 shrink-0 text-primary" />
-                {siteConfig.email}
-              </a>
-            </p>
+            {hasEmail && (
+              <p>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  class="flex items-center gap-2.5 hover:text-primary-ink"
+                >
+                  <Icon name="mail" class="h-4 w-4 shrink-0 text-primary" />
+                  {siteConfig.email}
+                </a>
+              </p>
+            )}
           </address>
 
           <h3 class="mt-6 font-heading text-base font-bold uppercase tracking-wide text-dark">

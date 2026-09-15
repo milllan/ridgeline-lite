@@ -43,6 +43,8 @@ export const siteConfig = {
   /** tel: link version of the phone number (digits only). */
   phoneHref: 'tel:+381641103901',
   // TODO: placeholder identity — replace with real business details
+  // TODO: placeholder — real email pending from the majstor; hidden from
+  // rendering and JSON-LD while it contains "example." (hasEmail below).
   email: 'servis@example.rs',
   address: {
     street: 'Vidikovački venac 104, lokal 62',
@@ -142,3 +144,6 @@ export const siteConfig = {
 } as const;
 
 export type SiteConfig = typeof siteConfig;
+
+/** True when a real (non-placeholder) email is configured. */
+export const hasEmail = !siteConfig.email.toLowerCase().endsWith('@example.rs');
