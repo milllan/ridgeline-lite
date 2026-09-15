@@ -125,11 +125,13 @@ const services = (await getCollection('services')).sort(
     </div>
   </section>
 
-  <section class="bg-white py-12 md:py-16">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading text-xl font-bold uppercase text-dark">
-        Servis po markama
-      </h2>
+  {brands.length > 0 && (
+    <section class="bg-white py-12 md:py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* UI "marke" vs URL /brendovi/ – intentional split (muse #4) */}
+        <h2 class="font-heading text-xl font-bold uppercase text-dark">
+          Servis po markama
+        </h2>
       <ul class="mt-5 flex flex-wrap gap-3">
         {
           brands.map((brand) => (
@@ -144,9 +146,10 @@ const services = (await getCollection('services')).sort(
             </li>
           ))
         }
-      </ul>
-    </div>
-  </section>
+        </ul>
+      </div>
+    </section>
+  )}
 
   <FaqSection title="Najčešća pitanja o kvarovima" items={faqItems} />
 

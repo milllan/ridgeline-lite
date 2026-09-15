@@ -2,6 +2,10 @@
 /**
  * Brand landing pages (/brendovi/[slug]/) — spec #4, epic #28 D.
  * Gorenje first; next brand = one content file, zero code changes.
+ * UI says "Marke" (natural Serbian for appliance brands) while the URL
+ * segment is /brendovi/ — intentional split, documented here (muse #4).
+ * Crumb uses short `name` (UX); title/H1 carry the full keyword.
+ *
  * Titles carry the keyword ("Servis Gorenje veš mašina u Beogradu"),
  * URL stays short per the #23 URL-vs-title logic.
  */
@@ -43,7 +47,7 @@ const services = (await getCollection('services')).sort(
       </div>
 
       <h2 class="mt-10 font-heading text-xl font-bold uppercase text-dark">
-        Najčešći kvarovi koje srećemo
+        Najčešći kvarovi na {brand.data.name} veš mašinama
       </h2>
       <ul class="mt-4 flex flex-wrap gap-2">
         {
@@ -74,7 +78,7 @@ const services = (await getCollection('services')).sort(
   <section class="bg-surface py-16 md:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="font-heading text-2xl font-bold uppercase text-dark">
-        Usluge za {brand.data.name} mašine
+        Usluge za {brand.data.name} veš mašine
       </h2>
       <div class="mt-8">
         <ServicesGrid services={services} />
