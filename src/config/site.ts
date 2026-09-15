@@ -45,7 +45,7 @@ export const siteConfig = {
   // TODO: placeholder identity — replace with real business details
   email: 'servis@example.rs',
   address: {
-    street: 'Vidikovački venac 104',
+    street: 'Vidikovački venac 104, lokal 62',
     city: 'Rakovica, Beograd',
     zip: '11090',
   },
@@ -59,13 +59,14 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Hours
    * ---------------------------------------------------------- */
-  // TODO: placeholder — confirm working hours with the business
+  // Confirmed by the majstor 2026-09-15: "Radno vreme od 8-20" (times only).
+  // Days assumed Pon–Sub pending Sunday confirmation.
   hours: [
-    { days: 'Ponedeljak – Subota', open: '09:00', close: '17:00' },
+    { days: 'Ponedeljak – Subota', open: '08:00', close: '20:00' },
     { days: 'Nedelja', open: 'ne radimo', close: '' },
   ],
   /** Schema.org openingHours strings (24h clock). */
-  openingHoursSchema: ['Mo-Sa 09:00-17:00'],
+  openingHoursSchema: ['Mo-Sa 08:00-20:00'],
   emergencyNote: 'Hitni pozivi vikendom po dogovoru.',
 
   /* ----------------------------------------------------------
