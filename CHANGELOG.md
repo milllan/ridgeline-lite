@@ -4,6 +4,18 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.9.1] — 2026-09-15
+
+Hybrid service-model copy fix (owner clarification: on-site visits AND
+pickup-to-workshop for heavier jobs; workshop at Vidikovački venac 104).
+Six in-apartment-only overclaims corrected (WhyUs, o-nama credentials,
+usluge + usluge-ai leads, ležajeva step — bearings are the classic
+workshop job — general-repair MDX body + step). Review round: gemini
+request-changes (typo "servisimo", missed "na licu mesta" repair claim,
+inverted-logic lead — all fixed, lead adopted verbatim from its
+suggestion) + mimo approve. Remaining "na licu mesta" uses are diagnosis
+claims (true under hybrid model).
+
 ## [2.9.0] — 2026-09-15
 
 /usluge/ cards no longer show roofing stock (subset of issue #3). Six
