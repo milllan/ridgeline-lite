@@ -13,10 +13,19 @@ the launch blockers in epic #2 are resolved.
   `*.wpspeedopt.net` Cloudflare wildcard; LE cert via Hestia; noindex via
   X-Robots-Tag header behind auth.
 - Deploy/rebuild/teardown recipes: `docs/DEMO-DEPLOY.md`. The demo is
-  built from `main` with the demo URL swapped in (canonicals point at the
-  demo subdomain). After merging to main, re-rsync to refresh the demo.
-- `main` itself still builds with the placeholder domain
-  `servis-ves-masina-beograd.example.com`.
+  built from `main` with `ASTRO_SITE=https://vesmasine.wpspeedopt.net`
+  (canonicals point at the demo subdomain). After merging to main,
+  re-rsync to refresh the demo.
+- **Production domain (registered 2026-09-15, plus.rs):**
+  `servisvesmasina-beograd.co.rs` — Cloudflare zone in the owner's
+  account (access + API key at sculpiflex `/home/wpspeedopt/deploy.env`
+  — NEVER commit). HestiaCP web domain
+  under `wpspeedopt`; docroot
+  `/home/wpspeedopt/web/servisvesmasina-beograd.co.rs/public_html/`.
+  Soft-launched behind basic auth + X-Robots-Tag noindex until the
+  #22 §7 launch blockers clear.
+- `main` builds with the production domain by default (env
+  `ASTRO_SITE` overrides).
 
 ## Tracking & conventions
 

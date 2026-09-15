@@ -26,16 +26,14 @@ NEVER commit them — this repo is public).
 - Verified: 401 without/wrong creds; 200 on all routes with creds;
   X-Robots-Tag present; unknown routes → 404.
 
-## Build for the demo (NOT committed — main still builds with the placeholder domain)
+## Build for the demo (main builds the production domain; the demo overrides via env)
 
 The demo is built from `main` with two URL swaps in a throwaway worktree:
 
 ```bash
 git worktree add -b deploy/vesmasine-demo /tmp/vesmasine-demo main
 cd /tmp/vesmasine-demo
-sed -i "s|site: 'https://servis-ves-masina-beograd.example.com'|site: 'https://vesmasine.wpspeedopt.net'|" astro.config.mjs
-sed -i 's|https://servis-ves-masina-beograd.example.com|https://vesmasine.wpspeedopt.net|' public/robots.txt
-npm ci && npm run build
+npm ci && ASTRO_SITE=https://vesmasine.wpspeedopt.net npm run build
 rsync -a dist/ sculpiflex:/home/wpspeedopt/web/vesmasine.wpspeedopt.net/public_html/
 ssh sculpiflex 'chown -R wpspeedopt:wpspeedopt /home/wpspeedopt/web/vesmasine.wpspeedopt.net/public_html'
 git worktree remove /tmp/vesmasine-demo --force
@@ -52,5 +50,4 @@ ssh sculpiflex '
   rm /root/.demo-vesmasine-creds'
 ```
 
-(Optionally make `site` env-driven — `ASTRO_SITE` — when the real domain
-lands, so the sed-swap workaround disappears.)
+(`site` is env-driven via `ASTRO_SITE` since 2.14.0; main's default is the production domain, so the old sed-swap workaround is gone.)
