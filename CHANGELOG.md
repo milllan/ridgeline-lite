@@ -4,6 +4,16 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.16.1] — 2026-09-15
+
+Content drip (6 PRs, svaka stranica = zaseban task po owneru):
+opštine Novi Beograd (#46, + Blok 45/61/70 po recenziji) i Savski
+venac (#47, geografija korigovana pre merge-a: Lekino brdo i Staro
+sajmište nisu Savski venac → Zapadni Vračar + Prokop); brendovi
+Candy (#48), Whirlpool (#49), Ariston (#50, Merloni/Indesit nota) i
+Beko (#51) – H1 tagline lista sada ima sve stranice. Ukupno: 4 opštine,
+7 brendova, 17 stranica.
+
 ## [2.16.0] — 2026-09-15
 
 StatCounter analytics (isti provajder kao ostale owner-ove sesije;
