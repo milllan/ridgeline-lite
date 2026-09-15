@@ -7,6 +7,7 @@
  */
 import { siteConfig } from '../../config/site';
 import Icon from './Icon.astro';
+import OpenStatusDot from './OpenStatusDot.astro';
 ---
 
 <!-- Sentinel: while this (viewport-tall, zero-width) marker is on
@@ -22,6 +23,7 @@ import Icon from './Icon.astro';
     href={siteConfig.phoneHref}
     class="flex min-h-[56px] items-center justify-center gap-2 bg-dark font-heading text-base font-bold uppercase tracking-wide text-white"
   >
+    <OpenStatusDot />
     <Icon name="phone" class="h-5 w-5 text-primary" />
     Pozovite odmah
   </a>

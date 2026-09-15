@@ -1,0 +1,250 @@
+---
+/**
+ * OpenStatusDot — green/red status dot next to phone links.
+ *
+ * Schedule is parsed at BUILD time from siteConfig.openingHoursSchema
+ * (schema.org openingHours strings, e.g. "Mo-Sa 09:00-17:00") and
+ * embedded as JSON in data-open-schedule, so later config changes flow
+ * automatically with zero JS edits. If parsing fails the dot renders
+ * nothing (fail-closed, no JS errors).
+ *
+ * JS evaluates once on page load — no interval needed for a static site
+ * (a visitor keeping the tab open across the boundary keeps a stale dot
+ * until reload; acceptable trade-off, keeps the theme JS budget tiny).
+ */
+import { siteConfig } from '../../config/site';
+
+const DAY_INDEX: Record<string, number> = {
+  Mo: 1,
+  Tu: 2,
+  We: 3,
+  Th: 4,
+  Fr: 5,
+  Sa: 6,
+  Su: 0,
+};
+
+interface Interval {
+  days: number[];
+  open: number; // minutes since midnight (inclusive)
+  close: number; // minutes since midnight (exclusive)
+}
+
+function expandDays(token: string): number[] | null {
+  if (token.includes('-')) {
+    const parts = token.split('-');
+    if (parts.length !== 2) return null; // "Mo-We-Fr" is not a valid range
+    const [a, b] = parts;
+    if (!(a in DAY_INDEX) || !(b in DAY_INDEX)) return null;
+    const out: number[] = [];
+    let d = DAY_INDEX[a];
+    for (let i = 0; i < 7; i++) {
+      out.push(d);
+      if (d === DAY_INDEX[b]) return out;
+      d = (d + 1) % 7;
+    }
+    return out;
+  }
+  if (!(token in DAY_INDEX)) return null;
+  return [DAY_INDEX[token]];
+}
+
+function toMinutes(t: string): number | null {
+  // schema.org allows 24:00 as a closing time (until midnight).
+  if (t === '24:00') return 24 * 60;
+  const m = /^([01]\d|2[0-3]):([0-5]\d)$/.exec(t);
+  if (!m) return null;
+  return Number(m[1]) * 60 + Number(m[2]);
+}
+
+function parseOpeningHours(entries: readonly string[]): Interval[] {
+  const out: Interval[] = [];
+  for (const entry of entries) {
+    // Extract every "days HH:MM-HH:MM" rule. Handles compound entries
+    // ("Mo-Fr 09:00-17:00, Sa 09:00-14:00") and spaced day lists
+    // ("Mo, We, Fr 09:00-17:00"); invalid day tokens fail-closed later.
+    const rules = entry.matchAll(
+      /([A-Za-z][A-Za-z,\s-]*?)\s*(\d{2}:\d{2})\s*-\s*(\d{2}:\d{2})/g,
+    );
+    for (const [, dayList, open, close] of rules) {
+      const dayTokens = dayList
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean);
+      const openMin = toMinutes(open);
+      const closeMin = toMinutes(close);
+      if (openMin === null || closeMin === null) continue;
+      const days = new Set<number>();
+      let ok = true;
+      for (const tok of dayTokens) {
+        const expanded = expandDays(tok);
+        if (!expanded) {
+          ok = false;
+          break;
+        }
+        for (const d of expanded) days.add(d);
+      }
+      if (!ok || days.size === 0) continue;
+      out.push({ days: [...days].sort(), open: openMin, close: closeMin });
+    }
+  }
+  return out;
+}
+
+const schedule = parseOpeningHours(siteConfig.openingHoursSchema ?? []);
+const scheduleJson = JSON.stringify(schedule);
+---
+
+{
+  schedule.length > 0 && (
+    <>
+      <span class="open-dot" data-open-schedule={scheduleJson} aria-hidden="true" />
+      <span class="sr-only" data-open-status-text aria-live="polite">
+        Status radnog vremena
+      </span>
+    </>
+  )
+}
+
+<style>
+  .open-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-self: center;
+    /* Neutral before JS runs — avoids a wrong-color flash. */
+    background-color: #94a3b8; /* slate-400 */
+    color: #94a3b8;
+  }
+  /* Local greens/reds: the theme token palette (global.css) has no
+     green/red tokens. Emerald-600 (not 500) for WCAG non-text contrast
+     on the white header (3:1+); red-500 passes as-is. */
+  .open-dot[data-state='open'] {
+    background-color: #059669;
+    color: #10b981;
+    animation: open-dot-pulse 2s ease-out infinite;
+  }
+  .open-dot[data-state='closed'] {
+    background-color: #ef4444;
+    color: #ef4444;
+    animation: open-dot-pulse 2s ease-out infinite;
+  }
+  @keyframes open-dot-pulse {
+    0% {
+      box-shadow: 0 0 0 0 currentColor;
+      opacity: 1;
+    }
+    70% {
+      box-shadow: 0 0 0 6px transparent;
+      opacity: 0.85;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+      opacity: 1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .open-dot {
+      animation: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var w = window as unknown as Record<string, unknown>;
+    if (w.__openDotInit) return;
+    w.__openDotInit = true;
+
+    interface ScheduleInterval {
+      days: number[];
+      open: number;
+      close: number;
+    }
+    interface Now {
+      day: number;
+      minutes: number;
+    }
+
+    var dots = document.querySelectorAll<HTMLElement>('.open-dot');
+    if (!dots.length) return;
+    var labels = document.querySelectorAll('[data-open-status-text]');
+
+    var raw = dots[0].getAttribute('data-open-schedule');
+    var schedule: ScheduleInterval[] | null = null;
+    try {
+      schedule = JSON.parse(raw || 'null') as ScheduleInterval[] | null;
+    } catch {
+      schedule = null;
+    }
+    // Fail-closed: unparsable schedule → hide dots, no errors.
+    if (!Array.isArray(schedule) || !schedule.length) {
+      dots.forEach(function (d: HTMLElement) {
+        d.style.display = 'none';
+      });
+      labels.forEach(function (l: Element) {
+        (l as HTMLElement).textContent = '';
+      });
+      return;
+    }
+    var sched: ScheduleInterval[] = schedule;
+
+    // Visitor timezone must not matter — always evaluate in Europe/Belgrade.
+    function belgradeNow(date: Date): Now {
+      var parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Belgrade',
+        weekday: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        hourCycle: 'h23',
+      }).formatToParts(date);
+      var get = function (type: string): string {
+        for (var i = 0; i < parts.length; i++) {
+          if (parts[i].type === type) return parts[i].value;
+        }
+        return '';
+      };
+      var dayMap: Record<string, number> = {
+        Mon: 1,
+        Tue: 2,
+        Wed: 3,
+        Thu: 4,
+        Fri: 5,
+        Sat: 6,
+        Sun: 0,
+      };
+      return {
+        day: dayMap[get('weekday')] ?? -1,
+        minutes: Number(get('hour')) * 60 + Number(get('minute')),
+      };
+    }
+
+    function isOpen(now: Now): boolean {
+      for (var i = 0; i < sched.length; i++) {
+        var iv = sched[i];
+        if (
+          iv.days.indexOf(now.day) !== -1 &&
+          now.minutes >= iv.open &&
+          now.minutes < iv.close
+        ) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    // Page-load evaluation is enough (static site) — no 60s interval.
+    var open = isOpen(belgradeNow(new Date()));
+    var text = open ? 'Trenutno radimo' : 'Trenutno ne radimo';
+    dots.forEach(function (d: HTMLElement) {
+      d.setAttribute('data-state', open ? 'open' : 'closed');
+      d.setAttribute('title', text);
+    });
+    labels.forEach(function (l: Element) {
+      (l as HTMLElement).textContent = text;
+    });
+  })();
+</script>

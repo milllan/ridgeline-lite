@@ -4,6 +4,25 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.0] — 2026-09-15
+
+Open/closed status dot next to phone numbers (Header top bar, desktop
+bar, StickyCallBar) — green pulsing when the business is open, red when
+closed, like the reference site. Schedule parsed at BUILD time from
+`siteConfig.openingHoursSchema` into embedded JSON; client JS evaluates
+"now" in Europe/Belgrade (visitor TZ irrelevant), [start,end) semantics,
+fail-closed (unparsable schedule → dot hidden). A11y: aria-hidden dot,
+sr-only status text (aria-live) "Trenutno radimo/ne radimo", tooltip,
+prefers-reduced-motion respected.
+
+### Review-driven fixes (gemini request-changes + mimo approve)
+- Parser: spaced comma-lists ("Mo, We, Fr"), compound single strings
+  ("Mo-Fr 09:00-17:00, Sa 09:00-14:00") and 24:00 closings now parse;
+  malformed ranges ("Mo-We-Fr") fail closed (owner will edit hours
+  later — parser robustness was the point).
+- `hourCycle: 'h23'` (midnight "24" quirk); open-dot green → emerald-600
+  for WCAG non-text contrast on white.
+
 ## [2.7.0] — 2026-09-14
 
 De-AI copy pass (issue #16, phase 1). Two parts:
