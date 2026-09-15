@@ -31,31 +31,29 @@ export const siteConfig = {
   logoSuffix: 'Veš Mašina',
   tagline:
     'Popravka veš mašina svih marki u Beogradu – brz dolazak, original delovi, garancija na rad.',
-  /** Workshop registration line shown in the top bar and footer. */
-  // TODO: placeholder identity — replace with real business details
-  licenseLine: 'Radionica registrovana za servis i popravku bele tehnike',
+  /** Identity line shown in the top bar and footer. NOTE: no registered
+   * business yet (2026-09) — must NOT claim registration; reword when it
+   * gets registered. */
+  licenseLine: 'Servis veš mašina – dolazak na kućnu adresu',
 
   /* ----------------------------------------------------------
    * Contact (NAP — keep identical everywhere for local SEO)
    * -------------------------------------------------------- */
-  // TODO: placeholder identity — replace with real business details
-  phone: '061/352-45-03',
+  phone: '064/110-39-01',
   /** tel: link version of the phone number (digits only). */
-  // TODO: placeholder identity — replace with real business details
-  phoneHref: 'tel:+381613524503',
+  phoneHref: 'tel:+381641103901',
   // TODO: placeholder identity — replace with real business details
   email: 'servis@example.rs',
-  // TODO: placeholder identity — verify address (street/city/zip)
   address: {
-    street: 'Sretena Mladenovića Mike 11',
+    street: 'Vidikovački venac 104',
     city: 'Rakovica, Beograd',
-    zip: '11000',
+    zip: '11090',
   },
-  /** Coordinates used in the HomeAndConstructionBusiness JSON-LD. */
-  // TODO: placeholder identity — verify coordinates (Rakovica approx.)
+  /** Coordinates used in the HomeAndConstructionBusiness JSON-LD.
+   * OSM Nominatim house-level match (2026-09-15); TODO: verify on-site. */
   geo: {
-    latitude: 44.6978,
-    longitude: 20.4507,
+    latitude: 44.7396,
+    longitude: 20.4166,
   },
 
   /* ----------------------------------------------------------
@@ -127,13 +125,13 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Default SEO
    * -------------------------------------------------------- */
-  // TODO: placeholder copy — defaultDescription embeds the placeholder
-  // phone number; re-check it when the real identity is set
+  // NOTE: defaultDescription embeds the phone number — keep in sync when
+  // siteConfig.phone changes.
   seo: {
     siteName: 'Servis Veš Mašina Beograd',
     defaultTitle: 'Servis veš mašina Beograd – popravka svih marki',
     defaultDescription:
-      'Popravka veš mašina u Beogradu – sve marke, original delovi, garancija na popravku. Pozovite 061/352-45-03 za brz termin.',
+      'Popravka veš mašina u Beogradu – sve marke, original delovi, garancija na popravku. Pozovite 064/110-39-01 za brz termin.',
     /** Path to the default Open Graph image (in /public). */
     ogImage: '/og-default.jpg',
   },

@@ -25,21 +25,21 @@ const stats = [
   { value: `${rating.average}★`, label: 'Prosečna ocena' },
 ];
 
-// TODO: pravo ime, biografija i fotografija majstora — placeholder kartica.
+// TODO: fotografija majstora — ime je stvarno, slika je još placeholder.
 const team = [
   {
     photo: marcusPhoto,
-    name: 'Glavni majstor',
+    name: 'Majstor Dejan',
     role: 'Servis i popravka veš mašina',
-    bio: `Naš glavni majstor radi sa veš mašinama svih marki – od utvrđivanja kvara na licu mesta do zamene dela i garancije na popravku. Na broj ${siteConfig.phone} javlja se majstor, ne kol centar.`,
+    bio: `Naš glavni majstor radi sa veš mašinama svih marki – od utvrđivanja kvara na licu mesta do zamene dela i garancije na popravku. Na broj ${siteConfig.phone} javlja se Dejan, ne kol centar.`,
   },
 ];
 
 const credentials = [
   {
     icon: 'shield-check',
-    title: 'Registrovana radionica',
-    text: `${siteConfig.licenseLine}.`,
+    title: 'Dolazak na kućnu adresu',
+    text: 'Servis i popravku radimo kod vas u stanu, u svim beogradskim opštinama.',
   },
   {
     icon: 'badge-check',
@@ -132,11 +132,11 @@ const credentials = [
       <SectionHeading
         eyebrow="Tim"
         title="Majstor koji se javlja na telefon"
-        lead="Bez posrednika i kol centara – telefon uzima majstor koji će i popraviti mašinu."
+        lead="Bez posrednika i kol centara – telefon uzima Dejan, majstor koji će i popraviti mašinu."
       />
       <!-- Single technician card (collapsed from a 3-person grid): one card
            reads as intentional when centered at reading width. -->
-      <!-- TODO: pravo ime, biografija i fotografija majstora -->
+      <!-- TODO: fotografija majstora – ime je stvarno, slika je još placeholder -->
       <div class="mt-12 mx-auto max-w-md">
         {
           team.map((member) => (
