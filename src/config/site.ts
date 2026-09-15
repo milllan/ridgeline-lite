@@ -43,9 +43,9 @@ export const siteConfig = {
   /** tel: link version of the phone number (digits only). */
   phoneHref: 'tel:+381641103901',
   // TODO: placeholder identity — replace with real business details
-  // TODO: placeholder — real email pending from the majstor; hidden from
-  // rendering and JSON-LD while it contains "example." (hasEmail below).
-  email: 'servis@example.rs',
+  // Domain mailbox on sculpiflex (HestiaCP); webmail/IMAP creds are
+  // root-only on the server (/root/.mail-kontakt-servisvesmasina-creds).
+  email: 'kontakt@servisvesmasina-beograd.co.rs',
   address: {
     street: 'Vidikovački venac 104, lokal 62',
     city: 'Rakovica, Beograd',
@@ -73,6 +73,15 @@ export const siteConfig = {
    * Social profiles (used in footer + JSON-LD sameAs)
    * ---------------------------------------------------------- */
   // TODO: placeholder identity — add real social profile URLs (empty = hidden)
+  /* ----------------------------------------------------------
+   * Analytics (StatCounter — same provider as the owner's other sites).
+   * Renders in BaseLayout only when statcounterProject > 0.
+   * -------------------------------------------------------- */
+  analytics: {
+    statcounterProject: 13355162,
+    statcounterSecurity: '0d30cb80',
+  },
+
   social: {
     facebook: '',
     instagram: '',

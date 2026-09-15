@@ -45,6 +45,17 @@ const faqSchema = Astro.props.faq?.length
     <SEO {title} {description} {ogImage} {type} {noindex} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
     {faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+    {
+      siteConfig.analytics.statcounterProject > 0 && (
+        <>
+          <script
+            is:inline
+            set:html={`var sc_project=${siteConfig.analytics.statcounterProject}; var sc_invisible=1; var sc_security="${siteConfig.analytics.statcounterSecurity}";`}
+          />
+          <script is:inline async src="https://www.statcounter.com/counter/counter.js" />
+        </>
+      )
+    }
     <slot name="head" />
   </head>
   <body class="bg-white">

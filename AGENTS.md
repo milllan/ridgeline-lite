@@ -24,6 +24,10 @@ the launch blockers in epic #2 are resolved.
   `/home/wpspeedopt/web/servisvesmasina-beograd.co.rs/public_html/`.
   Soft-launched behind basic auth + X-Robots-Tag noindex until the
   #22 §7 launch blockers clear.
+- **Mail:** domain mailbox \`kontakt@servisvesmasina-beograd.co.rs\` on
+  HestiaCP (MX/SPF/DKIM/DMARC in the CF zone; creds root-only at
+  \`sculpiflex:/root/.mail-kontakt-servisvesmasina-creds\`). StatCounter
+  analytics configured in site.ts (gated on statcounterProject > 0).
 - `main` builds with the production domain by default (env
   `ASTRO_SITE` overrides).
 
