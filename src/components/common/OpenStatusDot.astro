@@ -93,15 +93,26 @@ function parseOpeningHours(entries: readonly string[]): Interval[] {
 
 const schedule = parseOpeningHours(siteConfig.openingHoursSchema ?? []);
 const scheduleJson = JSON.stringify(schedule);
+
+/** Set true when the dot renders INSIDE a link/button: skips the
+ * sr-only live text so it neither pollutes the link's accessible
+ * name nor puts a live region inside an interactive element. */
+interface Props {
+  inLink?: boolean;
+}
+
+const { inLink = false } = Astro.props;
 ---
 
 {
   schedule.length > 0 && (
     <>
       <span class="open-dot" data-open-schedule={scheduleJson} aria-hidden="true" />
-      <span class="sr-only" data-open-status-text aria-live="polite">
-        Status radnog vremena
-      </span>
+      {!inLink && (
+        <span class="sr-only" data-open-status-text aria-live="polite">
+          Status radnog vremena
+        </span>
+      )}
     </>
   )
 }
