@@ -50,3 +50,27 @@ export async function buildLocalBusiness(site: URL) {
     }),
   };
 }
+
+/**
+ * FAQPage structured data for a page's FAQ block (epic #28 C, #22 §3).
+ * Consumes the same FaqItem[] the FaqSection renders, so the visible
+ * answers and the schema can never drift apart.
+ */
+export function buildFaqPage(
+  faqs: { question: string; answer: string }[],
+  pageUrl: URL,
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': new URL('#faq', pageUrl).href,
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}

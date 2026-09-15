@@ -4,6 +4,15 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.12.0] — 2026-09-15
+
+FAQ po simptomima na /usluge/ (epic #28 C, #22 §3): FaqSection
+(details/summary, nula JS) + buildFaqPage() FAQPage JSON-LD kroz novi
+`faq` prop u BaseLayout – ista lista hrani prikaz i šemu, bez drifta.
+8 pitanja mapiranih na usluge; činjenice iz odobrene liste (garancija na
+delove 1 godina potvrđena od Dejana), odgovori DRAFT-flagovani za
+Dejanov pregled pre lansiranja.
+
 ## [2.11.0] — 2026-09-15
 
 Formspree wired to the real endpoint (owner: f/meaojqko) + progressive

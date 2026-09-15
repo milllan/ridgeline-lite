@@ -11,7 +11,56 @@ import PageHero from '../../components/common/PageHero.astro';
 import Button from '../../components/common/Button.astro';
 import Icon from '../../components/common/Icon.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
+import FaqSection from '../../components/sections/FaqSection.astro';
 import { siteConfig } from '../../config/site';
+
+// Najčešća pitanja po simptomu – 1:1 na usluge (epic #28 C, #22 §3).
+// DRAFT: potvrditi formulacije sa Dejanom pre lansiranja; činjenice su
+// iz odobrene liste (besplatna konstatacija uz popravku, originalni
+// delovi / zamenski uz saglasnost, garancija – delovi 1 godina,
+// hibridni model teren + radionica).
+const faqItems = [
+  {
+    question: 'Mašina ne centrifuriše – šta je najčešći uzrok?',
+    answer:
+      'Najčešće je do pumpe, pritiska ili elektronike. Pregledamo mašinu na vašoj adresi, a tačan uzrok i cenu popravke znate pre početka rada.',
+  },
+  {
+    question: 'Curi voda ispod mašine. Može li to da se popravi?',
+    answer:
+      'Curenje najčešće dolazi od zaptivača na vratima ili od creva. To su popravke koje radimo kod vas u stanu, a zaptivače menjamo originalnim delovima.',
+  },
+  {
+    question: 'Mašina buči i tutnji dok centrifuzira.',
+    answer:
+      'Bučna centrifuga u pravilu znači istrošene ležajeve. Zamena ležajeva je obimniji posao, pa mašinu po potrebi preuzimamo u radionicu i vraćamo je popravljenu.',
+  },
+  {
+    question: 'Voda ostaje u bubnju – mašina ne izbacuje vodu.',
+    answer:
+      'Uzrok je obično pumpa ili začepljen filter. Kvar konstatujemo kod vas, a pumpu menjamo uz garanciju na rad i delove.',
+  },
+  {
+    question: 'Voda se ne greje ili mašina loše pere.',
+    answer:
+      'Najčešći krivac je grejač. Grejač menjamo originalnim delom, a zamenski deo ugrađujemo samo ako saglasite s tim.',
+  },
+  {
+    question: 'Programator ne reaguje ili se program zaglavi.',
+    answer:
+      'Problem može biti u programatoru ili u elektronici mašine. Servisiramo i te sklopove, a procenu radimo na licu mesta, po marki i modelu.',
+  },
+  {
+    question: 'Da li dolazite na adresu u Beogradu?',
+    answer:
+      'Da – manje kvarove otklanjamo kod vas u stanu, u svim beogradskim opštinama. Za obimnije popravke preuzimamo mašinu u radionicu i vraćamo je popravljenu. Dolazak i konstatacija kvara su besplatni uz popravku.',
+  },
+  {
+    question: 'Da li dajete garanciju na popravku?',
+    answer:
+      'Da – na rad i ugrađene delove dajemo garanciju, a garancija na delove traje godinu dana. Koristimo originalne delove, a zamenske ugrađujemo samo uz vašu saglasnost.',
+  },
+];
 
 const services = (await getCollection('services')).sort(
   (a, b) => a.data.order - b.data.order,
@@ -21,6 +70,7 @@ const services = (await getCollection('services')).sort(
 <BaseLayout
   title="Usluge servisa veš mašina u Beogradu"
   description={`Popravka veš mašina u Beogradu za sve marke. Dolazimo na kućnu adresu, ugrađujemo originalne delove i dajemo garanciju na rad. Pozovite ${siteConfig.phone}.`}
+  faq={faqItems}
 >
   <PageHero
     title="Usluge"
@@ -71,6 +121,8 @@ const services = (await getCollection('services')).sort(
       }
     </div>
   </section>
+
+  <FaqSection title="Najčešća pitanja o kvarovima" items={faqItems} />
 
   <FinalCTA
     title="Niste sigurni u čemu je problem?"
