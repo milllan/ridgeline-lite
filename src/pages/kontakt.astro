@@ -11,8 +11,13 @@ import FormAjaxSubmit from '../components/common/FormAjaxSubmit.astro';
 import ServiceAreaMap from '../components/sections/ServiceAreaMap.astro';
 import { formAttributes } from '../lib/forms';
 import { siteConfig, hasEmail } from '../config/site';
+import { getCollection } from 'astro:content';
 
 const { address } = siteConfig;
+const opstine = (await getCollection('opstine')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
 const inputClass =
   'w-full rounded-md border border-slate-300 px-4 py-3 text-dark placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30';
 ---
@@ -163,10 +168,20 @@ const inputClass =
         <div class="mt-6">
           <ServiceAreaMap />
           <p class="mt-3 text-sm text-slate-600">
-            Baza nam je na Rakovici –{' '}
-            <a href="/lokacije/rakovica/" class="font-medium text-accent-ink hover:underline">
-              servis veš mašina Rakovica</a
-            >.
+            Pokrivamo sve beogradske opštine:{' '}
+            {
+              opstine.map((opstina, i) => (
+                <>
+                  {i > 0 && '· '}
+                  <a
+                    href={`/lokacije/${opstina.id.replace(/\.mdx$/, '')}/`}
+                    class="font-medium text-accent-ink hover:underline"
+                  >
+                    {opstina.data.title.replace('Servis veš mašina ', '')}
+                  </a>
+                </>
+              ))
+            }
           </p>
         </div>
       </div>
