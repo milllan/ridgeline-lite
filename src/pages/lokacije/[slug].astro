@@ -25,7 +25,7 @@ const { Content } = await render(opstina);
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout title={opstina.data.title} description={opstina.data.excerpt}>
+<BaseLayout title={opstina.data.seoTitle} description={opstina.data.excerpt}>
   <PageHero
     title={opstina.data.title}
     lead={opstina.data.excerpt}
