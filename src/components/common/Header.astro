@@ -12,6 +12,7 @@ import { mainNav, secondaryNav } from '../../config/nav';
 import Button from './Button.astro';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
+import OpenStatusDot from './OpenStatusDot.astro';
 
 const currentPath = Astro.url.pathname;
 const isActive = (href: string) =>
@@ -40,6 +41,7 @@ const isActive = (href: string) =>
         href={siteConfig.phoneHref}
         class="flex items-center gap-2 font-semibold text-white hover:text-primary"
       >
+        <OpenStatusDot />
         <Icon name="zap" class="h-4 w-4 text-primary" />
         Pozovite odmah: {siteConfig.phone}
       </a>
@@ -82,6 +84,7 @@ const isActive = (href: string) =>
         href={siteConfig.phoneHref}
         class="hidden items-center gap-2 font-heading text-xl font-bold text-dark transition-colors hover:text-primary-ink lg:flex"
       >
+        <OpenStatusDot />
         <Icon name="phone" class="h-5 w-5 text-primary" />
         {siteConfig.phone}
       </a>
