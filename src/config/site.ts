@@ -60,8 +60,8 @@ export const siteConfig = {
    * Hours
    * ---------------------------------------------------------- */
   // Times confirmed by the majstor 2026-09-15 ("Radno vreme od 8-20").
-  // TODO: confirm Sunday — until then no Sunday row is published
-  // (coderabbit #27: don't render an unconfirmed "closed" claim).
+  // TODO: confirm Sunday – until then no Sunday row is published
+  // (CodeRabbit #27: no unconfirmed "closed" claim may render).
   hours: [{ days: 'Ponedeljak – Subota', open: '08:00', close: '20:00' }],
   /** Schema.org openingHours strings (24h clock). */
   openingHoursSchema: ['Mo-Sa 08:00-20:00'],
