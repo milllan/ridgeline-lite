@@ -5,6 +5,7 @@
 import { siteConfig } from '../../config/site';
 import Button from '../common/Button.astro';
 import Icon from '../common/Icon.astro';
+import OpenStatusDot from '../common/OpenStatusDot.astro';
 
 interface Props {
   title?: string;
@@ -40,6 +41,7 @@ const {
       <div class="mt-8 flex flex-wrap items-center gap-4">
         <Button href="/zatrazi-ponudu/" size="lg">Zatražite ponudu</Button>
         <Button href={siteConfig.phoneHref} variant="outline-light" size="lg">
+          <OpenStatusDot />
           <Icon name="phone" class="h-5 w-5" />
           {siteConfig.phone}
         </Button>
