@@ -26,7 +26,7 @@ NEVER commit them — this repo is public).
 - Verified: 401 without/wrong creds; 200 on all routes with creds;
   X-Robots-Tag present; unknown routes → 404.
 
-## Build for the demo (NOT committed — main still builds with the placeholder domain)
+## Build for the demo (main builds the production domain; the demo overrides via env)
 
 The demo is built from `main` with two URL swaps in a throwaway worktree:
 
@@ -50,5 +50,4 @@ ssh sculpiflex '
   rm /root/.demo-vesmasine-creds'
 ```
 
-(`site` is env-driven via `ASTRO_SITE` since 2.14.0; the default in main is the production domain)
-lands, so the sed-swap workaround disappears.)
+(`site` is env-driven via `ASTRO_SITE` since 2.14.0; main's default is the production domain, so the old sed-swap workaround is gone.)

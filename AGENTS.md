@@ -17,10 +17,9 @@ the launch blockers in epic #2 are resolved.
   (canonicals point at the demo subdomain). After merging to main,
   re-rsync to refresh the demo.
 - **Production domain (registered 2026-09-15, plus.rs):**
-  `servisvesmasina-beograd.co.rs` — Cloudflare zone (NS bart+clara,
-  A @/www → 144.76.30.2, DNS-only until cert) in the owner's account
-  (milan.petrovic@wpspeedopt.net; API key at sculpiflex
-  `/home/wpspeedopt/deploy.env` — NEVER commit). HestiaCP web domain
+  `servisvesmasina-beograd.co.rs` — Cloudflare zone in the owner's
+  account (access + API key at sculpiflex `/home/wpspeedopt/deploy.env`
+  — NEVER commit). HestiaCP web domain
   under `wpspeedopt`; docroot
   `/home/wpspeedopt/web/servisvesmasina-beograd.co.rs/public_html/`.
   Soft-launched behind basic auth + X-Robots-Tag noindex until the
