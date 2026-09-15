@@ -27,8 +27,8 @@ export const siteConfig = {
   name: 'Servis Veš Mašina Beograd',
   /** Short name used in the logo lock-up. */
   // TODO: placeholder identity — logo wording to be confirmed
-  logoText: 'Servis Veš Mašina',
-  logoSuffix: 'Majstor Dejan · Beograd',
+  logoText: 'Servis',
+  logoSuffix: 'Veš Mašina',
   // Tagline confirmed by owner 2026-09-15: brand list appended for SEO
   // (top 5 by GSC impressions: Gorenje, Candy, Whirlpool, Ariston, Beko).
   tagline:
