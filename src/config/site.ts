@@ -60,11 +60,9 @@ export const siteConfig = {
    * Hours
    * ---------------------------------------------------------- */
   // Times confirmed by the majstor 2026-09-15 ("Radno vreme od 8-20").
-  // TODO: confirm Sunday — days assumed Pon–Sub for now.
-  hours: [
-    { days: 'Ponedeljak – Subota', open: '08:00', close: '20:00' },
-    { days: 'Nedelja', open: 'ne radimo', close: '' },
-  ],
+  // TODO: confirm Sunday — until then no Sunday row is published
+  // (coderabbit #27: don't render an unconfirmed "closed" claim).
+  hours: [{ days: 'Ponedeljak – Subota', open: '08:00', close: '20:00' }],
   /** Schema.org openingHours strings (24h clock). */
   openingHoursSchema: ['Mo-Sa 08:00-20:00'],
   emergencyNote: 'Hitni pozivi vikendom po dogovoru.',

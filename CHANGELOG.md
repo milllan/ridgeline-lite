@@ -4,6 +4,13 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.10.2] — 2026-09-15
+
+Honesty fix from PR-comment sweep (coderabbit, #27): dropped the
+unconfirmed "Nedelja – ne radimo" row from published hours. Only
+majstor-confirmed data renders (Pon–Sub 08:00–20:00); Sunday stays a
+TODO in site.ts until Dejan confirms. Ref #28 task B.
+
 ## [2.10.1] — 2026-09-15
 
 Majstor-confirmed data (WhatsApp, PR #27): radno vreme 08:00–20:00
