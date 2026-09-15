@@ -146,4 +146,4 @@ export const siteConfig = {
 export type SiteConfig = typeof siteConfig;
 
 /** True when a real (non-placeholder) email is configured. */
-export const hasEmail = !siteConfig.email.includes('example.');
+export const hasEmail = !siteConfig.email.toLowerCase().endsWith('@example.rs');
