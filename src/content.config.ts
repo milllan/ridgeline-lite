@@ -37,4 +37,19 @@ const reviews = defineCollection({
   }),
 });
 
-export const collections = { services, reviews };
+/**
+ * Opština landing pages (/lokacije/[slug]/) — pattern proven by #25.
+ * Rakovica first (real base); 2nd opština = one content file, zero code.
+ * naselja: real neighborhoods only, no coverage promises beyond copy.
+ */
+const opstine = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.mdx', base: './src/content/opstine' }),
+  schema: z.object({
+    title: z.string(),
+    excerpt: z.string().max(220),
+    naselja: z.array(z.string()).min(1),
+    order: z.number().int(),
+  }),
+});
+
+export const collections = { services, reviews, opstine };

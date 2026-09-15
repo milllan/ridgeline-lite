@@ -4,6 +4,14 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.10.0] — 2026-09-15
+
+Opština landing pages (issue #25): new `opstine` collection +
+`/lokacije/[slug]/` route. Rakovica first — real base (Vidikovački venac
+104), 9 real naselja, hybrid-model wording, services grid, click-to-call.
+Second opština = one content file, zero code. Linked from /kontakt/ under
+the map; auto-included in sitemap; breadcrumbs render.
+
 ## [2.9.1] — 2026-09-15
 
 Hybrid service-model copy fix (owner clarification: on-site visits AND
