@@ -1,7 +1,7 @@
 ---
 /**
- * Home page – Lite edition (7 sections): Hero → TrustBar → Services →
- * MajstorBelt → WhyUs → Reviews → FinalCTA. The Pro version adds featured
+ * Home page – Lite edition (8 sections): Hero → TrustBar → Services →
+ * MajstorBelt → WhyUs → Reviews → FAQ → FinalCTA. The Pro version adds featured
  * before/after projects, the service-area system, and financing.
  */
 import { getCollection } from 'astro:content';
@@ -17,12 +17,33 @@ import FinalCTA from '../components/sections/FinalCTA.astro';
 import Button from '../components/common/Button.astro';
 import Icon from '../components/common/Icon.astro';
 import OpenStatusDot from '../components/common/OpenStatusDot.astro';
+import FaqSection from '../components/sections/FaqSection.astro';
 import SectionHeading from '../components/common/SectionHeading.astro';
 import { siteConfig } from '../config/site';
 
 const services = (await getCollection('services')).sort(
   (a, b) => a.data.order - b.data.order,
 );
+
+// Opšta pitanja za naslovnu (epic #22 §3) – razlikuju se od simptomskih
+// pitanja na /usluge/ da FAQPage šeme ne dupliraju sadržaj.
+const homeFaq = [
+  {
+    question: 'Koliko košta dolazak i konstatacija kvara?',
+    answer:
+      'Uz izvršenu popravku dolazak i konstatacija kvara su besplatni. Tačnu cenu popravke znate pre početka rada, bez skrivenih troškova.',
+  },
+  {
+    question: 'Da li preuzimate mašinu u radionicu?',
+    answer:
+      'Da – obimnije popravke, recimo zamenu ležajeva, radimo u radionici: mašinu preuzimamo kod vas i vraćamo je popravljenu. Manje kvarove rešavamo kod vas u stanu.',
+  },
+  {
+    question: 'Radite li vikendom?',
+    answer:
+      'Hitne pozive vikendom primamo po dogovoru – pozovite nas i dogovorićemo termin koji vama odgovara.',
+  },
+];
 
 // Preload the hero image (the LCP element).
 const heroPreload = await getImage({
@@ -36,6 +57,7 @@ const heroPreload = await getImage({
 <BaseLayout
   title={siteConfig.seo.defaultTitle}
   description={siteConfig.seo.defaultDescription}
+  faq={homeFaq}
 >
   <link
     slot="head"
@@ -97,5 +119,7 @@ const heroPreload = await getImage({
 
   <WhyUs />
   <ReviewsCarousel />
+  <FaqSection title="Najčešća pitanja" items={homeFaq} />
+
   <FinalCTA />
 </BaseLayout>
