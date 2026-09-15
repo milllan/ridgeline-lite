@@ -4,6 +4,24 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.9.0] — 2026-09-15
+
+/usluge/ cards no longer show roofing stock (subset of issue #3). Six
+Pexels photos (commercial use allowed, no attribution required) replace the
+six roofing JPEGs: technician servicing an appliance, pump adjustment,
+steel drum close-up, out-of-service washer, control-panel machine, home
+washer loading. Alt texts rewritten in Serbian Latin to describe the new
+photos; `src/assets/PHOTO-CREDITS.md` records source URL + photographer
+per image; orphaned roofing files deleted.
+
+### Review (muse + mimo approve-with-nits; agy lane down, skipped)
+- Programator alt reworded to an honest description (photo shows a man
+  watching, not a technician at work).
+- Deferred to full #3 pass: pump photo is a well pump in extreme portrait
+  (mobile crop loses the subject), flagship card reads as small-appliance,
+  grejač photo carries English in-image text. Real servicer photos remain
+  the recommended long-term upgrade.
+
 ## [2.8.0] — 2026-09-15
 
 Open/closed status dot next to phone numbers (Header top bar, desktop
