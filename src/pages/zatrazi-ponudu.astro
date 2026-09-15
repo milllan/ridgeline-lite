@@ -9,6 +9,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/common/PageHero.astro';
 import FormBackendFields from '../components/common/FormBackendFields.astro';
 import Icon from '../components/common/Icon.astro';
+import FormAjaxSubmit from '../components/common/FormAjaxSubmit.astro';
 import StarRating from '../components/reviews/StarRating.astro';
 import { getAggregateRating } from '../lib/reviews';
 import { formAttributes } from '../lib/forms';
@@ -119,6 +120,7 @@ const brands = [
               <Icon name="arrow-right" class="h-5 w-5" />
             </button>
           </div>
+          <p data-form-status role="status" aria-live="polite" class="sm:col-span-2 min-h-0 text-sm font-medium text-red-600"></p>
         </form>
       </div>
 
@@ -160,4 +162,5 @@ const brands = [
       </aside>
     </div>
   </section>
+<FormAjaxSubmit />
 </BaseLayout>

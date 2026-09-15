@@ -89,9 +89,9 @@ export const siteConfig = {
    * See docs/customization.md → "Connecting the forms".
    * -------------------------------------------------------- */
   formProvider: 'formspree' as FormProvider,
-  // TODO: placeholder — create a Formspree form and paste its real
-  // endpoint here. Leads must NOT go to the theme author's endpoint.
-  formEndpoint: 'https://formspree.io/f/TODO-FORM-ID',
+  // Real endpoint created by the owner 2026-09-15 (free tier: 50/mo,
+  // AJAX submit + client redirect keeps /hvala/ without paid redirects).
+  formEndpoint: 'https://formspree.io/f/meaojqko',
 
   /* ----------------------------------------------------------
    * Trust badges (header strip, quote page, footer)
