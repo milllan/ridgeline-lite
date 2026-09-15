@@ -19,9 +19,13 @@ ovde navode radi evidencije porekla (zahtev iz issue #3).
 Sve slike preuzete su u širini od 1600 px (`?auto=compress&w=1600`); Astro
 (`astro:assets`) ih pri build-u optimizuje na širine 480 / 768 / 1200.
 
-## Napomena
+## Naslovna i deljenje (Hero & OpenGraph)
 
-Preostale roofing fotografije na drugim mestima (hero, about, team, OG)
-nisu deo ove zamene – ostaju otvorene u okviru issue #3 dok se ne obezbede
-prave fotografije servisera (preporuka: fotografisati pravog majstora što
-pre – najvrednija pojedinačna foto-nadogradnja za lokalni servisni sajt).
+| Fajl | Pozicija | Poreklo |
+|---|---|---|
+| `src/assets/hero/home-hero.jpg` | Homepage Hero pozadina (LCP) | Namenska AI fotografija servisera veš mašine na terenu sa mernim instrumentom (1920×1080) |
+| `public/og-default.jpg` | OpenGraph slika za deljenje linka | Namenska grafika servisa veš mašina u Beogradu (1200×630) |
+
+## Preostalo (About / Team)
+
+Preostale roofing fotografije na `/o-nama/` (`crew-framing.jpg` i `marcus-rivera.jpg` kao placeholder za majstora Dejana) ostaju otvorene u okviru issue #3 dok se ne obezbede stvarne fotografije majstora Dejana i radionice.
