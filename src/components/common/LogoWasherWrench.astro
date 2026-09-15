@@ -1,0 +1,78 @@
+---
+/**
+ * Saved alternative logo lock-up: Washing Machine + Service Wrench mark.
+ * Text: SERVIS VEŠ MAŠINA / Majstor Dejan · Beograd
+ * Can be used by importing <LogoWasherWrench /> or swapping into Logo.astro.
+ */
+interface Props {
+  /** Set true when rendering on a dark background (footer). */
+  onDark?: boolean;
+}
+
+const { onDark = false } = Astro.props;
+---
+
+<span class="flex items-center gap-3">
+  <!-- Veš mašina + Ključ za servis -->
+  <svg
+    viewBox="0 0 44 44"
+    class="h-10 w-10 shrink-0"
+    aria-hidden="true"
+    fill="none"
+  >
+    <!-- Background rounded badge -->
+    <rect width="44" height="44" rx="8" class="fill-dark"></rect>
+
+    <!-- Washing Machine Body -->
+    <rect
+      x="8"
+      y="7"
+      width="22"
+      height="28"
+      rx="3.5"
+      stroke="#ffffff"
+      stroke-width="2"
+      fill="none"
+    ></rect>
+    <!-- Control panel divider -->
+    <line x1="8" y1="14" x2="30" y2="14" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.45"></line>
+    <!-- Detergent drawer slot -->
+    <rect x="11" y="9.5" width="4.5" height="2.5" rx="0.5" fill="#ffffff" fill-opacity="0.8"></rect>
+    <!-- Control dial in theme primary -->
+    <circle cx="26" cy="10.5" r="1.5" fill="var(--rl-primary)"></circle>
+
+    <!-- Washing Machine Drum -->
+    <circle cx="19" cy="24" r="6.5" stroke="#ffffff" stroke-width="2" fill="none"></circle>
+    <circle cx="19" cy="24" r="3.5" stroke="#ffffff" stroke-width="1" stroke-dasharray="2 2" stroke-opacity="0.4" fill="none"></circle>
+
+    <!-- Service Wrench (Ključ za popravku) with dark outline for crisp separation -->
+    <g transform="translate(17, 13) scale(0.95) rotate(12)">
+      <path
+        d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+        fill="var(--rl-primary)"
+        stroke="#0f172a"
+        stroke-width="2"
+        stroke-linejoin="round"
+      ></path>
+    </g>
+  </svg>
+
+  <span class="flex flex-col leading-none">
+    <span
+      class:list={[
+        'font-heading text-xl sm:text-2xl font-bold uppercase tracking-wide',
+        onDark ? 'text-white' : 'text-dark',
+      ]}
+    >
+      Servis Veš Mašina
+    </span>
+    <span
+      class:list={[
+        'font-heading text-[0.68rem] sm:text-[0.72rem] font-semibold uppercase tracking-[0.16em] mt-1',
+        onDark ? 'text-slate-400' : 'text-primary-ink',
+      ]}
+    >
+      Majstor Dejan · Beograd
+    </span>
+  </span>
+</span>
