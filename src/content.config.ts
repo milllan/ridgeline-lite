@@ -71,6 +71,10 @@ const brands = defineCollection({
     name: z.string(),
     commonFaults: z.array(z.string()).min(3),
     order: z.number().int(),
+    /** Optional brand FAQ — renders FaqSection + FAQPage schema on the page. */
+    faq: z
+      .array(z.object({ question: z.string(), answer: z.string() }))
+      .optional(),
   }),
 });
 
