@@ -17,6 +17,7 @@ import Icon from '../../components/common/Icon.astro';
 import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
+import BrandLogos from '../../components/sections/BrandLogos.astro';
 import { siteConfig } from '../../config/site';
 
 export async function getStaticPaths() {
@@ -75,6 +76,11 @@ const services = (await getCollection('services')).sort(
       </div>
     </div>
   </section>
+
+  <BrandLogos
+    exclude={brand.id.replace(/\.mdx$/, '')}
+    heading="Ostale marke koje servisujemo"
+  />
 
   {brand.data.faq && brand.data.faq.length > 0 && (
     <FaqSection title={`Najčešća pitanja – ${brand.data.name}`} items={brand.data.faq} />

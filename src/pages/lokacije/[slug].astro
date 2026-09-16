@@ -11,6 +11,7 @@ import Icon from '../../components/common/Icon.astro';
 import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
+import BrandLogos from '../../components/sections/BrandLogos.astro';
 import { siteConfig } from '../../config/site';
 
 export async function getStaticPaths() {
@@ -67,6 +68,8 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
       </div>
     </div>
   </section>
+
+  <BrandLogos heading="Marke koje servisujemo na ovoj lokaciji" />
 
   <section class="bg-surface py-16 md:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

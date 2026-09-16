@@ -7,6 +7,15 @@
  * the site never claims "ovlašćeni" status). Brands without a mark fall
  * back to a styled text card (same link, same SEO value via anchor text).
  */
+interface Props {
+  /** Brand slug to hide (the page you're already on). */
+  exclude?: string;
+  /** Section heading override. */
+  heading?: string;
+}
+
+const { exclude = '', heading = 'Marke koje servisujemo' } = Astro.props;
+
 interface BrandTile {
   name: string;
   slug: string;
@@ -29,11 +38,13 @@ const brands: BrandTile[] = [
 <section class="bg-surface py-14 md:py-16" aria-labelledby="marke-heading">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <h2 id="marke-heading" class="text-center font-heading text-xl font-bold uppercase tracking-wide text-dark sm:text-2xl">
-      Marke koje servisujemo
+      {heading}
     </h2>
     <ul class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
       {
-        brands.map((brand) => (
+        brands
+          .filter((brand) => brand.slug !== exclude)
+          .map((brand) => (
           <li>
             <a
               href={`/brendovi/${brand.slug}/`}
