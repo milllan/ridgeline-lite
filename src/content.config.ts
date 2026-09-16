@@ -51,6 +51,10 @@ const opstine = defineCollection({
     excerpt: z.string().max(220),
     naselja: z.array(z.string()).min(1),
     order: z.number().int(),
+    /** Optional opština FAQ — renders FaqSection + FAQPage schema. */
+    faq: z
+      .array(z.object({ question: z.string(), answer: z.string() }))
+      .optional(),
   }),
 });
 
