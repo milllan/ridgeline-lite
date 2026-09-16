@@ -19,6 +19,7 @@ import FinalCTA from '../../components/sections/FinalCTA.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
 import BrandLogos from '../../components/sections/BrandLogos.astro';
 import { siteConfig } from '../../config/site';
+import heroImage from '../../assets/hero/home-hero.jpg';
 
 export async function getStaticPaths() {
   const brands = await getCollection('brands');
@@ -40,6 +41,8 @@ const services = (await getCollection('services')).sort(
     title={brand.data.title}
     lead={brand.data.excerpt}
     crumbs={[{ label: 'Marke' }, { label: brand.data.name }]}
+    image={heroImage}
+    imageAlt="Servis veš mašina na terenu u Beogradu"
   />
 
   <section class="bg-white py-16 md:py-20">
