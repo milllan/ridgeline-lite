@@ -4,6 +4,15 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.17.0] — 2026-09-16
+
+Marke-logo sekcija na naslovnoj (owner: realni logo): 6 Wikimedia
+SVG wordmarkova (Gorenje, Whirlpool, Indesit, LG, Ariston, Beko; Candy
+tekst-karta – čist SVG nije nađen) linkuju na /brendovi/ stranice,
+individualni fajlovi + per-brand SEO alt/title ("Servis X veš mašina
+Beograd"). Desaturirani prikaz (opacity-70) — nezavistan servis, nikad
+"ovlašćeni". + serbian-copy-gate skill (deterministički AI-slop/ban
+skener sa baseline) + NB v2 (blok long-tail + FAQPage za opštine).
 ## [2.16.1] — 2026-09-15
 
 Content drip (6 PRs, svaka stranica = zaseban task po owneru):
