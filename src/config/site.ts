@@ -27,14 +27,14 @@ export const siteConfig = {
   name: 'Servis Veš Mašina Beograd',
   /** Short name used in the logo lock-up. */
   // TODO: placeholder identity — logo wording to be confirmed
-  logoText: 'Servis',
-  logoSuffix: 'Veš Mašina',
+  logoText: 'Servis za veš mašine',
+  logoSuffix: '',
   /** Subline under the logo lock-up (empty = hidden). */
   logoSubtitle: 'Majstor Dejan · Beograd',
   // Tagline: owner wording 2026-09-16 (brand list for SEO; Indesit is in
   // the meta description, tagline keeps 6 + "i dr." for length).
   tagline:
-    'Popravka veš mašina Beograd. Gorenje, Whirlpool, Candy, Ariston, Beko, LG i dr. Majstor Dejan',
+    'Popravka veš mašina Beograd. Gorenje, Whirlpool, Indesit, Candy, Ariston, Beko, LG i dr. Majstor Dejan',
   /** Identity line shown in the top bar and footer. NOTE: no registered
    * business yet (2026-09) — must NOT claim registration; reword when it
    * gets registered. */
