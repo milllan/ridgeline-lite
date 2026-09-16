@@ -16,7 +16,7 @@ interface Props {
   variant?: 'grid' | 'strip';
 }
 
-const { exclude = '', heading = 'Marke koje servisujemo', variant = 'grid' } =
+const { exclude = '', heading = 'Brendovi koje servisiramo', variant = 'grid' } =
   Astro.props;
 
 interface BrandTile {
@@ -48,14 +48,21 @@ const brands: BrandTile[] = [
         'mt-8 gap-4',
         variant === 'strip'
           ? 'flex snap-x snap-mandatory overflow-x-auto pb-2 sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0 lg:grid-cols-6'
-          : 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7',
+          : 'flex flex-wrap',
       ]}
     >
       {
         brands
           .filter((brand) => brand.slug !== exclude)
           .map((brand) => (
-          <li class={variant === 'strip' ? 'min-w-[150px] shrink-0 snap-start sm:min-w-0' : ''}>
+          <li
+            class:list={[
+              'min-w-[150px]',
+              variant === 'strip'
+                ? 'shrink-0 snap-start sm:min-w-0'
+                : 'flex-1 basis-0',
+            ]}
+          >
             <a
               href={`/brendovi/${brand.slug}/`}
               class="group flex h-20 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 shadow-sm transition-colors hover:border-primary/50 focus-visible:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
