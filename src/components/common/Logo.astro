@@ -44,14 +44,16 @@ const { onDark = false } = Astro.props;
     >
       {siteConfig.logoText}
     </span>
-    <span
-      class:list={[
-        'font-heading text-[0.7rem] font-semibold uppercase tracking-[0.3em]',
-        onDark ? 'text-slate-400' : 'text-slate-500',
-      ]}
-    >
-      {siteConfig.logoSuffix}
-    </span>
+    {siteConfig.logoSuffix && (
+      <span
+        class:list={[
+          'font-heading text-[0.7rem] font-semibold uppercase tracking-[0.3em]',
+          onDark ? 'text-slate-400' : 'text-slate-500',
+        ]}
+      >
+        {siteConfig.logoSuffix}
+      </span>
+    )}
     {siteConfig.logoSubtitle && (
       <span
         class:list={[
