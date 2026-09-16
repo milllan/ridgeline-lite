@@ -31,8 +31,8 @@ export const siteConfig = {
   logoSuffix: 'Veš Mašina',
   /** Subline under the logo lock-up (empty = hidden). */
   logoSubtitle: 'Majstor Dejan · Beograd',
-  // Tagline confirmed by owner 2026-09-15: brand list appended for SEO
-  // (top 5 by GSC impressions: Gorenje, Candy, Whirlpool, Ariston, Beko).
+  // Tagline: owner wording 2026-09-16 (brand list for SEO; Indesit is in
+  // the meta description, tagline keeps 6 + "i dr." for length).
   tagline:
     'Popravka veš mašina Beograd. Gorenje, Whirlpool, Candy, Ariston, Beko, LG i dr. Majstor Dejan',
   /** Identity line shown in the top bar and footer. NOTE: no registered
