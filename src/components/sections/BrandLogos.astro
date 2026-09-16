@@ -12,9 +12,12 @@ interface Props {
   exclude?: string;
   /** Section heading override. */
   heading?: string;
+  /** 'strip' = one-line, horizontal scroll on small screens (grid on sm+). */
+  variant?: 'grid' | 'strip';
 }
 
-const { exclude = '', heading = 'Marke koje servisujemo' } = Astro.props;
+const { exclude = '', heading = 'Marke koje servisujemo', variant = 'grid' } =
+  Astro.props;
 
 interface BrandTile {
   name: string;
@@ -40,12 +43,19 @@ const brands: BrandTile[] = [
     <h2 id="marke-heading" class="text-center font-heading text-xl font-bold uppercase tracking-wide text-dark sm:text-2xl">
       {heading}
     </h2>
-    <ul class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
+    <ul
+      class:list={[
+        'mt-8 gap-4',
+        variant === 'strip'
+          ? 'flex snap-x snap-mandatory overflow-x-auto pb-2 sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0 lg:grid-cols-6'
+          : 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7',
+      ]}
+    >
       {
         brands
           .filter((brand) => brand.slug !== exclude)
           .map((brand) => (
-          <li>
+          <li class={variant === 'strip' ? 'min-w-[150px] shrink-0 snap-start sm:min-w-0' : ''}>
             <a
               href={`/brendovi/${brand.slug}/`}
               class="group flex h-20 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 shadow-sm transition-colors hover:border-primary/50 focus-visible:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
