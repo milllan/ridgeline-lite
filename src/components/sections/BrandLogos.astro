@@ -1,0 +1,66 @@
+---
+/**
+ * "Marke koje servisujemo" — brand marks linking to /brendovi/ pages
+ * (owner decision: real logos, individual files + per-brand SEO alt).
+ * SVGs in public/logos/ sourced from Wikimedia Commons (trademark of
+ * respective owners; shown desaturated to signal independent service —
+ * the site never claims "ovlašćeni" status). Brands without a mark fall
+ * back to a styled text card (same link, same SEO value via anchor text).
+ */
+interface BrandTile {
+  name: string;
+  slug: string;
+  /** File in /logos/ without extension prefix path. */
+  logo?: string;
+  alt: string;
+}
+
+const brands: BrandTile[] = [
+  { name: 'Gorenje', slug: 'gorenje', logo: '/logos/gorenje.svg', alt: 'Servis Gorenje veš mašina Beograd' },
+  { name: 'Whirlpool', slug: 'whirlpool', logo: '/logos/whirlpool.svg', alt: 'Servis Whirlpool veš mašina Beograd' },
+  { name: 'Indesit', slug: 'indesit', logo: '/logos/indesit.svg', alt: 'Servis Indesit veš mašina Beograd' },
+  { name: 'LG', slug: 'lg', logo: '/logos/lg.svg', alt: 'Servis LG veš mašina Beograd' },
+  { name: 'Ariston', slug: 'ariston', logo: '/logos/ariston.svg', alt: 'Majstor za Ariston veš mašine Beograd' },
+  { name: 'Beko', slug: 'beko', logo: '/logos/beko.svg', alt: 'Servis Beko veš mašina Beograd' },
+  { name: 'Candy', slug: 'candy', alt: 'Servis Candy veš mašina Beograd' },
+];
+---
+
+<section class="bg-surface py-14 md:py-16" aria-labelledby="marke-heading">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <h2 id="marke-heading" class="text-center font-heading text-xl font-bold uppercase tracking-wide text-dark sm:text-2xl">
+      Marke koje servisujemo
+    </h2>
+    <ul class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
+      {
+        brands.map((brand) => (
+          <li>
+            <a
+              href={`/brendovi/${brand.slug}/`}
+              class="group flex h-20 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 shadow-sm transition-colors hover:border-primary/50 focus-visible:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+            >
+              {brand.logo ? (
+                <img
+                  src={brand.logo}
+                  alt={brand.alt}
+                  title={brand.alt}
+                  width={110}
+                  height={40}
+                  loading="lazy"
+                  class="max-h-10 w-auto opacity-70 grayscale transition-all group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0"
+                />
+              ) : (
+                <span class="font-heading text-lg font-bold uppercase tracking-wide text-slate-500">
+                  {brand.name}
+                </span>
+              )}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-4 text-center text-xs text-slate-400">
+      Nezavisni servis – marke i logotipi su svojina svojih vlasnika.
+    </p>
+  </div>
+</section>
