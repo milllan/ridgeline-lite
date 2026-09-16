@@ -4,6 +4,11 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.18.1] — 2026-09-16
+
+Brendovi hero: tamna pozadina sa hero fotografijom (ista tintirana
+slika kao naslovna, bg-dark/75 overlay) umesto praznog tamnog pojasa.
+PageHero je već podržavao image prop – jedna linija po ruti.
 ## [2.18.0] — 2026-09-16
 
 Crtica sweep (owner: " – " u prozi zvuči AI): ~70 rečenica
