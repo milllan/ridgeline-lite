@@ -4,6 +4,12 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.17.1] — 2026-09-16
+
+Logo sekcija svuda (owner): /brendovi/* dobijaju "Ostale marke koje
+servisujemo" posle teksta (sopstveni brend isključen), /lokacije/*
+"Marke koje servisujemo na ovoj lokaciji" između naselja i usluga;
+naslovna nepromenjena. Komponenta reusabilna (exclude + heading props).
 ## [2.17.0] — 2026-09-16
 
 Marke-logo sekcija na naslovnoj (owner: realni logo): 6 Wikimedia
