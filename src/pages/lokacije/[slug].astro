@@ -28,6 +28,22 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
 ---
 
 <BaseLayout title={opstina.data.seoTitle} description={opstina.data.excerpt} faq={opstina.data.faq}>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: `${opstina.data.title} – popravka i servis`,
+      serviceType: 'Servis veš mašina',
+      provider: { '@id': new URL('/#local-business', Astro.site).href },
+      areaServed: [
+        { '@type': 'AdministrativeArea', name: `Beograd – ${opstina.data.title.replace('Servis veš mašina ', '')}` },
+        ...opstina.data.naselja.map((n) => ({ '@type': 'Place', name: n })),
+      ],
+    })}
+    slot="head"
+  />
   <PageHero
     title={opstina.data.title}
     lead={opstina.data.excerpt}
