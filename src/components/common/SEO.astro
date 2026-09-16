@@ -24,7 +24,10 @@ const {
   noindex = false,
 } = Astro.props;
 
-const fullTitle = title.toLowerCase().includes(siteConfig.seo.siteName.toLowerCase())
+const hasBrandOrMajstor =
+  title.toLowerCase().includes(siteConfig.seo.siteName.toLowerCase()) ||
+  title.includes('Majstor Dejan');
+const fullTitle = hasBrandOrMajstor
   ? title
   : `${title} | ${siteConfig.seo.siteName}`;
 
