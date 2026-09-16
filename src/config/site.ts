@@ -29,10 +29,12 @@ export const siteConfig = {
   // TODO: placeholder identity — logo wording to be confirmed
   logoText: 'Servis',
   logoSuffix: 'Veš Mašina',
+  /** Subline under the logo lock-up (empty = hidden). */
+  logoSubtitle: 'Majstor Dejan · Beograd',
   // Tagline confirmed by owner 2026-09-15: brand list appended for SEO
   // (top 5 by GSC impressions: Gorenje, Candy, Whirlpool, Ariston, Beko).
   tagline:
-    'Popravka veš mašina Beograd – Majstor Dejan. Gorenje, Whirlpool, Candy, Ariston, Beko i dr.',
+    'Popravka veš mašina Beograd. Gorenje, Whirlpool, Candy, Ariston, Beko, LG i dr. Majstor Dejan',
   /** Identity line shown in the top bar and footer. NOTE: no registered
    * business yet (2026-09) — must NOT claim registration; reword when it
    * gets registered. */
@@ -142,7 +144,7 @@ export const siteConfig = {
     siteName: 'Servis Veš Mašina Beograd',
     defaultTitle: 'Servis veš mašina Beograd | Majstor Dejan 064/110-39-01',
     defaultDescription:
-      'Popravka veš mašina u Beogradu: sve marke, original delovi, garancija na popravku. Pozovite 064/110-39-01 za brz termin.',
+      'Majstor za veš mašine Beograd, Gorenje, Whirlpool, Indesit, LG, Ariston, Beko, Candy. Original delovi, garancija na popravku. 064/110-39-01',
     /** Path to the default Open Graph image (in /public). */
     ogImage: '/og-default.jpg',
   },
