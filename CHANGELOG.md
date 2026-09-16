@@ -4,6 +4,17 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.18.0] — 2026-09-16
+
+Crtica sweep (owner: " – " u prozi zvuči AI): ~70 rečenica
+restrukturirano kroz sve stranice (FAQ, usluge, brendovi, opštine,
+hvala, kontakt, komponente, reviews.json) – zarezi, dvotačke, tačke.
+Title tagovi: " – majstor Dejan…" -> " | Majstor Dejan…" (11 seoTitle)
++ naslovna sada "Servis veš mašina Beograd | Majstor Dejan
+064/110-39-01" (suffix skip case-insensitive). copy-gate: nova ENDASH-
+SPACE rule (dozvoljeni samo rasponi sati/dana + owner tagline) +
+popravljen comment-stripping + baseline proširen. YAML: excerpt/desc
+vrednosti sa dvotačkom sada quoted (frontmatter parse lesson).
 ## [2.17.3] — 2026-09-16
 
 Owner copy: "Neke" → "Neki od brendova koje servisiramo" (brendovi =

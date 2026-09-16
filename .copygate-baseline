@@ -9,3 +9,12 @@ DUP-SENTENCE:gorenje.mdx
 DUP-SENTENCE:indesit.mdx
 DUP-SENTENCE:lg.mdx
 CLICHÉ-BEZ-SKRIVENIH:index.astro
+# added with dash-sweep: services precedent + boilerplate dups + owner tagline
+FREQ-NAJCESCE:popravka-programatora.mdx
+FREQ-NAJCESCE:zamena-grejaca.mdx
+FREQ-NAJCESCE:zamena-pumpe.mdx
+FREQ-NAJCESCE:zatrazi-ponudu.astro
+DUP-SENTENCE:popravka-ves-masina.mdx
+DUP-SENTENCE:zamena-grejaca.mdx
+DUP-SENTENCE:index.astro
+ENDASH-SPACE:site.ts
