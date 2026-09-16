@@ -10,6 +10,7 @@ import Button from '../../components/common/Button.astro';
 import Icon from '../../components/common/Icon.astro';
 import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
+import FaqSection from '../../components/sections/FaqSection.astro';
 import { siteConfig } from '../../config/site';
 
 export async function getStaticPaths() {
@@ -25,7 +26,7 @@ const { Content } = await render(opstina);
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout title={opstina.data.seoTitle} description={opstina.data.excerpt}>
+<BaseLayout title={opstina.data.seoTitle} description={opstina.data.excerpt} faq={opstina.data.faq}>
   <PageHero
     title={opstina.data.title}
     lead={opstina.data.excerpt}
@@ -77,6 +78,10 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
       </div>
     </div>
   </section>
+
+  {opstina.data.faq && opstina.data.faq.length > 0 && (
+    <FaqSection title={`Najčešća pitanja – ${opstina.data.title}`} items={opstina.data.faq} />
+  )}
 
   <FinalCTA />
 </BaseLayout>

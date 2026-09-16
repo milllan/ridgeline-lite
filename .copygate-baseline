@@ -1,0 +1,11 @@
+# copy-gate baseline — accepted findings at 2026-09-16 (main)
+# brand-page boilerplate dupes + approved najcesce precedents;
+# shrink as the brand-pages v2 rollout de-duplicates.
+FREQ-NAJCESCE:index.astro
+DUP-SENTENCE:savski-venac.mdx
+DUP-SENTENCE:beko.mdx
+DUP-SENTENCE:candy.mdx
+DUP-SENTENCE:gorenje.mdx
+DUP-SENTENCE:indesit.mdx
+DUP-SENTENCE:lg.mdx
+CLICHÉ-BEZ-SKRIVENIH:index.astro
