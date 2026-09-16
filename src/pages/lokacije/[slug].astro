@@ -86,7 +86,7 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
   </section>
 
   {opstina.data.faq && opstina.data.faq.length > 0 && (
-    <FaqSection title={`Najčešća pitanja – ${opstina.data.title.replace('Servis veš mašina ', '')}`} items={opstina.data.faq} />
+    <FaqSection title={`Najčešća pitanja: ${opstina.data.title.replace('Servis veš mašina ', '')}`} items={opstina.data.faq} />
   )}
 
   <FinalCTA />

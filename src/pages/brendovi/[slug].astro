@@ -83,7 +83,7 @@ const services = (await getCollection('services')).sort(
   />
 
   {brand.data.faq && brand.data.faq.length > 0 && (
-    <FaqSection title={`Najčešća pitanja – ${brand.data.name}`} items={brand.data.faq} />
+    <FaqSection title={`Najčešća pitanja: ${brand.data.name}`} items={brand.data.faq} />
   )}
 
   <section class="bg-surface py-16 md:py-20">

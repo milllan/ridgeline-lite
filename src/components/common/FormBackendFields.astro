@@ -26,7 +26,7 @@ const formLabel = formName === 'quote' ? 'zahtev za ponudu' : 'kontakt';
 
 {isNetlify && <input type="hidden" name="form-name" value={formName} />}
 {!isNetlify && <input type="hidden" name="_next" value={thankYouUrl} />}
-{!isNetlify && <input type="hidden" name="_subject" value={`Novi upit sa sajta – ${formLabel}`} />}
+{!isNetlify && <input type="hidden" name="_subject" value={`Novi upit sa sajta: ${formLabel}`} />}
 
 <p class="hidden" aria-hidden="true">
   <label>

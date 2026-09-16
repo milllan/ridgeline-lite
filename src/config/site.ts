@@ -36,7 +36,7 @@ export const siteConfig = {
   /** Identity line shown in the top bar and footer. NOTE: no registered
    * business yet (2026-09) — must NOT claim registration; reword when it
    * gets registered. */
-  licenseLine: 'Servis veš mašina – dolazak na kućnu adresu',
+  licenseLine: 'Servis veš mašina, dolazak na kućnu adresu',
 
   /* ----------------------------------------------------------
    * Contact (NAP — keep identical everywhere for local SEO)
@@ -140,9 +140,9 @@ export const siteConfig = {
   // siteConfig.phone changes.
   seo: {
     siteName: 'Servis Veš Mašina Beograd',
-    defaultTitle: 'Servis veš mašina Beograd – popravka svih marki',
+    defaultTitle: 'Servis veš mašina Beograd | Majstor Dejan 064/110-39-01',
     defaultDescription:
-      'Popravka veš mašina u Beogradu – sve marke, original delovi, garancija na popravku. Pozovite 064/110-39-01 za brz termin.',
+      'Popravka veš mašina u Beogradu: sve marke, original delovi, garancija na popravku. Pozovite 064/110-39-01 za brz termin.',
     /** Path to the default Open Graph image (in /public). */
     ogImage: '/og-default.jpg',
   },

@@ -24,7 +24,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const fullTitle = title.includes(siteConfig.seo.siteName)
+const fullTitle = title.toLowerCase().includes(siteConfig.seo.siteName.toLowerCase())
   ? title
   : `${title} | ${siteConfig.seo.siteName}`;
 
