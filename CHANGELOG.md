@@ -4,6 +4,12 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.18.3] — 2026-09-16
+
+Logo red: "Ostale marke koje servisujemo" -> "Ostali brendovi koje
+servisiramo" (owner, gramatički ispravno); grid varijanta sada
+flex-wrap + flex-1 – pločice popunjavaju celu širinu reda umesto
+fiksne kolone sa praznim prostorom.
 ## [2.18.1] — 2026-09-16
 
 Brendovi hero: tamna pozadina sa hero fotografijom (ista tintirana
