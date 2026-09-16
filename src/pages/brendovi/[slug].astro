@@ -16,6 +16,7 @@ import Button from '../../components/common/Button.astro';
 import Icon from '../../components/common/Icon.astro';
 import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
+import FaqSection from '../../components/sections/FaqSection.astro';
 import { siteConfig } from '../../config/site';
 
 export async function getStaticPaths() {
@@ -33,7 +34,7 @@ const services = (await getCollection('services')).sort(
 );
 ---
 
-<BaseLayout title={brand.data.seoTitle} description={brand.data.excerpt}>
+<BaseLayout title={brand.data.seoTitle} description={brand.data.excerpt} faq={brand.data.faq}>
   <PageHero
     title={brand.data.title}
     lead={brand.data.excerpt}
@@ -74,6 +75,10 @@ const services = (await getCollection('services')).sort(
       </div>
     </div>
   </section>
+
+  {brand.data.faq && brand.data.faq.length > 0 && (
+    <FaqSection title={`Najčešća pitanja – ${brand.data.name}`} items={brand.data.faq} />
+  )}
 
   <section class="bg-surface py-16 md:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
