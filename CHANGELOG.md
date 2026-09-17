@@ -4,6 +4,13 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.19.2] — 2026-09-17
+
+Gorenje v2 (epic #70 faza 2, prvi brend po Whirlpool obrascu): tabela
+kodova F1–F7 VERIFIKOVANA prema lokalnom izvoru (nacrt druge agencije
+imao F3/F4/F6 pogrešno), F/E paritet nota, WaveActive/Advance/
+Essential/SensoCare/WA-W serije, 4 brend FAQ (F7-pumpa Q), 897 reči.
+Bez crtica; gate čist (2x "sve linije" SOFT = odobreni obrazac iz #54).
 ## [2.19.1] — 2026-09-17
 
 Owner round 5: telefon ispod bio-a timskе kartice na /o-nama/ sada je
