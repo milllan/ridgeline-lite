@@ -34,11 +34,11 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
     set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: `${opstina.data.title} – popravka i servis`,
+      name: `${opstina.data.title}, popravka i servis`,
       serviceType: 'Servis veš mašina',
       provider: { '@id': new URL('/#local-business', Astro.site).href },
       areaServed: [
-        { '@type': 'AdministrativeArea', name: `Beograd – ${opstina.data.title.replace('Servis veš mašina ', '')}` },
+        { '@type': 'AdministrativeArea', name: `Beograd, ${opstina.data.title.replace('Servis veš mašina ', '')}` },
         ...opstina.data.naselja.map((n) => ({ '@type': 'Place', name: n })),
       ],
     })}
@@ -67,8 +67,15 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
       <ul class="mt-4 flex flex-wrap gap-2">
         {
           opstina.data.naselja.map((naselje) => (
-            <li class="rounded-full border border-slate-200 bg-surface px-4 py-1.5 text-sm font-medium text-slate-600">
-              {naselje}
+            <li>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(naselje + ', Beograd')}`}
+                target="_blank"
+                rel="noopener"
+                class="inline-block rounded-full border border-slate-200 bg-surface px-4 py-1.5 text-sm font-medium text-slate-600 transition-colors hover:border-primary/50 hover:text-dark"
+              >
+                {naselje}
+              </a>
             </li>
           ))
         }

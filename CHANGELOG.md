@@ -4,6 +4,12 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.18.4] — 2026-09-17
+
+Owner round 4: jezik ("ne centrifugira", "servisiramo" u komentarima);
+logo strip na lokacijama sva 4+3 u jednom redu na desktopu
+(lg:grid-cols-7); naselja čipovi linkuju na Google Maps pretragu
+(naselje, Beograd); JSON-LD imena bez crtice (gate catch).
 ## [2.18.3] — 2026-09-16
 
 Owner round 3: Indesit u H1 tagline (svih 7 brendova + i dr.); logo
