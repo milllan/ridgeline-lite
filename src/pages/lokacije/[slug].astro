@@ -62,7 +62,7 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
       </div>
 
       <h2 class="mt-10 font-heading text-xl font-bold uppercase text-dark">
-        Neka od naselja koja pokrivamo na opštini:
+        Neka od naselja u opštini {opstina.data.title.replace('Servis veš mašina ', '')} koja pokrivamo su:
       </h2>
       <ul class="mt-4 flex flex-wrap gap-2">
         {
