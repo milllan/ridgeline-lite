@@ -118,8 +118,15 @@ const inputClass =
             <p class="flex items-start gap-2.5">
               <Icon name="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               <span>
-                {address.street}<br />
-                {address.zip} {address.city}
+                <a
+                  href={siteConfig.gbpUrl}
+                  target="_blank"
+                  rel="noopener"
+                  class="transition-colors hover:text-primary-ink"
+                >
+                  {address.street}<br />
+                  {address.zip} {address.city}
+                </a>
               </span>
             </p>
             <p>
