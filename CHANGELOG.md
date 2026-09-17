@@ -4,6 +4,13 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.19.1] — 2026-09-17
+
+Owner round 5: telefon ispod bio-a timskе kartice na /o-nama/ sada je
+tel: link sa ikonom (broj izbačen iz plain-text bio-a); "Naselja koja
+pokrivamo" -> "Neka od naselja koja pokrivamo na opštini:";
+"Neki od brendova koje servisiramo" -> "Neki od brendova mašina za
+veš koje servisiramo" (svuda).
 ## [2.19.0] — 2026-09-17
 
 Prave fotografije (Dejan, Viber 2026-09-16): galerija "Radionica i
