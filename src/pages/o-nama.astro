@@ -10,8 +10,14 @@ import SectionHeading from '../components/common/SectionHeading.astro';
 import FinalCTA from '../components/sections/FinalCTA.astro';
 import { getAggregateRating } from '../lib/reviews';
 import { siteConfig } from '../config/site';
-import crewImage from '../assets/about/crew-framing.jpg';
-import marcusPhoto from '../assets/team/marcus-rivera.jpg';
+import lokalIzlog from '../assets/gallery/servis-ves-masina-lokal-izlog-rakovica.jpg';
+import radionicaAlat from '../assets/gallery/radionica-kljucevi-burgije-kompresor.jpg';
+import kombiDolazak from '../assets/gallery/kombi-dolazak-na-adresu-beograd.jpg';
+import preuzimanjeCandy from '../assets/gallery/preuzimanje-candy-ves-masine-kombi.jpg';
+import zamenaLezajeva from '../assets/gallery/zamena-lezajeva-kazan-ves-masine.jpg';
+import servisGorenje from '../assets/gallery/servis-gorenje-ves-masina-radionica.jpg';
+import kazaniDelovi from '../assets/gallery/kazani-bubnjevi-rezervni-delovi.jpg';
+import radniSto from '../assets/gallery/radni-sto-alat-rezervni-delovi.jpg';
 
 const rating = await getAggregateRating();
 const yearsInBusiness = new Date().getFullYear() - siteConfig.stats.yearFounded;
@@ -25,10 +31,9 @@ const stats = [
   { value: `${rating.average}★`, label: 'Prosečna ocena' },
 ];
 
-// TODO: fotografija majstora — ime je stvarno, slika je još placeholder.
 const team = [
   {
-    photo: marcusPhoto,
+    photo: radionicaAlat,
     name: 'Majstor Dejan',
     role: 'Servis i popravka veš mašina',
     bio: `Naš glavni majstor radi sa veš mašinama svih marki, od utvrđivanja kvara na licu mesta do zamene dela i garancije na popravku. Na broj ${siteConfig.phone} javlja se Dejan, ne kol centar.`,
@@ -99,10 +104,9 @@ const credentials = [
           </p>
         </div>
       </div>
-      <!-- TODO: zameniti placeholder fotografiju (krovopokrivački tim) slikom naše radionice -->
       <Image
-        src={crewImage}
-        alt={`${siteConfig.name}, naša radionica`}
+        src={lokalIzlog}
+        alt="Lokal servisa veš mašina na Vidikovačkom vencu u Rakovici"
         widths={[640, 960, 1280]}
         sizes="(min-width: 1024px) 600px, 100vw"
         class="rounded-lg object-cover shadow-md"
@@ -136,14 +140,13 @@ const credentials = [
       />
       <!-- Single technician card (collapsed from a 3-person grid): one card
            reads as intentional when centered at reading width. -->
-      <!-- TODO: fotografija majstora – ime je stvarno, slika je još placeholder -->
       <div class="mt-12 mx-auto max-w-md">
         {
           team.map((member) => (
             <div class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
               <Image
                 src={member.photo}
-                alt={`${member.name}, ${member.role}, ${siteConfig.name}`}
+                alt="Radionica majstora Dejana, alat, burgije i kompresor"
                 widths={[400, 800]}
                 sizes="(min-width: 640px) 448px, 100vw"
                 class="aspect-square w-full object-cover"
@@ -158,6 +161,25 @@ const credentials = [
             </div>
           ))
         }
+      </div>
+    </div>
+  </section>
+
+  <!-- Radionica i teren: prave fotografije (Viber, 2026-09-16) -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        eyebrow="Radionica i teren"
+        title="Tako izgleda naš svakodnevni posao"
+        lead="Dolazak kombijem na adresu, preuzimanje mašine za obimnije popravke i rad u radionici na Vidikovačkom vencu."
+      />
+      <div class="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-3">
+        <Image src={kombiDolazak} alt="Kombi servisera veš mašina dolazi na adresu u Beogradu" widths={[400, 800]} sizes="(min-width: 1024px) 33vw, 50vw" class="aspect-[4/3] w-full rounded-lg object-cover" loading="lazy" />
+        <Image src={preuzimanjeCandy} alt="Preuzimanje Candy veš mašine u kombi za popravku u radionici" widths={[400, 800]} sizes="(min-width: 1024px) 33vw, 50vw" class="aspect-[4/3] w-full rounded-lg object-cover" loading="lazy" />
+        <Image src={zamenaLezajeva} alt="Zamena ležajeva na kazanu veš mašine u radionici" widths={[400, 800]} sizes="(min-width: 1024px) 33vw, 50vw" class="aspect-[4/3] w-full rounded-lg object-cover" loading="lazy" />
+        <Image src={servisGorenje} alt="Servis Gorenje veš mašine u radionici" widths={[400, 800]} sizes="(min-width: 1024px) 33vw, 50vw" class="aspect-[4/3] w-full rounded-lg object-cover" loading="lazy" />
+        <Image src={kazaniDelovi} alt="Kazani i rezervni delovi veš mašina u radionici" widths={[400, 800]} sizes="(min-width: 1024px) 33vw, 50vw" class="aspect-[4/3] w-full rounded-lg object-cover" loading="lazy" />
+        <Image src={radniSto} alt="Radni sto sa alatom i rezervnim delovima" widths={[400, 800]} sizes="(min-width: 1024px) 33vw, 50vw" class="aspect-[4/3] w-full rounded-lg object-cover" loading="lazy" />
       </div>
     </div>
   </section>

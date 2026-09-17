@@ -4,6 +4,15 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.19.0] — 2026-09-17
+
+Prave fotografije (Dejan, Viber 2026-09-16): galerija "Radionica i
+teren" na /o-nama/ (6 fotki, lazy, Astro optimizacija), lokal izlog
+zamenjuje stock u about sekciji, radionica sa alatom zamenjuje
+placeholder u timskoj kartici (alt prilagođen realnosti – radionica,
+ne portret). Stock fotke (crew-framing, marcus-rivera) uklonjene,
+PHOTO-CREDITS ažuriran. Otvoreno: iste fotke za GBP listing (owner
+upload).
 ## [2.18.5] — 2026-09-17
 
 GBP integracija (owner): gbpUrl config (short share link) – adresa u
