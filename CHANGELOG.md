@@ -4,6 +4,14 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.20.0] — 2026-09-17
+
+Nova dva brenda (epic #70, owner: dodaj preostale marke): Samsung
+(verifikovana tabela 1E/3E/4E/5E/dE/UE/HE/LE/OE, EcoBubble/Digital
+Inverter/AddWash serije, LE=curenje FAQ) i Bosch (bez tabele kodova –
+E-kodovi NEVERIFIKOVANI lokalnim izvorom, Gorenje-lesson primenjen;
+Eco Silence Drive/Serie linije, ugradni). Sušilice činjenice (#75) +
+cross-brand gate hardening.
 ## [2.19.3] — 2026-09-17
 
 LG v2 (epic #70 faza 2, drugi brend): kodovi OE/IE/UE/LE/FE/PE
