@@ -4,6 +4,14 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.19.3] — 2026-09-17
+
+LG v2 (epic #70 faza 2, drugi brend): kodovi OE/IE/UE/LE/FE/PE
+verifikovani lokalnim izvorom (dE/tE/CL univerzalni), Direct Drive
+okvir + no-kaiš FAQ (odlična brend diferencijacija iz nacrta), CL
+Child Lock nota, AI DD / 6 Motion / slim serije. Gate-ispravke nacrta:
+najčešći ×5, namenska oprema, kombinovane mašine (nepotvrđeno kod
+Dejana), "većina modela", 3-kolona tabela usklađena na 2. 900 reči.
 ## [2.19.2] — 2026-09-17
 
 Gorenje v2 (epic #70 faza 2, prvi brend po Whirlpool obrascu): tabela
