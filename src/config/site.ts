@@ -50,6 +50,10 @@ export const siteConfig = {
   // Domain mailbox on sculpiflex (HestiaCP); webmail/IMAP creds are
   // root-only on the server (/root/.mail-kontakt-servisvesmasina-creds).
   email: 'kontakt@servisvesmasina-beograd.co.rs',
+  /** Google Business Profile short link (share URL). Used for all
+   * address references on the site + LocalBusiness hasMap. TODO: add
+   * gbpReviewUrl (writereview link from GBP console) when owner pastes it. */
+  gbpUrl: 'https://maps.app.goo.gl/7jgQ3FNCPz1Mf5Bg9',
   address: {
     street: 'Vidikovački venac 104, lokal 62',
     city: 'Rakovica, Beograd',

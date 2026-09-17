@@ -4,6 +4,12 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.18.5] — 2026-09-17
+
+GBP integracija (owner): gbpUrl config (short share link) – adresa u
+footeru i na kontaktu linkuje na GBP, LocalBusiness hasMap u šemi,
+"Proverite i ostavite Google recenziju" CTA ispod recenzija na
+naslovnoj. Review-link (writereview) čeka placeid iz GBP konzole.
 ## [2.18.4] — 2026-09-17
 
 Owner round 4: jezik ("ne centrifugira", "servisiramo" u komentarima);

@@ -38,6 +38,7 @@ export async function buildLocalBusiness(site: URL) {
       longitude: geo.longitude,
     },
     openingHours: siteConfig.openingHoursSchema,
+    hasMap: siteConfig.gbpUrl,
     ...(sameAs.length > 0 && { sameAs }),
     ...(rating.count > 0 && {
       aggregateRating: {
