@@ -36,7 +36,7 @@ const team = [
     photo: radionicaAlat,
     name: 'Majstor Dejan',
     role: 'Servis i popravka veš mašina',
-    bio: `Naš glavni majstor radi sa veš mašinama svih marki, od utvrđivanja kvara na licu mesta do zamene dela i garancije na popravku. Na broj ${siteConfig.phone} javlja se Dejan, ne kol centar.`,
+    bio: `Naš glavni majstor radi sa veš mašinama svih marki, od utvrđivanja kvara na licu mesta do zamene dela i garancije na popravku. Na telefon se javlja Dejan lično, ne kol centar.`,
   },
 ];
 
@@ -157,6 +157,13 @@ const credentials = [
                   {member.role}
                 </p>
                 <p class="mt-3 text-sm leading-relaxed text-slate-600">{member.bio}</p>
+                <a
+                  href={siteConfig.phoneHref}
+                  class="mt-4 inline-flex items-center gap-2 font-heading text-lg font-bold text-primary-ink hover:text-dark"
+                >
+                  <Icon name="phone" class="h-5 w-5 text-primary" />
+                  {siteConfig.phone}
+                </a>
               </div>
             </div>
           ))
