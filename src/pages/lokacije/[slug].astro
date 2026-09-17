@@ -38,7 +38,7 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
       serviceType: 'Servis veš mašina',
       provider: { '@id': new URL('/#local-business', Astro.site).href },
       areaServed: [
-        { '@type': 'AdministrativeArea', name: `Beograd – ${opstina.data.title.replace('Servis veš mašina ', '')}` },
+        { '@type': 'AdministrativeArea', name: `Beograd, ${opstina.data.title.replace('Servis veš mašina ', '')}` },
         ...opstina.data.naselja.map((n) => ({ '@type': 'Place', name: n })),
       ],
     })}
