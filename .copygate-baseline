@@ -1,20 +1,18 @@
-# copy-gate baseline — accepted findings at 2026-09-16 (main)
-# brand-page boilerplate dupes + approved najcesce precedents;
-# shrink as the brand-pages v2 rollout de-duplicates.
-FREQ-NAJCESCE:index.astro
-DUP-SENTENCE:savski-venac.mdx
+# copy-gate baseline — regenerated 2026-09-17 from full-site scan
+# = the complete accepted state: old-template brand boilerplate, v2 cross-brand
+# process/fault sentences, services najcesce precedents, hvala cliche.
+# Shrinks to zero as brand v2 + de-dup rollout completes (epic #70).
+CLICHÉ-BEZ-SKRIVENIH:hvala.astro
+CLICHÉ-BEZ-SKRIVENIH:index.astro
 DUP-SENTENCE:beko.mdx
 DUP-SENTENCE:candy.mdx
-DUP-SENTENCE:gorenje.mdx
 DUP-SENTENCE:indesit.mdx
 DUP-SENTENCE:lg.mdx
-CLICHÉ-BEZ-SKRIVENIH:index.astro
-# added with dash-sweep: services precedent + boilerplate dups + owner tagline
+DUP-SENTENCE:popravka-ves-masina.mdx
+DUP-SENTENCE:whirlpool.mdx
+ELLIPSIS:kontakt.astro
+ELLIPSIS:zatrazi-ponudu.astro
+FREQ-NAJCESCE:index.astro
 FREQ-NAJCESCE:popravka-programatora.mdx
 FREQ-NAJCESCE:zamena-grejaca.mdx
 FREQ-NAJCESCE:zamena-pumpe.mdx
-FREQ-NAJCESCE:zatrazi-ponudu.astro
-DUP-SENTENCE:popravka-ves-masina.mdx
-DUP-SENTENCE:zamena-grejaca.mdx
-DUP-SENTENCE:index.astro
-ENDASH-SPACE:site.ts
