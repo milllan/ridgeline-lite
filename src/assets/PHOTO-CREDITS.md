@@ -29,3 +29,12 @@ Sve slike preuzete su u širini od 1600 px (`?auto=compress&w=1600`); Astro
 ## Preostalo (About / Team)
 
 Preostale roofing fotografije na `/o-nama/` (`crew-framing.jpg` i `marcus-rivera.jpg` kao placeholder za majstora Dejana) ostaju otvorene u okviru issue #3 dok se ne obezbede stvarne fotografije majstora Dejana i radionice.
+
+
+## Naše fotografije (prave, od 2026-09-17)
+
+| Fajl | Poreklo |
+|---|---|
+| `src/assets/gallery/*.jpg` (8 fotografija: lokal, kombi, radionica, preuzimanje, zamena ležajeva, servis Gorenje, kazani, radni sto) | Fotografije iz radionice majstora Dejana (Viber, 2026-09-16) – pravi lokal na Vidikovačkom vencu i pravi terenski posao. |
+
+Placeholder stock fotografije (crew-framing, marcus-rivera) uklonjene.
