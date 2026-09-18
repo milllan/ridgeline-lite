@@ -87,7 +87,7 @@ const services = (await getCollection('services')).sort(
         services.map((service, i) => (
           <article
             id={service.id.replace(/\.mdx$/, '')}
-            class="grid overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm md:grid-cols-2"
+            class="grid scroll-mt-28 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm md:grid-cols-2"
           >
             <div class:list={['relative aspect-video md:aspect-auto md:min-h-full', i % 2 === 1 && 'md:order-last']}>
               <Image
