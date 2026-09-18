@@ -1,10 +1,13 @@
 ---
 title: Servis Ariston veš mašina
 seoTitle: Servis Ariston veš mašina u Beogradu | Majstor Dejan 064/110-39-01
-# DRAFT: kvarovi generički (Ariston deli Merloni platformu sa Indesitom
-# – delovi često kompatibilni; potvrditi sa Dejanom #21).
+# DRAFT: Ariston deli Merloni platformu sa Indesitom (delovi za mnoge
+# sklopove zamenljivi); kodovi F02–F18 provereni prema
+# elektropetrovic011.rs (2026-09-18); F01 i F07 izostavljeni jer im se
+# značenje razilazi među izvorima (washerhouse EVO-II vodič);
+# brend-specifične slabosti i serije čekaju Dejanovu potvrdu (#21).
 name: Ariston
-excerpt: 'Popravka Ariston veš mašina u Beogradu: ležajevi, pumpe, grejači, programatori. Manje kvarove radimo na vašoj adresi, originalni delovi, garancija na rad.'
+excerpt: 'Popravka Ariston veš mašina u Beogradu: kodovi grešaka, programatori, ležajevi, grejači i pumpe. Manje popravke kod vas, veće u radionici, uz garanciju na rad i delove.'
 commonFaults:
   - Ležajevi bubnja
   - Pumpa za odvod
@@ -12,10 +15,68 @@ commonFaults:
   - Programator
   - Zaptivač vrata
 order: 6
+faq:
+  - question: Da li je Hotpoint druga marka od Aristona?
+    answer: >-
+      Nije druga marka. Dugo su se aparati prodavali pod dvostrukim imenom
+      Hotpoint-Ariston, a kasnije je ostalo samo ime Ariston, pa na starijim
+      primercima stoje oba imena. Popravka ide po istim pravilima bez obzira na
+      to koje se od njih vidi na mašini.
+  - question: Ako mi za Ariston treba rezervni deo, da li odgovara onaj od Indesita?
+    answer: >-
+      Delovi za mnoge sklopove su zamenljivi, jer obe marke dele istu osnovu,
+      pa deo predviđen za Indesit mašinu ume da posluži i kod Aristona. Pre
+      ugradnje ga u svakom slučaju proverimo po modelu mašine, ništa ne
+      montiramo napamet.
+  - question: Na ekranu mi se pojavio kod koga nema u vašem spisku. Šta znači?
+    answer: >-
+      Tabela ne može da pokrije svaki kod svake generacije, jer njihovo
+      značenje ume da se razlikuje. Zato kad zovete, recite nam koji broj stoji
+      na ekranu i pročitajte model s tablice na ramu, pa pre dolaska znamo
+      gde da tražimo.
+  - question: Šta određuje cenu popravke Ariston mašine?
+    answer: >-
+      Isti kvar ne košta jednako na svakom modelu, pa obim posla diktira
+      račun: drugo košta nova pumpa, a drugo vađenje bubnja iz
+      kade zbog ležajeva. Tačan iznos majstor vam kaže dok je mašina pred
+      njim, pre bilo kakvog rada, a utvrđivanje kvara plaćaju jedino oni koji
+      popravku ne povere nama.
 ---
 
-Ariston veš mašine grade se na istoj platformi kao i Indesit, pa su delovi često kompatibilni. Kvarovi koje viđamo su na ležajevima, pumpama, grejačima i programatorima. Servisiramo Ariston modele raznih godišta.
+Godinama su se Ariston mašine prodavale i kao Hotpoint-Ariston, pa na tablicama starijih modela i danas stoji taj duži naziv; kasnije se naziv sveo na sam Ariston, a reč je o istoj porodici aparata. Noviji modeli sami prijave kvar: na displeju ispišu F kod i time otprilike pokažu na kom je sklopu problem. Oni bez ekrana, a takvih i dalje ima u beogradskim kupatilima, kvar prikazuju treptanjem lampica na komandnoj tabli, pa se po načinu treptanja pre dolaska može naslutiti o čemu je reč.
 
-Manje kvarove otklanjamo kod vas u stanu, u svim beogradskim opštinama, a za obimnije popravke mašinu preuzimamo u radionicu i vraćamo je popravljenu. Tačan uzrok utvrđujemo na licu mesta, a cenu znate pre početka rada.
+Popravka koja ne traži vađenje bubnja završava se kod vas u stanu, u bilo kojoj beogradskoj opštini. Kad je posao veći, što je pravilo kod ležajeva, mašina se preveze u radionicu na Vidikovačkom vencu, gde se dotrajali ležajevi izbijaju, a novi utiskuju presom, jer za to u kupatilu nema uslova. Prevoz u oba pravca vodimo mi.
 
-Ugrađujemo originalne delove, a zamenske samo uz vašu saglasnost. Na rad i ugrađene delove dajemo garanciju, a garancija na delove traje godinu dana.
+## Kodovi grešaka na Ariston veš mašinama
+
+Displeji na Ariston mašinama prikažu kvar kao F oznaku, pa majstor po tom broju već pre dolaska zna gde da traži.
+
+| Kod | Šta obično znači |
+| --- | --- |
+| **F02** | Tahogenerator ne daje signal: broj obrtaja motora ne stiže do kontrolne ploče |
+| **F03** | NTC senzor temperature vode daje netačno očitavanje |
+| **F04** | Sa senzora nivoa vode stižu podaci koji se međusobno protivreče |
+| **F05** | Prošlo je predviđeno vreme, a voda i dalje stoji u bubnju |
+| **F08** | Neispravan grejač ili relej koji ga uključuje i isključuje |
+| **F10** | Senzor nivoa vode ne daje nikakav signal |
+| **F12** | Između kontrolne ploče i ploče displeja prekinuta je veza, razmena podataka ne radi |
+| **F15** | Neispravan relej grejača; kod modela sa sušenjem relej grejača za sušenje |
+| **F18** | Prekinuta je unutrašnja komunikacija u elektronici koja upravlja mašinom |
+
+Ista oznaka ne nosi isto značenje na svakoj generaciji, pa su u tabeli samo kodovi čije se tumačenje zna pouzdano. Ako vaš ekran pokaže nešto što ovde nije navedeno, zovite nas s tim brojem i s oznakom s tablice na ramu, pa ćemo znati na koji sklop ukazuje.
+
+## Šta se pokvari na Ariston mašinama
+
+**Ležajevi bubnja.** Za vreme centrifuge mašina podigne buku koja se čuje i iz druge sobe, a kad rub bubnja pomerite rukom gore-dole, jasno se oseti koliko je ležaj popustio. Takva zamena se radi u radionici, jer se do ležajeva dolazi tek kad se bubanj izvadi iz kade.
+
+**Pumpa za odvod.** Program dođe do kraja, a kroz staklo vrata vidi se da je voda ostala, pa veš vadite natopljen. Prvo se očisti filter i pregleda odvodno crevo, jer začepljenje ume da daje iste simptome kao pokvarena pumpa; kad je pumpa stvarno neispravna, menja se na vašoj adresi, bez odvoženja u radionicu.
+
+**Grejač.** Koju god temperaturu izabrali, voda do kraja programa ostane hladna, pa veš izvadite natopljen sapunicom. Grejač se menja kod vas u stanu, jer se za taj posao bubanj iz kade ne vadi.
+
+**Programator.** Kod starijih Aristona program se bira okretanjem točkića, a kad se njegovi kontakti istroše, mašina kreće na svoju ruku: program stane nasred pranja, točkić se vrti bez ikakvog učinka ili ciklus krene mimo onoga što ste izabrali. Programator najpre pokušamo da osposobimo čišćenjem i obradom kontakata, a kad to ne pomogne, na vašoj adresi se ugrađuje novi.
+
+**Zaptivač vrata.** Gumena brtva oko vrata s godinama napukne, pa posle svakog pranja brišete vodu sa poda, a u naborima se zadržava naslaga koja se prenosi na veš. Novu gumu postavljamo kod vas u kupatilu, bez ikakvog prevoza.
+
+## Ariston serije koje servisiramo
+
+Popravljamo Aqualtis liniju, starije ARSL, ARXL i ARWD generacije, mašine iz doba kada se marka zvala Hotpoint-Ariston, pa i kombinovane modele koji u istom bubnju i peru i suše. Pošto Ariston i Indesit dele Merloni platformu, stranica [Indesit servis](/brendovi/indesit/) dobro dođe za poređenje: za mnoge sklopove ume da posluži isti deo, bez obzira na to šta piše na tablici. Delovi su originalni, a zamenski dolaze u obzir samo uz vašu saglasnost. A pravilo je isto za svaki odlazak: konstatacija kvara na adresi, tačna cena pre nego što se krene s radom, garancija važi i za rad i za ugrađene delove, a na delove punih godinu dana.
