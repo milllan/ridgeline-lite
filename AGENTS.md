@@ -54,3 +54,16 @@ npm ci && npm run build && npm run check   # astro check + tsc, must be 0 errors
 Routes (Serbian slugs): /, /usluge/, /o-nama/, /kontakt/,
 /zatrazi-ponudu/, /hvala/ (noindex), /404. Local preview:
 `npx astro preview --host 127.0.0.1` (serves dist/).
+
+## Content lane routing (owner decision 2026-09-18, proven on the Zanussi A/B)
+
+For Serbian **prose** (brand-page bodies, opštine text, any customer-facing copy):
+1. **GLM (ZCode subagent) writes the text** — best native rhythm of the three
+   tested lanes (beat muse's translated-feel phrasing and gemini's
+   service-manual register).
+2. **muse (pi) is the Serbian EDITOR** — reviews GLM's prose adversarially;
+   caught 5 real grammar/idiom/terminology issues on the first test.
+3. **gemini (agy) reviews structure/facts**, not voice.
+muse remains fine for **structure/scaffolding builds** (collections, routes,
+gates) — only its prose voice is second-tier. The copy-gate runs on every
+variant regardless of lane.
