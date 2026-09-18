@@ -4,6 +4,12 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.20.2] — 2026-09-18
+
+Miele (11. brend, epic #70): premium ugao (popravka se isplati, delovi
+za većinu generacija), W serije + TwinDos/Express 20, ugradni. Bez
+tabele kodova (izvor prazan). Isplati-li-se FAQ kao prvo pitanje –
+konverzija za premium vlasnike. Logo tile, strip 11 u redu.
 ## [2.20.1] — 2026-09-17
 
 Electrolux (10. brend, epic #70): PerfectCare/UltimateCare/SensiCare
