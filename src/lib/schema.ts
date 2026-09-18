@@ -39,6 +39,7 @@ export async function buildLocalBusiness(site: URL) {
     },
     openingHours: siteConfig.openingHoursSchema,
     hasMap: siteConfig.gbpUrl,
+    priceRange: '$$',
     ...(sameAs.length > 0 && { sameAs }),
     ...(rating.count > 0 && {
       aggregateRating: {
