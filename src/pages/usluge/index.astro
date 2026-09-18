@@ -76,7 +76,7 @@ const services = (await getCollection('services')).sort(
   faq={faqItems}
 >
   <PageHero
-    title="Usluge"
+    title="Usluge servisa veš mašina u Beogradu"
     lead="Otklanjamo sve kvarove, od bučnog ležaja do pumpe koja ne izbacuje vodu: manje popravke radimo na vašoj adresi, a obimnije u radionici, uz preuzimanje mašine. Popravljamo sve marke. Konstatacija kvara je besplatna uz popravku, a na ugrađene delove i rad dobijate garanciju."
     crumbs={[{ label: 'Usluge' }]}
   />
@@ -85,7 +85,10 @@ const services = (await getCollection('services')).sort(
     <div class="mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:px-8">
       {
         services.map((service, i) => (
-          <article class="grid overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm md:grid-cols-2">
+          <article
+            id={service.id.replace(/\.mdx$/, '')}
+            class="grid scroll-mt-28 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm md:grid-cols-2"
+          >
             <div class:list={['relative aspect-video md:aspect-auto md:min-h-full', i % 2 === 1 && 'md:order-last']}>
               <Image
                 src={service.data.heroImage}

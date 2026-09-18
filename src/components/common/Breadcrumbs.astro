@@ -26,7 +26,16 @@ const breadcrumbSchema = {
     '@type': 'ListItem',
     position: i + 1,
     name: crumb.label,
-    ...(crumb.href && { item: new URL(crumb.href, Astro.site).href }),
+    // Google's Rich Results test warns when the terminal crumb omits
+    // `item`, so fall back to the current page's canonical URL. Only
+    // the terminal crumb gets the fallback: href-less intermediates
+    // (e.g. "Marke" on brand pages) have no page of their own and must
+    // not reuse the page canonical.
+    ...(crumb.href
+      ? { item: new URL(crumb.href, Astro.site).href }
+      : i === crumbs.length - 1 && {
+          item: new URL(Astro.url.pathname, Astro.site).href,
+        }),
   })),
 };
 ---

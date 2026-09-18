@@ -4,6 +4,18 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.21.0] — 2026-09-18
+
+Epic #70 faza 1, mehanički SEO quick wins (PR #84): footer 6 usluga
+sada duboki anchori /usluge/#<slug> uz matching id na karticama
+(+scroll-mt-28 ispod sticky headera); skip-link preveden ("Preskoči na
+glavni sadržaj"); BreadcrumbList terminal crumb dobija kanonski item
+(samo terminal; bez-href intermediates poput "Marke" ostaju bez itema,
+muse catch); og:locale sr_RS; priceRange '$$' u LocalBusiness semi;
+/usluge/ H1 keyword-rich "Usluge servisa veš mašina u Beogradu" (crumb
+label ostaje "Usluge"). Muse review: approve; 1 valid Important
+(breadcrumb fallback scope) + 1 valid Nit (scroll offset) ispravljeni
+u review-response commitu.
 ## [2.20.3] — 2026-09-18
 
 Zanussi (12. brend, epic #70): PRVI brend izgrađen po cli-first-delegation
