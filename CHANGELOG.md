@@ -4,6 +4,13 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.20.3] — 2026-09-18
+
+Zanussi (12. brend, epic #70): PRVI brend izgrađen po cli-first-delegation
+matrici – muse BUILDER (kolokvijalan glas, 'peru po srpskim kupatilima'),
+GLM-zcode + agy REVIEWERI (approve + 6 nita). Electrolux-grupa FAQ,
+JetSystem ugao, bez tabele kodova. Nit-ispravke: 'decenijama na tržištu'
+umesto longevity-reada, 'Zovu nas' umesto dvosmislenog 'Kod nas stižu'.
 ## [2.20.2] — 2026-09-18
 
 Miele (11. brend, epic #70): premium ugao (popravka se isplati, delovi
