@@ -120,9 +120,15 @@
    Tailwind preflight flattens h2–h6, lists and tables to body
    text — headings were rendering at 16px, lists lost their
    bullets and tables had no borders.
-   Unlayered on purpose: must beat the plugin's own `.prose`
-   defaults and the base-layer heading rule regardless of where
-   @plugin emits its CSS.
+
+   The var block stays UNLAYERED on purpose: the plugin's own
+   `.prose` defaults are emitted into @layer utilities, so this is
+   the only position that beats them deterministically. The
+   element rules below live in @layer components instead — lower
+   than utilities — so utilities inside content (font-bold,
+   normal-case, `not-prose` islands …) keep their escape hatch.
+   Size/weight scale comes from the plugin (h2 1.5em/700, h3 1.25em
+   /600, h4 600; h5–h6 fall through to the base-layer 700).
    ------------------------------------------------------------ */
 .prose {
   --tw-prose-body: #475569; /* slate-600 — body ink used across sections */
@@ -133,13 +139,23 @@
   --tw-prose-td-borders: #e2e8f0; /* slate-200 */
 }
 
-/* Match every other heading on the site: Barlow Condensed 700,
-   uppercase, slightly tracked. Size scale comes from the plugin
-   (h2 1.5em … h6 .875em) — the condensed face reads small, so no
-   further bump is needed against 16px Inter body text. */
-.prose :is(h2, h3, h4, h5, h6) {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
+@layer components {
+  /* Match every other heading on the site: Barlow Condensed,
+     uppercase, slightly tracked — h1 included so an accidental
+     MDX `#` heading cannot render as the only Inter heading on
+     the site. Same not-prose guard the plugin uses, so escape
+     islands stay fully unstyled by us. */
+  .prose :is(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+
+  /* Wide MDX tables scroll inside their box instead of pushing
+     the page past the mobile viewport (the plugin only sets
+     width:100% + auto layout). */
+  .prose :where(table):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+    display: block;
+    overflow-x: auto;
+  }
 }
