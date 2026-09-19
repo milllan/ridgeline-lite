@@ -51,9 +51,14 @@ export const siteConfig = {
   // root-only on the server (/root/.mail-kontakt-servisvesmasina-creds).
   email: 'kontakt@servisvesmasina-beograd.co.rs',
   /** Google Business Profile short link (share URL). Used for all
-   * address references on the site + LocalBusiness hasMap. TODO: add
-   * gbpReviewUrl (writereview link from GBP console) when owner pastes it. */
+   * address references on the site + LocalBusiness hasMap. */
   gbpUrl: 'https://maps.app.goo.gl/7jgQ3FNCPz1Mf5Bg9',
+  /** Direct "write a Google review" link (homepage CTA under the reviews
+   * carousel). Place ID derived from gbpUrl's listing 2026-09-19 and
+   * verified: q=place_id resolves to the business; writereview redirects
+   * anonymous visitors to sign-in with a continue back to the form. */
+  gbpReviewUrl:
+    'https://search.google.com/local/writereview?placeid=ChIJGfaTpuxxWkcRWOH_QGll5-0',
   address: {
     street: 'Vidikovački venac 104, lokal 62',
     city: 'Rakovica, Beograd',
