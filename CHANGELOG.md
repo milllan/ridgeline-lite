@@ -4,6 +4,17 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.23.1] — 2026-09-19
+
+aeolint (SEO/AEO/GEO linter) zakačen u build: devDependency
+@didrod2539/aeolint 0.2.0 + scripts/seo-gate.mjs kao npm postbuild
+hook. Po strani: WARN ispod 90, FAIL ispod 85 ili error-nalaz (izuzetak:
+namerni noindex na 404/hvala allowlist); exit 1 prekida
+"npm run build && rsync" lanac PRE deploya (verifikovano). Env prekidači:
+SEO_GATE_WARN/FAIL/ALLOW/SKIP. npm run seo:audit = puni izveštaj na
+zahtev. Trenutno stanje: 26 strana, 0 FAIL, 2 WARN (kontakt i
+stari-grad 89/100 — kandidati za buduće doterivanje). dist/ sadržaj
+nepromenjen — redeploy nije potreban.
 ## [2.23.0] — 2026-09-19
 
 Uklonjena /usluge-ai stranica (noindex A/B eksperiment, epic #70) i
