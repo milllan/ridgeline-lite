@@ -114,7 +114,14 @@ const shortTitle = (service.data.title.split(',')[0] ?? service.data.title).trim
   <BrandLogos />
 
   {service.data.faq && service.data.faq.length > 0 && (
-    <FaqSection title={`Najčešća pitanja: ${shortTitle}`} items={service.data.faq} />
+    <FaqSection
+      title={
+        /veš mašin/i.test(shortTitle)
+          ? `Najčešća pitanja: ${shortTitle}`
+          : `Najčešća pitanja: ${shortTitle} veš mašine`
+      }
+      items={service.data.faq}
+    />
   )}
 
   <FinalCTA />
