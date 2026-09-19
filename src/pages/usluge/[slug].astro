@@ -111,8 +111,6 @@ const shortTitle = (service.data.title.split(',')[0] ?? service.data.title).trim
     </div>
   </section>
 
-  <BrandLogos />
-
   {service.data.faq && service.data.faq.length > 0 && (
     <FaqSection
       title={
@@ -123,6 +121,8 @@ const shortTitle = (service.data.title.split(',')[0] ?? service.data.title).trim
       items={service.data.faq}
     />
   )}
+
+  <BrandLogos />
 
   <FinalCTA />
 </BaseLayout>

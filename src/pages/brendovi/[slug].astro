@@ -80,18 +80,9 @@ const services = (await getCollection('services')).sort(
     </div>
   </section>
 
-  <BrandLogos
-    exclude={brand.id.replace(/\.mdx$/, '')}
-    heading="Ostali brendovi koje servisiramo"
-  />
-
-  {brand.data.faq && brand.data.faq.length > 0 && (
-    <FaqSection title={`Najčešća pitanja: ${brand.data.name} mašine za veš`} items={brand.data.faq} />
-  )}
-
   <section class="bg-surface py-16 md:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="font-heading text-2xl font-bold uppercase text-dark">
+      <h2 class="font-heading text-2xl font-bold uppercase tracking-wide text-dark">
         Usluge za {brand.data.name} veš mašine
       </h2>
       <div class="mt-8">
@@ -99,6 +90,15 @@ const services = (await getCollection('services')).sort(
       </div>
     </div>
   </section>
+
+  {brand.data.faq && brand.data.faq.length > 0 && (
+    <FaqSection title={`Najčešća pitanja: ${brand.data.name} mašine za veš`} items={brand.data.faq} />
+  )}
+
+  <BrandLogos
+    exclude={brand.id.replace(/\.mdx$/, '')}
+    heading="Ostali brendovi koje servisiramo"
+  />
 
   <FinalCTA />
 </BaseLayout>
