@@ -1,6 +1,6 @@
 ---
 /**
- * Brand landing pages (/brendovi-ves-masina/[brand]-servis/) — spec #4,
+ * Brand landing pages (/brendovi-ves-masina/[brand]-majstor/) — spec #4,
  * epic #28 D. Gorenje first; next brand = one content file, zero code
  * changes. UI says "Marke" (natural Serbian) while the URL carries the
  * keyword — intentional split, documented here (muse #4; URL segment
@@ -24,7 +24,7 @@ import heroImage from '../../assets/hero/home-hero.jpg';
 export async function getStaticPaths() {
   const brands = await getCollection('brands');
   return brands.map((brand) => ({
-    params: { slug: `${brand.id.replace(/\.mdx$/, '')}-servis` },
+    params: { slug: `${brand.id.replace(/\.mdx$/, '')}-majstor` },
     props: { brand },
   }));
 }

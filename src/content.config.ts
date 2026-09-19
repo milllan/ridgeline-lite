@@ -69,7 +69,7 @@ const opstine = defineCollection({
 });
 
 /**
- * Brand landing pages (/brendovi-ves-masina/[slug]-servis/) — spec #4, epic #28 D.
+ * Brand landing pages (/brendovi-ves-masina/[slug]-majstor/) — spec #4, epic #28 D.
  * Gorenje first; next brand = one content file, zero code changes.
  * commonFaults are generic per-brand DRAFTs until the majstor confirms
  * brand-specific weak points (#21) — flagged in each content file.
