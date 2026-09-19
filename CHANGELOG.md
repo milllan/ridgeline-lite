@@ -4,6 +4,18 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.24.1] — 2026-09-19
+
+Epic #70 zaostali cleanup (baseline 13 -> 10 ključeva): (1) gorenje/lg
+dedupe — boilerplate rečenica "Postupak je isti kao za sve marke…" obri-
+sana sa gorenje (proces pokriva "Kako izgleda popravka" odeljak), lg
+preformulisana brend-distinktno (nema taj odeljak); + skrivena lg<->gor
+duplikacija FAQ cene ("Cena zavisi od kvara i modela.") preformulisana;
+(2) miele ABS-UVEK soft: "Red je uvek jasan" -> "Red je jasan"; (3) pra-
+vopis presa: preša->presa (zanussi), prešu->presu (hisense, popravka-
+ves-masina), prešom->presom (vox) — ekavica/s-forma sada svuda. Copy-gate
+full-set: 0 NEW hard/soft sa novim baselineom; build/check/seo-gate zeleni.
+
 ## [2.24.0] — 2026-09-19
 
 Epic #70 Faza 3: posvećene stranice usluga /usluge/[slug]/ (6 stranica,
