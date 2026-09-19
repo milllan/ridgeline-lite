@@ -4,6 +4,24 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.24.0] — 2026-09-19
+
+Epic #70 Faza 3: posvećene stranice usluga /usluge/[slug]/ (6 stranica,
+PR #93-#99). Ruta preko services kolekcije (šema dobila opcioni seoTitle
++ faq, brendovi/opstine obrazac), MDX telo + processSteps vremenska linija
+("Kako teče popravka"), Service JSON-LD (serviceType, provider /#local-
+business, areaServed Beograd), FaqSection + FAQPage schema, BrandLogos,
+FinalCTA. /usluge/ kartice vode na podstranice (sekundarni "Zatražite
+ponudu" ostao), footer #84 sidra -> direktni linkovi. Sadržaj po usluzi
+(GLM pisao, muse editovao, gemini/agy recenzirao; triage tabele na PR-
+ovima): seoTitle 55-62 znaka, 4-pitanja FAQ, tela ~200-300 reči sa
+pitanjskim H2 naslovima, dijagnoza->konstatacija u processSteps. Sitemap
+24 -> 30 URL. aeolint: 6 novih strana 92-95/100 (A), ukupno 91, 0 FAIL
+(WARN ostali samo kontakt i stari-grad 89, prethodno postojeći).
+copy-gate: 0 NEW hard/soft kroz celu fazu. Oba deploy cilja
+(prod + demo) osvežena; 6 URL-a verifikovano (200 + title + FAQPage).
+TODO: GSC indexing request za 6 novih URL-a (vlasnik).
+
 ## [2.23.2] — 2026-09-19
 
 seo-gate hardening (Tier-2 eksterna recenzija: ling-3.0-flash + gemini-
