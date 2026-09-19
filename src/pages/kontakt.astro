@@ -11,10 +11,10 @@ import FormAjaxSubmit from '../components/common/FormAjaxSubmit.astro';
 import ServiceAreaMap from '../components/sections/ServiceAreaMap.astro';
 import { formAttributes } from '../lib/forms';
 import { siteConfig, hasEmail } from '../config/site';
-import { getCollection } from 'astro:content';
+import { getPublished } from '../lib/collections';
 
 const { address } = siteConfig;
-const opstine = (await getCollection('opstine')).sort(
+const opstine = (await getPublished('opstine')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 

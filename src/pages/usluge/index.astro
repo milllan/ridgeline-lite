@@ -4,7 +4,7 @@
  * process overviews; each card links through to its dedicated
  * /usluge/[slug]/ landing page (epic #70 Phase 3).
  */
-import { getCollection } from 'astro:content';
+import { getPublished } from '../../lib/collections';
 import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/common/PageHero.astro';
@@ -62,10 +62,10 @@ const faqItems = [
   },
 ];
 
-const brands = (await getCollection('brands')).sort(
+const brands = (await getPublished('brands')).sort(
   (a, b) => a.data.order - b.data.order,
 );
-const services = (await getCollection('services')).sort(
+const services = (await getPublished('services')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 ---

@@ -17,6 +17,7 @@ interface Props {
 }
 
 import BrandLogoTile from '../common/BrandLogoTile.astro';
+import { getPublished } from '../../lib/collections';
 
 const { exclude = '', heading = 'Neki od brendova mašina za veš koje servisiramo', variant = 'grid' } =
   Astro.props;
@@ -47,7 +48,13 @@ const brands: BrandTile[] = [
   { name: 'Candy', slug: 'candy', alt: 'Servis Candy veš mašina Beograd' },
 ];
 
-const visible = brands.filter((brand) => brand.slug !== exclude);
+// Published brands only: a `status: draft` brand's page does not generate,
+// so it must not be linked from anywhere (epic #112 task 4). The static
+// list carries the logo/alt data; membership comes from the collection.
+const published = new Set(
+  (await getPublished('brands')).map((brand) => brand.id.replace(/\.mdx$/, '')),
+);
+const visible = brands.filter((brand) => brand.slug !== exclude && published.has(brand.slug));
 ---
 
 <section class="bg-surface py-14 md:py-16" aria-labelledby="marke-heading">

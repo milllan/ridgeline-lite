@@ -2,13 +2,13 @@
 /**
  * Site footer. All company data comes from src/config/site.ts.
  */
-import { getCollection } from 'astro:content';
+import { getPublished } from '../../lib/collections';
 import { siteConfig, hasEmail } from '../../config/site';
 import { footerCompanyNav } from '../../config/nav';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
 
-const services = (await getCollection('services')).sort(
+const services = (await getPublished('services')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 
