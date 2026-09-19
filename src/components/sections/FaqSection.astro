@@ -29,7 +29,9 @@ const { title, items } = Astro.props;
         items.map((item) => (
           <details class="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm open:border-primary/40">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-dark [&::-webkit-details-marker]:hidden">
-              <h3 class="inline font-semibold">{item.question}</h3>
+              <h3 class="inline font-heading text-xl font-bold uppercase tracking-wide">
+                {item.question}
+              </h3>
               <Icon
                 name="chevron-down"
                 class="h-5 w-5 shrink-0 text-primary transition-transform group-open:rotate-180"
