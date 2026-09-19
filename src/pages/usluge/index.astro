@@ -146,7 +146,7 @@ const services = (await getCollection('services')).sort(
   {brands.length > 0 && (
     <section class="bg-white py-12 md:py-16">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* UI "marke" vs URL /brendovi/ – intentional split (muse #4) */}
+        {/* UI "marke" vs URL /brendovi-ves-masina/ – intentional split (muse #4) */}
         <h2 class="font-heading text-xl font-bold uppercase text-dark">
           Servis po markama
         </h2>
@@ -155,7 +155,7 @@ const services = (await getCollection('services')).sort(
           brands.map((brand) => (
             <li>
               <a
-                href={`/brendovi/${brand.id.replace(/\.mdx$/, '')}/`}
+                href={`/brendovi-ves-masina/${brand.id.replace(/\.mdx$/, '')}-servis/`}
                 class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-surface px-5 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-primary/50 hover:text-dark"
               >
                 <Icon name="wrench" class="h-4 w-4 text-primary" />
