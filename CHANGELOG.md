@@ -15,6 +15,16 @@ duplikacija FAQ cene ("Cena zavisi od kvara i modela.") preformulisana;
 vopis presa: preša->presa (zanussi), prešu->presu (hisense, popravka-
 ves-masina), prešom->presom (vox) — ekavica/s-forma sada svuda. Copy-gate
 full-set: 0 NEW hard/soft sa novim baselineom; build/check/seo-gate zeleni.
+## [2.24.2] — 2026-09-19
+
+gbpReviewUrl (CHANGELOG 2.18.5 TODO zatvoren): Place ID izveden iz postojećeg
+GBP short linka (maps.app.goo.gl -> listing "Servis veš mašina Beograd,
+majstor Dejan"; ChIJ izvučen iz hidrirane Maps stranice u headless browseru)
+i verifikovan dva puta: maps q=place_id resolvuje tačno na lokal (isti
+feature hex), writereview preusmerava anonimne na sign-in sa continue nazad
+na formu. site.ts dobija gbpReviewUrl; CTA "Proverite i ostavite Google
+recenziju" ispod recenzija na naslovnoj sada vodi direktno na writereview
+(pre bio običan share link); footer/kontakt/hasMap ostaju na gbpUrl.
 
 ## [2.24.0] — 2026-09-19
 
@@ -367,29 +377,6 @@ per image; orphaned roofing files deleted.
   (mobile crop loses the subject), flagship card reads as small-appliance,
   grejač photo carries English in-image text. Real servicer photos remain
   the recommended long-term upgrade.
-
-## [2.9.0] — 2026-09-15
-
-Real business data (owner-provided): **majstor Dejan**, phone
-064/110-39-01 (tel:+381641103901), address Vidikovački venac 104,
-11090 Beograd (Rakovica). First launch blockers resolved.
-
-### Changed
-- `site.ts`: phone/phoneHref/address/geo (44.7396/20.4166, OSM Nominatim
-  house-level match; TODO on-site verify) — flows everywhere via config
-  (NAP, CTAs, JSON-LD, meta). defaultDescription phone updated.
-- Honesty fix (no registered business exists): licenseLine
-  "Radionica registrovana…" → "Servis veš mašina – dolazak na kućnu
-  adresu"; o-nama credentials card retitled likewise.
-- o-nama: team card "Majstor Dejan", "javlja se Dejan, ne kol centar";
-  kontakt hero "Razgovarajte direktno sa Dejanom".
-- ServiceAreaMap: distinct workshop pin ("Naša lokacija") at
-  siteConfig.geo (single source of truth per review), ring + bright
-  core, collision-asserted; municipality dots unchanged.
-
-### Also in this merge
-- Owner's /usluge-ai experiment page (AI photos variant, noindex,
-  sitemap-excluded; both photo sets stay until decided).
 
 ## [2.8.0] — 2026-09-15
 
