@@ -3,7 +3,8 @@
  * Opština landing pages (/lokacije/[slug]/) — issue #25.
  * Rakovica first; 2nd opština = one content file, zero code changes.
  */
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import { getPublished } from '../../lib/collections';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/common/PageHero.astro';
 import Button from '../../components/common/Button.astro';
@@ -15,7 +16,7 @@ import BrandLogos from '../../components/sections/BrandLogos.astro';
 import { siteConfig } from '../../config/site';
 
 export async function getStaticPaths() {
-  const opstine = await getCollection('opstine');
+  const opstine = await getPublished('opstine');
   return opstine.map((opstina) => ({
     params: { slug: opstina.id.replace(/\.mdx$/, '') },
     props: { opstina },
@@ -24,7 +25,7 @@ export async function getStaticPaths() {
 
 const { opstina } = Astro.props;
 const { Content } = await render(opstina);
-const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const services = (await getPublished('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title={opstina.data.seoTitle} description={opstina.data.excerpt} faq={opstina.data.faq}>

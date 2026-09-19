@@ -32,6 +32,8 @@ const services = defineCollection({
       faq: z
         .array(z.object({ question: z.string(), answer: z.string() }))
         .optional(),
+      /** Publication status — `draft` pages are suppressed from the build (epic #112 task 4). */
+      status: z.enum(['draft', 'published']).default('published'),
     }),
 });
 
@@ -65,6 +67,8 @@ const opstine = defineCollection({
     faq: z
       .array(z.object({ question: z.string(), answer: z.string() }))
       .optional(),
+    /** Publication status — `draft` pages are suppressed from the build (epic #112 task 4). */
+    status: z.enum(['draft', 'published']).default('published'),
   }),
 });
 
@@ -89,6 +93,8 @@ const brands = defineCollection({
     faq: z
       .array(z.object({ question: z.string(), answer: z.string() }))
       .optional(),
+    /** Publication status — `draft` pages are suppressed from the build (epic #112 task 4). */
+    status: z.enum(['draft', 'published']).default('published'),
   }),
 });
 

@@ -11,7 +11,8 @@
  * Crumb keeps the short form ("Popravka veš mašina" from
  * "Popravka veš mašina, svi kvarovi"); H1 carries the full keyword.
  */
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import { getPublished } from '../../lib/collections';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/common/PageHero.astro';
 import Button from '../../components/common/Button.astro';
@@ -22,7 +23,7 @@ import FinalCTA from '../../components/sections/FinalCTA.astro';
 import { siteConfig } from '../../config/site';
 
 export async function getStaticPaths() {
-  const services = await getCollection('services');
+  const services = await getPublished('services');
   return services.map((service) => ({
     params: { slug: service.id.replace(/\.mdx$/, '') },
     props: { service },
