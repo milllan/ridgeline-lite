@@ -25,10 +25,14 @@ if (/^(1|true|yes)$/i.test(process.env.SEO_GATE_SKIP ?? '')) {
   process.exit(0);
 }
 
-// Empty or unparseable values fall back to the defaults (never 0/NaN).
+// Empty, whitespace, non-numeric, zero or negative values fall back to the
+// defaults (never a silently-disabled 0 threshold — disable via SEO_GATE_SKIP).
 const num = (v, d) => {
-  const n = Number(v);
-  return v !== undefined && v !== '' && Number.isFinite(n) ? n : d;
+  if (v === undefined || v === null) return d;
+  const s = String(v).trim();
+  if (s === '') return d;
+  const n = Number(s);
+  return Number.isFinite(n) && n > 0 ? n : d;
 };
 const WARN = num(process.env.SEO_GATE_WARN, 90);
 const FAIL = num(process.env.SEO_GATE_FAIL, 85);
@@ -40,12 +44,12 @@ const ALLOW = (process.env.SEO_GATE_ALLOW ?? 'dist/404.html,dist/hvala/index.htm
 const localBin = path.resolve('node_modules/.bin/aeolint');
 const bin = existsSync(localBin) ? localBin : 'aeolint';
 
-const reportPath = path.join(tmpdir(), `seo-gate-${Date.now()}.json`);
+const reportPath = path.join(tmpdir(), `seo-gate-${process.pid}-${Date.now()}.json`);
 try {
   // aeolint's own stdout is piped off: the gate prints its own curated
   // output; `npm run seo:audit` is the full human-readable report.
   execFileSync(bin, ['scan', 'dist/', '--json', reportPath, '--quiet'], {
-    stdio: ['ignore', 'pipe', 'inherit'],
+    stdio: ['ignore', 'ignore', 'inherit'],
   });
 } catch (e) {
   const why = e.status ?? e.code ?? e.signal ?? e.message;
@@ -57,9 +61,13 @@ try {
 let report;
 try {
   report = JSON.parse(readFileSync(reportPath, 'utf8'));
+} catch (e) {
+  console.error(`--- seo-gate: unreadable aeolint report (${e.message})`);
+  report = null;
 } finally {
   if (existsSync(reportPath)) unlinkSync(reportPath);
 }
+if (!report) process.exit(1);
 
 let warns = 0;
 let fails = 0;
