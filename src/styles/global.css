@@ -111,3 +111,35 @@
     @apply not-sr-only fixed left-4 top-4 z-[100] rounded-md bg-dark px-4 py-3 font-semibold text-white;
   }
 }
+
+/* ------------------------------------------------------------
+   Article prose — MDX body copy on /usluge/, /brendovi/ and
+   /lokacije/ detail pages. The Content wrapper carries `prose`
+   (@tailwindcss/typography, loaded above); these tokens re-tune
+   the plugin to the Ridgeline type system. Without `prose`,
+   Tailwind preflight flattens h2–h6, lists and tables to body
+   text — headings were rendering at 16px, lists lost their
+   bullets and tables had no borders.
+   Unlayered on purpose: must beat the plugin's own `.prose`
+   defaults and the base-layer heading rule regardless of where
+   @plugin emits its CSS.
+   ------------------------------------------------------------ */
+.prose {
+  --tw-prose-body: #475569; /* slate-600 — body ink used across sections */
+  --tw-prose-bold: var(--rl-dark);
+  --tw-prose-headings: var(--rl-dark); /* follows the active color scheme */
+  --tw-prose-links: var(--rl-accent-ink); /* AA link ink on light surfaces */
+  --tw-prose-th-borders: #cbd5e1; /* slate-300 */
+  --tw-prose-td-borders: #e2e8f0; /* slate-200 */
+}
+
+/* Match every other heading on the site: Barlow Condensed 700,
+   uppercase, slightly tracked. Size scale comes from the plugin
+   (h2 1.5em … h6 .875em) — the condensed face reads small, so no
+   further bump is needed against 16px Inter body text. */
+.prose :is(h2, h3, h4, h5, h6) {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}

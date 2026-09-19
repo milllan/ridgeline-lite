@@ -4,6 +4,25 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.24.3] — 2026-09-19
+
+Tipografija MDX tela na /usluge/, /brendovi/ i /lokacije/ [slug] stra-
+nicama: Content wrapper dobio `prose` (@tailwindcss/typography bio uči-
+tan u global.css ali nikad korišćen – Tailwind preflight je spljoštio
+h2-h6 na 16px body veličinu, liste ostale bez bullet-a, tabele bez
+strukture). Novi prose token blok u global.css (namerno unlayered da
+bi pobedio plugin defaultne vrednosti i base sloj): body slate-600,
+bold/headings --rl-dark (prate aktivnu temu), linkovi --rl-accent-ink,
+th/td ivice slate-300/200; h2-h6 Barlow Condensed 700 uppercase +
+letter-spacing .025em, skala veličina iz plugin-a (h2 1.5em = 24px vs
+16px body). Stari space-y-4/leading-relaxed/text-slate-600 wrapper za-
+menjen (prose pokriva sve tri stvari). Verify: build/check 0 grešaka,
+seo-gate 91/100 bez FAIL, computed styles + screenshotovi /brendovi/lg/
+desktop i 375px (tabela staje u viewport). Napomena: 382px horizontalni
+overflow na 375px viewport-u je prethodno stanje (header mobilni meni
+dugme + dekorativni blob -right-20) – postoji i na naslovnoj, nije iz
+ovog PR-a.
+
 ## [2.24.1] — 2026-09-19
 
 Epic #70 zaostali cleanup (baseline 13 -> 10 ključeva): (1) gorenje/lg
