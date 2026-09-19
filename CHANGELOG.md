@@ -4,6 +4,16 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.23.0] — 2026-09-19
+
+Uklonjena /usluge-ai stranica (noindex A/B eksperiment, epic #70) i
+njene 6 AI fotografija arhivirane u archive/usluge-ai-images/ (van
+src/assets, ne idu u build; vlasnik odlučuje zadržati/obrisati po
+slicici — README u folderu). Slike su koriscene iskljucivo na toj
+stranici (0 referenci kod svih ostalih); nijedan link/nav/robots nije
+referencirao stranicu. copy-gate baseline: skinut zastareli
+DUP-SENTENCE:usluge-ai.astro kljuc (14 -> 13). Build: 26 strana.
+
 ## [2.22.0] — 2026-09-19
 
 Epic #70 faza 2, poslednja 4 staro-šablonska brend page-a prebačena na v2
