@@ -1,6 +1,5 @@
 # Content: reviews
 
-**WARNING / UPOZORENJE:** `reviews.json` currently contains SAMPLE placeholder entries — replace with genuine customer reviews (e.g. exported from the Google Business Profile) before launch.
-`reviews.json` trenutno sadrži OGLEDNE primere — zameniti pravim recenzijama pre objave.
-
-Tracked in epic #2 (launch blockers) and issue #5.
+`reviews.json` holds genuine customer reviews (owner decision, 2026-09-19) — treat every
+entry as production content. Add new reviews as exports from the Google Business Profile
+when available (#5). The visible aggregate is computed from this file (`src/lib/reviews.ts`).
