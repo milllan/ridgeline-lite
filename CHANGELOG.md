@@ -4,6 +4,19 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.24.4] — 2026-09-19
+
+Post-deploy tipografija (povratne informacije sa #103): (1) ćelije prose
+tabela dobile padding .5em/.625em (novo unlayered pravilo) — zebra/hover
+pozadine su otkrile da plugin prvu/poslednju ćeliju drži flush uz ivicu,
+pa je tekst išao direktno uz obojeni rub reda; (2) FAQ naslovi pitanja
+iz "inline font-semibold" (16px/600) u font-heading text-xl font-bold
+uppercase tracking-wide — Barlow Condensed na 16px čita se manje od Inter
+odgovora ispod pitanja. Verify: computed td padding 7px 8.75px (pre 0
+flush), FAQ h3 Barlow 20px/700/uppercase, screenshotovi, build/check/
+seo-gate zeleni; review gemini-3.1-pro (agy) approve 4/4 HOLDS + pi
+opencode lane approve 4/4 HOLDS (triage na PR #104).
+
 ## [2.24.3] — 2026-09-19
 
 Tipografija MDX tela na /usluge/, /brendovi/ i /lokacije/ [slug]

@@ -139,6 +139,14 @@
   --tw-prose-td-borders: #e2e8f0; /* slate-200 */
 }
 
+/* Filled rows (zebra/hover) need breathing room at the row edges —
+   the plugin's borderless design zeroes first/last cell padding
+   inside @layer utilities, so this must stay unlayered to win
+   (same trade-off as the var block above). */
+.prose :where(thead th, tbody td):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  padding: 0.5em 0.625em;
+}
+
 @layer components {
   /* Match every other heading on the site: Barlow Condensed,
      uppercase, slightly tracked — h1 included so an accidental
