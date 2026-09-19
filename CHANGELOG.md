@@ -4,6 +4,25 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.22.0] — 2026-09-19
+
+Epic #70 faza 2, poslednja 4 staro-šablonska brend page-a prebačena na v2
+(PR #85 Indesit, #86 Ariston, #87 Candy, #88 Beko + #89 fixup). Sve kroz
+pipeline GLM-piše/muse-uređuje/gemini-recenzuje: Indesit i Ariston tabele
+F02–F18 sa izostavljenim F01/F07 (značenja se razilaze među izvorima,
+washerhouse EVO-II vs elektropetrovic011), Candy kompletna E00–E22 tabela
+(Cuore ploča ugao), Beko BEZ tabele (E01–E18 vs H1–H11 konflikt alfabeta
+izvora — Gorenje-lekcija). Prvi in-content cross-link (Ariston→Indesit).
+gemini-3.1-pro post-hoc review: 1 valid near-dupe (candy/beko FAQ kostjur)
+popravjen u #89; ostalo odbijeno uz presedane (link sankcionisan taskom,
+19-redna tabela je namera, doorway-risk samo delimično stoji — data na
+epicu #70). aeolint audit dist/: 91/100 overall, 0 stvarnih grešaka
+(3 noindex greške = namerno: 404/hvala/usluge-ai); nove strane 92/100.
+.copygate-baseline regenerisan 2026-09-19: 3 boilerplate dup ključa
+(beko/candy/indesit) nestala, apsorbovana 3 post-baseline nalaza
+(miele soft, gorenje/lg dup), netto 14→14 — zaostali dug zabeležen na #70.
+Deploy na oba targeta, sve 4 strane curl-verifikovane (200).
+
 ## [2.21.0] — 2026-09-18
 
 Epic #70 faza 1, mehanički SEO quick wins (PR #84): footer 6 usluga

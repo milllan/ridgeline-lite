@@ -1,14 +1,13 @@
-# copy-gate baseline — regenerated 2026-09-17 from full-site scan
-# = the complete accepted state: old-template brand boilerplate, v2 cross-brand
-# process/fault sentences, services najcesce precedents, hvala cliche.
-# Shrinks to zero as brand v2 + de-dup rollout completes (epic #70).
+# copy-gate baseline — regenerated 2026-09-19 from full-site scan
+# = remaining accepted state after brand v2 rollout PRs #85-#89
+# (old-template boilerplate for indesit/candy/ariston/beko is gone;
+#  shrinks further as de-dup rollout continues, epic #70).
+ABS-UVEK:miele.mdx
 CLICHÉ-BEZ-SKRIVENIH:hvala.astro
 CLICHÉ-BEZ-SKRIVENIH:index.astro
-DUP-SENTENCE:beko.mdx
-DUP-SENTENCE:candy.mdx
-DUP-SENTENCE:indesit.mdx
-DUP-SENTENCE:lg.mdx
+DUP-SENTENCE:gorenje.mdx
 DUP-SENTENCE:popravka-ves-masina.mdx
+DUP-SENTENCE:usluge-ai.astro
 DUP-SENTENCE:whirlpool.mdx
 ELLIPSIS:kontakt.astro
 ELLIPSIS:zatrazi-ponudu.astro
@@ -16,3 +15,4 @@ FREQ-NAJCESCE:index.astro
 FREQ-NAJCESCE:popravka-programatora.mdx
 FREQ-NAJCESCE:zamena-grejaca.mdx
 FREQ-NAJCESCE:zamena-pumpe.mdx
+DUP-SENTENCE:lg.mdx
