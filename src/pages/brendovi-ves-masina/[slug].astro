@@ -1,13 +1,13 @@
 ---
 /**
- * Brand landing pages (/brendovi/[slug]/) — spec #4, epic #28 D.
- * Gorenje first; next brand = one content file, zero code changes.
- * UI says "Marke" (natural Serbian for appliance brands) while the URL
- * segment is /brendovi/ — intentional split, documented here (muse #4).
+ * Brand landing pages (/brendovi-ves-masina/[brand]-servis/) — spec #4,
+ * epic #28 D. Gorenje first; next brand = one content file, zero code
+ * changes. UI says "Marke" (natural Serbian) while the URL carries the
+ * keyword — intentional split, documented here (muse #4; URL segment
+ * extended 2026-09-19, old /brendovi/[slug]/ 301s via .htaccess).
  * Crumb uses short `name` (UX); title/H1 carry the full keyword.
  *
- * Titles carry the keyword ("Servis Gorenje veš mašina u Beogradu"),
- * URL stays short per the #23 URL-vs-title logic.
+ * Titles carry the keyword ("Servis Gorenje veš mašina u Beogradu").
  */
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -24,7 +24,7 @@ import heroImage from '../../assets/hero/home-hero.jpg';
 export async function getStaticPaths() {
   const brands = await getCollection('brands');
   return brands.map((brand) => ({
-    params: { slug: brand.id.replace(/\.mdx$/, '') },
+    params: { slug: `${brand.id.replace(/\.mdx$/, '')}-servis` },
     props: { brand },
   }));
 }

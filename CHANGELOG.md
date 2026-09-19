@@ -4,6 +4,23 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.24.10] — 2026-09-19
+
+URL restrukttura brend stranica (owner zahtev): /brendovi/[slug]/ ->
+/brendovi-ves-masina/[slug]-servis/ (npr. /brendovi/beko/ ->
+/brendovi-ves-masina/beko-servis/). Route dir preimenovan
+(src/pages/brendovi-ves-masina/), getStaticPaths dodaje -servis
+sufiks, oba link buildera (BrandLogoTile, usluge index chips)
+ažurirana, ariston.mdx in-content cross-link ka Indesitu ažuriran
+(jedini content link). Copy-gate 0 NEW. 301 redirecti server-side u
+.htaccess (static Astro redirect je samo meta-refresh, ne 301):
+RedirectMatch 301 ^/brendovi/([a-z0-9-]+?)(?:-servis)?/?$ ->
+/brendovi-ves-masina/$1-servis/ (+ /brendovi/ sam -> /usluge/),
+.htaccess backup na /root/.htaccess-backup-2026-09-19. Verify: dist
+15 novih stranica, 0 stale /brendovi/ linkova, sitemap na novim
+URL-ovima, curl 301 + Location na starim; build/check/seo-gate zeleni.
+Napomena: Search Console će preindeksirati preko 301 + novog sitemap-a.
+
 ## [2.24.9] — 2026-09-19
 
 BrandLogos 'strip' varijanta (samo /lokacije/[slug]) postaje pure-CSS
