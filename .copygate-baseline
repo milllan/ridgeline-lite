@@ -1,11 +1,11 @@
-# copy-gate baseline — regenerated 2026-09-19 from full-site scan
-# = remaining accepted state after brand v2 rollout PRs #85-#89
-# (old-template boilerplate for indesit/candy/ariston/beko is gone;
-#  shrinks further as de-dup rollout continues, epic #70).
-ABS-UVEK:miele.mdx
+# copy-gate baseline — shrunk 2026-09-19 (epic #70 residual cleanup PR)
+# = remaining accepted state after brand v2 rollout PRs #85-#89 and the
+# residual-cleanup (gorenje/lg dedupe, miele uvek, presu spelling):
+# 13 -> 10 keys (ABS-UVEK:miele, DUP-SENTENCE:gorenje/lg removed).
+# Biggest remaining block: DUP-SENTENCE:whirlpool.mdx (~15 near-verbatim
+# sentences vs gorenje v2 template) — separate de-dup task, not residual.
 CLICHÉ-BEZ-SKRIVENIH:hvala.astro
 CLICHÉ-BEZ-SKRIVENIH:index.astro
-DUP-SENTENCE:gorenje.mdx
 DUP-SENTENCE:popravka-ves-masina.mdx
 DUP-SENTENCE:whirlpool.mdx
 ELLIPSIS:kontakt.astro
@@ -14,4 +14,3 @@ FREQ-NAJCESCE:index.astro
 FREQ-NAJCESCE:popravka-programatora.mdx
 FREQ-NAJCESCE:zamena-grejaca.mdx
 FREQ-NAJCESCE:zamena-pumpe.mdx
-DUP-SENTENCE:lg.mdx
