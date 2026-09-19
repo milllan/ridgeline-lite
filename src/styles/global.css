@@ -158,4 +158,19 @@
     display: block;
     overflow-x: auto;
   }
+
+  /* Zebra rows + hover in the slate family (one step lighter than
+     the slate-200 row hairlines). Reference tables — error codes,
+     prices — scan better with striping; hover aids row tracking.
+     The global prefers-reduced-motion block neutralizes the
+     transition for users who opt out. */
+  .prose :where(tbody tr):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+    transition: background-color 0.15s ease;
+  }
+  .prose :where(tbody tr:nth-child(even)):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+    background-color: #f1f5f9; /* slate-100 zebra */
+  }
+  .prose :where(tbody tr):not(:where([class~='not-prose'], [class~='not-prose'] *)):hover {
+    background-color: #e2e8f0; /* slate-200 hover */
+  }
 }
