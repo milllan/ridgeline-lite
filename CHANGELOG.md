@@ -4,6 +4,30 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.24.6] — 2026-09-19
+
+BrandLogos traka na dnu stranice na /brendovi/[slug] i /usluge/[slug]
+(owner zahtev): sa sredine stranice iza poslednje sadržajne sekcije,
+ispred FinalCTA. Na brendovima uz to FAQ i "Usluge za" sekcije
+zamenile mesta da bg ritam ostane naizmeničan (hero dark → prose
+bela → Usluge surface → FAQ bela → logotipi surface → FinalCTA dark —
+gemini + mimo lanes nezavisno uočili sudar bela/bela i surface/surface
+u prvoj verziji); na uslugama potez popravio prethodni sudar proces
+surface → logotipi surface. "Usluge za {name}" h2 dobio tracking-wide
+(jedina section heading bez njega). Napomena (obe lanes): naizmenični
+bg ritam zavisi od redosleda na call-site-u — budući brend/usluga bez
+FAQ niza vratila bi surface/surface sudar (svih 21 stranica danas ima
+FAQ).
+
+## [2.24.5] — 2026-09-19
+
+Owner copy editi (#105): 15 brend MDX naslova "Šta se pokvari" →
+"Šta se kvari"; FAQ section H2 keyword sufiks — brendovi "Najčešća
+pitanja: {name} mašine za veš", usluge "Najčešća pitanja: {shortTitle}
+veš mašine" uz regex guard protiv dupliranja kad shortTitle već
+sadrži "veš mašin" (popravka-ves-masina). Copy-gate 0 NEW hard/soft;
+gemini approve; agy tamper (BrandLogos potez u review-u) revertovan.
+
 ## [2.24.4] — 2026-09-19
 
 Post-deploy tipografija (povratne informacije sa #103): (1) ćelije prose
