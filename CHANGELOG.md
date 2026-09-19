@@ -4,6 +4,17 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.24.11] — 2026-09-19
+
+Sufiks brend slug-ova: -servis -> -majstor (owner izbor; /brendovi-ves-masina/
+direktorijum ostaje). Ista izmena na svim mestima: getStaticPaths, oba link
+buildera (BrandLogoTile, usluge chips), ariston.mdx in-content link, komentari.
+.htaccess redirect lanac nadograđen: /brendovi/[slug]/ I kratko živeći
+/brendovi-ves-masina/[slug]-servis/ oba 301 -> /brendovi-ves-masina/[slug]-majstor/
+(dvostruki sufiks guard sada (?:servis|majstor)). Verify: dist 15 -majstor
+stranica, 0 stale -servis href-ova, sitemap 15 novih URL-ova, copy-gate 0 NEW,
+build/check/seo-gate zeleni; live curl nakon deploya.
+
 ## [2.24.10] — 2026-09-19
 
 URL restrukttura brend stranica (owner zahtev): /brendovi/[slug]/ ->
