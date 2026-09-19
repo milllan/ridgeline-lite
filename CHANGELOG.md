@@ -4,6 +4,22 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.24.9] — 2026-09-19
+
+BrandLogos 'strip' varijanta (samo /lokacije/[slug]) postaje pure-CSS
+marquee (owner: "one line but auto rotate"): duple liste u beskonačnoj
+petlji (translateX -50% - gap), 45s linear, pauza na hover/focus,
+edge fade maskom, duplikat aria-hidden (linkovi se čitaju jednom),
+prefers-reduced-motion fallback na statični wrappujući grid (width
+reset na track-u — max-content bi inače blokirao wrap). Prelučaj
+tile izdvojen u novi BrandLogoTile.astro (grid i marquee varijanta
+ga dele; {#snippet} sintaksa pada na ovom astro compileru —
+"Expected in" CompilerError, zato child-component pristup).
+Verify: animation ime/dužina + kretanje track-a, seam matematika
+(track = 2×set+gap), tile 172px u jednom redu, RM 3 reda wrap +
+duplikat hidden, mobilni 375px bez novog overflow-a (382px je
+prethodni header issue), screenshotovi; build/check/seo-gate zeleni.
+
 ## [2.24.8] — 2026-09-19
 
 Bg ritam naizmeničan na celom sajtu (owner: pozicije sekcija ostaju,
