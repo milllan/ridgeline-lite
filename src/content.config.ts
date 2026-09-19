@@ -13,6 +13,12 @@ const services = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      /**
+       * Meta <title> for /usluge/[slug]/: carries the long-tail keyword +
+       * phone tail (brands/opstine pattern); H1 uses title. Optional until
+       * each service's content PR lands (epic #70 Phase 3).
+       */
+      seoTitle: z.string().optional(),
       /** Icon name from src/components/common/Icon.astro */
       icon: z.string(),
       excerpt: z.string().max(220),
@@ -22,6 +28,10 @@ const services = defineCollection({
       processSteps: z
         .array(z.object({ title: z.string(), description: z.string() }))
         .length(4),
+      /** Optional service FAQ — renders FaqSection + FAQPage schema on the page. */
+      faq: z
+        .array(z.object({ question: z.string(), answer: z.string() }))
+        .optional(),
     }),
 });
 

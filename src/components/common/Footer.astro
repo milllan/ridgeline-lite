@@ -79,7 +79,7 @@ const socials = (
           services.map((service) => (
             <li>
               <a
-                href={`/usluge/#${service.id.replace(/\.mdx$/, '')}`}
+                href={`/usluge/${service.id.replace(/\.mdx$/, '')}/`}
                 class="transition-colors hover:text-primary"
               >
                 {service.data.title}
