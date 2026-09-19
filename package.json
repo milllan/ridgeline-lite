@@ -1,7 +1,7 @@
 {
   "name": "ridgeline-lite",
   "version": "1.0.0",
-  "description": "Ridgeline Lite — a free, high-converting Astro + Tailwind website template for roofing contractors.",
+  "description": "Ridgeline Lite \u2014 a free, high-converting Astro + Tailwind website template for roofing contractors.",
   "type": "module",
   "engines": {
     "node": ">=22.12.0"
@@ -11,7 +11,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check && tsc --noEmit",
-    "astro": "astro"
+    "astro": "astro",
+    "postbuild": "node scripts/seo-gate.mjs",
+    "seo:audit": "aeolint scan dist/"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.1",
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@didrod2539/aeolint": "^0.2.0",
     "typescript": "^5.9.0"
   },
   "license": "MIT"
