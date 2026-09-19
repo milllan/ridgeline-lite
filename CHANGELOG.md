@@ -4,6 +4,14 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.25.1] — 2026-09-19
+
+Reviews proglašene autentičnim (epic #112 task 1, vlasnička odluka 2026-09-19):
+uklonjeno SAMPLE/placeholder upozorenje iz `src/content/README.md` — recenzije u
+`reviews.json` se tretiraju kao produkcioni sadržaj; nove se dodaju iz Google
+Business Profile izvoza kad budu dostupne (#5). Ponašanje sajta nepromenjeno
+(`reviews.json` već nije imao markere — content gate ga i dalje prolazi čist).
+
 ## [2.25.0] — 2026-09-19
 
 Content-readiness gate + draft-suppression plumbing (epic #112 task 4).
