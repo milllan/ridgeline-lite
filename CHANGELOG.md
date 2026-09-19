@@ -6,9 +6,9 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [2.24.3] — 2026-09-19
 
-Tipografija MDX tela na /usluge/, /brendovi/ i /lokacije/ [slug] stra-
-nicama: Content wrapper dobio `prose` (@tailwindcss/typography bio uči-
-tan u global.css ali nikad korišćen – Tailwind preflight je spljoštio
+Tipografija MDX tela na /usluge/, /brendovi/ i /lokacije/ [slug]
+stranicama: Content wrapper dobio `prose` (@tailwindcss/typography bio
+učitan u global.css ali nikad korišćen – Tailwind preflight je spljoštio
 h2-h6 na 16px body veličinu, liste ostale bez bullet-a, tabele bez
 strukture). Novi prose token blok u global.css: body slate-600,
 bold/headings --rl-dark (prate aktivnu temu), linkovi --rl-accent-ink,
