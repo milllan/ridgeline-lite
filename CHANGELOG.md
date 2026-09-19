@@ -4,6 +4,19 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.26.0] — 2026-09-19
+
+LocalBusiness JSON-LD bez aggregateRating (epic #112 zadatak 2).
+Uklonjen getAggregateRating uvoz i uslovni spread iz
+src/lib/schema.ts; funkcija ostaje u src/lib/reviews.ts za vidljivi
+UI recenzija (Hero, ReviewsCarousel, o-nama, zatrazi-ponudu; to je
+zadatak 1 i teče odvojeno, čeka prave GBP recenzije). aggregateRating
+se ne vraća ni kasnije: ocene koje sam objavljuje sajt su po Google
+smernicama self-serving (ne važe za rich results), pa struktuirani
+podaci ostaju bez njega trajno. Ostala polja LocalBusiness šeme
+nepromenjena. Verify: build zelen (32 stranice), astro check 0
+grešaka, nijedan emitovani HTML ne sadrži aggregateRating ključ.
+
 ## [2.25.1] — 2026-09-19
 
 Reviews proglašene autentičnim (epic #112 task 1, vlasnička odluka 2026-09-19):
