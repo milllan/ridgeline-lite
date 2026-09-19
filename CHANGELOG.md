@@ -4,6 +4,20 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.24.8] — 2026-09-19
+
+Bg ritam naizmeničan na celom sajtu (owner: pozicije sekcija ostaju,
+samo ritam). Audit svih ruta našao tačno 3 sudara: (1) home
+TrustBar+ServicesGrid+BrandLogos trostruki surface niz — ServicesGrid
+sekcija na bg-white; (2) /usluge/ 'Servis po markama'(bela)+FAQ(bela)
+— FaqSection surface prop; (3) /o-nama/ foto+Credentials duple bele —
+Credentials na bg-surface uz bg-white+shadow-sm kartice (gemini nit,
+obrazac FAQ/BrandLogos kartica). Verify: skripta preko 10 ruta +
+mimo nezavisni sken 30 ruta dist-a — nula susednih istih pozadina;
+screenshotovi; build/check/seo-gate zeleni. Review: gemini approve
++ mimo approve (triage na PR). Napomena: lokalni proxy 127.0.0.1:18080
+pao tokom rada — obiđen direktnim egressom (env -u), alatima netaknut.
+
 ## [2.24.7] — 2026-09-19
 
 FAQ sekcija iznad "Usluge za" grida na /brendovi/[slug] (owner
