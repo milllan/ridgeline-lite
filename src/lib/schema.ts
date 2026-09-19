@@ -1,5 +1,4 @@
 import { siteConfig, hasEmail } from '../config/site';
-import { getAggregateRating } from './reviews';
 
 /**
  * Basic HomeAndConstructionBusiness structured data, rendered on every
@@ -8,7 +7,6 @@ import { getAggregateRating } from './reviews';
  * project ImageGallery markup.
  */
 export async function buildLocalBusiness(site: URL) {
-  const rating = await getAggregateRating();
   const { address, geo } = siteConfig;
 
   /** Same-as links — skip empty values so we never emit dead hrefs. */
@@ -41,15 +39,6 @@ export async function buildLocalBusiness(site: URL) {
     hasMap: siteConfig.gbpUrl,
     priceRange: '$$',
     ...(sameAs.length > 0 && { sameAs }),
-    ...(rating.count > 0 && {
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: rating.average,
-        reviewCount: rating.count,
-        bestRating: 5,
-        worstRating: 1,
-      },
-    }),
   };
 }
 
