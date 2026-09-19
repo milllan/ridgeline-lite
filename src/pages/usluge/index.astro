@@ -1,8 +1,8 @@
 ---
 /**
- * Services page – Lite edition: all six services on one page with
- * photos and process overviews. (Ridgeline Pro gives each service its
- * own landing page with FAQs and related projects.)
+ * Services overview: all six services on one page with photos and
+ * process overviews; each card links through to its dedicated
+ * /usluge/[slug]/ landing page (epic #70 Phase 3).
  */
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
@@ -103,7 +103,12 @@ const services = (await getCollection('services')).sort(
                 <Icon name={service.data.icon} class="h-6 w-6" />
               </span>
               <h2 class="mt-4 font-heading text-2xl font-bold uppercase text-dark">
-                {service.data.title}
+                <a
+                  href={`/usluge/${service.id.replace(/\.mdx$/, '')}/`}
+                  class="transition-colors hover:text-primary-ink"
+                >
+                  {service.data.title}
+                </a>
               </h2>
               <p class="mt-2 text-sm leading-relaxed text-slate-600">{service.data.excerpt}</p>
               <ol class="mt-5 space-y-2">
@@ -118,8 +123,18 @@ const services = (await getCollection('services')).sort(
                   </li>
                 ))}
               </ol>
-              <div class="mt-6">
-                <Button href="/zatrazi-ponudu/">Zatražite ponudu</Button>
+              <div class="mt-6 flex flex-wrap items-center gap-4">
+                <Button href={`/usluge/${service.id.replace(/\.mdx$/, '')}/`}>
+                  Više o usluzi
+                  <Icon name="arrow-right" class="h-4 w-4" />
+                </Button>
+                <a
+                  href="/zatrazi-ponudu/"
+                  class="inline-flex items-center gap-1.5 font-heading text-sm font-semibold uppercase tracking-wide text-primary-ink hover:text-dark"
+                >
+                  Zatražite ponudu
+                  <Icon name="arrow-right" class="h-4 w-4" />
+                </a>
               </div>
             </div>
           </article>

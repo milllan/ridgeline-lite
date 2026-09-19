@@ -1,0 +1,121 @@
+---
+/**
+ * Service landing pages (/usluge/[slug]/) — epic #70 Phase 3.
+ * Long-tail pages over the services collection (rich MDX bodies,
+ * processSteps timeline, per-service FAQ); the next service remains
+ * one content file, zero code changes. Route pattern proven by
+ * /brendovi/[slug]/ and /lokacije/[slug]/.
+ *
+ * Meta title: per-service seoTitle (keyword + phone tail) once the
+ * content PRs land; `${title} u Beogradu` is the pre-content fallback.
+ * Crumb keeps the short form ("Popravka veš mašina" from
+ * "Popravka veš mašina, svi kvarovi"); H1 carries the full keyword.
+ */
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/common/PageHero.astro';
+import Button from '../../components/common/Button.astro';
+import Icon from '../../components/common/Icon.astro';
+import FaqSection from '../../components/sections/FaqSection.astro';
+import BrandLogos from '../../components/sections/BrandLogos.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+import { siteConfig } from '../../config/site';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((service) => ({
+    params: { slug: service.id.replace(/\.mdx$/, '') },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+const shortTitle = service.data.title.split(',')[0] ?? service.data.title;
+---
+
+<BaseLayout
+  title={service.data.seoTitle ?? `${service.data.title} u Beogradu`}
+  description={service.data.excerpt}
+  faq={service.data.faq}
+>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: `${service.data.title} u Beogradu`,
+      serviceType: service.data.title,
+      provider: { '@id': new URL('/#local-business', Astro.site).href },
+      areaServed: { '@type': 'City', name: 'Beograd' },
+    })}
+    slot="head"
+  />
+
+  <PageHero
+    title={service.data.title}
+    lead={service.data.excerpt}
+    crumbs={[{ label: 'Usluge', href: '/usluge/' }, { label: shortTitle }]}
+    image={service.data.heroImage}
+    imageAlt={service.data.heroImageAlt}
+  />
+
+  <section class="bg-white py-16 md:py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="space-y-4 leading-relaxed text-slate-600">
+        <Content />
+      </div>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <Button href={siteConfig.phoneHref}>
+          <Icon name="phone" class="h-5 w-5" />
+          Pozovite {siteConfig.phone}
+        </Button>
+        <a
+          href="/zatrazi-ponudu/"
+          class="inline-flex items-center gap-1.5 font-heading text-sm font-semibold uppercase tracking-wide text-primary-ink hover:text-dark"
+        >
+          Zatražite ponudu
+          <Icon name="arrow-right" class="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-16 md:py-20" aria-labelledby="proces-heading">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <h2
+        id="proces-heading"
+        class="font-heading text-2xl font-bold uppercase tracking-wide text-dark"
+      >
+        Kako teče popravka
+      </h2>
+      <ol class="mt-8 space-y-6">
+        {
+          service.data.processSteps.map((step, n) => (
+            <li class="flex items-start gap-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 font-heading text-lg font-bold text-primary-ink">
+                {n + 1}
+              </span>
+              <div>
+                <h3 class="font-heading text-lg font-bold uppercase text-dark">
+                  {step.title}
+                </h3>
+                <p class="mt-1 leading-relaxed text-slate-600">{step.description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <BrandLogos />
+
+  {service.data.faq && service.data.faq.length > 0 && (
+    <FaqSection title={`Najčešća pitanja: ${shortTitle}`} items={service.data.faq} />
+  )}
+
+  <FinalCTA />
+</BaseLayout>
