@@ -9,7 +9,8 @@
  *
  * Titles carry the keyword ("Servis Gorenje veš mašina u Beogradu").
  */
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import { getPublished } from '../../lib/collections';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/common/PageHero.astro';
 import Button from '../../components/common/Button.astro';
@@ -22,7 +23,7 @@ import { siteConfig } from '../../config/site';
 import heroImage from '../../assets/hero/home-hero.jpg';
 
 export async function getStaticPaths() {
-  const brands = await getCollection('brands');
+  const brands = await getPublished('brands');
   return brands.map((brand) => ({
     params: { slug: `${brand.id.replace(/\.mdx$/, '')}-majstor` },
     props: { brand },
@@ -31,7 +32,7 @@ export async function getStaticPaths() {
 
 const { brand } = Astro.props;
 const { Content } = await render(brand);
-const services = (await getCollection('services')).sort(
+const services = (await getPublished('services')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 ---

@@ -4,7 +4,7 @@
  * MajstorBelt → WhyUs → Reviews → FAQ → FinalCTA. The Pro version adds featured
  * before/after projects, the service-area system, and financing.
  */
-import { getCollection } from 'astro:content';
+import { getPublished } from '../lib/collections';
 import { getImage } from 'astro:assets';
 import heroImage from '../assets/hero/home-hero.jpg';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -22,7 +22,7 @@ import BrandLogos from '../components/sections/BrandLogos.astro';
 import SectionHeading from '../components/common/SectionHeading.astro';
 import { siteConfig } from '../config/site';
 
-const services = (await getCollection('services')).sort(
+const services = (await getPublished('services')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 

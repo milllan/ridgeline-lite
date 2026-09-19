@@ -4,6 +4,37 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.25.0] — 2026-09-19
+
+Content-readiness gate + draft-suppression plumbing (epic #112 task 4).
+`npm run content:gate` (standalone Node skripta; još NIJE u build lancu —
+wiring se dodaje tek kad se sadržajni dug iz prvog run-a očisti) failuje na
+markerima TODO/DRAFT/PLACEHOLDER/SAMPLE/@example/UNVERIFIED/potvrditi u
+src/config/site.ts + src/content/**/*.mdx + src/content/*.json (samo
+top-level json), uz allowlist CHANGELOG/docs/AGENTS (CONTENT_GATE_ALLOW) i
+CONTENT_GATE_SKIP prekidač. Frontmatter `status: draft` u mdx = posebna
+DRAFT-STATUS kategorija (bez duplog prijavljivanja kao keyword hit) i
+takođe failuje gate. status:draft stranice se NE generišu i ne pojavljuju
+se ni u jednom linku/listi/nav-u (no dead links) — novi getPublished choke
+point (src/lib/collections.ts); svi getCollection pozivi za
+services/brands/opstine zamenjeni, reviews ostaje na sirovom
+getCollection (nema status polje); BrandLogos statična lista (logo/alt
+podaci) filtrira se kroz getPublished — draft brend se ne linkuje ni sa
+jedne stranice (review nalog). Gate hardening iz review rundе: UTF-8 BOM
+strip ispred frontmatter parse, YAML # komentar tolerancija na status
+liniji, nečitljiv fajl u scope-u = [UNREADABLE] finding (ne crash, ne
+skip), prazan scan (pogrešan cwd) = fail (nikad "clean"), neobrađiv
+content dir (ENOTDIR/EACCES na samom direktorijumu) takođe fail-closed,
+POSIX path separatori svuda (allowlist radi i na Windowsu). Prvi run failing
+inventory je deliverable (docs/content-gate-inventory-2026-09-19.md):
+27 fajla, 22 sa nalazima (TODO 14, DRAFT 15, PLACEHOLDER 13, @example 1,
+potvrditi 6). Verify: fixture pass-path exit 0 (uz allowlist),
+draft-status fixture exit 1, BOM+YAML-komentar fixture = DRAFT-STATUS,
+nečitljiv fajl = UNREADABLE, prazan dir = exit 1; draft-suppression
+build brenda (beko.mdx status: draft): dist 32 → 31 stranica,
+/brendovi-ves-masina/beko-majstor/ van dist-a i sitemap-a, 0 href-ova
+na nju u celom dist-u (BrandLogos fix); build/check/seo-gate zeleni.
+
 ## [2.24.11] — 2026-09-19
 
 Sufiks brend slug-ova: -servis -> -majstor (owner izbor; /brendovi-ves-masina/

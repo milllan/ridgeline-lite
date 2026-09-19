@@ -4,7 +4,7 @@
  * (Ridgeline Pro replaces this with a 4-step Quote Wizard with
  * per-step validation and anti-spam heuristics.)
  */
-import { getCollection } from 'astro:content';
+import { getPublished } from '../lib/collections';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/common/PageHero.astro';
 import FormBackendFields from '../components/common/FormBackendFields.astro';
@@ -15,7 +15,7 @@ import { getAggregateRating } from '../lib/reviews';
 import { formAttributes } from '../lib/forms';
 import { siteConfig } from '../config/site';
 
-const services = (await getCollection('services')).sort(
+const services = (await getPublished('services')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 const rating = await getAggregateRating();
