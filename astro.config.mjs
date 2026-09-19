@@ -25,7 +25,7 @@ export default defineConfig({
     mdx(),
     sitemap({
       // Keep noindex pages out of the sitemap.
-      filter: (page) => !page.includes('/hvala/') && !page.includes('/usluge-ai/'),
+      filter: (page) => !page.includes('/hvala/'),
     }),
   ],
   vite: {
