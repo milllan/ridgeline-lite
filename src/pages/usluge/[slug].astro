@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 const { Content } = await render(service);
-const shortTitle = service.data.title.split(',')[0] ?? service.data.title;
+const shortTitle = (service.data.title.split(',')[0] ?? service.data.title).trim();
 ---
 
 <BaseLayout
