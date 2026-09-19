@@ -4,6 +4,17 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.24.7] — 2026-09-19
+
+FAQ sekcija iznad "Usluge za" grida na /brendovi/[slug] (owner
+redosled — posetilac posle članka ima pitanje pa FAQ ide pre
+cross-linkova). Da bg ritam ostane naizmeničan uz novi redosled,
+srednje dve trake menjaju pozadinu: FaqSection dobija opcioni
+surface prop (default bg-white, ostale stranice netaknute), "Usluge
+za" sekcija prelazi na bg-white. Sekvenca: hero dark → prose bela →
+FAQ surface → Usluge bela → logotipi surface → FinalCTA dark.
+Review: gemini + mimo approve (triage na PR).
+
 ## [2.24.6] — 2026-09-19
 
 BrandLogos traka na dnu stranice na /brendovi/[slug] i /usluge/[slug]
