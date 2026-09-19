@@ -69,7 +69,7 @@ const visible = brands.filter((brand) => brand.slug !== exclude);
           </ul>
           <ul class="marquee__set" aria-hidden="true">
             {visible.map((brand) => (
-              <BrandLogoTile brand={brand} />
+              <BrandLogoTile brand={brand} tabindex={-1} />
             ))}
           </ul>
         </div>
