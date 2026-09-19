@@ -4,6 +4,16 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.23.2] — 2026-09-19
+
+seo-gate hardening (Tier-2 eksterna recenzija: ling-3.0-flash + gemini-
+3.1-pro lane, oba validirala num() rupe s dve strane): num() sada odbija
+whitespace/0/negativne vrednosti (Number(' ')===0 i eksplicitni 0 su
+mogli tiho da ugase score prag), JSON.parse put dobija cist dijagnosticki
+izlaz umesto stack tracea (uz finally-cleanup koji process.exit u catch
+ne bi izvrsio — restukturirano), pid u temp imenu (paralelni buildovi),
+stdout fd 'ignore' umesto nekoriscenog pipe buffera. Sve putanje
+re-verifikovane (normal/fail/4x bad-env/skip/leak=0).
 ## [2.23.1] — 2026-09-19
 
 aeolint (SEO/AEO/GEO linter) zakačen u build: devDependency
