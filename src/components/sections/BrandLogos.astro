@@ -12,14 +12,16 @@ interface Props {
   exclude?: string;
   /** Section heading override. */
   heading?: string;
-  /** 'strip' = one-line, horizontal scroll on small screens (grid on sm+). */
+  /** 'strip' = one-line auto-rotating marquee (grid variant elsewhere). */
   variant?: 'grid' | 'strip';
 }
+
+import BrandLogoTile from '../common/BrandLogoTile.astro';
 
 const { exclude = '', heading = 'Neki od brendova mašina za veš koje servisiramo', variant = 'grid' } =
   Astro.props;
 
-interface BrandTile {
+export interface BrandTile {
   name: string;
   slug: string;
   /** File in /logos/ without extension prefix path. */
@@ -44,6 +46,8 @@ const brands: BrandTile[] = [
   { name: 'Zanussi', slug: 'zanussi', logo: '/logos/zanussi.svg', alt: 'Servis Zanussi veš mašina Beograd' },
   { name: 'Candy', slug: 'candy', alt: 'Servis Candy veš mašina Beograd' },
 ];
+
+const visible = brands.filter((brand) => brand.slug !== exclude);
 ---
 
 <section class="bg-surface py-14 md:py-16" aria-labelledby="marke-heading">
@@ -51,49 +55,89 @@ const brands: BrandTile[] = [
     <h2 id="marke-heading" class="text-center font-heading text-xl font-bold uppercase tracking-wide text-dark sm:text-2xl">
       {heading}
     </h2>
-    <ul
-      class:list={[
-        'mt-8 gap-4',
-        variant === 'strip'
-          ? 'flex snap-x snap-mandatory overflow-x-auto pb-2 sm:grid sm:grid-cols-7 sm:overflow-visible sm:pb-0 lg:grid-cols-15'
-          : 'flex flex-wrap',
-      ]}
-    >
-      {
-        brands
-          .filter((brand) => brand.slug !== exclude)
-          .map((brand) => (
-          <li
-            class:list={[
-              'min-w-[150px]',
-              variant === 'strip'
-                ? 'shrink-0 snap-start sm:min-w-0'
-                : 'flex-1 basis-0',
-            ]}
-          >
-            <a
-              href={`/brendovi/${brand.slug}/`}
-              class="group flex h-20 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 shadow-sm transition-colors hover:border-primary/50 focus-visible:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
-            >
-              {brand.logo ? (
-                <img
-                  src={brand.logo}
-                  alt={brand.alt}
-                  title={brand.alt}
-                  width={110}
-                  height={40}
-                  loading="lazy"
-                  class="max-h-10 w-auto opacity-70 grayscale transition-all group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0"
-                />
-              ) : (
-                <span class="font-heading text-lg font-bold uppercase tracking-wide text-slate-500">
-                  {brand.name}
-                </span>
-              )}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+
+    <!-- 'strip' = pure-CSS marquee: duplicated set loops seamlessly; the
+         copy is aria-hidden so links are announced once. Reduced-motion
+         users get the static wrapped grid instead (see <style> below). -->
+    {variant === 'strip' ? (
+      <div class="marquee mt-8">
+        <div class="marquee__track">
+          <ul class="marquee__set">
+            {visible.map((brand) => (
+              <BrandLogoTile brand={brand} />
+            ))}
+          </ul>
+          <ul class="marquee__set" aria-hidden="true">
+            {visible.map((brand) => (
+              <BrandLogoTile brand={brand} />
+            ))}
+          </ul>
+        </div>
+      </div>
+    ) : (
+      <ul class="mt-8 flex flex-wrap gap-4">
+        {visible.map((brand) => (
+          <BrandLogoTile brand={brand} />
+        ))}
+      </ul>
+    )}
   </div>
 </section>
+
+<style>
+  .marquee {
+    overflow: hidden;
+    /* fade the edges so half-visible logos read as intentional */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+
+  .marquee__track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: rl-marquee 45s linear infinite;
+  }
+
+  .marquee__set {
+    display: flex;
+    flex-shrink: 0;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .marquee:hover .marquee__track,
+  .marquee:focus-within .marquee__track {
+    animation-play-state: paused;
+  }
+
+  /* Shift by exactly one set (50% of track + half the inter-set gap). */
+  @keyframes rl-marquee {
+    to {
+      transform: translateX(calc(-50% - 0.5rem));
+    }
+  }
+
+  /* The global reduced-motion block freezes all animations; a frozen
+     half-cropped strip is useless, so fall back to the static wrap. */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      overflow: visible;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+    .marquee__track {
+      display: block;
+      width: auto;
+      animation: none;
+    }
+    .marquee__set[aria-hidden='true'] {
+      display: none;
+    }
+    .marquee__set {
+      flex-wrap: wrap;
+    }
+  }
+</style>

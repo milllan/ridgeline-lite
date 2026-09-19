@@ -1,0 +1,37 @@
+---
+/**
+ * One brand tile inside BrandLogos (grid and marquee variants share it).
+ * SVG marks shown desaturated — see BrandLogos.astro for the sourcing
+ * and trademark note.
+ */
+import type { BrandTile } from '../sections/BrandLogos.astro';
+
+interface Props {
+  brand: BrandTile;
+}
+
+const { brand } = Astro.props;
+---
+
+<li class="min-w-[150px] flex-1 basis-0">
+  <a
+    href={`/brendovi/${brand.slug}/`}
+    class="group flex h-20 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 shadow-sm transition-colors hover:border-primary/50 focus-visible:border-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+  >
+    {brand.logo ? (
+      <img
+        src={brand.logo}
+        alt={brand.alt}
+        title={brand.alt}
+        width={110}
+        height={40}
+        loading="lazy"
+        class="max-h-10 w-auto opacity-70 grayscale transition-all group-hover:opacity-100 group-hover:grayscale-0 group-focus-visible:opacity-100 group-focus-visible:grayscale-0"
+      />
+    ) : (
+      <span class="font-heading text-lg font-bold uppercase tracking-wide text-slate-500">
+        {brand.name}
+      </span>
+    )}
+  </a>
+</li>
