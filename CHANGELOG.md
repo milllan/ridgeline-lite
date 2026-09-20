@@ -4,6 +4,19 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.36.0] — 2026-09-20
+
+Higijena alt tekstova logotipa (epic #112 task 21): svi 15 alt-ova u
+registry-ju brandLogos.ts zamenjeni neutralnim `Logotip X` obrascem
+(umesto keyword-stuffed altova tipa "Servis Gorenje veš mašina
+Beograd") — usklađeno sa hub-card obrascem iz #117 cross-lane review-a;
+anchor tekst oko logotipa već nosi SEO kontekst. Uklonjen
+nekorišćen `LogoWasherWrench.astro` (task 16, nula importa potvrđena
+grep-om). `public/de1b28972cff1b5e8f8f0424f3650799.txt` (site
+verification token) i `public/favicon-washer-wrench.svg` namerno
+netaknuti — favicon dobija novu ulogu kao LocalBusiness logo u paralelnom
+PR-u.
+
 ## [2.35.0] — 2026-09-20
 
 Čišćenje schema.org markupa (epic #112 task 12). LocalBusiness: uklonjen
