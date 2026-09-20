@@ -4,6 +4,20 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.38.0] — 2026-09-20
+
+Horizontalni overflow popupravke — mereno headless Chromiumom na 5 širina
+(360/375/1024/1100/1280), pre i posle: 28/13/44/32/2 px → 0/0/0/0/0.
+Dijagnoza (P4 paket, 14 širina + bisect): "ReviewsCarousel 1024px
+overflow" bila je pogrešna atribucija — karusel ne doprinosi page-level
+overflowu (overflow-x-auto klipuje, karte se dele čisto). Pravi krivci:
+(1) footer email link (nebreakabilan token 203px u lg:grid-cols-6 koloni
+od 127px na 1024px) → `break-all` na mailto anchoru; (2) header logo
+anchor `shrink-0` + logo lockup bez min-w-0 (na 360-375px gura action red
+na 388px) → `min-w-0` lanac na anchoru i u Logo.astro da se tekst brenda
+prelomi samo pod pritiskom prostora. Skip-link (L-1) je off-screen a11y
+element, ne pravi overflow.
+
 ## [2.37.0] — 2026-09-20
 
 FAQ semantika + 1024px overflow dijagnoza (epic #112 task 15 + parked
