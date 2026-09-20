@@ -6,8 +6,10 @@
  * one content file, zero code changes. Route pattern proven by
  * /brendovi-ves-masina/[slug]-majstor/ and /lokacije/[slug]/.
  *
- * Meta title: per-service seoTitle (keyword + phone tail) once the
- * content PRs land; `${title} u Beogradu` is the pre-content fallback.
+ * Meta title: per-service seoTitle (keyword; the "| Majstor Dejan" tail
+ * is appended by SEO.astro) once the content PRs land; `${title} u Beogradu`
+ * is the pre-content fallback. Meta description: seoDescription (phone
+ * tail) with excerpt fallback (epic #112 task 11).
  * Crumb keeps the short form ("Popravka veš mašina" from
  * "Popravka veš mašina, svi kvarovi"); H1 carries the full keyword.
  */
@@ -37,7 +39,7 @@ const shortTitle = (service.data.title.split(',')[0] ?? service.data.title).trim
 
 <BaseLayout
   title={service.data.seoTitle ?? `${service.data.title} u Beogradu`}
-  description={service.data.excerpt}
+  description={service.data.seoDescription ?? service.data.excerpt}
   faq={service.data.faq}
 >
   <script

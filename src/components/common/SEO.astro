@@ -6,7 +6,8 @@
 import { siteConfig } from '../../config/site';
 
 interface Props {
-  /** Page title (site name is appended automatically). */
+  /** Page title (the siteConfig.seo.titleTail branding tail is appended
+   *  automatically, unless the title already names the site or the tail). */
   title: string;
   description: string;
   /** Path or absolute URL of the social sharing image. */
@@ -24,12 +25,17 @@ const {
   noindex = false,
 } = Astro.props;
 
+// Title composition (epic #112 task 11): <title> never carries the phone
+// number — it lives in meta descriptions, visible CTAs and the schema. Every
+// page title ends with the short person-brand tail "| Majstor Dejan" (the
+// full site name stays in og:site_name); titles that already identify the
+// site or the majstor pass through unchanged.
 const hasBrandOrMajstor =
   title.toLowerCase().includes(siteConfig.seo.siteName.toLowerCase()) ||
-  title.includes('Majstor Dejan');
+  title.toLowerCase().includes(siteConfig.seo.titleTail.toLowerCase());
 const fullTitle = hasBrandOrMajstor
   ? title
-  : `${title} | ${siteConfig.seo.siteName}`;
+  : `${title} | ${siteConfig.seo.titleTail}`;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL(ogImage, Astro.site);
