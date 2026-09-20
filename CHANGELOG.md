@@ -4,6 +4,20 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.41.0] — 2026-09-20
+
+Sadržajni markeri očišćeni po vlasničkim odlukama 2026-09-20: email
+potvrđen (kontakt@servisvesmasina-beograd.co.rs; hasEmail refaktorisano
+bez @example.rs literala koji je večno tripovao content-gate), nedelja
+potvrđena = NE radi se (nedeljni red namerno ostaje nepublikovan,
+Pon–Sub 08–20, schema bez nedelje), svih 15 brend DRAFT blokova i 6
+servisnih TODO komentinara uklonjeno — SEO copy je odgovornost web
+dev-a, potvrda servisera nije potrebna za tu vrstu sadržaja.
+content-gate: 27 fajlova sa nalazima → 1 (samo još identity polja:
+name, logoText, geo, social). Render izlaz identičan: whitespace-only
+delta na 6 usluge strana (dokazano normalizacijom), ostalih 28 strana
+byte-identično.
+
 ## [2.40.1] — 2026-09-20
 
 AGENTS.md: novo pravilo vlasnika — brzina sajta je non-factor (sajt je

@@ -46,9 +46,9 @@ export const siteConfig = {
   phone: '064/110-39-01',
   /** tel: link version of the phone number (digits only). */
   phoneHref: 'tel:+381641103901',
-  // TODO: placeholder identity — replace with real business details
-  // Domain mailbox on sculpiflex (HestiaCP); webmail/IMAP creds are
-  // root-only on the server (/root/.mail-kontakt-servisvesmasina-creds).
+  // Owner-confirmed 2026-09-20. Domain mailbox on sculpiflex (HestiaCP);
+  // webmail/IMAP creds are root-only on the server
+  // (/root/.mail-kontakt-servisvesmasina-creds).
   email: 'kontakt@servisvesmasina-beograd.co.rs',
   /** Google Business Profile short link (share URL). Used for all
    * address references on the site + LocalBusiness hasMap. */
@@ -75,8 +75,8 @@ export const siteConfig = {
    * Hours
    * ---------------------------------------------------------- */
   // Times confirmed by the majstor 2026-09-15 ("Radno vreme od 8-20").
-  // TODO: confirm Sunday – until then no Sunday row is published
-  // (CodeRabbit #27: no unconfirmed "closed" claim may render).
+  // Owner-confirmed 2026-09-20: NOT WORKING on Sunday — deliberately
+  // no Sunday row (Mon–Sat 08–20 only; schema omits Sunday accordingly).
   hours: [{ days: 'Ponedeljak – Subota', open: '08:00', close: '20:00' }],
   /** Schema.org openingHours strings (24h clock). */
   openingHoursSchema: ['Mo-Sa 08:00-20:00'],
@@ -165,5 +165,5 @@ export const siteConfig = {
 
 export type SiteConfig = typeof siteConfig;
 
-/** True when a real (non-placeholder) email is configured. */
-export const hasEmail = !siteConfig.email.toLowerCase().endsWith('@example.rs');
+/** True when an email is configured (real mailbox, owner-confirmed 2026-09-20). */
+export const hasEmail = siteConfig.email.length > 0;
