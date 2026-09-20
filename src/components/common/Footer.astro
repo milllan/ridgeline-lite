@@ -4,7 +4,7 @@
  */
 import { getPublished } from '../../lib/collections';
 import { siteConfig, hasEmail } from '../../config/site';
-import { footerCompanyNav, footerLocationsNav } from '../../config/nav';
+import { footerBrandsNav, footerCompanyNav, footerLocationsNav } from '../../config/nav';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
 
@@ -13,6 +13,10 @@ const services = (await getPublished('services')).sort(
 );
 
 const opstine = (await getPublished('opstine')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const brands = (await getPublished('brands')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 
@@ -46,7 +50,7 @@ const socials = (
   </div>
 
   <!-- Main columns -->
-  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-5 lg:px-8">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-6 lg:px-8">
     <div>
       <a href="/" aria-label={`${siteConfig.name}, Početna`}>
         <Logo onDark />
@@ -87,6 +91,35 @@ const socials = (
                 class="transition-colors hover:text-primary"
               >
                 {service.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav aria-label="Marke">
+      <h2 class="font-heading text-lg font-bold uppercase tracking-wide text-white">
+        Marke
+      </h2>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        {
+          footerBrandsNav.map((item) => (
+            <li>
+              <a href={item.href} class="transition-colors hover:text-primary">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+        {
+          brands.map((brand) => (
+            <li>
+              <a
+                href={`/brendovi-ves-masina/${brand.id.replace(/\.mdx$/, '')}-majstor/`}
+                class="transition-colors hover:text-primary"
+              >
+                {brand.data.name}
               </a>
             </li>
           ))

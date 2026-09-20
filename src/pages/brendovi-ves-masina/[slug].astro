@@ -41,7 +41,10 @@ const services = (await getPublished('services')).sort(
   <PageHero
     title={brand.data.title}
     lead={brand.data.excerpt}
-    crumbs={[{ label: 'Marke' }, { label: brand.data.name }]}
+    crumbs={[
+      { label: 'Marke', href: '/brendovi-ves-masina/' },
+      { label: brand.data.name },
+    ]}
     image={heroImage}
     imageAlt="Servis veš mašina na terenu u Beogradu"
   />

@@ -28,9 +28,10 @@ const breadcrumbSchema = {
     name: crumb.label,
     // Google's Rich Results test warns when the terminal crumb omits
     // `item`, so fall back to the current page's canonical URL. Only
-    // the terminal crumb gets the fallback: href-less intermediates
-    // (e.g. "Marke" on brand pages) have no page of their own and must
-    // not reuse the page canonical.
+    // the terminal crumb gets the fallback: an href-less intermediate
+    // has no page of its own and must not reuse the page canonical
+    // (all current intermediates — Usluge, Lokacije, Marke — link to
+    // their hubs, but the guard stays for future crumb sets).
     ...(crumb.href
       ? { item: new URL(crumb.href, Astro.site).href }
       : i === crumbs.length - 1 && {
