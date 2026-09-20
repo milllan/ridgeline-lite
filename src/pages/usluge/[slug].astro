@@ -21,6 +21,7 @@ import Button from '../../components/common/Button.astro';
 import Icon from '../../components/common/Icon.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
 import BrandLogos from '../../components/sections/BrandLogos.astro';
+import LocationLinks from '../../components/sections/LocationLinks.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
 import { siteConfig } from '../../config/site';
 
@@ -126,6 +127,11 @@ const shortTitle = (service.data.title.split(',')[0] ?? service.data.title).trim
   )}
 
   <BrandLogos />
+
+  <LocationLinks
+    heading="Servis u vašoj opštini"
+    lead="Za svaku opštinu postoji stranica s naseljima koja pokrivamo:"
+  />
 
   <FinalCTA />
 </BaseLayout>
