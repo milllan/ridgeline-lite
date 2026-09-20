@@ -11,12 +11,18 @@ interface Props {
   /** -1 on the aria-hidden marquee copy — removes its links from the
      tab order (aria-hidden must not contain focusable elements). */
   tabindex?: number;
+  /** 'grid' = fixed widths with no flex-grow (default); 'strip' = marquee flex sizing. */
+  variant?: 'grid' | 'strip';
 }
 
-const { brand, tabindex } = Astro.props;
+const { brand, tabindex, variant = 'grid' } = Astro.props;
+const liClass =
+  variant === 'strip'
+    ? 'min-w-[150px] flex-1 basis-0'
+    : 'w-full sm:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-4rem)/5)]';
 ---
 
-<li class="min-w-[150px] flex-1 basis-0">
+<li class={liClass}>
   <a
     href={`/brendovi-ves-masina/${brand.slug}-majstor/`}
     tabindex={tabindex}
