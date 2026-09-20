@@ -23,10 +23,10 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Company identity
    * -------------------------------------------------------- */
-  // TODO: placeholder identity — replace with real business details
+  // TODO: placeholder identity - replace with real business details
   name: 'Servis Veš Mašina Beograd',
   /** Short name used in the logo lock-up. */
-  // TODO: placeholder identity — logo wording to be confirmed
+  // TODO: placeholder identity - logo wording to be confirmed
   logoText: 'Servis za veš mašine',
   logoSuffix: '',
   /** Subline under the logo lock-up (empty = hidden). */
@@ -36,12 +36,12 @@ export const siteConfig = {
   tagline:
     'Popravka veš mašina Beograd. Gorenje, Whirlpool, Indesit, Candy, Ariston, Beko, LG i dr. Majstor Dejan',
   /** Identity line shown in the top bar and footer. NOTE: no registered
-   * business yet (2026-09) — must NOT claim registration; reword when it
+   * business yet (2026-09) - must NOT claim registration; reword when it
    * gets registered. */
   licenseLine: 'Servis veš mašina, dolazak na kućnu adresu',
 
   /* ----------------------------------------------------------
-   * Contact (NAP — keep identical everywhere for local SEO)
+   * Contact (NAP - keep identical everywhere for local SEO)
    * -------------------------------------------------------- */
   phone: '064/110-39-01',
   /** tel: link version of the phone number (digits only). */
@@ -75,9 +75,9 @@ export const siteConfig = {
    * Hours
    * ---------------------------------------------------------- */
   // Times confirmed by the majstor 2026-09-15 ("Radno vreme od 8-20").
-  // Owner-confirmed 2026-09-20: NOT WORKING on Sunday — deliberately
-  // no Sunday row (Mon–Sat 08–20 only; schema omits Sunday accordingly).
-  hours: [{ days: 'Ponedeljak – Subota', open: '08:00', close: '20:00' }],
+  // Owner-confirmed 2026-09-20: NOT WORKING on Sunday - deliberately
+  // no Sunday row (Mon-Sat 08-20 only; schema omits Sunday accordingly).
+  hours: [{ days: 'Ponedeljak - Subota', open: '08:00', close: '20:00' }],
   /** Schema.org openingHours strings (24h clock). */
   openingHoursSchema: ['Mo-Sa 08:00-20:00'],
   emergencyNote: 'Hitni pozivi vikendom po dogovoru.',
@@ -85,13 +85,13 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Social profiles (used in footer + JSON-LD sameAs)
    * ---------------------------------------------------------- */
-  // TODO: placeholder identity — add real social profile URLs (empty = hidden)
+  // TODO: placeholder identity - add real social profile URLs (empty = hidden)
   social: {
     facebook: '',
     instagram: '',
   },
   /* ----------------------------------------------------------
-   * Analytics (StatCounter — same provider as the owner's other sites).
+   * Analytics (StatCounter - same provider as the owner's other sites).
    * Renders in BaseLayout only in PROD builds with project > 0.
    * -------------------------------------------------------- */
   analytics: {
@@ -103,10 +103,10 @@ export const siteConfig = {
    * Lead form backend
    * ----------------------------------------------------------
    * formProvider:
-   *   'formspree' — the form posts to `formEndpoint`.
+   *   'formspree' - the form posts to `formEndpoint`.
    *                 Create a free form at https://formspree.io and
    *                 paste its endpoint below.
-   *   'netlify'   — the form is tagged with data-netlify="true" and
+   *   'netlify'   - the form is tagged with data-netlify="true" and
    *                 submissions appear in your Netlify dashboard.
    *                 `formEndpoint` is ignored.
    * See docs/customization.md → "Connecting the forms".
@@ -144,7 +144,7 @@ export const siteConfig = {
    * Default SEO
    * -------------------------------------------------------- */
   // NOTE: phone numbers live in meta descriptions and visible CTAs, never in
-  // <title> (epic #112 task 11). defaultDescription embeds the phone — keep
+  // <title> (epic #112 task 11). defaultDescription embeds the phone - keep
   // in sync when siteConfig.phone changes.
   seo: {
     siteName: 'Servis Veš Mašina Beograd',
@@ -158,7 +158,7 @@ export const siteConfig = {
   },
 
   /* ----------------------------------------------------------
-   * Theme — 'slate-orange' (scheme A) or 'blue-amber' (scheme B)
+   * Theme - 'slate-orange' (scheme A) or 'blue-amber' (scheme B)
    * -------------------------------------------------------- */
   theme: 'slate-orange' as ThemeName,
 } as const;

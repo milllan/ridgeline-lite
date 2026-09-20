@@ -1,6 +1,6 @@
 ---
 /**
- * Home page – Lite edition (9 sections): Hero → TrustBar → Services →
+ * Home page - Lite edition (9 sections): Hero → TrustBar → Services →
  * MajstorBelt → WhyUs → Reviews → FAQ → FinalCTA. The Pro version adds featured
  * before/after projects, the service-area system, and financing.
  */
@@ -26,7 +26,7 @@ const services = (await getPublished('services')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 
-// Opšta pitanja za naslovnu (epic #22 §3) – razlikuju se od simptomskih
+// Opšta pitanja za naslovnu (epic #22 §3) - razlikuju se od simptomskih
 // pitanja na /usluge/ da FAQPage šeme ne dupliraju sadržaj.
 const homeFaq = [
   {

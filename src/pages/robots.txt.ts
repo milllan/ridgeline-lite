@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 
 /**
- * robots.txt endpoint — always in sync with the build-time site URL
+ * robots.txt endpoint - always in sync with the build-time site URL
  * (ASTRO_SITE env or the default in astro.config.mjs), so demo and
  * production builds can never point at each other's sitemap.
  */

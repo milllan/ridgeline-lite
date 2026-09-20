@@ -1,4 +1,4 @@
-# PHOTO-CREDITS.md — poreklo fotografija
+# PHOTO-CREDITS.md - poreklo fotografija
 
 Sve fotografije u `src/assets/services/` preuzete su sa Pexels-a
 (https://www.pexels.com/license/). Pexels licenca dozvoljava besplatno
@@ -9,7 +9,7 @@ ovde navode radi evidencije porekla (zahtev iz issue #3).
 
 | Fajl | Usluga | Izvor | Fotograf |
 |---|---|---|---|
-| `majstor-popravka.jpg` | Popravka veš mašina – svi kvarovi | https://www.pexels.com/photo/38190070/ | Bulat843 |
+| `majstor-popravka.jpg` | Popravka veš mašina - svi kvarovi | https://www.pexels.com/photo/38190070/ | Bulat843 |
 | `pumpa-servis.jpg` | Zamena i popravka pumpi | https://www.pexels.com/photo/35290675/ | Bulat843 |
 | `bubanj-masine.jpg` | Zamena ležajeva i zaptivača | https://www.pexels.com/photo/34397245/ | Vlad Deep |
 | `masina-van-funkcije.jpg` | Zamena grejača i termostata | https://www.pexels.com/photo/4700389/ | Ekaterina Belinskaya |
@@ -35,6 +35,6 @@ Preostale roofing fotografije na `/o-nama/` (`crew-framing.jpg` i `marcus-rivera
 
 | Fajl | Poreklo |
 |---|---|
-| `src/assets/gallery/*.jpg` (8 fotografija: lokal, kombi, radionica, preuzimanje, zamena ležajeva, servis Gorenje, kazani, radni sto) | Fotografije iz radionice majstora Dejana (Viber, 2026-09-16) – pravi lokal na Vidikovačkom vencu i pravi terenski posao. |
+| `src/assets/gallery/*.jpg` (8 fotografija: lokal, kombi, radionica, preuzimanje, zamena ležajeva, servis Gorenje, kazani, radni sto) | Fotografije iz radionice majstora Dejana (Viber, 2026-09-16) - pravi lokal na Vidikovačkom vencu i pravi terenski posao. |
 
 Placeholder stock fotografije (crew-framing, marcus-rivera) uklonjene.

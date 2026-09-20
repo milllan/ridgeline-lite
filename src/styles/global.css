@@ -1,15 +1,15 @@
 /* ============================================================
-   Ridgeline — global stylesheet
+   Ridgeline - global stylesheet
    Tailwind 4 entry + design tokens + self-hosted fonts.
    Colors are defined ONCE here as CSS variables. Components must
-   only use token utilities (bg-primary, text-dark, ...) — never
+   only use token utilities (bg-primary, text-dark, ...) - never
    hard-coded hex values.
    ============================================================ */
 
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-/* Self-hosted Google Fonts (via @fontsource) — no runtime request
+/* Self-hosted Google Fonts (via @fontsource) - no runtime request
    to Google servers. */
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
@@ -18,22 +18,22 @@
 @import '@fontsource/barlow-condensed/700.css';
 
 /* ------------------------------------------------------------
-   Color scheme A (default) — "Slate & Safety Orange"
+   Color scheme A (default) - "Slate & Safety Orange"
    ------------------------------------------------------------ */
 :root {
-  --rl-primary: #ea580c; /* safety orange — CTA surfaces only */
+  --rl-primary: #ea580c; /* safety orange - CTA surfaces only */
   --rl-primary-bright: #f97316; /* CTA hover (lighter keeps AA with dark ink) */
   --rl-primary-ink: #c2410c; /* orange TEXT on light backgrounds (AA 4.5:1) */
-  --rl-on-primary: #0f172a; /* ink on orange surfaces — hazard-sign style (AA) */
-  --rl-dark: #0f172a; /* slate-900 — header/footer/dark sections */
-  --rl-dark-soft: #1e293b; /* slate-800 — cards on dark sections */
+  --rl-on-primary: #0f172a; /* ink on orange surfaces - hazard-sign style (AA) */
+  --rl-dark: #0f172a; /* slate-900 - header/footer/dark sections */
+  --rl-dark-soft: #1e293b; /* slate-800 - cards on dark sections */
   --rl-surface: #f8fafc; /* light section background */
   --rl-accent: #0ea5e9; /* decorative accent on dark backgrounds (sparing) */
   --rl-accent-ink: #0369a1; /* link blue on light backgrounds (AA 4.5:1) */
 }
 
 /* ------------------------------------------------------------
-   Color scheme B — "Deep Blue & Amber"
+   Color scheme B - "Deep Blue & Amber"
    Switch by setting `theme: 'blue-amber'` in src/config/site.ts
    (adds data-theme="blue-amber" to <html>).
    ------------------------------------------------------------ */
@@ -113,25 +113,25 @@
 }
 
 /* ------------------------------------------------------------
-   Article prose — MDX body copy on /usluge/, /brendovi/ and
+   Article prose - MDX body copy on /usluge/, /brendovi/ and
    /lokacije/ detail pages. The Content wrapper carries `prose`
    (@tailwindcss/typography, loaded above); these tokens re-tune
    the plugin to the Ridgeline type system. Without `prose`,
-   Tailwind preflight flattens h2–h6, lists and tables to body
-   text — headings were rendering at 16px, lists lost their
+   Tailwind preflight flattens h2-h6, lists and tables to body
+   text - headings were rendering at 16px, lists lost their
    bullets and tables had no borders.
 
    The var block stays UNLAYERED on purpose: the plugin's own
    `.prose` defaults are emitted into @layer utilities, so this is
    the only position that beats them deterministically. The
-   element rules below live in @layer components instead — lower
-   than utilities — so utilities inside content (font-bold,
+   element rules below live in @layer components instead - lower
+   than utilities - so utilities inside content (font-bold,
    normal-case, `not-prose` islands …) keep their escape hatch.
    Size/weight scale comes from the plugin (h2 1.5em/700, h3 1.25em
-   /600, h4 600; h5–h6 fall through to the base-layer 700).
+   /600, h4 600; h5-h6 fall through to the base-layer 700).
    ------------------------------------------------------------ */
 .prose {
-  --tw-prose-body: #475569; /* slate-600 — body ink used across sections */
+  --tw-prose-body: #475569; /* slate-600 - body ink used across sections */
   --tw-prose-bold: var(--rl-dark);
   --tw-prose-headings: var(--rl-dark); /* follows the active color scheme */
   --tw-prose-links: var(--rl-accent-ink); /* AA link ink on light surfaces */
@@ -139,7 +139,7 @@
   --tw-prose-td-borders: #e2e8f0; /* slate-200 */
 }
 
-/* Filled rows (zebra/hover) need breathing room at the row edges —
+/* Filled rows (zebra/hover) need breathing room at the row edges -
    the plugin's borderless design zeroes first/last cell padding
    inside @layer utilities, so this must stay unlayered to win
    (same trade-off as the var block above). */
@@ -149,7 +149,7 @@
 
 @layer components {
   /* Match every other heading on the site: Barlow Condensed,
-     uppercase, slightly tracked — h1 included so an accidental
+     uppercase, slightly tracked - h1 included so an accidental
      MDX `#` heading cannot render as the only Inter heading on
      the site. Same not-prose guard the plugin uses, so escape
      islands stay fully unstyled by us. */
@@ -168,8 +168,8 @@
   }
 
   /* Zebra rows + hover in the slate family (one step lighter than
-     the slate-200 row hairlines). Reference tables — error codes,
-     prices — scan better with striping; hover aids row tracking.
+     the slate-200 row hairlines). Reference tables - error codes,
+     prices - scan better with striping; hover aids row tracking.
      The global prefers-reduced-motion block neutralizes the
      transition for users who opt out. */
   .prose :where(tbody tr):not(:where([class~='not-prose'], [class~='not-prose'] *)) {

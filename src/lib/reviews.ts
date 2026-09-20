@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 
 /**
- * Aggregate rating computed from the reviews collection — used by the
+ * Aggregate rating computed from the reviews collection - used by the
  * hero trust strip, the reviews carousel/page, and the AggregateRating
  * JSON-LD, so the number is always consistent everywhere it appears.
  */

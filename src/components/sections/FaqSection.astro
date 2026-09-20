@@ -1,6 +1,6 @@
 ---
 /**
- * FAQ accordion — details/summary only, zero JS (epic #28 C, #22 §3).
+ * FAQ accordion - details/summary only, zero JS (epic #28 C, #22 §3).
  * Items are passed by the page; the same array feeds buildFaqPage()
  * JSON-LD via BaseLayout's `faq` prop, so markup and schema never drift.
  */
@@ -14,7 +14,7 @@ export interface FaqItem {
 interface Props {
   title: string;
   items: FaqItem[];
-  /** Render on the surface tint instead of white — for pages whose
+  /** Render on the surface tint instead of white - for pages whose
      section order would otherwise put two same-bg bands adjacent. */
   surface?: boolean;
 }
