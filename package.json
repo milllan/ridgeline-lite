@@ -1,7 +1,7 @@
 {
-  "name": "ridgeline-lite",
+  "name": "servis-ves-masina-beograd",
   "version": "1.0.0",
-  "description": "Ridgeline Lite \u2014 a free, high-converting Astro + Tailwind website template for roofing contractors.",
+  "description": "Static Astro site for a Belgrade washing-machine repair service (Majstor Dejan, servisvesmasina-beograd.co.rs).",
   "type": "module",
   "engines": {
     "node": ">=22.12.0"

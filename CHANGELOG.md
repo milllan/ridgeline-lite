@@ -4,6 +4,20 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.39.0] — 2026-09-20
+
+Repo identitet bez roofing nasleđa (epic #112 taski 13+14). `package.json`:
+ime `ridgeline-lite` → `servis-ves-masina-beograd`, opis → tačan opis sajta
+(statički Astro sajt za servis veš mašina u Beogradu); samo ta dva polja,
+bez bumpa verzije i bez izmena skripti/dependensija. `README.md` kompletno
+prepisan (engleski, developer-facing): šta je sajt, struktura (~34 strane),
+quickstart, mapa sadržaja (site.ts, content kolekcije, nav/brandLogos),
+quality gates (content:gate, postbuild seo-gate, serbian-copy-gate), draft
+workflow preko `getPublished`, deploy (rsync u public_html). Uklonjen
+`.github/preview.jpg` iz README (fajl ostaje) i Lite-vs-Pro marketing.
+`MIGRATION.md` obrisan (zastareo template-era dokument; istorija živi u git +
+CHANGELOG). Build zelen: 34 strane, seo-gate 0 FAIL, astro check 0 errors.
+
 ## [2.38.0] — 2026-09-20
 
 Horizontalni overflow popupravke — mereno headless Chromiumom na 5 širina
