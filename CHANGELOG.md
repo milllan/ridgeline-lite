@@ -4,6 +4,20 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.34.0] — 2026-09-20
+
+Popularni brendovi u footeru prema realnoj potražnji (epic #112 task 23
+dorada). POPULAR_BRAND_SLUGS: gorenje, bosch, samsung, lg -> gorenje,
+samsung, beko, candy. Signali (2026-09-20): google.rs autocomplete za
+"servis ves masine" nabraja gorenje/candy/samsung/beko; sister-GSC
+(servis frizidera, 365d) gorenje 3612 / samsung 2479 / beko 1910
+impresija; candy slaba na friziderima ali konzistentna na svim
+autocomplete listama za veš mašine (budget installed base); bosch i lg
+slabi na washer-specifičnim signalima. Hub lead i meta description
+ažurirani na novi izbor marki. Breadcrumb GSC alert ("Missing field
+item") proveren na live sajtu: svi itemListElement imaju item još od
+#116/#117 — alert je stari crawl, čeka se re-validacija u GSC.
+
 ## [2.33.0] — 2026-09-20
 
 Fix vizuelnog prikaza brendova (epic #112, follow-up). Grid varijanta
