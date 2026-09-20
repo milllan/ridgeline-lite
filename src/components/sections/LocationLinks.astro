@@ -1,0 +1,71 @@
+---
+/**
+ * Compact opština navigation strip (epic #112 task 9): pill links to the
+ * published /lokacije/[slug]/ pages plus the /lokacije/ hub. `exclude`
+ * hides the opština whose page you are on (sibling mode). The list comes
+ * from getPublished, so a draft opština never gets linked (epic #112
+ * task 4 rule: drafts are neither generated nor linked).
+ */
+import type { CollectionEntry } from 'astro:content';
+import { getPublished } from '../../lib/collections';
+import Icon from '../common/Icon.astro';
+
+interface Props {
+  /** Opština slug to hide (the page you're already on). */
+  exclude?: string;
+  heading: string;
+  lead?: string;
+  /** Render on the surface tint instead of white. */
+  surface?: boolean;
+}
+
+const { exclude = '', heading, lead, surface = false } = Astro.props;
+
+const opstine = (await getPublished('opstine')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const visible = opstine.filter(
+  (opstina) => opstina.id.replace(/\.mdx$/, '') !== exclude,
+);
+const nameOf = (opstina: CollectionEntry<'opstine'>) =>
+  opstina.data.title.replace('Servis veš mašina ', '');
+---
+
+<section
+  class:list={['py-12 md:py-14', surface ? 'bg-surface' : 'bg-white']}
+  aria-labelledby="lokacije-heading"
+>
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <h2
+      id="lokacije-heading"
+      class="font-heading text-xl font-bold uppercase tracking-wide text-dark"
+    >
+      {heading}
+    </h2>
+    {lead && <p class="mt-2 leading-relaxed text-slate-600">{lead}</p>}
+    <ul class="mt-4 flex flex-wrap gap-2">
+      {
+        visible.map((opstina) => (
+          <li>
+            <a
+              href={`/lokacije/${opstina.id.replace(/\.mdx$/, '')}/`}
+              class:list={[
+                'inline-block rounded-full border border-slate-200 px-4 py-1.5 text-sm font-medium text-slate-600 transition-colors hover:border-primary/50 hover:text-dark',
+                surface ? 'bg-white' : 'bg-surface',
+              ]}
+            >
+              {nameOf(opstina)}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <a
+      href="/lokacije/"
+      class="mt-5 inline-flex items-center gap-1.5 font-heading text-sm font-semibold uppercase tracking-wide text-primary-ink hover:text-dark"
+    >
+      Pogledajte sve lokacije
+      <Icon name="arrow-right" class="h-4 w-4" />
+    </a>
+  </div>
+</section>

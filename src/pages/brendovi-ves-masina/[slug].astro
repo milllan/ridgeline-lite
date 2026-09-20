@@ -19,6 +19,7 @@ import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
 import BrandLogos from '../../components/sections/BrandLogos.astro';
+import LocationLinks from '../../components/sections/LocationLinks.astro';
 import { siteConfig } from '../../config/site';
 import heroImage from '../../assets/hero/home-hero.jpg';
 
@@ -110,6 +111,11 @@ const services = (await getPublished('services')).sort(
   <BrandLogos
     exclude={brand.id.replace(/\.mdx$/, '')}
     heading="Ostali brendovi koje servisiramo"
+  />
+
+  <LocationLinks
+    heading="Servis u vašoj opštini"
+    lead="Izaberite opštinu i pogledajte naselja koja pokrivamo:"
   />
 
   <FinalCTA />

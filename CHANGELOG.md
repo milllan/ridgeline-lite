@@ -4,6 +4,22 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.31.0] — 2026-09-20
+
+Internal-link mesh brend ↔ lokacija ↔ usluge (epic #112 zadatak 9). Nova
+komponenta LocationLinks.astro: kompaktan strip s pilulama ka objavljenim
+/lokacije/[slug]/ stranicama plus hub link (lista isključivo kroz
+getPublished, draft opštine se nikad ne linkuju; prop `exclude` za sibling
+mod). Brend stranice dobijaju strip „Servis u vašoj opštini", service
+stranice isti strip (BrandLogos grid već vodi ka brendovima), a opštinske
+stranice sibling strip „Dolazimo i u ove opštine" (bez pilule svoje
+opštine). DESIGN PROMENA u ServicesGrid.astro: naslovi karata su sada
+linkovi na /usluge/[slug]/ detaljne stranice — na naslovnoj, brendovima i
+opštinama — dok „Zatražite ponudu" ostaje sporedni CTA; karte više ne
+završavaju na formi za ponudu. Verifikacija: 34 stranice, dist crawl 62
+internih href / 0 mrtvih, seo-gate 0 FAIL, copy-gate 0 novih nalaza,
+content-gate bez novih nalaza.
+
 ## [2.30.0] — 2026-09-20
 
 Business claims potvrđeni (vlasnik + Dejan, 2026-09-20) — uklonjeni TODO

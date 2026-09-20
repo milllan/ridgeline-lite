@@ -13,6 +13,7 @@ import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
 import FaqSection from '../../components/sections/FaqSection.astro';
 import BrandLogos from '../../components/sections/BrandLogos.astro';
+import LocationLinks from '../../components/sections/LocationLinks.astro';
 import { siteConfig } from '../../config/site';
 
 export async function getStaticPaths() {
@@ -116,6 +117,12 @@ const services = (await getPublished('services')).sort((a, b) => a.data.order - 
   {opstina.data.faq && opstina.data.faq.length > 0 && (
     <FaqSection title={`Najčešća pitanja: ${opstina.data.title.replace('Servis veš mašina ', '')}`} items={opstina.data.faq} />
   )}
+
+  <LocationLinks
+    exclude={opstina.id.replace(/\.mdx$/, '')}
+    surface
+    heading="Dolazimo i u ove opštine"
+  />
 
   <FinalCTA />
 </BaseLayout>
