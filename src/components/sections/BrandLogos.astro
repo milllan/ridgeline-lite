@@ -48,20 +48,20 @@ const visible = brands.filter((brand) => brand.slug !== exclude && published.has
         <div class="marquee__track">
           <ul class="marquee__set">
             {visible.map((brand) => (
-              <BrandLogoTile brand={brand} />
+              <BrandLogoTile brand={brand} variant="strip" />
             ))}
           </ul>
           <ul class="marquee__set" aria-hidden="true">
             {visible.map((brand) => (
-              <BrandLogoTile brand={brand} tabindex={-1} />
+              <BrandLogoTile brand={brand} tabindex={-1} variant="strip" />
             ))}
           </ul>
         </div>
       </div>
     ) : (
-      <ul class="mt-8 flex flex-wrap gap-4">
+      <ul class="mt-8 flex flex-wrap justify-center gap-4">
         {visible.map((brand) => (
-          <BrandLogoTile brand={brand} />
+          <BrandLogoTile brand={brand} variant="grid" />
         ))}
       </ul>
     )}

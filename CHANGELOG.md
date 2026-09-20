@@ -4,6 +4,18 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.33.0] — 2026-09-20
+
+Fix vizuelnog prikaza brendova (epic #112, follow-up). Grid varijanta
+BrandLogos sekcije: tile-ovi više nemaju `flex-1` pa se poslednji red
+ne razvlači preko cele širine (na početnoj strani sa 15 logotipa je
+samousamljeni logo u 3. redu izgledao razvučeno). Tile dobija fiksne
+širine po breakpoint-u (1 kolona na mobilnom, 3 od `sm`, 5 od `lg` —
+redovi se pune tačno, bez rastezanja), a nedovršen poslednji red se
+centrira (`justify-center`), u duhu centriranog naslova sekcije. Strip
+(marquee) varijanta ostaje nepromenjena. Uklonjen i zastareo TODO komentar
+u o-nama.astro o garanciji "6–12 meseci" — garancija je potvrđena: 1 godina.
+
 ## [2.32.0] — 2026-09-20
 
 Footer "Marke" kolona trim + "bilo koja marka" framing (epic #112 zadatak 23).

@@ -25,8 +25,6 @@ const yearsInBusiness = new Date().getFullYear() - siteConfig.stats.yearFounded;
 const stats = [
   { value: `${yearsInBusiness}`, label: 'Godina iskustva' },
   { value: `${siteConfig.stats.projectsCompleted.toLocaleString('sr-Latn-RS')}+`, label: 'Završenih popravki' },
-  // TODO: potvrditi trajanje garancije sa biznisom — u site.ts stoji
-  // napomena da je stvarno 6–12 meseci; prikazujemo config vrednost.
   { value: `${siteConfig.stats.warrantyYears} god.`, label: 'Garancija na popravku' },
   { value: `${rating.average}★`, label: 'Prosečna ocena' },
 ];
