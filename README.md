@@ -45,14 +45,16 @@ npm run build    # static output in ./dist (postbuild seo-gate runs automaticall
   mapping
 - `src/content.config.ts` — content-layer collection definitions (services,
   brands, opstine, reviews) with validation schemas
-- `astro.config.mjs` — site URL; `public/robots.txt` — sitemap URL
+- `astro.config.mjs` — site URL; `src/pages/robots.txt.ts` generates
+  `robots.txt` (with the sitemap URL) from it at build time
 - Images live in `src/assets/`
 
 ## Quality gates
 
-- `npm run content:gate` — fails the build on TODO/DRAFT/PLACEHOLDER markers
-  left in production-facing source, so unfinished content can never ship
-  silently
+- `npm run content:gate` — exits nonzero on readiness markers (TODO,
+  DRAFT, PLACEHOLDER, SAMPLE, @example, UNVERIFIED, potvrditi, plus
+  `status: draft` frontmatter) left in production-facing source.
+  Standalone by design — not yet wired into the build chain.
 - postbuild `seo-gate` (runs automatically after `npm run build`) — SEO checks
   against `dist/`; the build must finish with 0 FAIL
 - `serbian-copy-gate` — reviewer-level gate (skill) for customer-facing
