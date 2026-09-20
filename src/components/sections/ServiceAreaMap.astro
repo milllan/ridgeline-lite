@@ -1,6 +1,6 @@
 ---
 /**
- * Lightweight SVG map of the service area — municipality dots positioned
+ * Lightweight SVG map of the service area - municipality dots positioned
  * by their real coordinates. Deliberately NOT an embedded Google Map: no
  * API key, no third-party JS, no layout shift. (docs/customization.md
  * covers swapping in a real embed if a buyer insists.)
@@ -11,7 +11,7 @@
 // TODO: verify with the business which areas are actually covered.
 //
 // Workshop pin: the majstor's real address (Vidikovački venac 104,
-// Rakovica), per OSM Nominatim house-level match — shown as a distinct
+// Rakovica), per OSM Nominatim house-level match - shown as a distinct
 // pin, separate from the municipality dots. Coordinates come from
 // siteConfig.geo (single source of truth, also feeds the JSON-LD).
 //
@@ -44,9 +44,9 @@ const positioned = municipalities.map((municipality) => {
   return { name: municipality.name, x: Math.round(x), y: Math.round(y) };
 });
 
-// Workshop ("Naša lokacija") pin — projected with the same math.
+// Workshop ("Naša lokacija") pin - projected with the same math.
 // NOTE: its label is manually anchored (right of the pin); the placement
-// algorithm above only governs municipality labels — re-check visually
+// algorithm above only governs municipality labels - re-check visually
 // (or via the projection assertions) if geo or BOUNDS change.
 const workshop = {
   x: Math.round(
@@ -59,7 +59,7 @@ const workshop = {
 
 /**
  * Collision-aware label placement: labels go to the right of their dot
- * unless a neighboring dot is in the way — then to the left, or above.
+ * unless a neighboring dot is in the way - then to the left, or above.
  *
  * Boundary coupling (verify visually if coordinates/BOUNDS change):
  * Palilula (x=309) clears `nearRightEdge` (W-90=310) by 1px.

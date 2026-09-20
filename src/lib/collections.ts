@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 
 /**
- * Collections read through the publication filter (everything but reviews —
+ * Collections read through the publication filter (everything but reviews -
  * the reviews schema has no status field; review data is epic #112 task 1's
  * concern and stays on raw getCollection).
  */

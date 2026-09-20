@@ -9,7 +9,7 @@ import { siteConfig, hasEmail } from '../config/site';
 export async function buildLocalBusiness(site: URL) {
   const { address, geo } = siteConfig;
 
-  /** Same-as links — skip empty values so we never emit dead hrefs. */
+  /** Same-as links - skip empty values so we never emit dead hrefs. */
   const sameAs = Object.values(siteConfig.social).filter((url) => url !== '');
 
   return {

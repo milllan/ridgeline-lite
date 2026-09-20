@@ -4,13 +4,13 @@
  * truth for logo paths and per-brand SEO alt text.
  *
  * SVGs in public/logos/ sourced from Wikimedia Commons (trademark of
- * respective owners; shown desaturated to signal independent service —
+ * respective owners; shown desaturated to signal independent service -
  * the site never claims "ovlašćeni" status). Brands without a mark fall
  * back to a styled text name in tiles; hub cards rely on their h3 text.
  *
  * Membership still comes from the brands collection via getPublished:
  * a `status: draft` brand's page does not generate, so it must not be
- * linked from anywhere (epic #112 task 4) — a registry entry whose slug
+ * linked from anywhere (epic #112 task 4) - a registry entry whose slug
  * is not in the collection renders nowhere.
  */
 

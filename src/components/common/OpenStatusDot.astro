@@ -1,6 +1,6 @@
 ---
 /**
- * OpenStatusDot — green/red status dot next to phone links.
+ * OpenStatusDot - green/red status dot next to phone links.
  *
  * Schedule is parsed at BUILD time from siteConfig.openingHoursSchema
  * (schema.org openingHours strings, e.g. "Mo-Sa 09:00-17:00") and
@@ -8,7 +8,7 @@
  * automatically with zero JS edits. If parsing fails the dot renders
  * nothing (fail-closed, no JS errors).
  *
- * JS evaluates once on page load — no interval needed for a static site
+ * JS evaluates once on page load - no interval needed for a static site
  * (a visitor keeping the tab open across the boundary keeps a stale dot
  * until reload; acceptable trade-off, keeps the theme JS budget tiny).
  */
@@ -132,7 +132,7 @@ const { inLink = false } = Astro.props;
        dark bar, white header). Border, not box-shadow, so the pulse
        animation below keeps working around it. */
     border: 2px solid rgba(255, 255, 255, 0.95);
-    /* Neutral before JS runs — avoids a wrong-color flash. */
+    /* Neutral before JS runs - avoids a wrong-color flash. */
     background-color: #94a3b8; /* slate-400 */
     color: #94a3b8;
   }
@@ -209,7 +209,7 @@ const { inLink = false } = Astro.props;
     }
     var sched: ScheduleInterval[] = schedule;
 
-    // Visitor timezone must not matter — always evaluate in Europe/Belgrade.
+    // Visitor timezone must not matter - always evaluate in Europe/Belgrade.
     function belgradeNow(date: Date): Now {
       var parts = new Intl.DateTimeFormat('en-GB', {
         timeZone: 'Europe/Belgrade',
@@ -254,7 +254,7 @@ const { inLink = false } = Astro.props;
       return false;
     }
 
-    // Page-load evaluation is enough (static site) — no 60s interval.
+    // Page-load evaluation is enough (static site) - no 60s interval.
     var open = isOpen(belgradeNow(new Date()));
     var text = open ? 'Trenutno radimo' : 'Trenutno ne radimo';
     dots.forEach(function (d: HTMLElement) {

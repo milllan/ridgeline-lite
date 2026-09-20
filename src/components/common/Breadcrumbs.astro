@@ -30,7 +30,7 @@ const breadcrumbSchema = {
     // `item`, so fall back to the current page's canonical URL. Only
     // the terminal crumb gets the fallback: an href-less intermediate
     // has no page of its own and must not reuse the page canonical
-    // (all current intermediates — Usluge, Lokacije, Marke — link to
+    // (all current intermediates - Usluge, Lokacije, Marke - link to
     // their hubs, but the guard stays for future crumb sets).
     ...(crumb.href
       ? { item: new URL(crumb.href, Astro.site).href }

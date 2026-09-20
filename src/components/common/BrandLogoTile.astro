@@ -1,14 +1,14 @@
 ---
 /**
  * One brand tile inside BrandLogos (grid and marquee variants share it).
- * SVG marks shown desaturated — see BrandLogos.astro for the sourcing
+ * SVG marks shown desaturated - see BrandLogos.astro for the sourcing
  * and trademark note.
  */
 import type { BrandTile } from '../../config/brandLogos';
 
 interface Props {
   brand: BrandTile;
-  /** -1 on the aria-hidden marquee copy — removes its links from the
+  /** -1 on the aria-hidden marquee copy - removes its links from the
      tab order (aria-hidden must not contain focusable elements). */
   tabindex?: number;
   /** 'grid' = fixed widths with no flex-grow (default); 'strip' = marquee flex sizing. */

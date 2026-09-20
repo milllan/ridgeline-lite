@@ -1,6 +1,6 @@
 ---
 /**
- * Horizontal review carousel — pure CSS scroll-snap, no JavaScript.
+ * Horizontal review carousel - pure CSS scroll-snap, no JavaScript.
  * Shows the aggregate rating computed from the reviews collection.
  */
 import { getCollection } from 'astro:content';
@@ -13,7 +13,7 @@ const reviews = (await getCollection('reviews'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 5);
 const rating = await getAggregateRating();
-/** Serbian paucal: 2–4 (excl. 12–14) → "recenzije", otherwise "recenzija". */
+/** Serbian paucal: 2-4 (excl. 12-14) → "recenzije", otherwise "recenzija". */
 const reviewWord =
   rating.count % 10 >= 2 && rating.count % 10 <= 4 && (rating.count % 100 < 12 || rating.count % 100 > 14)
     ? 'recenzije'
