@@ -4,6 +4,14 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.40.0] — 2026-09-20
+
+Lokacije Service schema dopuna (epic #112 task 12 follow-up, iz #124
+recenzije): /lokacije/[slug]/ Service blokovi dobijaju `url` (kanonski
+URL stranice) i `description` (seoDescription ?? excerpt) — identičan
+obrazac kao usluge stranice iz 2.35.0. Sada SVI Service blokovi na sajtu
+imaju url + description.
+
 ## [2.39.0] — 2026-09-20
 
 Repo identitet bez roofing nasleđa (epic #112 taski 13+14). `package.json`:
