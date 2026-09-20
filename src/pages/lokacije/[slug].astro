@@ -28,7 +28,11 @@ const { Content } = await render(opstina);
 const services = (await getPublished('services')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<BaseLayout title={opstina.data.seoTitle} description={opstina.data.excerpt} faq={opstina.data.faq}>
+<BaseLayout
+  title={opstina.data.seoTitle}
+  description={opstina.data.seoDescription ?? opstina.data.excerpt}
+  faq={opstina.data.faq}
+>
   <script
     is:inline
     type="application/ld+json"

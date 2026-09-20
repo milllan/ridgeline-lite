@@ -147,11 +147,14 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Default SEO
    * -------------------------------------------------------- */
-  // NOTE: defaultDescription embeds the phone number — keep in sync when
-  // siteConfig.phone changes.
+  // NOTE: phone numbers live in meta descriptions and visible CTAs, never in
+  // <title> (epic #112 task 11). defaultDescription embeds the phone — keep
+  // in sync when siteConfig.phone changes.
   seo: {
     siteName: 'Servis Veš Mašina Beograd',
-    defaultTitle: 'Servis veš mašina Beograd | Majstor Dejan 064/110-39-01',
+    /** Tail SEO.astro appends to page titles that lack it (see SEO.astro). */
+    titleTail: 'Majstor Dejan',
+    defaultTitle: 'Servis veš mašina Beograd | Majstor Dejan',
     defaultDescription:
       'Majstor za veš mašine Beograd, Gorenje, Whirlpool, Indesit, LG, Ariston, Beko, Candy. Original delovi, garancija na popravku. 064/110-39-01',
     /** Path to the default Open Graph image (in /public). */

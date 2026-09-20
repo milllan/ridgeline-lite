@@ -37,7 +37,11 @@ const services = (await getPublished('services')).sort(
 );
 ---
 
-<BaseLayout title={brand.data.seoTitle} description={brand.data.excerpt} faq={brand.data.faq}>
+<BaseLayout
+  title={brand.data.seoTitle}
+  description={brand.data.seoDescription ?? brand.data.excerpt}
+  faq={brand.data.faq}
+>
   <PageHero
     title={brand.data.title}
     lead={brand.data.excerpt}

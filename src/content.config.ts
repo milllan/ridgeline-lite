@@ -14,11 +14,18 @@ const services = defineCollection({
     z.object({
       title: z.string(),
       /**
-       * Meta <title> for /usluge/[slug]/: carries the long-tail keyword +
-       * phone tail (brands/opstine pattern); H1 uses title. Optional until
-       * each service's content PR lands (epic #70 Phase 3).
+       * Meta <title> for /usluge/[slug]/: carries the long-tail keyword;
+       * H1 uses title. The "| Majstor Dejan" tail is appended by SEO.astro
+       * (epic #112 task 11 — titles stay phone-free). Optional until each
+       * service's content PR lands (epic #70 Phase 3).
        */
       seoTitle: z.string().optional(),
+      /**
+       * Meta description (meta-only; excerpt stays the visible lead/card
+       * copy). Carries the phone tail "Majstor Dejan: 064/110-39-01."
+       * (epic #112 task 11). Falls back to excerpt when absent.
+       */
+      seoDescription: z.string().max(220).optional(),
       /** Icon name from src/components/common/Icon.astro */
       icon: z.string(),
       excerpt: z.string().max(220),
@@ -58,8 +65,15 @@ const opstine = defineCollection({
   loader: glob({ pattern: '**/[^_]*.mdx', base: './src/content/opstine' }),
   schema: z.object({
     title: z.string(),
-    /** Meta <title>: may carry phone/CTA tail; H1 uses title. Required per opština. */
+    /** Meta <title>: keyword + municipality; the "| Majstor Dejan" tail is
+     * appended by SEO.astro (epic #112 task 11 — phone-free). H1 uses title. */
     seoTitle: z.string(),
+    /**
+     * Meta description (meta-only; excerpt stays the visible lead/card copy).
+     * Carries the phone tail "Majstor Dejan: 064/110-39-01."
+     * (epic #112 task 11). Falls back to excerpt when absent.
+     */
+    seoDescription: z.string().max(220).optional(),
     excerpt: z.string().max(220),
     naselja: z.array(z.string()).min(1),
     order: z.number().int(),
@@ -82,8 +96,15 @@ const brands = defineCollection({
   loader: glob({ pattern: '**/[^_]*.mdx', base: './src/content/brands' }),
   schema: z.object({
     title: z.string(),
-    /** Meta <title>: carries phone/CTA tail; H1 uses title. */
+    /** Meta <title>: keyword + brand; the "| Majstor Dejan" tail is appended
+     * by SEO.astro (epic #112 task 11 — phone-free). H1 uses title. */
     seoTitle: z.string(),
+    /**
+     * Meta description (meta-only; excerpt stays the visible lead/card copy).
+     * Carries the phone tail "Majstor Dejan: 064/110-39-01."
+     * (epic #112 task 11). Falls back to excerpt when absent.
+     */
+    seoDescription: z.string().max(220).optional(),
     excerpt: z.string().max(220),
     /** Short brand name for headings/links (e.g. "Gorenje"). */
     name: z.string(),

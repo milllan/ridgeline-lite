@@ -4,6 +4,36 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.29.0] — 2026-09-20
+
+Broj telefona izbačen iz svih <title> (epic #112 zadatak 11). Kompozicija
+naslova rework u src/components/common/SEO.astro: sufiks koji se dopisuje
+naslovima bez identifikacije menja ime sajta ("| Servis Veš Mašina Beograd")
+kratkim person-brend repom "| Majstor Dejan" (novi seo.titleTail u
+src/config/site.ts), pa "Servis Gorenje veš mašina u Beogradu | Servis Veš
+Mašina Beograd" redundancija nestaje; pun naziv sajta ostaje u og:site_name.
+defaultTitle: "Servis veš mašina Beograd | Majstor Dejan" (bez telefona).
+Strip " | Majstor Dejan 064/110-39-01" iz 25 seoTitle frontmatter polja
+(15 brendova + 6 usluga + 4 opštine) — rep se sada dopisuje centralno.
+Telefon ostaje u meta descriptionima, vidljivim CTA i LocalBusiness šemi:
+nova opcionalna seoDescription polja (content.config.ts, sve 3 kolekcije;
+meta-only, excerpt i dalje vidljivi lead/karte — telefon se ne rasipa po
+listing karticama) nose rep "Majstor Dejan: 064/110-39-01." u sva 25 fajla
+(133–158 znakova); [slug]. stranice koriste seoDescription ?? excerpt
+fallback. Bonus (vlasnik, rešava "Title is short" WARN s kraće repom):
+kontakt i o-nama dobijaju keyword naslove. o-nama: "O nama: servis veš
+mašina u Beogradu" (52 znaka s repom; lokativ "u Beogradu" namerno —
+nominativ bi sadržao puno ime sajta kao substring i preskočio bi
+"| Majstor Dejan" rep u kompozitoru). kontakt: vlasnikov finalni naslov
+"Kontakt: servis veš mašina, Dorćol, Stari Grad, Majstor Dejan" (61
+znak, prolazi kroz kompozitor nepromenjen — sadrži "Majstor Dejan";
+"Dorcol" normalizovan na "Dorćol"; NAP napomena: adresa na strani je
+Rakovica, "Dorćol, Stari Grad" čita se kao serviced opština).
+Verify: build zelen, astro check 0 grešaka, seo-gate 0 FAIL,
+content:gate čist, serbian-copy-gate 0 novih HARD nalaza, dist: 0 telefona
+u <title>, 26/26 meta descriptiona s telefonom. Napomena: GSC skraćene
+naslove re-renderuje nekoliko dana — očekivano.
+
 ## [2.28.0] — 2026-09-20
 
 /brendovi-ves-masina/ hub stranica + "Marke" breadcrumb link + footer "Marke"
