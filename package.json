@@ -12,7 +12,7 @@
     "preview": "astro preview",
     "check": "astro check && tsc --noEmit",
     "astro": "astro",
-    "postbuild": "node scripts/seo-gate.mjs",
+    "postbuild": "node scripts/seo-gate.mjs && node scripts/content-gate.mjs",
     "content:gate": "node scripts/content-gate.mjs",
     "seo:audit": "aeolint scan dist/"
   },

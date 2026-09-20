@@ -4,6 +4,17 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.43.0] - 2026-09-20
+
+Epic #112 task 3 FINAL - sva identity polja potvrđena od vlasnika:
+name + logoText ostaju kakvi jesu, geo koordinate ažurirane na tačan
+GBP pin (44.73961828380729, 20.416642569657256), socijalni profili =
+nema za sada. content-gate prvi put ČIST (27 fajlova, 0 markera) i od
+sada UGRAĐEN u postbuild lanac: build failuje ako bilo koji
+production-facing fajl sadrži TODO/DRAFT/PLACEHOLDER/SAMPLE/@example/
+UNVERIFIED/potvrditi marker ili status:draft (CONTENT_GATE_SKIP za
+lokalni override). Unconfirmed content više ne može da se shipuje.
+
 ## [2.42.0] - 2026-09-20
 
 Vlasničko pravilo: povlačenje crte (en-dash) zabranjeno svuda, uključujući
