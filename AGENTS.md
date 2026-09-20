@@ -31,6 +31,15 @@ the launch blockers in epic #2 are resolved.
 - `main` builds with the production domain by default (env
   `ASTRO_SITE` overrides).
 
+## Non-goals (owner rules)
+
+- **Website speed is a non-factor (owner, 2026-09-20):** the site is very
+  fast — do NOT propose, run, or spend cycles on performance measurements
+  or optimizations (Lighthouse/CWV benchmarks, bundle-size work,
+  StatCounter on/off A/B, inlineStylesheets comparisons). Spend the
+  effort on content and correctness instead. (Epic #112 tasks 17+22 were
+  closed for exactly this reason.)
+
 ## Tracking & conventions
 
 - **Epic #2** = task list, decisions, launch blockers, Serbian language
