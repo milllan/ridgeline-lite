@@ -53,6 +53,8 @@ const shortTitle = (service.data.title.split(',')[0] ?? service.data.title).trim
       serviceType: service.data.title,
       provider: { '@id': new URL('/#local-business', Astro.site).href },
       areaServed: { '@type': 'City', name: 'Beograd' },
+      url: new URL(Astro.url.pathname, Astro.site).href,
+      description: service.data.seoDescription ?? service.data.excerpt,
     })}
     slot="head"
   />

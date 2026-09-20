@@ -4,6 +4,18 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.35.0] — 2026-09-20
+
+Čišćenje schema.org markupa (epic #112 task 12). LocalBusiness: uklonjen
+izmišljeni `priceRange: '$$'` — biznis ne definiše cenu, pa ni semantika
+ne treba da je tvrdi; dodat eksplicitni `logo`
+(`/favicon-washer-wrench.svg`, apsolutni URL — do sada je OG slika
+imala duplu ulogu `image`-a, a favicon je stajao neiskorišćen).
+Service blokovi na /usluge/[slug]/ stranicama dobijaju `url` (kanonski
+URL stranice) i `description` (seoDescription ?? excerpt) — prethodno
+su imali samo name/serviceType/provider/areaServed. FAQPage,
+BreadcrumbList i ostali schema blokovi nisu dirani.
+
 ## [2.34.0] — 2026-09-20
 
 Popularni brendovi u footeru prema realnoj potražnji (epic #112 task 23

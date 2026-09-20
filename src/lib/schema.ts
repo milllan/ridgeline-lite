@@ -23,6 +23,7 @@ export async function buildLocalBusiness(site: URL) {
     telephone: siteConfig.phoneHref.replace('tel:', ''),
     ...(hasEmail && { email: siteConfig.email }),
     image: new URL(siteConfig.seo.ogImage, site).href,
+    logo: new URL('/favicon-washer-wrench.svg', site).href,
     address: {
       '@type': 'PostalAddress',
       streetAddress: address.street,
@@ -37,7 +38,6 @@ export async function buildLocalBusiness(site: URL) {
     },
     openingHours: siteConfig.openingHoursSchema,
     hasMap: siteConfig.gbpUrl,
-    priceRange: '$$',
     ...(sameAs.length > 0 && { sameAs }),
   };
 }
