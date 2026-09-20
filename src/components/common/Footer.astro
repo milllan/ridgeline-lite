@@ -20,6 +20,11 @@ const brands = (await getPublished('brands')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 
+const POPULAR_BRAND_SLUGS = ['gorenje', 'bosch', 'samsung', 'lg'];
+const popularBrands = POPULAR_BRAND_SLUGS.map((slug) =>
+  brands.find((brand) => brand.id.replace(/\.mdx$/, '') === slug),
+).filter((brand) => brand !== undefined);
+
 const year = new Date().getFullYear();
 const { address } = siteConfig;
 
@@ -113,7 +118,7 @@ const socials = (
           ))
         }
         {
-          brands.map((brand) => (
+          popularBrands.map((brand) => (
             <li>
               <a
                 href={`/brendovi-ves-masina/${brand.id.replace(/\.mdx$/, '')}-majstor/`}
@@ -124,6 +129,7 @@ const socials = (
             </li>
           ))
         }
+        <li><a href="/brendovi-ves-masina/" class="transition-colors hover:text-primary">Svi brendovi</a></li>
       </ul>
     </nav>
 

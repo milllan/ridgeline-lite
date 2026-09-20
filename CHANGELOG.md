@@ -4,6 +4,22 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.32.0] — 2026-09-20
+
+Footer "Marke" kolona trim + "bilo koja marka" framing (epic #112 zadatak 23).
+Kolona umesto hub-linka + svih 15 brendova (16 linkova, najviša kolona) sada
+nosi 6 linkova: hub "Servis po markama", 4 popularna brenda (gorenje, bosch,
+samsung, lg — predlog vlasniku za odluku u PR-u) i novi link "Svi
+brendovi" na /brendovi-ves-masina/. Popularni brendovi se rešavaju iz
+getPublished('brands') liste po slugu, pa draft-suppression ostaje netaknuta
+(brand sa status: draft se automatski ne renderuje). Grupa ostaje na
+lg:grid-cols-6. Framing: vlasnik je 2026-09-20 potvrdio da se servisiraju
+SVE marke (badge "Sve marke mašina" tačan), pa je hub uvod na
+/brendovi-ves-masina/ preformulisan ("Servisiramo sve marke veš mašina, a
+Gorenje, Bosch, Samsung i LG su samo neke od njih...") — 15 stranica su
+primeri, ne kompletna lista; footer blurb ("sve marke") ostaje usklađen.
+Copy-gate: 0 novih HARD/SOFT nalaza.
+
 ## [2.31.0] — 2026-09-20
 
 Internal-link mesh brend ↔ lokacija ↔ usluge (epic #112 zadatak 9). Nova

@@ -4,9 +4,9 @@
  * brands on one page, mirroring the /lokacije/ hub (#116). Each card
  * links to the brand's /brendovi-ves-masina/[slug]-majstor/ page; the
  * "Marke" breadcrumb crumb on brand pages and the footer "Marke"
- * column link here. Copy rule: the intro stays factual and never
- * claims "sve marke" (unverified, epic #112); the brands themselves
- * are enumerated by the cards below.
+ * column link here. Owner decision 2026-09-20: the business
+ * services ANY brand (the "Sve marke mašina" badge is confirmed
+ * true); the 15 brand pages are examples, and the lead below says so.
  */
 import { getPublished } from '../../lib/collections';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -35,7 +35,7 @@ const tileBySlug = new Map(brandTiles.map((tile) => [tile.slug, tile]));
 >
   <PageHero
     title="Servis veš mašina po markama"
-    lead="Za svaku marku sa liste vodimo posebnu stranicu: sa kodovima grešaka gde mašina ima displej i kvarovima koje na njoj rešavamo. Manje kvarove rešavamo na vašoj adresi, a obimnije popravke u radionici na Vidikovačkom vencu, uz preuzimanje mašine i vraćanje popravljene."
+    lead="Servisiramo sve marke veš mašina, a Gorenje, Bosch, Samsung i LG su samo neke od njih. Za svaku marku sa liste vodimo posebnu stranicu: sa kodovima grešaka gde mašina ima displej i kvarovima koje na njoj rešavamo. Manje kvarove rešavamo na vašoj adresi, a obimnije popravke u radionici na Vidikovačkom vencu, uz preuzimanje mašine i vraćanje popravljene."
     crumbs={[{ label: 'Marke' }]}
   />
 
