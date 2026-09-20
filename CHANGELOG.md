@@ -4,6 +4,27 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.28.0] — 2026-09-20
+
+/brendovi-ves-masina/ hub stranica + "Marke" breadcrumb link + footer "Marke"
+kolona (epic #112 zadatak 19). Nova src/pages/brendovi-ves-masina/index.astro,
+po uzoru na /lokacije/ hub (#116): H1 "Servis veš mašina po markama", intro bez
+"sve marke" tvrdnje (nepotvrđena tvrdnja, epic #112), 15 karata brendova iz
+getPublished('brands') (naslov, excerpt i logotip iz registra; status:draft
+brend se ne pojavljuje), cross-link sekcija ka /usluge/ i /lokacije/, tel +
+/zatrazi-ponudu/ CTA i FinalCTA. Registar logotipa izdvojen iz BrandLogos.astro
+u novi src/config/brandLogos.ts (shared source of truth za tile i hub karte;
+BrandLogoTile uvozi tip odatle). Breadcrumb "Marke" na brend stranicama dobija
+href '/brendovi-ves-masina/' pa BreadcrumbList ListItem dobija item URL
+(komentar u Breadcrumbs.astro ažuriran: svi posredni kruhovi sada imaju href).
+Footer dobija "Marke" kolonu (footerBrandsNav u src/config/nav.ts + brendovi iz
+getPublished('brands') u Footer.astro, grid lg:grid-cols-5 -> 6; hub link +
+15 brend linkova u jednoj koloni, najviša kolona u footeru — plasman i dužina
+ostavljeni vlasniku na uvid u PR-u). Verify: build zelen (34 stranice), astro
+check 0 grešaka, seo-gate 0 FAIL, /brendovi-ves-masina/ u sitemap-u,
+privremeni status: draft brend se ne pojavljuje na hubu ni u footeru,
+serbian-copy-gate 0 novih HARD nalaza.
+
 ## [2.27.0] — 2026-09-20
 
 /lokacije/ hub stranica + footer "Lokacije" kolona + breadcrumb link (epic

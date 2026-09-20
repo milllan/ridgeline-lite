@@ -33,3 +33,13 @@ export const footerCompanyNav: NavLink[] = [
 export const footerLocationsNav: NavLink[] = [
   { label: 'Sve lokacije', href: '/lokacije/' },
 ];
+
+/**
+ * Footer "Marke" column (epic #112 task 19): the brands hub. The
+ * brand links below it are built in Footer.astro from the brands
+ * collection, so a status:draft brand can never leave a dead footer
+ * link (same choke-point rule as the Usluge and Lokacije columns).
+ */
+export const footerBrandsNav: NavLink[] = [
+  { label: 'Servis po markama', href: '/brendovi-ves-masina/' },
+];
