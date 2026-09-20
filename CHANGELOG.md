@@ -4,6 +4,23 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.27.0] — 2026-09-20
+
+/lokacije/ hub stranica + footer "Lokacije" kolona + breadcrumb link (epic
+#112 zadaci 6, 7 i 8). Nova src/pages/lokacije/index.astro: H1 i intro o
+terenskom servisu u Beogradu, četiri opštine kao linkovi s lokalnim hookom
+(Rakovica, Stari grad, Novi Beograd, Savski venac; hook iz činjenica već
+objavljenih na opštinskim stranicama, fallback na frontmatter excerpt),
+ServiceAreaMap + sekcija "Kako pokrivamo Beograd" (radionica u Rakovici,
+popravka na adresi, preuzimanje i vraćanje mašine) i CTA tel +
+/zatrazi-ponudu/. Footer dobija "Lokacije" kolonu (footerLocationsNav u
+src/config/nav.ts + opštine iz getPublished('opstine') u Footer.astro, grid
+lg:grid-cols-4 -> 5); header nav nije diran, plasman u glavnu navigaciju je
+vlasnička odluka. Breadcrumb "Lokacije" na opštinskim stranicama sada vodi
+na /lokacije/ pa BreadcrumbList ListItem dobija item URL ("Marke" crumb ostaje,
+zadatak 19). Verify: build zelen (33 stranice), astro check 0 grešaka,
+seo-gate 0 FAIL, /lokacije/ u sitemap-u, serbian-copy-gate 0 HARD nalaza.
+
 ## [2.26.0] — 2026-09-19
 
 LocalBusiness JSON-LD bez aggregateRating (epic #112 zadatak 2).

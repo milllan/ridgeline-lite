@@ -48,7 +48,7 @@ const services = (await getPublished('services')).sort((a, b) => a.data.order - 
   <PageHero
     title={opstina.data.title}
     lead={opstina.data.excerpt}
-    crumbs={[{ label: 'Lokacije' }, { label: opstina.data.title }]}
+    crumbs={[{ label: 'Lokacije', href: '/lokacije/' }, { label: opstina.data.title }]}
   />
 
   <BrandLogos
