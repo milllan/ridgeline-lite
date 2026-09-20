@@ -4,6 +4,20 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.30.0] — 2026-09-20
+
+Business claims potvrđeni (vlasnik + Dejan, 2026-09-20) — uklonjeni TODO
+markeri iz src/config/site.ts (epic #112 zadatak 3). Brišu se komentari
+iznad trustBadges niza i stats bloka: placeholder TODO za bedževe i
+"placeholder numbers" TODO sa napomenom o garanciji 6–12 meseci. Vrednosti
+su već bile ispravne i ostaju nepromenjene: godina osnivanja 2010, 3500+
+popravki, garancija IS 1 godina (warrantyYears: 1). Od pet bedža u nizu,
+četiri novopotvrđena (Originalni delovi, Besplatna konstatacija, Sve marke
+mašina, Servis na terenu) ostaju uz već postojeći "Garancija na rad i
+delove". Comments-only promena: dist build byte-identičan
+baseline-u. Preostali TODO markeri (identity polja, geo, nedelja, social)
+čekaju svoje potvrde i nisu dirani.
+
 ## [2.29.0] — 2026-09-20
 
 Broj telefona izbačen iz svih <title> (epic #112 zadatak 11). Kompozicija

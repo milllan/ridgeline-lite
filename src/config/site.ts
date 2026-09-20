@@ -123,7 +123,6 @@ export const siteConfig = {
    * Do NOT ship real manufacturer logos unless your client holds
    * the certification and has the official asset kit.
    * -------------------------------------------------------- */
-  // TODO: placeholder claims — business must confirm each before launch
   trustBadges: [
     { icon: 'shield-check', label: 'Garancija na rad i delove' },
     { icon: 'badge-check', label: 'Originalni delovi' },
@@ -135,9 +134,6 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Stats (About page number wall, home page)
    * ---------------------------------------------------------- */
-  // TODO: placeholder numbers — confirm with the business. Note:
-  // warranty is really 6–12 months; warrantyYears is 1 for now and
-  // display wording gets fixed when components are translated (T3).
   stats: {
     yearFounded: 2010,
     projectsCompleted: 3500,
