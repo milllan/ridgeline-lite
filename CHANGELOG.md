@@ -4,6 +4,31 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.37.0] — 2026-09-20
+
+FAQ semantika + 1024px overflow dijagnoza (epic #112 task 15 + parked
+micro-fix). FaqSection: `<summary>` sada sam nosi tipografiju pitanja
+(`font-heading text-xl font-bold uppercase tracking-wide` prebačeno sa
+h3 na summary, vizuelno identično) — bez heading elementa u i oko
+summary-ja; pitanja ostaju pristupačna kroz nativnu details/summary
+semantiku (ime iz sadržaja summary-ja, collapse/expand stanje, tastatura).
+Heading outline gubi h3-niove pod sekcijom h2 — svesna odluka (h3 OKO
+details bi bio nevalidan HTML: content model h1–h6 je phrasing content).
+Parked "ReviewsCarousel 1024px overflow": karusel OSLOBOĐEN merenjima
+(headless Chromium, 14 širina 360–1440) — njegov `overflow-x-auto` ul
+klipuje sav sadržaj, nema page-level overflow na nijednoj širini, a
+širine kartica (85%/45%/31% + gap 20px) dele scrollport sa namernim
+peek-om. Pravi krivac page-level overflow-a od 1024 do ~1289px: kontakt
+email u footeru (`kontakt@servisvesmasina-beograd.co.rs`, min-content
+203px) prelazi svoju `lg:grid-cols-6` kolonu od 127px (=(960−64−5×40)/6)
+→ +44px na 1024px; predlog follow-up fix: `break-all` na email linku
+(Footer.astro, van scope-a ovog paketa zbog paralelnih task-23 grana).
+Poseban nalaz: header telefon+hamburger red ima min-width ~388px →
+page-level overflow na 360–414px (Header.astro, takođe follow-up).
+Gates: 34 strane, seo-gate 0 FAIL / 1 pre-existing WARN (kontakt),
+astro check 0/0/0, content-gate bez novih nalaza, 99/99 FAQ blokova na
+24 strane sa novom strukturom.
+
 ## [2.36.0] — 2026-09-20
 
 Higijena alt tekstova logotipa (epic #112 task 21): svi 15 alt-ova u
