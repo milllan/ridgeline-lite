@@ -1,104 +1,83 @@
-# Ridgeline Lite — Free Roofing Contractor Website Template
+# Servis Veš Mašina Beograd
 
-A free, production-quality website template for roofing contractors, built
-with **Astro 7** and **Tailwind CSS 4**.
+Static website for "Servis Veš Mašina Beograd" — a washing-machine repair
+service in Belgrade, Serbia run by Majstor Dejan
+(servisvesmasina-beograd.co.rs). All customer-facing content is written in
+Serbian (Latin script) for local customers searching for repair services
+across the city. The site is built with Astro 7 and Tailwind CSS 4 and ships
+as fully static HTML: fonts are self-hosted via Fontsource (Inter for body
+text, Barlow Condensed for display type), images are optimized at build time
+with Sharp, and each page loads roughly 1 KB of JavaScript.
 
-![Ridgeline Lite — free roofing contractor template for Astro](.github/preview.jpg) Fast (Lighthouse 95+ across the
-board), accessible (WCAG AA), and wired to a single config file so you can
-rebrand it in an afternoon.
+## Site structure
 
-**[Get Ridgeline Pro →](https://payhip.com/b/GkIRJ)** — the full
-version adds the 4-step Quote Wizard, before/after project galleries,
-per-city Local SEO landing pages, and more (comparison below).
+About 34 pages in total:
 
-## Pages included
-
-Home · Services · About · Contact · Quote request · Thank-you · 404
-
-## Features
-
-- **Industrial design system** — two color schemes, switchable with one
-  config line; condensed display type; dark "hazard-sign" CTAs
-- **Single-config rebrand** — all company info in `src/config/site.ts`
-- **Lead forms** — quote + contact forms with Formspree or Netlify Forms
-  backends and honeypot anti-spam
-- **Mobile sticky call bar** — Call Now / Free Quote pinned after the
-  first screen
-- **Content collections** — services and reviews as validated
-  Markdown/JSON; the aggregate review score computes itself
-- **Local SEO basics** — RoofingContractor JSON-LD, per-page meta,
-  sitemap, semantic HTML
-- ~1 KB of JavaScript per page; images optimized at build time
-
-## Lite vs Pro
-
-| | Lite (free) | **Pro** |
-| --- | --- | --- |
-| Core pages (Home/Services/About/Contact) | ✅ | ✅ |
-| Design system + both color schemes | ✅ | ✅ |
-| Sticky mobile call bar | ✅ | ✅ |
-| Quote form | Single-step | **4-step Quote Wizard** with per-step validation & anti-spam |
-| Service pages | One combined page | **Individual landing page per service** with FAQs & related projects |
-| Project gallery | — | **Before/after sliders** (touch/mouse/keyboard) + filterable gallery |
-| Local SEO | Basic JSON-LD | **Per-city landing pages** + areaServed/FAQ/Article structured data |
-| Reviews | Home carousel | + **Full reviews page** with platform summaries |
-| Financing page | — | ✅ Plans, process, compliant disclaimers |
-| Blog | — | ✅ 4 SEO articles with TOC |
-| Emergency storm banner | — | ✅ Config-toggled, dismissible |
-| FAQ system | — | ✅ Categorized accordion + FAQPage schema |
-| Documentation | README | Full customization + deployment guides |
-
-**[Upgrade to Ridgeline Pro →](https://payhip.com/b/GkIRJ)** · [Live demo](https://ridgeline-roofing-demo.vercel.app)
+- Home (`/`)
+- Services hub (`/usluge`) plus 6 service pages covering repair, heater,
+  pump, bearing, programmer, and maintenance work
+- Brand hub (`/brendovi-ves-masina`) plus 15 washing-machine brand pages
+- Locations hub (`/lokacije`) plus 4 municipal (opštine) landing pages
+- About (`/o-nama`), contact (`/kontakt`), and quote request
+  (`/zatrazi-ponudu`) pages
+- Thank-you page (`/hvala`, noindex) shown after a successful form submit
+- Custom 404 page
 
 ## Quick start
 
 ```bash
 # Requires Node 22.12+
 npm install
-npm run dev        # → http://localhost:4321
-npm run build      # static output in ./dist
+npm run dev      # dev server at http://localhost:4321
+npm run build    # static output in ./dist (postbuild seo-gate runs automatically)
 ```
 
-## Customize
+## Where content lives
 
-1. **Company info** — edit `src/config/site.ts` (name, phone, address,
-   hours, badges, form backend, theme). Every page reads from it.
-2. **Domain** — set `site` in `astro.config.mjs` and the sitemap URL in
-   `public/robots.txt`.
-3. **Services** — edit the MDX files in `src/content/services/`.
-4. **Reviews** — edit `src/content/reviews.json` (the aggregate score is
-   computed).
-5. **Images** — replace the photos in `src/assets/` with your own work.
-6. **Forms** — create a free [Formspree](https://formspree.io) form and
-   paste its endpoint into `formEndpoint` in `site.ts`; or set
-   `formProvider: 'netlify'` when hosting on Netlify.
+- `src/config/site.ts` — single source of truth: business identity, contact
+  info, badges, and stats; every page reads from it
+- `src/content/services/*.mdx` — 6 service pages (Serbian MDX)
+- `src/content/brands/*.mdx` — 15 washing-machine brand pages (Serbian MDX)
+- `src/content/opstine/*.mdx` — 4 municipal (opštine) pages (Serbian MDX)
+- `src/content/reviews.json` — customer reviews; the aggregate score is
+  computed at build time
+- `src/config/nav.ts` — navigation; `src/config/brandLogos.ts` — brand logo
+  mapping
+- `src/content.config.ts` — content-layer collection definitions (services,
+  brands, opstine, reviews) with validation schemas
+- `astro.config.mjs` — site URL; `src/pages/robots.txt.ts` generates
+  `robots.txt` (with the sitemap URL) from it at build time
+- Images live in `src/assets/`
+
+## Quality gates
+
+- `npm run content:gate` — exits nonzero on readiness markers (TODO,
+  DRAFT, PLACEHOLDER, SAMPLE, @example, UNVERIFIED, potvrditi, plus
+  `status: draft` frontmatter) left in production-facing source.
+  Standalone by design — not yet wired into the build chain.
+- postbuild `seo-gate` (runs automatically after `npm run build`) — SEO checks
+  against `dist/`; the build must finish with 0 FAIL
+- `serbian-copy-gate` — reviewer-level gate (skill) for customer-facing
+  Serbian copy; checks banned patterns. It runs as part of the review
+  workflow, not as an npm script, so every text change is checked by a
+  reviewer before it ships.
+
+## Draft workflow
+
+A content file with `status: draft` in its frontmatter is suppressed from the
+site: the page itself and every link pointing to it disappear from the build
+via `getPublished` (see `src/lib/collections.ts`). This makes it safe to
+prepare new service, brand, or municipal pages in the repository without them
+leaking into navigation, sitemaps, or cross-links until they are ready. To
+publish, flip the flag to `status: published` (or remove it if published is
+the schema default) and rebuild.
 
 ## Deploy
 
-Static output, zero config on all major hosts — build command
-`npm run build`, output directory `dist`:
+Build in a clean worktree, then rsync `dist/` to the production `public_html/`
+with `.htaccess` excluded, then fix ownership (`chown`) so the hosting control
+panel keeps managing the files. Verify the build and both automated gates pass
+locally first — only ship a green build.
 
-- **Vercel** — import the repo at [vercel.com/new](https://vercel.com/new)
-- **Netlify** — import at [app.netlify.com](https://app.netlify.com)
-- **Cloudflare Pages** — Workers & Pages → Create → connect the repo
-
-## License & credits
-
-MIT — free for personal and commercial use. The footer's small
-"Made with Ridgeline" credit link is appreciated but not required by the
-license.
-
-Demo photographs are from [Unsplash](https://unsplash.com) (Unsplash License)
-— replace them with your own project photography before launch. Icon path
-data adapted from [Lucide](https://lucide.dev) (ISC). Fonts (Barlow
-Condensed, Inter) under the SIL Open Font License, self-hosted via
-[Fontsource](https://fontsource.org).
-
-## About this fork
-
-Forked from [JulyFire365/ridgeline-lite](https://github.com/JulyFire365/ridgeline-lite)
-and upgraded from Astro 5.18 to **Astro 7.3** (through Astro 6), with rendered
-text and SEO output verified identical to the original — see
-[CHANGELOG.md](CHANGELOG.md) and [MIGRATION.md](MIGRATION.md) for details.
-Upstream credit for the template design and content goes to the original
-author.
+See [CHANGELOG.md](CHANGELOG.md) for the complete change history, including
+every deploy-related change.
