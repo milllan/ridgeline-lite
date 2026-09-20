@@ -12,15 +12,17 @@ micro-fix). FaqSection: `<summary>` sada sam nosi tipografiju pitanja
 h3 na summary, vizuelno identično) — bez heading elementa u i oko
 summary-ja; pitanja ostaju pristupačna kroz nativnu details/summary
 semantiku (ime iz sadržaja summary-ja, collapse/expand stanje, tastatura).
-Heading outline gubi h3-niove pod sekcijom h2 — svesna odluka (h3 OKO
-details bi bio nevalidan HTML: content model h1–h6 je phrasing content).
+Heading outline gubi h3-nivoe pod sekcijom h2 — svesna odluka (h3 OKO
+details bi bio nevalidan HTML: content model h1–h6 je phrasing content;
+h3-ov `inline` utility je otpao jer je bio inertan — flex item se
+blokifikuje).
 Parked "ReviewsCarousel 1024px overflow": karusel OSLOBOĐEN merenjima
 (headless Chromium, 14 širina 360–1440) — njegov `overflow-x-auto` ul
 klipuje sav sadržaj, nema page-level overflow na nijednoj širini, a
 širine kartica (85%/45%/31% + gap 20px) dele scrollport sa namernim
 peek-om. Pravi krivac page-level overflow-a od 1024 do ~1289px: kontakt
 email u footeru (`kontakt@servisvesmasina-beograd.co.rs`, min-content
-203px) prelazi svoju `lg:grid-cols-6` kolonu od 127px (=(960−64−5×40)/6)
+203px) prelazi svoju `lg:grid-cols-6` kolonu od ~127px (=(960−5×40)/6≈126.7)
 → +44px na 1024px; predlog follow-up fix: `break-all` na email linku
 (Footer.astro, van scope-a ovog paketa zbog paralelnih task-23 grana).
 Poseban nalaz: header telefon+hamburger red ima min-width ~388px →
