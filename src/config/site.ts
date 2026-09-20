@@ -23,10 +23,10 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Company identity
    * -------------------------------------------------------- */
-  // TODO: placeholder identity - replace with real business details
+  // Owner-confirmed 2026-09-20: keep as is.
   name: 'Servis Veš Mašina Beograd',
   /** Short name used in the logo lock-up. */
-  // TODO: placeholder identity - logo wording to be confirmed
+  // Owner-confirmed 2026-09-20: keep as is.
   logoText: 'Servis za veš mašine',
   logoSuffix: '',
   /** Subline under the logo lock-up (empty = hidden). */
@@ -65,10 +65,10 @@ export const siteConfig = {
     zip: '11090',
   },
   /** Coordinates used in the HomeAndConstructionBusiness JSON-LD.
-   * OSM Nominatim house-level match (2026-09-15); TODO: verify on-site. */
+   * Owner-confirmed 2026-09-20 - matches the GBP pin placement. */
   geo: {
-    latitude: 44.7396,
-    longitude: 20.4166,
+    latitude: 44.73961828380729,
+    longitude: 20.416642569657256,
   },
 
   /* ----------------------------------------------------------
@@ -85,7 +85,7 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Social profiles (used in footer + JSON-LD sameAs)
    * ---------------------------------------------------------- */
-  // TODO: placeholder identity - add real social profile URLs (empty = hidden)
+  // Owner decision 2026-09-20: no social profiles for now (empty = hidden).
   social: {
     facebook: '',
     instagram: '',
