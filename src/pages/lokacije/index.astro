@@ -1,0 +1,173 @@
+---
+/**
+ * /lokacije/ coverage hub (epic #112 task 6): service-area summary,
+ * ServiceAreaMap and links to the four opština landing pages. Footer
+ * links arrive with task 7; the "Lokacije" breadcrumb crumb on
+ * [slug].astro links here (task 8).
+ */
+import { getPublished } from '../../lib/collections';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/common/PageHero.astro';
+import Button from '../../components/common/Button.astro';
+import Icon from '../../components/common/Icon.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+import ServiceAreaMap from '../../components/sections/ServiceAreaMap.astro';
+import { siteConfig } from '../../config/site';
+
+const opstine = (await getPublished('opstine')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+// Kratki lokalni hook po opštini, iz činjenica već objavljenih na
+// opštinskim stranicama (radionica, naselja, tipovi stanova). Opština
+// bez unosa pada na excerpt iz frontmatter-a.
+const localHooks: Record<string, string> = {
+  rakovica:
+    'Radionica je na Vidikovačkom vencu, pa majstor u rakovička naselja kreće iz neposredne blizine: od Vidikovca i Kanarevog brda do Kneževca i Resnika.',
+  'stari-grad':
+    'Dorćol, Kosančićev venac i Varoš kapija: centar grada u kom manje kvarove rešavamo u vašem stanu, a mašinu za obimniji posao preuzimamo na adresi.',
+  'novi-beograd':
+    'Bežanija, Bežanijska kosa, Studentski grad, Ušće i blokovi 45, 61 i 70. Radimo podjednako sa ugradnim mašinama u kuhinjskim elementima i sa slobodnostojećim u starim zgradama.',
+  'savski-venac':
+    'Senjak, Dedinje, Zapadni Vračar i Prokop. Majstor dolazi na adresu, utvrđuje kvar i predlaže da li se mašina popravlja u stanu ili u radionici.',
+};
+
+const { address } = siteConfig;
+---
+
+<BaseLayout
+  title="Lokacije servisa veš mašina u Beogradu"
+  description={`Servis veš mašina u celom Beogradu: Rakovica, Stari grad, Novi Beograd i Savski venac. Manje popravke na adresi, obimnije u radionici. Pozovite ${siteConfig.phone}.`}
+>
+  <PageHero
+    title="Lokacije servisa veš mašina u Beogradu"
+    lead="Dolazimo na adresu u celom Beogradu. Manje kvarove rešavamo kod vas u stanu, a obimnije popravke radimo u radionici na Vidikovačkom vencu, uz preuzimanje mašine i vraćanje popravljene. Pogledajte koje opštine i naselja pokrivamo."
+    crumbs={[{ label: 'Lokacije' }]}
+  />
+
+  <section class="bg-surface py-16 md:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading text-2xl font-bold uppercase text-dark">
+        Opštine koje pokrivamo
+      </h2>
+      <p class="mt-3 max-w-2xl text-slate-600">
+        Za svaku od ove četiri opštine vodimo posebnu stranicu, s naseljima
+        koja pokrivamo i načinom rada u tom kraju Beograda.
+      </p>
+      <ul class="mt-8 grid gap-6 sm:grid-cols-2">
+        {
+          opstine.map((opstina) => {
+            const slug = opstina.id.replace(/\.mdx$/, '');
+            const name = opstina.data.title.replace('Servis veš mašina ', '');
+            return (
+              <li>
+                <a
+                  href={`/lokacije/${slug}/`}
+                  class="group flex h-full flex-col rounded-lg border border-slate-200 bg-white p-7 shadow-sm transition-colors hover:border-primary/50"
+                >
+                  <h3 class="font-heading text-xl font-bold uppercase text-dark transition-colors group-hover:text-primary-ink">
+                    Servis veš mašina {name}
+                  </h3>
+                  <p class="mt-3 text-sm leading-relaxed text-slate-600">
+                    {localHooks[slug] ?? opstina.data.excerpt}
+                  </p>
+                  <span class="mt-5 inline-flex items-center gap-1.5 font-heading text-sm font-semibold uppercase tracking-wide text-primary-ink group-hover:text-dark">
+                    Detaljnije
+                    <Icon name="arrow-right" class="h-4 w-4" />
+                  </span>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 md:py-20">
+    <div
+      class="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8"
+    >
+      <div>
+        <h2 class="font-heading text-2xl font-bold uppercase text-dark">
+          Kako pokrivamo Beograd
+        </h2>
+        <ul class="mt-8 space-y-7">
+          <li class="flex gap-4">
+            <span
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary"
+            >
+              <Icon name="map-pin" class="h-6 w-6" />
+            </span>
+            <div>
+              <h3 class="font-heading text-lg font-bold uppercase text-dark">
+                Radionica u Rakovici
+              </h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-slate-600">
+                Radionica je na adresi {address.street} u Rakovici. Odatle
+                majstor kreće na teren po celom Beogradu.
+              </p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary"
+            >
+              <Icon name="home" class="h-6 w-6" />
+            </span>
+            <div>
+              <h3 class="font-heading text-lg font-bold uppercase text-dark">
+                Popravka na vašoj adresi
+              </h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-slate-600">
+                Manje kvarove rešavamo kod vas u stanu, u svim beogradskim
+                opštinama. Mašina ostaje na svom mestu.
+              </p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span
+              class="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary"
+            >
+              <Icon name="wrench" class="h-6 w-6" />
+            </span>
+            <div>
+              <h3 class="font-heading text-lg font-bold uppercase text-dark">
+                Preuzimanje i vraćanje mašine
+              </h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-slate-600">
+                Kad popravka zahteva radionicu, mašinu preuzimamo kod vas,
+                radimo je i vraćamo popravljenu. Vi se ne bavite prevozom.
+              </p>
+            </div>
+          </li>
+        </ul>
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <Button href={siteConfig.phoneHref}>
+            <Icon name="phone" class="h-5 w-5" />
+            Pozovite {siteConfig.phone}
+          </Button>
+          <a
+            href="/zatrazi-ponudu/"
+            class="inline-flex items-center gap-1.5 font-heading text-sm font-semibold uppercase tracking-wide text-primary-ink hover:text-dark"
+          >
+            Zatražite ponudu
+            <Icon name="arrow-right" class="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <ServiceAreaMap />
+        <p class="mt-3 text-sm text-slate-600">
+          Pokrivamo sve beogradske opštine.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA
+    title="Niste sigurni dolazimo li do vas?"
+    lead="U celom Beogradu važi isto: dolazak i konstatacija kvara su besplatni uz popravku, cena se zna pre početka rada, a na rad i ugrađene delove dajemo garanciju."
+  />
+</BaseLayout>

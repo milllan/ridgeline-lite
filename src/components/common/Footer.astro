@@ -4,11 +4,15 @@
  */
 import { getPublished } from '../../lib/collections';
 import { siteConfig, hasEmail } from '../../config/site';
-import { footerCompanyNav } from '../../config/nav';
+import { footerCompanyNav, footerLocationsNav } from '../../config/nav';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
 
 const services = (await getPublished('services')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const opstine = (await getPublished('opstine')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 
@@ -42,7 +46,7 @@ const socials = (
   </div>
 
   <!-- Main columns -->
-  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-5 lg:px-8">
     <div>
       <a href="/" aria-label={`${siteConfig.name}, Početna`}>
         <Logo onDark />
@@ -83,6 +87,35 @@ const socials = (
                 class="transition-colors hover:text-primary"
               >
                 {service.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <nav aria-label="Lokacije">
+      <h2 class="font-heading text-lg font-bold uppercase tracking-wide text-white">
+        Lokacije
+      </h2>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        {
+          footerLocationsNav.map((item) => (
+            <li>
+              <a href={item.href} class="transition-colors hover:text-primary">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+        {
+          opstine.map((opstina) => (
+            <li>
+              <a
+                href={`/lokacije/${opstina.id.replace(/\.mdx$/, '')}/`}
+                class="transition-colors hover:text-primary"
+              >
+                {opstina.data.title.replace('Servis veš mašina ', '')}
               </a>
             </li>
           ))
