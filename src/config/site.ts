@@ -43,7 +43,7 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Contact (NAP - keep identical everywhere for local SEO)
    * -------------------------------------------------------- */
-  phone: '065-3653379',
+  phone: '065/365-33-79',
   /** tel: link version of the phone number (digits only). */
   phoneHref: 'tel:+381653653379',
   // Owner-confirmed 2026-09-20. Domain mailbox on sculpiflex (HestiaCP);
@@ -157,7 +157,7 @@ export const siteConfig = {
     titleTail: 'Majstor Dejan',
     defaultTitle: 'Servis veš mašina Beograd | Majstor Dejan',
     defaultDescription:
-      'Majstor za veš mašine Beograd, Gorenje, Whirlpool, Indesit, LG, Ariston, Beko, Candy. Original delovi, garancija na popravku. 065-3653379',
+      'Majstor za veš mašine Beograd, Gorenje, Whirlpool, Indesit, LG, Ariston, Beko, Candy. Original delovi, garancija na popravku. 065/365-33-79',
     /** Path to the default Open Graph image (in /public). */
     ogImage: '/og-default.jpg',
   },

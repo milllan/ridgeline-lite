@@ -4,6 +4,14 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.45.1] - 2026-09-21
+
+Prikaz novog broja prebačen u srpski zapisni format:
+065/365-33-79 (kao ranije 064/110-39-01), umesto privremenog
+065-3653379. Zamenjeno na istih 30 mesta (siteConfig.phone,
+seo.defaultDescription rep, 25x seoDescription rep, content.config.ts
+komentari). tel: link ostaje tel:+381653653379.
+
 ## [2.45.0] - 2026-09-21
 
 Nova telefonska linija: 065-3653379 (zamenjuje 064/110-39-01).

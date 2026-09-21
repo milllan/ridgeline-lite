@@ -22,7 +22,7 @@ const services = defineCollection({
       seoTitle: z.string().optional(),
       /**
        * Meta description (meta-only; excerpt stays the visible lead/card
-       * copy). Carries the phone tail "Majstor Dejan: 065-3653379."
+       * copy). Carries the phone tail "Majstor Dejan: 065/365-33-79."
        * (epic #112 task 11). Falls back to excerpt when absent.
        */
       seoDescription: z.string().max(220).optional(),
@@ -70,7 +70,7 @@ const opstine = defineCollection({
     seoTitle: z.string(),
     /**
      * Meta description (meta-only; excerpt stays the visible lead/card copy).
-     * Carries the phone tail "Majstor Dejan: 065-3653379."
+     * Carries the phone tail "Majstor Dejan: 065/365-33-79."
      * (epic #112 task 11). Falls back to excerpt when absent.
      */
     seoDescription: z.string().max(220).optional(),
@@ -101,7 +101,7 @@ const brands = defineCollection({
     seoTitle: z.string(),
     /**
      * Meta description (meta-only; excerpt stays the visible lead/card copy).
-     * Carries the phone tail "Majstor Dejan: 065-3653379."
+     * Carries the phone tail "Majstor Dejan: 065/365-33-79."
      * (epic #112 task 11). Falls back to excerpt when absent.
      */
     seoDescription: z.string().max(220).optional(),
