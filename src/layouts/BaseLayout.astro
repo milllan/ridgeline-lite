@@ -47,6 +47,23 @@ const faqSchema = Astro.props.faq?.length
     {faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
     {
       import.meta.env.PROD &&
+        siteConfig.analytics.ga4MeasurementId &&
+        Astro.site?.origin === 'https://servisvesmasina-beograd.co.rs' && (
+        <>
+          <script
+            is:inline
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analytics.ga4MeasurementId}`}
+          />
+          <script
+            is:inline
+            set:html={`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${siteConfig.analytics.ga4MeasurementId}');`}
+          />
+        </>
+      )
+    }
+    {
+      import.meta.env.PROD &&
         siteConfig.analytics.statcounterProject > 0 && (
         <>
           <script

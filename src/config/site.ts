@@ -93,10 +93,15 @@ export const siteConfig = {
   /* ----------------------------------------------------------
    * Analytics (StatCounter - same provider as the owner's other sites).
    * Renders in BaseLayout only in PROD builds with project > 0.
+   * GA4 property "servisvesmasina-beograd.co.rs - GA4" (account
+   * www.mill.iz.rs), created 2026-09-20. The gtag.js snippet renders
+   * only on PROD builds of the registered domain; demo/dev builds
+   * skip it so preview traffic stays out of the reports.
    * -------------------------------------------------------- */
   analytics: {
     statcounterProject: 13355162,
     statcounterSecurity: '0d30cb80',
+    ga4MeasurementId: 'G-LK3SF74C49',
   },
 
   /* ----------------------------------------------------------
