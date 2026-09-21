@@ -17,6 +17,12 @@ i dev server preskaču tag da preview saobraćaj ne prlja izveštaje.
 StatCounter ostaje nepromenjen. Novo polje u siteConfig.analytics:
 ga4MeasurementId.
 
+## [2.43.1] - 2026-09-21
+
+Kontakt i ponuda forme: input/select/textarea polja dobila belu pozadinu
+(bg-white) + suptilnu senku (shadow-sm). Bila su transparentna pa su se
+stapala sa bg-surface (#f8fafc) sekcijom i delovala nevidljivo.
+
 ## [2.43.0] - 2026-09-20
 
 Epic #112 task 3 FINAL - sva identity polja potvrđena od vlasnika:
