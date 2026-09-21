@@ -55,7 +55,7 @@ const brand = (text: string, sep = ', '): ProseToken => ({
 });
 
 const locTokens: ProseToken[] = [
-  { text: 'Servis veš mašina na terenu, Beograd' },
+  { text: 'Servis veš mašina na terenu, Beograd', sep: ', ' },
   loc('Stari Grad', 'stari-grad'),
   { text: 'Vračar' },
   loc('Savski Venac', 'savski-venac'),
@@ -117,14 +117,7 @@ const socials = (
         <p>
           {locTokens.map((t) => (
             <>
-              {t.href ? (
-                <a href={t.href} class="transition-colors hover:text-primary">
-                  {t.text}
-                </a>
-              ) : (
-                t.text
-              )}
-              {t.sep}
+              {t.href ? <a href={t.href} class="transition-colors hover:text-primary">{t.text}</a> : t.text}{t.sep}
             </>
           ))}
         </p>
@@ -132,14 +125,7 @@ const socials = (
         <p>
           {brandTokens.map((t) => (
             <>
-              {t.href ? (
-                <a href={t.href} class="transition-colors hover:text-primary">
-                  {t.text}
-                </a>
-              ) : (
-                t.text
-              )}
-              {t.sep}
+              {t.href ? <a href={t.href} class="transition-colors hover:text-primary">{t.text}</a> : t.text}{t.sep}
             </>
           ))}
         </p>

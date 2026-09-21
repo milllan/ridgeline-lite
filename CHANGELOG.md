@@ -18,7 +18,7 @@ ceo ocena-blok + eyebrow "Recenzije" linkuju na Google write-review,
 CTA "Ostavite Google recenziju" ispod ocene, tamni strip posle karusela
 uklonjen. (4) Karusel recenzija: scroll-driven edge fades (čist CSS,
 timeline u posebnom pravilu jer minifier ga savija u animation
-shorthand). (5) Miele pravilo: brend se NE servisirа; stranica, logo,
+shorthand). (5) Miele pravilo: brend se NE servira; stranica, logo,
 forma i tekst uklonjeni; content-gate marker Miele; .htaccess 301 svih
 Miele varijanti ka /brendovi-ves-masina/; pravilo upisano u AGENTS.md.
 
