@@ -4,6 +4,23 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.47.0] - 2026-09-21
+
+Sadržaj iz istraživačkog dokumenta (research/), vođeno GSC podacima starog
+domena (servisvesmasina.co.rs, 500 dana, 132k impresija). (1) Nova opštinska
+stranica Vračar (/lokacije/vracar/): vracar.mdx (Neimar, Istočni Vračar,
+Englezovac; najgušće naseljena opština; 3 lokalna FAQ-a), lokalni hook i ručno
+nabrajanje opština u meta opisu /lokacije/ ažurirani (komentar u fajlu to
+zahteva), footer token Vračar sada linkuje (loc() umesto golog teksta).
+(2) Amortizeri: nova sekcija u beko.mdx (simptom: mašina udara i pomera se,
+bubanj ne klima; kada se ne rastavlja) + commonFaults tag, diferencijacija
+ležajevi/amortizeri u popravka-ves-masina.mdx simptom listi i
+zamena-lezajeva-zaptivaca.mdx prozi, novi FAQ (lupa i skače, ali bubanj ne
+klima) na ležajevi stranici. (3) README: 15->14 brendova (zastarelo nakon Miele uklanjanja #137), 4->5
+opština. GSC validacija: Zemun
+(1608 imp/500d) i Voždovac (642) jedini ne pokriveni hubovi s dokazanom
+potražnjom; Vračar (57) izabran kao jedina dodatna stranica po odluci vlasnika.
+
 ## [2.46.0] - 2026-09-21
 
 Vlasnički zaokret: novi vizuelni identitet, footer i recenzije
