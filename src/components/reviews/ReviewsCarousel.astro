@@ -107,23 +107,29 @@ const reviewWord =
     background: linear-gradient(to left, var(--color-surface), transparent);
   }
 
+  /* Inverted gate (CodeRabbit #137): scroll-linked fades run only for
+     users without a reduced-motion preference. With the preference
+     active there is nothing to undo - the base styles above degrade to
+     a hidden left fade and a static right fade, no !important race. */
   @supports (animation-timeline: scroll()) {
-    .edge-fade-left {
-      animation: fade-in linear both;
-      animation-range: 6rem 12rem;
-    }
+    @media (prefers-reduced-motion: no-preference) {
+      .edge-fade-left {
+        animation: fade-in linear both;
+        animation-range: 6rem 12rem;
+      }
 
-    .edge-fade-right {
-      animation: fade-out linear both;
-      animation-range: calc(100% - 6rem) 100%;
-    }
+      .edge-fade-right {
+        animation: fade-out linear both;
+        animation-range: calc(100% - 6rem) 100%;
+      }
 
-    /* Must be its own trailing rule: the animation shorthand resets
-       animation-timeline, and bundling it with the shorthand makes the
-       minifier fold the timeline ident into it, which Chrome rejects. */
-    .edge-fade-left,
-    .edge-fade-right {
-      animation-timeline: --reviews;
+      /* Must be its own trailing rule: the animation shorthand resets
+         animation-timeline, and bundling it with the shorthand makes the
+         minifier fold the timeline ident into it, which Chrome rejects. */
+      .edge-fade-left,
+      .edge-fade-right {
+        animation-timeline: --reviews;
+      }
     }
   }
 
