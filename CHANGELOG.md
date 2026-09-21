@@ -4,6 +4,12 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.43.1] - 2026-09-21
+
+Kontakt i ponuda forme: input/select/textarea polja dobila belu pozadinu
+(bg-white) + suptilnu senku (shadow-sm). Bila su transparentna pa su se
+stapala sa bg-surface (#f8fafc) sekcijom i delovala nevidljivo.
+
 ## [2.43.0] - 2026-09-20
 
 Epic #112 task 3 FINAL - sva identity polja potvrđena od vlasnika:
