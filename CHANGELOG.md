@@ -16,7 +16,7 @@ zahteva), footer token Vračar sada linkuje (loc() umesto golog teksta).
 bubanj ne klima; kada se ne rastavlja) + commonFaults tag, diferencijacija
 ležajevi/amortizeri u popravka-ves-masina.mdx simptom listi i
 zamena-lezajeva-zaptivaca.mdx prozi, novi FAQ (lupa i skače, ali bubanj ne
-klima) na ležajevi stranici. (3) README: 15->14 brendova (zastarelo nakon Miele uklanjanja #137), 4->5
+klima) na ležajevi stranici. (3) README: 15->14 brendova (zastarelo nakon ukidanja tog brenda #137), 4->5
 opština. GSC validacija: Zemun
 (1608 imp/500d) i Voždovac (642) jedini ne pokriveni hubovi s dokazanom
 potražnjom; Vračar (57) izabran kao jedina dodatna stranica po odluci vlasnika.
