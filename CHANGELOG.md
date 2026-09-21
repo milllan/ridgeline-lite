@@ -4,6 +4,17 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.45.0] - 2026-09-21
+
+Nova telefonska linija: 065-3653379 (zamenjuje 064/110-39-01).
+Zamenjeno svuda: siteConfig.phone + phoneHref (tel:+381653653379),
+seo.defaultDescription rep, "Majstor Dejan:" rep u svih 25
+seoDescription frontmatter polja (brendovi/usluge/opštine) i komentari
+u content.config.ts. JSON-LD telephone se izvodi iz phoneHref pa se
+ažurirao automatski; og-default.jpg ne sadrži telefon (bez
+regeneracije). NAP napomena: broj treba ažurirati i u Google Business
+Profilu da lokalni SEO NAP ostane konzistentan.
+
 ## [2.44.0] - 2026-09-20
 
 GA4 (Google Analytics 4) integracija. Kreiran property
