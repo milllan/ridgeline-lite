@@ -46,7 +46,12 @@ if (/^(1|true|yes)$/i.test(process.env.CONTENT_GATE_SKIP ?? '')) {
   process.exit(0);
 }
 
-const MARKERS = ['TODO', 'DRAFT', 'PLACEHOLDER', 'SAMPLE', '@example', 'UNVERIFIED', 'potvrditi'];
+// 'Miele' (owner rule 2026-09-21): the brand is NOT serviced and must not
+// reappear anywhere in content or site config. Case-insensitive substring,
+// same matching as the readiness markers. Full-source check (pages, config,
+// assets) stays a documented grep in AGENTS.md, not gate scope: extending
+// scope would false-positive on HTML `placeholder=` attributes.
+const MARKERS = ['TODO', 'DRAFT', 'PLACEHOLDER', 'SAMPLE', '@example', 'UNVERIFIED', 'potvrditi', 'Miele'];
 
 const ALLOW = (process.env.CONTENT_GATE_ALLOW ?? 'CHANGELOG.md,docs/,AGENTS.md')
   .split(',')

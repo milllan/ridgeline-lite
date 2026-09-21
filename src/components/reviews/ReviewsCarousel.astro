@@ -5,6 +5,7 @@
  */
 import { getCollection } from 'astro:content';
 import { getAggregateRating } from '../../lib/reviews';
+import { siteConfig } from '../../config/site';
 import SectionHeading from '../common/SectionHeading.astro';
 import ReviewCard from './ReviewCard.astro';
 import StarRating from './StarRating.astro';
@@ -25,32 +26,122 @@ const reviewWord =
     <div class="flex flex-wrap items-end justify-between gap-6">
       <SectionHeading
         eyebrow="Recenzije"
+        eyebrowHref={siteConfig.gbpReviewUrl}
         title="Šta kažu klijenti kada im mašina ponovo radi"
       />
-      <div class="flex items-center gap-3">
-        <StarRating rating={rating.average} starClass="h-5 w-5" />
-        <p class="text-sm font-medium text-slate-600">
-          <span class="font-heading text-2xl font-bold text-dark">{rating.average}</span>
-          / 5 · {rating.count} {reviewWord}
-        </p>
-      </div>
+      <a
+        href={siteConfig.gbpReviewUrl}
+        target="_blank"
+        rel="noopener"
+        class="group flex flex-col items-start gap-1.5 md:items-end"
+      >
+        <div class="flex items-center gap-3">
+          <StarRating rating={rating.average} starClass="h-5 w-5" />
+          <p class="text-sm font-medium text-slate-600">
+            <span class="font-heading text-2xl font-bold text-dark">{rating.average}</span>
+            / 5 · {rating.count} {reviewWord}
+          </p>
+        </div>
+        <span class="text-sm font-semibold text-primary-ink underline-offset-4 transition-colors group-hover:text-primary group-hover:underline">
+          Ostavite Google recenziju
+        </span>
+      </a>
     </div>
   </div>
 
   <div class="mx-auto mt-10 max-w-7xl px-4 sm:px-6 lg:px-8">
-    <ul
-      class="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8"
-      aria-label="Recenzije klijenata"
-      tabindex="0"
-    >
-      {
-        reviews.map((review) => (
-          <li class="w-[85%] max-w-sm shrink-0 snap-start sm:w-[45%] lg:w-[31%]">
-            <ReviewCard review={review} class="h-full" />
-          </li>
-        ))
-      }
-    </ul>
+    <div class="carousel-viewport -mx-4 sm:-mx-6 lg:-mx-8">
+      <div class="edge-fade edge-fade-left" aria-hidden="true"></div>
+      <div class="edge-fade edge-fade-right" aria-hidden="true"></div>
+      <ul
+        class="flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:px-6 lg:px-8"
+        aria-label="Recenzije klijenata"
+        tabindex="0"
+      >
+        {
+          reviews.map((review) => (
+            <li class="w-[85%] max-w-sm shrink-0 snap-start sm:w-[45%] lg:w-[31%]">
+              <ReviewCard review={review} class="h-full" />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
     <p class="mt-4 text-xs text-slate-500">Prevucite ili skrolujte za još recenzija →</p>
   </div>
 </section>
+
+<style>
+  /* Scroll-edge fades over the carousel: pure CSS via scroll-driven
+     animations. The named inline scroll timeline on the <ul> drives both
+     overlays - the left fade stays hidden while the list is fully
+     scrolled left, then eases in over the first 6rem of scrolling; the
+     right fade eases out near the end. Browsers without scroll-timeline
+     support degrade to a static right fade only. No JavaScript. */
+  .carousel-viewport {
+    position: relative;
+    timeline-scope: --reviews;
+  }
+
+  .carousel-viewport ul {
+    scroll-timeline: --reviews inline;
+  }
+
+  .edge-fade {
+    position: absolute;
+    top: 0;
+    bottom: 1rem; /* stop above the scrollbar strip (list pb-4) */
+    width: 3rem;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .edge-fade-left {
+    left: 0;
+    background: linear-gradient(to right, var(--color-surface), transparent);
+    opacity: 0; /* hidden at scroll start; raised by the animation */
+  }
+
+  .edge-fade-right {
+    right: 0;
+    background: linear-gradient(to left, var(--color-surface), transparent);
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .edge-fade-left {
+      animation: fade-in linear both;
+      animation-range: 6rem 12rem;
+    }
+
+    .edge-fade-right {
+      animation: fade-out linear both;
+      animation-range: calc(100% - 6rem) 100%;
+    }
+
+    /* Must be its own trailing rule: the animation shorthand resets
+       animation-timeline, and bundling it with the shorthand makes the
+       minifier fold the timeline ident into it, which Chrome rejects. */
+    .edge-fade-left,
+    .edge-fade-right {
+      animation-timeline: --reviews;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+</style>
