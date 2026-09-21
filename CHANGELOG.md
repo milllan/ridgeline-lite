@@ -4,6 +4,24 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.46.0] - 2026-09-21
+
+Vlasnički zaokret: novi vizuelni identitet, footer i recenzije
+reorganizovani, Miele izbačen iz ponude. (1) Novi logo: img-based
+Logo.astro (logo-masina-za-ves-servis-beograd.svg), redizajniran favicon,
+schema.org logo pokazuje na novi fajl (stari favicon-washer-wrench.svg
+uklonjen). (2) Footer: uklonjene kolone Kompanija i Usluge, Kontakt
+kolona proširena (1.5fr grid), novi opis sa opštinama i brendovima -
+rečenica po redu, svako ime linkuje na stranicu gde postoji
+(kolekcije-driven, draft ne može ostaviti mrtav link). (3) Recenzije:
+ceo ocena-blok + eyebrow "Recenzije" linkuju na Google write-review,
+CTA "Ostavite Google recenziju" ispod ocene, tamni strip posle karusela
+uklonjen. (4) Karusel recenzija: scroll-driven edge fades (čist CSS,
+timeline u posebnom pravilu jer minifier ga savija u animation
+shorthand). (5) Miele pravilo: brend se NE servisira; stranica, logo,
+forma i tekst uklonjeni; content-gate marker Miele; .htaccess 301 svih
+Miele varijanti ka /brendovi-ves-masina/; pravilo upisano u AGENTS.md.
+
 ## [2.45.1] - 2026-09-21
 
 Prikaz novog broja prebačen u srpski zapisni format:

@@ -4,13 +4,9 @@
  */
 import { getPublished } from '../../lib/collections';
 import { siteConfig, hasEmail } from '../../config/site';
-import { footerBrandsNav, footerCompanyNav, footerLocationsNav } from '../../config/nav';
+import { footerBrandsNav, footerLocationsNav } from '../../config/nav';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
-
-const services = (await getPublished('services')).sort(
-  (a, b) => a.data.order - b.data.order,
-);
 
 const opstine = (await getPublished('opstine')).sort(
   (a, b) => a.data.order - b.data.order,
@@ -27,6 +23,62 @@ const popularBrands = POPULAR_BRAND_SLUGS.map((slug) =>
 
 const year = new Date().getFullYear();
 const { address } = siteConfig;
+
+/* Branding-description prose links (owner copy 2026-09-21): every
+   location/brand name links to its page only when a published one
+   exists - collection-driven, so a draft can never leave a dead prose
+   link (same choke-point rule as the link columns). */
+const opstineSlugs = new Set(opstine.map((o) => o.id.replace(/\.mdx$/, '')));
+const brandSlugByName = new Map(
+  brands.map((b) => [b.data.name.toLowerCase(), b.id.replace(/\.mdx$/, '')]),
+);
+
+interface ProseToken {
+  text: string;
+  href?: string;
+  /** Separator rendered after this token (", ", " / ", "." or ""). */
+  sep?: string;
+}
+
+const loc = (text: string, slug: string, sep = ', '): ProseToken => ({
+  text,
+  sep,
+  href: opstineSlugs.has(slug) ? `/lokacije/${slug}/` : undefined,
+});
+
+const brand = (text: string, sep = ', '): ProseToken => ({
+  text,
+  sep,
+  href: brandSlugByName.has(text.toLowerCase())
+    ? `/brendovi-ves-masina/${brandSlugByName.get(text.toLowerCase())}-majstor/`
+    : undefined,
+});
+
+const locTokens: ProseToken[] = [
+  { text: 'Servis veš mašina na terenu, Beograd', sep: ', ' },
+  loc('Stari Grad', 'stari-grad'),
+  { text: 'Vračar' },
+  loc('Savski Venac', 'savski-venac'),
+  loc('Novi Beograd', 'novi-beograd'),
+  { text: 'Zemun' },
+  loc('Rakovica', 'rakovica'),
+  { text: 'Voždovac', sep: '.' },
+];
+
+const brandTokens: ProseToken[] = [
+  brand('Gorenje'),
+  brand('Beko'),
+  brand('Bosch'),
+  brand('Candy'),
+  brand('Indesit', ' / '),
+  brand('Ariston'),
+  brand('Samsung'),
+  brand('LG'),
+  brand('Whirlpool'),
+  brand('VOX'),
+  brand('Vivax'),
+  brand('Favorit', ''),
+];
 
 /** Non-empty social profiles - empty values render nothing at all. */
 const socials = (
@@ -54,16 +106,30 @@ const socials = (
     </div>
   </div>
 
-  <!-- Main columns -->
-  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-6 lg:px-8">
+  <!-- Main columns: logo track is 2fr, Kontakt 1.5fr (address/radno vreme
+       need the extra width), Marke and Lokacije 1fr each. -->
+  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-[2fr_1fr_1fr_1.5fr] lg:px-8">
     <div>
       <a href="/" aria-label={`${siteConfig.name}, Početna`}>
         <Logo onDark />
       </a>
-      <p class="mt-4 text-sm leading-relaxed">
-        Servis i popravka veš mašina na terenu u celom Beogradu: sve marke,
-        original delovi, garancija na rad.
-      </p>
+      <div class="mt-4 space-y-1 text-sm leading-relaxed">
+        <p>
+          {locTokens.map((t) => (
+            <>
+              {t.href ? <a href={t.href} class="transition-colors hover:text-primary">{t.text}</a> : t.text}{t.sep}
+            </>
+          ))}
+        </p>
+        <p>Original delovi, garancija na rad.</p>
+        <p>
+          {brandTokens.map((t) => (
+            <>
+              {t.href ? <a href={t.href} class="transition-colors hover:text-primary">{t.text}</a> : t.text}{t.sep}
+            </>
+          ))}
+        </p>
+      </div>
       {
         socials.length > 0 && (
           <ul class="mt-5 flex gap-3">
@@ -82,26 +148,6 @@ const socials = (
         )
       }
     </div>
-
-    <nav aria-label="Usluge">
-      <h2 class="font-heading text-lg font-bold uppercase tracking-wide text-white">
-        Usluge
-      </h2>
-      <ul class="mt-4 space-y-2.5 text-sm">
-        {
-          services.map((service) => (
-            <li>
-              <a
-                href={`/usluge/${service.id.replace(/\.mdx$/, '')}/`}
-                class="transition-colors hover:text-primary"
-              >
-                {service.data.title}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
 
     <nav aria-label="Marke">
       <h2 class="font-heading text-lg font-bold uppercase tracking-wide text-white">
@@ -155,23 +201,6 @@ const socials = (
                 class="transition-colors hover:text-primary"
               >
                 {opstina.data.title.replace('Servis veš mašina ', '')}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-
-    <nav aria-label="Kompanija">
-      <h2 class="font-heading text-lg font-bold uppercase tracking-wide text-white">
-        Kompanija
-      </h2>
-      <ul class="mt-4 space-y-2.5 text-sm">
-        {
-          footerCompanyNav.map((item) => (
-            <li>
-              <a href={item.href} class="transition-colors hover:text-primary">
-                {item.label}
               </a>
             </li>
           ))

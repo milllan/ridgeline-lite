@@ -17,13 +17,6 @@ export const mainNav: NavLink[] = [
 /** Extra links shown in the mobile menu. */
 export const secondaryNav: NavLink[] = [];
 
-/** Footer "Company" column. */
-export const footerCompanyNav: NavLink[] = [
-  { label: 'O nama', href: '/o-nama/' },
-  { label: 'Kontakt', href: '/kontakt/' },
-  { label: 'Zatražite ponudu', href: '/zatrazi-ponudu/' },
-];
-
 /**
  * Footer "Lokacije" column (epic #112 task 7): the coverage hub. The
  * opštine links below it are built in Footer.astro from the opstine

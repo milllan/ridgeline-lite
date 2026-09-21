@@ -5,6 +5,8 @@
  */
 interface Props {
   eyebrow?: string;
+  /** Optional link target for the eyebrow (external GBP links etc.). */
+  eyebrowHref?: string;
   title: string;
   lead?: string;
   align?: 'left' | 'center';
@@ -16,6 +18,7 @@ interface Props {
 
 const {
   eyebrow,
+  eyebrowHref,
   title,
   lead,
   align = 'left',
@@ -33,7 +36,18 @@ const {
           onDark ? 'text-primary' : 'text-primary-ink',
         ]}
       >
-        {eyebrow}
+        {eyebrowHref ? (
+          <a
+            href={eyebrowHref}
+            target="_blank"
+            rel="noopener"
+            class="transition-colors hover:text-primary"
+          >
+            {eyebrow}
+          </a>
+        ) : (
+          eyebrow
+        )}
       </p>
     )
   }

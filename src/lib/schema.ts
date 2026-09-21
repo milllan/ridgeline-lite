@@ -23,7 +23,7 @@ export async function buildLocalBusiness(site: URL) {
     telephone: siteConfig.phoneHref.replace('tel:', ''),
     ...(hasEmail && { email: siteConfig.email }),
     image: new URL(siteConfig.seo.ogImage, site).href,
-    logo: new URL('/favicon-washer-wrench.svg', site).href,
+    logo: new URL('/logo-masina-za-ves-servis-beograd.svg', site).href,
     address: {
       '@type': 'PostalAddress',
       streetAddress: address.street,

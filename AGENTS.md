@@ -39,6 +39,13 @@ the launch blockers in epic #2 are resolved.
   StatCounter on/off A/B, inlineStylesheets comparisons). Spend the
   effort on content and correctness instead. (Epic #112 tasks 17+22 were
   closed for exactly this reason.)
+- **Miele se NE servisira (owner, 2026-09-21):** the Miele brand is out of
+  scope for this business. Removed 2026-09-21: brand page, logo file,
+  brandLogos entry, form option, service prose; server 301s every Miele
+  URL variant to /brendovi-ves-masina/. Do NOT reintroduce Miele in any
+  content, config, form, or asset. Enforced: content-gate fails on the
+  marker `Miele` (content + site.ts scope); before deploy also run
+  `grep -ri miele src/ public/` and require zero hits.
 
 ## Tracking & conventions
 

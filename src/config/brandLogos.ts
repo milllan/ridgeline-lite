@@ -32,7 +32,6 @@ export const brandTiles: BrandTile[] = [
   { name: 'Samsung', slug: 'samsung', logo: '/logos/samsung.svg', alt: 'Logotip Samsung' },
   { name: 'Bosch', slug: 'bosch', alt: 'Logotip Bosch' },
   { name: 'Electrolux', slug: 'electrolux', logo: '/logos/electrolux.svg', alt: 'Logotip Electrolux' },
-  { name: 'Miele', slug: 'miele', logo: '/logos/miele.svg', alt: 'Logotip Miele' },
   { name: 'Hisense', slug: 'hisense', logo: '/logos/hisense.svg', alt: 'Logotip Hisense' },
   { name: 'VOX', slug: 'vox', alt: 'Logotip VOX' },
   { name: 'Tesla', slug: 'tesla', alt: 'Logotip Tesla' },
