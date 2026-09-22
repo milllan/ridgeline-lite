@@ -20,6 +20,12 @@ klima) na ležajevi stranici. (3) README: 15->14 brendova (zastarelo nakon ukida
 opština. GSC validacija: Zemun
 (1608 imp/500d) i Voždovac (642) jedini ne pokriveni hubovi s dokazanom
 potražnjom; Vračar (57) izabran kao jedina dodatna stranica po odluci vlasnika.
+(4) Footer Lokacije kolona (vlasnik 2026-09-22): novi redosled Stari grad,
+Novi Beograd, Savski venac, Vračar, Rakovica, uz "Sve lokacije" premešteno na
+dno kolone. Redosled je footer-specifičan (FOOTER_OPSTINE_SLUGS u
+Footer.astro) i namerno različit od globalnog order polja koje i dalje vodi
+hub/početnu/kontakt liste; opštine van liste se i dalje automatski dopisuju
+na kraj, pa nova stranica ne može da nestane iz footera.
 
 ## [2.46.0] - 2026-09-21
 
