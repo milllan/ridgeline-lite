@@ -37,6 +37,7 @@ export async function buildLocalBusiness(site: URL) {
       longitude: geo.longitude,
     },
     openingHours: siteConfig.openingHoursSchema,
+    openingHoursSpecification: siteConfig.openingHoursSpecSchema,
     hasMap: siteConfig.gbpUrl,
     ...(sameAs.length > 0 && { sameAs }),
   };

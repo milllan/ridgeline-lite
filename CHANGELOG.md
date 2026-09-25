@@ -4,6 +4,15 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.48.0] - 2026-09-25
+
+Brzi dobici iz SEO audita (.seo/audit-2026-09-25.md): LocalBusiness schema
+sada emituje openingHoursSpecification (ponedeljak-subota 08:00-20:00,
+nedelja izostavljena = zatvoreno) pored postojećeg openingHours stringa.
+Novo polje živi u site.ts (openingHoursSpecSchema) po postojećem patternu,
+sinhrono s hours redovima; Google preferira bogati oblik za LocalBusiness
+panel i radno vreme u rezultatima pretrage.
+
 ## [2.47.0] - 2026-09-21
 
 Sadržaj iz istraživačkog dokumenta (research/), vođeno GSC podacima starog
