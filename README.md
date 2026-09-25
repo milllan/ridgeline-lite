@@ -16,8 +16,8 @@ About 34 pages in total:
 - Home (`/`)
 - Services hub (`/usluge`) plus 6 service pages covering repair, heater,
   pump, bearing, programmer, and maintenance work
-- Brand hub (`/brendovi-ves-masina`) plus 15 washing-machine brand pages
-- Locations hub (`/lokacije`) plus 4 municipal (opštine) landing pages
+- Brand hub (`/brendovi-ves-masina`) plus 14 washing-machine brand pages
+- Locations hub (`/lokacije`) plus 5 municipal (opštine) landing pages
 - About (`/o-nama`), contact (`/kontakt`), and quote request
   (`/zatrazi-ponudu`) pages
 - Thank-you page (`/hvala`, noindex) shown after a successful form submit
@@ -37,8 +37,8 @@ npm run build    # static output in ./dist (postbuild seo-gate runs automaticall
 - `src/config/site.ts` — single source of truth: business identity, contact
   info, badges, and stats; every page reads from it
 - `src/content/services/*.mdx` — 6 service pages (Serbian MDX)
-- `src/content/brands/*.mdx` — 15 washing-machine brand pages (Serbian MDX)
-- `src/content/opstine/*.mdx` — 4 municipal (opštine) pages (Serbian MDX)
+- `src/content/brands/*.mdx` — 14 washing-machine brand pages (Serbian MDX)
+- `src/content/opstine/*.mdx` — 5 municipal (opštine) pages (Serbian MDX)
 - `src/content/reviews.json` — customer reviews; the aggregate score is
   computed at build time
 - `src/config/nav.ts` — navigation; `src/config/brandLogos.ts` — brand logo

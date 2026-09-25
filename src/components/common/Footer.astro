@@ -57,7 +57,7 @@ const brand = (text: string, sep = ', '): ProseToken => ({
 const locTokens: ProseToken[] = [
   { text: 'Servis veš mašina na terenu, Beograd', sep: ', ' },
   loc('Stari Grad', 'stari-grad'),
-  { text: 'Vračar' },
+  loc('Vračar', 'vracar'),
   loc('Savski Venac', 'savski-venac'),
   loc('Novi Beograd', 'novi-beograd'),
   { text: 'Zemun' },
@@ -78,6 +78,27 @@ const brandTokens: ProseToken[] = [
   brand('VOX'),
   brand('Vivax'),
   brand('Favorit', ''),
+];
+
+/* "Lokacije" column order (owner 2026-09-22): Stari grad first, Rakovica
+   last, "Sve lokacije" link under the list. Footer-specific on purpose -
+   the global `order` frontmatter keeps driving the hub/homepage/kontakt
+   lists. Slugs outside this list still append, so a new opština page can
+   never be silently missing from the footer. */
+const FOOTER_OPSTINE_SLUGS = [
+  'stari-grad',
+  'novi-beograd',
+  'savski-venac',
+  'vracar',
+  'rakovica',
+];
+const footerOpstine = [
+  ...FOOTER_OPSTINE_SLUGS.map((slug) =>
+    opstine.find((o) => o.id.replace(/\.mdx$/, '') === slug),
+  ).filter((o) => o !== undefined),
+  ...opstine.filter(
+    (o) => !FOOTER_OPSTINE_SLUGS.includes(o.id.replace(/\.mdx$/, '')),
+  ),
 ];
 
 /** Non-empty social profiles - empty values render nothing at all. */
@@ -185,22 +206,22 @@ const socials = (
       </h2>
       <ul class="mt-4 space-y-2.5 text-sm">
         {
-          footerLocationsNav.map((item) => (
-            <li>
-              <a href={item.href} class="transition-colors hover:text-primary">
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
-        {
-          opstine.map((opstina) => (
+          footerOpstine.map((opstina) => (
             <li>
               <a
                 href={`/lokacije/${opstina.id.replace(/\.mdx$/, '')}/`}
                 class="transition-colors hover:text-primary"
               >
                 {opstina.data.title.replace('Servis veš mašina ', '')}
+              </a>
+            </li>
+          ))
+        }
+        {
+          footerLocationsNav.map((item) => (
+            <li>
+              <a href={item.href} class="transition-colors hover:text-primary">
+                {item.label}
               </a>
             </li>
           ))

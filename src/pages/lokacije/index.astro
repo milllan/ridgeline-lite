@@ -1,7 +1,7 @@
 ---
 /**
  * /lokacije/ coverage hub (epic #112 task 6): service-area summary,
- * ServiceAreaMap and links to the four opština landing pages. Footer
+ * ServiceAreaMap and links to the five opština landing pages. Footer
  * links arrive with task 7; the "Lokacije" breadcrumb crumb on
  * [slug].astro links here (task 8).
  */
@@ -32,6 +32,8 @@ const localHooks: Record<string, string> = {
     'Bežanija, Bežanijska kosa, Studentski grad, Ušće i blokovi 45, 61 i 70. Radimo i sa ugradnim mašinama u kuhinjskim elementima i sa slobodnostojećim u starim zgradama.',
   'savski-venac':
     'Senjak, Dedinje, Zapadni Vračar i Prokop. Majstor dolazi na adresu, utvrđuje kvar i procenjuje da li se mašina popravlja u stanu ili u radionici.',
+  vracar:
+    'Neimar, Istočni Vračar i Englezovac: najgušće naseljena beogradska opština. Manje kvarove rešavamo u vašem stanu, a mašinu za obimniji posao preuzimamo na adresi.',
 };
 
 const { address } = siteConfig;
@@ -39,7 +41,7 @@ const { address } = siteConfig;
 
 <BaseLayout
   title="Lokacije servisa veš mašina u Beogradu"
-  description={`Servis veš mašina u celom Beogradu: Rakovica, Stari grad, Novi Beograd i Savski venac. Manje popravke na adresi, obimnije u radionici. Pozovite ${siteConfig.phone}.`}
+  description={`Servis veš mašina u celom Beogradu: Rakovica, Stari grad, Novi Beograd, Savski venac i Vračar. Manje popravke na adresi, obimnije u radionici. Pozovite ${siteConfig.phone}.`}
 >
   <PageHero
     title="Lokacije servisa veš mašina u Beogradu"
