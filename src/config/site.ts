@@ -80,6 +80,23 @@ export const siteConfig = {
   hours: [{ days: 'Ponedeljak - Subota', open: '08:00', close: '20:00' }],
   /** Schema.org openingHours strings (24h clock). */
   openingHoursSchema: ['Mo-Sa 08:00-20:00'],
+  /** Rich openingHoursSpecification (Google's preferred form); keep in
+      sync with the hours rows above - no Sunday entry = closed on Sunday. */
+  openingHoursSpecSchema: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+      ],
+      opens: '08:00',
+      closes: '20:00',
+    },
+  ],
   emergencyNote: 'Hitni pozivi vikendom po dogovoru.',
 
   /* ----------------------------------------------------------
