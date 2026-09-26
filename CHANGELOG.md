@@ -4,6 +4,15 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.50.0] - 2026-09-26
+
+Footer: (1) vlasnička referenca - u donjoj traci sad stoji "Web dizajn, hosting
+i SEO: wpspeedopt.net" (link ka wpspeedopt.net, desno od copyrighta na
+desktopu, ispod na mobilnom). (2) Uključene vlasničke izmene iz radnog stabla:
+POPULAR_BRAND_SLUGS redosled gorenje/candy/samsung/beko (Candy na drugo mesto)
+i prose lokacije u logo koloni svedene na jednu rečenicu ("Servis veš mašina
+na terenu, Beograd.") umesto pune liste - kraj dupliranja lokacija u footeru.
+
 ## [2.49.0] - 2026-09-26
 
 Footer Marke kolona (vlasnička prijava 2026-09-26): uklonjen dupli hub link -
