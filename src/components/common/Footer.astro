@@ -4,7 +4,7 @@
  */
 import { getPublished } from '../../lib/collections';
 import { siteConfig, hasEmail } from '../../config/site';
-import { footerBrandsNav, footerLocationsNav } from '../../config/nav';
+import { footerLocationsNav } from '../../config/nav';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
 
@@ -175,15 +175,6 @@ const socials = (
         Marke
       </h2>
       <ul class="mt-4 space-y-2.5 text-sm">
-        {
-          footerBrandsNav.map((item) => (
-            <li>
-              <a href={item.href} class="transition-colors hover:text-primary">
-                {item.label}
-              </a>
-            </li>
-          ))
-        }
         {
           popularBrands.map((brand) => (
             <li>

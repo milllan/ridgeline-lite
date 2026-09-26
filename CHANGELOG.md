@@ -4,6 +4,14 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.49.0] - 2026-09-26
+
+Footer Marke kolona (vlasnička prijava 2026-09-26): uklonjen dupli hub link -
+"Servis po markama" na vrhu i "Svi brendovi" na dnu vodili su oba na
+/brendovi-ves-masina/. Zadržano je "Svi brendovi" na dnu kolone, simetrično
+Lokacije koloni gde je "Sve lokacije" na dnu; footerBrandsNav konstanta
+uklonjena je iz nav.ts (footer je bio jedini potrošač).
+
 ## [2.48.0] - 2026-09-25
 
 Brzi dobici iz SEO audita (.seo/audit-2026-09-25.md): LocalBusiness schema
