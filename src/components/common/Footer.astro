@@ -16,7 +16,7 @@ const brands = (await getPublished('brands')).sort(
   (a, b) => a.data.order - b.data.order,
 );
 
-const POPULAR_BRAND_SLUGS = ['gorenje', 'samsung', 'beko', 'candy'];
+const POPULAR_BRAND_SLUGS = ['gorenje', 'candy', 'samsung', 'beko'];
 const popularBrands = POPULAR_BRAND_SLUGS.map((slug) =>
   brands.find((brand) => brand.id.replace(/\.mdx$/, '') === slug),
 ).filter((brand) => brand !== undefined);
@@ -55,14 +55,16 @@ const brand = (text: string, sep = ', '): ProseToken => ({
 });
 
 const locTokens: ProseToken[] = [
-  { text: 'Servis veš mašina na terenu, Beograd', sep: ', ' },
-  loc('Stari Grad', 'stari-grad'),
-  loc('Vračar', 'vracar'),
-  loc('Savski Venac', 'savski-venac'),
-  loc('Novi Beograd', 'novi-beograd'),
-  { text: 'Zemun' },
-  loc('Rakovica', 'rakovica'),
-  { text: 'Voždovac', sep: '.' },
+  // { text: 'Servis veš mašina na terenu, Beograd', sep: ', ' },
+  // loc('Stari Grad', 'stari-grad'),
+  // loc('Vračar', 'vracar'),
+  // loc('Savski Venac', 'savski-venac'),
+  // loc('Novi Beograd', 'novi-beograd'),
+  // { text: 'Zemun' },
+  // loc('Rakovica', 'rakovica'),
+  // { text: 'Voždovac', sep: '.' },
+
+  { text: 'Servis veš mašina na terenu, Beograd', sep: '. ' }
 ];
 
 const brandTokens: ProseToken[] = [
