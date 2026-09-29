@@ -4,6 +4,18 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.51.0] - 2026-09-29
+
+SEO: razdvojeni blizanački seoDescription opisi na 6 brend stranica (bosch,
+electrolux, gorenje, tesla, ariston, whirlpool). Revizija 2026-09-29, na
+osnovu Reddit SEO posta o "istom opisu uz zamenjeno ime konkurenta", pokazala
+je da su bosch/electrolux bili identični modulo ime brenda, a tesla/gorenje i
+ariston/whirlpool bliski klonovi. Svaki opis sada ima svoj hook i redosled
+reči: brava vrata i popravka u stanu (bosch), AEG i PerfectCare (electrolux),
+kodovi F1 do F7 i WaveActive (gorenje), domaći brend i birač (tesla),
+programatori i Hotpoint-Ariston (ariston), 6th Sense i FdL (whirlpool). Svi
+opisi ≤ 160 znakova, telefonski rep zadržan (NAP konzistentnost).
+
 ## [2.50.0] - 2026-09-26
 
 Footer: (1) vlasnička referenca - u donjoj traci sad stoji "Web dizajn, hosting
