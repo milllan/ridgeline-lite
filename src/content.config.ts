@@ -10,7 +10,7 @@ import { z } from 'astro/zod';
 
 const services = defineCollection({
   loader: glob({ pattern: '**/[^_]*.mdx', base: './src/content/services' }),
-    schema: ({ image }) =>
+  schema: ({ image }) =>
     z.object({
       title: z.string(),
       /**

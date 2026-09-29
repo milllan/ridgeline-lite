@@ -12,7 +12,7 @@ post - Google ignoriše lastmod kad svaki unos nosi isti deploy timestamp, a
 koristi iskrene datume za raspored puzanja (ponašanje WordPress SEO pluginova).
 (1) Svi kolekcijski MDX fajlovi (25: brendovi, opštine, usluge) dobijaju
 obavezna frontmatter polja dateCreated/dateModified, posejana iz git istorije
-(datum prvog i poslednjeg commita fajla); content.config.ts ih zahteva, pa
+(datum prvog commita, respektivno poslednjeg commita sadržaja pre sejanja); content.config.ts ih zahteva, pa
 build pada ako nedostaju. (2) astro.config.mjs serialize upisuje lastmod iz
 dateModified za kolekcijske stranice, a za statičke stranice iz poslednjeg
 git commita izvornog .astro fajla (graceful degradation bez .git metapodataka).
