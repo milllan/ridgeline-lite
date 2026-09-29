@@ -14,6 +14,13 @@ const services = defineCollection({
     z.object({
       title: z.string(),
       /**
+       * First publication date (seeded from git history 2026-09-29) and
+       * last meaningful content change. dateModified feeds the sitemap
+       * lastmod (astro.config.mjs) - bump it whenever page content changes.
+       */
+      dateCreated: z.coerce.date(),
+      dateModified: z.coerce.date(),
+      /**
        * Meta <title> for /usluge/[slug]/: carries the long-tail keyword;
        * H1 uses title. The "| Majstor Dejan" tail is appended by SEO.astro
        * (epic #112 task 11 - titles stay phone-free). Optional until each
@@ -65,6 +72,13 @@ const opstine = defineCollection({
   loader: glob({ pattern: '**/[^_]*.mdx', base: './src/content/opstine' }),
   schema: z.object({
     title: z.string(),
+    /**
+     * First publication date (seeded from git history 2026-09-29) and
+     * last meaningful content change. dateModified feeds the sitemap
+     * lastmod (astro.config.mjs) - bump it whenever page content changes.
+     */
+    dateCreated: z.coerce.date(),
+    dateModified: z.coerce.date(),
     /** Meta <title>: keyword + municipality; the "| Majstor Dejan" tail is
      * appended by SEO.astro (epic #112 task 11 - phone-free). H1 uses title. */
     seoTitle: z.string(),
@@ -96,6 +110,13 @@ const brands = defineCollection({
   loader: glob({ pattern: '**/[^_]*.mdx', base: './src/content/brands' }),
   schema: z.object({
     title: z.string(),
+    /**
+     * First publication date (seeded from git history 2026-09-29) and
+     * last meaningful content change. dateModified feeds the sitemap
+     * lastmod (astro.config.mjs) - bump it whenever page content changes.
+     */
+    dateCreated: z.coerce.date(),
+    dateModified: z.coerce.date(),
     /** Meta <title>: keyword + brand; the "| Majstor Dejan" tail is appended
      * by SEO.astro (epic #112 task 11 - phone-free). H1 uses title. */
     seoTitle: z.string(),
