@@ -23,14 +23,19 @@ const collectionUrlFor = {
 
 /** @param {string} file @param {string} key */
 function frontmatterDate(file, key) {
-  const m = readFileSync(file, 'utf8').match(new RegExp(`^${key}:\\s*(\\d{4}-\\d{2}-\\d{2})`, 'm'));
+  // Optional quotes: z.coerce.date() accepts '2026-09-21' too, and a quoted
+  // value must not turn into a "missing date" build error here.
+  const m = readFileSync(file, 'utf8').match(new RegExp(`^${key}:\\s*['"]?(\\d{4}-\\d{2}-\\d{2})`, 'm'));
   return m?.[1];
 }
 
 const lastmodByPath = new Map();
 for (const [dir, toUrl] of Object.entries(collectionUrlFor)) {
+  // Flat collections, matching the loader's [^_]*.mdx pattern: skip the
+  // underscore-prefixed non-members the content loader also ignores. If a
+  // subdirectory ever appears, add recursion there and here.
   for (const entry of readdirSync(`src/content/${dir}`)) {
-    if (!entry.endsWith('.mdx')) continue;
+    if (!entry.endsWith('.mdx') || entry.startsWith('_')) continue;
     const file = `src/content/${dir}/${entry}`;
     const mod =
       frontmatterDate(file, 'dateModified') ?? frontmatterDate(file, 'dateCreated');
