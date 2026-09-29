@@ -58,6 +58,12 @@ the launch blockers in epic #2 are resolved.
 - CHANGELOG.md entry per merge; freeze diffs before review; tamper guards
   around agy runs; content-hash guards (name-based git-status guards miss
   same-file edits).
+- **Sitemap lastmod (2026-09-29):** every collection MDX carries
+  `dateCreated`/`dateModified` frontmatter (required by content.config.ts,
+  seeded from git history); `dateModified` feeds the sitemap lastmod via
+  astro.config.mjs serialize. Bump `dateModified` whenever you change page
+  content (WordPress-SEO-plugin semantics). Static (non-collection) pages
+  derive lastmod from their source file's last git commit automatically.
 - Serbian copy rules live in epic #2 ("Conventions learned") — approved
   facts only, no timing promises, V-form, crtica " – " never em-dash.
 

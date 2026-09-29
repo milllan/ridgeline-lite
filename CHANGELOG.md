@@ -4,6 +4,21 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.52.0] - 2026-09-29
+
+Sitemap lastmod: iskreni datum izmene po stranici umesto izostanka lastmod
+elementa (sitemap je do sada stizao bez ijednog <lastmod>). Povod: Reddit SEO
+post - Google ignoriše lastmod kad svaki unos nosi isti deploy timestamp, a
+koristi iskrene datume za raspored puzanja (ponašanje WordPress SEO pluginova).
+(1) Svi kolekcijski MDX fajlovi (25: brendovi, opštine, usluge) dobijaju
+obavezna frontmatter polja dateCreated/dateModified, posejana iz git istorije
+(datum prvog i poslednjeg commita fajla); content.config.ts ih zahteva, pa
+build pada ako nedostaju. (2) astro.config.mjs serialize upisuje lastmod iz
+dateModified za kolekcijske stranice, a za statičke stranice iz poslednjeg
+git commita izvornog .astro fajla (graceful degradation bez .git metapodataka).
+Pravilo dodato u AGENTS.md: bump-ovati dateModified pri svakoj izmeni sadržaja.
+Design review issue: vidi GitHub.
+
 ## [2.51.0] - 2026-09-29
 
 SEO: razdvojeni blizanački seoDescription opisi na 6 brend stranica (bosch,
