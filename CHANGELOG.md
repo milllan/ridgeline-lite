@@ -16,7 +16,7 @@ Aquamatic (candy), Gorenje u vlasništvu Hisensea od 2018. (hisense), Innex
 jedan taster i Merloni platforma (indesit), Direct Drive bez remena (lg),
 EcoBubble i AddWash (samsung), "konstatacija ne košta ni dinara" (vox),
 "na svakom drugom spratu" + JetSystem (zanussi). Svi ≤ 160 znakova, NAP rep
-zadržan; max parna sličnost svih 14 opisa sada 0.50 (bilo 0.74).
+zadržan; max parna sličnost svih 14 opisa sada 0.50 (bilo ~0.70).
 dateModified bump-ovan na 2026-10-01 (prva primena novog pravila iz 2.52.0).
 Vlasnik odgovorio NO na vidljive datume na stranicama (#147).
 
