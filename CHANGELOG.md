@@ -4,6 +4,22 @@ All notable changes to this fork are documented here. The format loosely
 follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this
 project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.53.0] - 2026-10-01
+
+SEO druga runda (vlasnička odluka na #147): autorski razdvojeni i preostalih 8
+brend opisa (beko, candy, hisense, indesit, lg, samsung, vox, zanussi) - do
+sada su svi delili skelet "Popravka X veš mašina u Beogradu: [lista
+komponenti]. [CTA na adresi]" uz parove beko~hisense 0.71, beko~zanussi 0.69,
+lg~samsung 0.63 (Jaccard posle izbacivanja imena brenda). Svaki opis sada ima
+svoj hook iz sadržaja stranice: ProSmart motor i WMB (beko), E kodovi i
+Aquamatic (candy), Gorenje u vlasništvu Hisensea od 2018. (hisense), Innex
+jedan taster i Merloni platforma (indesit), Direct Drive bez remena (lg),
+EcoBubble i AddWash (samsung), "konstatacija ne košta ni dinara" (vox),
+"na svakom drugom spratu" + JetSystem (zanussi). Svi ≤ 160 znakova, NAP rep
+zadržan; max parna sličnost svih 14 opisa sada 0.50 (bilo ~0.70).
+dateModified bump-ovan na 2026-10-01 (prva primena novog pravila iz 2.52.0).
+Vlasnik odgovorio NO na vidljive datume na stranicama (#147).
+
 ## [2.52.0] - 2026-09-29
 
 Sitemap lastmod: iskreni datum izmene po stranici umesto izostanka lastmod
